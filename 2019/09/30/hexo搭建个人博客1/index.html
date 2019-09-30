@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -80,16 +80,17 @@
 
 
 <meta name="description" content="hexo配置的参考文档：https://hexo.io/zh-cn/docs/ 1，检查安装环境 检查node.js版本node -v  检查git版本git --version  如果未安装请参考 [git]: https://sourceforge.net/projects/git-osx-installer/   2，安装hexonpm install -g hexo-cli 3，初始化建立">
+<meta name="keywords" content="积极-乐观-有趣">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo搭建个人博客1">
 <meta property="og:url" content="http://yoursite.com/2019/09/30/hexo搭建个人博客1/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="hexo配置的参考文档：https://hexo.io/zh-cn/docs/ 1，检查安装环境 检查node.js版本node -v  检查git版本git --version  如果未安装请参考 [git]: https://sourceforge.net/projects/git-osx-installer/   2，安装hexonpm install -g hexo-cli 3，初始化建立">
-<meta property="og:locale" content="en">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%871.png">
 <meta property="og:image" content="http://yoursite.com/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%872.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%873.jpg">
-<meta property="og:updated_time" content="2019-09-30T08:32:34.652Z">
+<meta property="og:updated_time" content="2019-09-30T08:52:05.673Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo搭建个人博客1">
 <meta name="twitter:description" content="hexo配置的参考文档：https://hexo.io/zh-cn/docs/ 1，检查安装环境 检查node.js版本node -v  检查git版本git --version  如果未安装请参考 [git]: https://sourceforge.net/projects/git-osx-installer/   2，安装hexonpm install -g hexo-cli 3，初始化建立">
@@ -101,7 +102,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Pisces',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -109,7 +110,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -129,7 +130,7 @@
 
 
 
-  <title>hexo搭建个人博客1 | Hexo</title>
+  <title>hexo搭建个人博客1 | 小新的个人博客</title>
   
 
 
@@ -141,7 +142,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -159,7 +160,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">小新的个人博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -184,22 +185,62 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
+        <li class="menu-item menu-item-首页">
           <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
-            Home
+            首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            Archives
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-搜索">
+          <a href="/search/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br>
+            
+            搜索
           </a>
         </li>
       
@@ -239,13 +280,13 @@
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/hexo搭建个人博客1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="horse">
       <meta itemprop="description" content>
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="小新的个人博客">
     </span>
 
     
@@ -263,9 +304,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-30T14:26:12+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T14:26:12+08:00">
                 2019-09-30
               </time>
             
@@ -322,14 +363,14 @@
 </li>
 <li><p>开启本地服务<br><code>hexo s</code> </p>
 </li>
-<li><p>本地浏览器验证：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a><br><img src="/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
+<li><p>本地浏览器验证：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a><br><img src="//yoursite.com/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
 </li>
 </ul>
 <h2 id="4，关联github仓库"><a href="#4，关联github仓库" class="headerlink" title="4，关联github仓库"></a>4，关联github仓库</h2><ul>
 <li><p>新建仓库</p>
 <ul>
 <li>⚠️：仓库名一定要与用户名一致，后跟.github.io</li>
-<li><img src="/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%872.jpg" alt="图片2"></li>
+<li><img src="//yoursite.com/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%872.jpg" alt="图片2"></li>
 </ul>
 </li>
 <li><p>配置_config.yml文件</p>
@@ -337,10 +378,8 @@
 <li><p>本地blog的路径下，找到_config.yml并打开</p>
 </li>
 <li><p>滚动到最底部,修改如下：</p>
-<p><code>deploy:
-type: git
-repo: https://github.com/mc3747/mc3747.github.io.git
-branch: master</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	type: git  </span><br><span class="line">	repo: https://github.com/mc3747/mc3747.github.io.git  </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 </li>
@@ -348,7 +387,7 @@ branch: master</code></p>
 <h2 id="5，新建目录文件"><a href="#5，新建目录文件" class="headerlink" title="5，新建目录文件"></a>5，新建目录文件</h2><ul>
 <li>新建文件:<code>hexo new &quot;hexo搭建个人博客-1&quot;</code></li>
 <li>在source–_post处生成</li>
-<li><img src="/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%873.jpg" alt="图片3"></li>
+<li><img src="//yoursite.com/2019/09/30/hexo搭建个人博客1/%E5%9B%BE%E7%89%873.jpg" alt="图片3"></li>
 </ul>
 <h2 id="6，生成页面，提交代码"><a href="#6，生成页面，提交代码" class="headerlink" title="6，生成页面，提交代码"></a>6，生成页面，提交代码</h2><ul>
 <li><p>生成静态页面:<code>hexo g</code></p>
@@ -452,10 +491,10 @@ branch: master</code></p>
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
+            站点概览
           </li>
         </ul>
       
@@ -464,8 +503,8 @@ branch: master</code></p>
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <p class="site-author-name" itemprop="name">John Doe</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-author-name" itemprop="name">horse</p>
+              <p class="site-description motion-element" itemprop="description">做难事必有所得</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -473,10 +512,10 @@ branch: master</code></p>
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives">
               
                   <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -536,13 +575,13 @@ branch: master</code></p>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">horse</span>
 
   
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -550,7 +589,7 @@ branch: master</code></p>
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
@@ -649,6 +688,13 @@ branch: master</code></p>
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>

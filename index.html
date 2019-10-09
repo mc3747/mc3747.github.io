@@ -272,7 +272,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/hexo搭建个人博客2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/30/hexo搭建个人博客-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -291,7 +291,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/09/30/hexo搭建个人博客2/" itemprop="url">hexo搭建个人博客2</a></h1>
+                <a class="post-title-link" href="/2019/09/30/hexo搭建个人博客-2/" itemprop="url">hexo搭建个人博客2</a></h1>
         
 
         <div class="post-meta">
@@ -351,9 +351,30 @@
 <h2 id="2，验证主题"><a href="#2，验证主题" class="headerlink" title="2，验证主题"></a>2，验证主题</h2><ul>
 <li>启动本地调试模式：hexo s –debug</li>
 <li>访问网站：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></li>
-<li><img src="//yoursite.com/2019/09/30/hexo搭建个人博客2/images/%E5%9B%BE%E7%89%874.png" alt="avatar"></li>
+<li><img src="https://upload.cc/i1/2019/10/09/fUmyMI.png" alt="图片4"></li>
 </ul>
-<p>未完成：<br>1，本地图片未显示<br>2，个人头像未显示<br>3，</p>
+<h2 id="3，本地图片未显示"><a href="#3，本地图片未显示" class="headerlink" title="3，本地图片未显示"></a>3，本地图片未显示</h2><ul>
+<li>方案1<ul>
+<li>新建_post文件夹平行的文件夹images，里面放图片</li>
+<li>设置属性：post_asset_folder设置成 false不变</li>
+<li>相对路径引用图片</li>
+<li>结果时有时无</li>
+</ul>
+</li>
+<li>方案2<ul>
+<li>安装插件：cd /d 你的hexo根目录<br>npm install <a href="https://github.com/7ym0n/hexo-asset-image" target="_blank" rel="noopener">https://github.com/7ym0n/hexo-asset-image</a> –save</li>
+<li>设置属性：post_asset_folder设置成 true</li>
+<li>运行hexo n “你的博文名字”生成md博文时，/source/_posts目录下会生成一个与md同名的文件夹，将图片放人该文件夹</li>
+<li>使用! <a href="你的博文名字/图片名称"></a>插入图片即可</li>
+<li>结果时有时无</li>
+</ul>
+</li>
+<li>方案3<ul>
+<li>使用图床：<a href="https://upload.cc" target="_blank" rel="noopener">https://upload.cc</a></li>
+<li>2，个人头像未显示<br>3，</li>
+</ul>
+</li>
+</ul>
 
           
         
@@ -492,14 +513,14 @@
 </li>
 <li><p>开启本地服务<br><code>hexo s</code> </p>
 </li>
-<li><p>本地浏览器验证：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a><br><img src="//yoursite.com/2019/09/30/hexo搭建个人博客-1/%E5%9B%BE%E7%89%871.png" alt="图片1"></p>
+<li><p>本地浏览器验证：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a><br><img src="https://upload.cc/i1/2019/10/09/vJMbXj.png" alt="图片1"></p>
 </li>
 </ul>
 <h2 id="4，关联github仓库"><a href="#4，关联github仓库" class="headerlink" title="4，关联github仓库"></a>4，关联github仓库</h2><ul>
 <li><p>新建仓库</p>
 <ul>
 <li>⚠️：仓库名一定要与用户名一致，后跟.github.io</li>
-<li><img src="//yoursite.com/2019/09/30/hexo搭建个人博客-1/%E5%9B%BE%E7%89%872.jpg" alt="图片2"></li>
+<li><img src="https://upload.cc/i1/2019/10/09/5iEnFL.jpg" alt="图片2"></li>
 </ul>
 </li>
 <li><p>配置_config.yml文件</p>
@@ -516,7 +537,7 @@
 <h2 id="5，新建目录文件"><a href="#5，新建目录文件" class="headerlink" title="5，新建目录文件"></a>5，新建目录文件</h2><ul>
 <li>新建文件:<code>hexo new &quot;hexo搭建个人博客-1&quot;</code></li>
 <li>在source–_post处生成</li>
-<li><img src="//yoursite.com/2019/09/30/hexo搭建个人博客-1/%E5%9B%BE%E7%89%873.jpg" alt="图片3"></li>
+<li><img src="https://upload.cc/i1/2019/10/09/6NMI3i.jpg" alt="图片3"></li>
 </ul>
 <h2 id="6，生成页面，提交代码"><a href="#6，生成页面，提交代码" class="headerlink" title="6，生成页面，提交代码"></a>6，生成页面，提交代码</h2><ul>
 <li><p>生成静态页面:<code>hexo g</code></p>

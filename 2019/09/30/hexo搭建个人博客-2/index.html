@@ -87,7 +87,7 @@
 <meta property="og:description" content="1，修改主题 寻找自己喜欢的主题：https://hexo.io/themes/ 进入配置blog的目录（选用的next主题）：  git clone https://github.com/iissnan/hexo-theme-next themes/next 打开_config.yml文件，将“theme”改成“next”  2，验证主题 启动本地调试模式：hexo s –debug 访问网站：">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload.cc/i1/2019/10/09/fUmyMI.png">
-<meta property="og:updated_time" content="2019-10-09T08:27:03.551Z">
+<meta property="og:updated_time" content="2019-10-09T09:00:23.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo搭建个人博客2">
 <meta name="twitter:description" content="1，修改主题 寻找自己喜欢的主题：https://hexo.io/themes/ 进入配置blog的目录（选用的next主题）：  git clone https://github.com/iissnan/hexo-theme-next themes/next 打开_config.yml文件，将“theme”改成“next”  2，验证主题 启动本地调试模式：hexo s –debug 访问网站：">
@@ -279,7 +279,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -369,7 +369,14 @@
 </li>
 <li>方案3<ul>
 <li>使用图床：<a href="https://upload.cc" target="_blank" rel="noopener">https://upload.cc</a></li>
-<li>2，个人头像未显示<br>3，</li>
+</ul>
+</li>
+</ul>
+<h2 id="4，添加个人头像"><a href="#4，添加个人头像" class="headerlink" title="4，添加个人头像"></a>4，添加个人头像</h2><ul>
+<li>进入文件夹路径themes/next/source/images</li>
+<li>添加一张图片avatar.jpg</li>
+<li>进入路径themes/next/_config.yml,设置avatar属性:<ul>
+<li><code>avatar: /images/avatar.jpg</code></li>
 </ul>
 </li>
 </ul>
@@ -471,6 +478,8 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="horse">
+            
               <p class="site-author-name" itemprop="name">horse</p>
               <p class="site-description motion-element" itemprop="description">做难事必有所得</p>
           </div>
@@ -519,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，修改主题"><span class="nav-number">1.</span> <span class="nav-text">1，修改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，验证主题"><span class="nav-number">2.</span> <span class="nav-text">2，验证主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，本地图片未显示"><span class="nav-number">3.</span> <span class="nav-text">3，本地图片未显示</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，修改主题"><span class="nav-number">1.</span> <span class="nav-text">1，修改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，验证主题"><span class="nav-number">2.</span> <span class="nav-text">2，验证主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，本地图片未显示"><span class="nav-number">3.</span> <span class="nav-text">3，本地图片未显示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，添加个人头像"><span class="nav-number">4.</span> <span class="nav-text">4，添加个人头像</span></a></li></ol></div>
             
 
           </div>

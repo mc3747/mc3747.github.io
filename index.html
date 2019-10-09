@@ -277,7 +277,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -371,7 +371,14 @@
 </li>
 <li>方案3<ul>
 <li>使用图床：<a href="https://upload.cc" target="_blank" rel="noopener">https://upload.cc</a></li>
-<li>2，个人头像未显示<br>3，</li>
+</ul>
+</li>
+</ul>
+<h2 id="4，添加个人头像"><a href="#4，添加个人头像" class="headerlink" title="4，添加个人头像"></a>4，添加个人头像</h2><ul>
+<li>进入文件夹路径themes/next/source/images</li>
+<li>添加一张图片avatar.jpg</li>
+<li>进入路径themes/next/_config.yml,设置avatar属性:<ul>
+<li><code>avatar: /images/avatar.jpg</code></li>
 </ul>
 </li>
 </ul>
@@ -428,7 +435,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -620,6 +627,8 @@
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="horse">
             
               <p class="site-author-name" itemprop="name">horse</p>
               <p class="site-description motion-element" itemprop="description">做难事必有所得</p>

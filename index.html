@@ -74,6 +74,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="小新的个人博客" type="application/atom+xml">
+
 
 
 
@@ -320,6 +322,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/11/hexo搭建个人博客-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/11/hexo搭建个人博客-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -349,7 +361,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  88
+                  351
                 </span>
               
 
@@ -380,15 +392,77 @@
 <li>参考文章：<a href="https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app" target="_blank" rel="noopener">https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app</a></li>
 </ol>
 <ul>
-<li>注册leancound账号</li>
+<li>注册leancound账号，下载国际版，可以免费</li>
 <li>新建应用，获取应用的APP ID和APP Key</li>
 <li>新建class类，类名Counter</li>
-<li>修改配置文件next/_config.yml</li>
+<li>修改配置文件next/_config.yml的 <font color="#FF0000">leancloud_visitors</font> 属性</li>
 </ul>
 <h2 id="2，添加字数统计和阅读时长"><a href="#2，添加字数统计和阅读时长" class="headerlink" title="2，添加字数统计和阅读时长"></a>2，添加字数统计和阅读时长</h2><ol>
 <li>参考文章：<a href="https://lewky.cn/posts/22195.html" target="_blank" rel="noopener">https://lewky.cn/posts/22195.html</a></li>
-<li>百度统计<br>阅读次数<br>rss<br>评论</li>
+<li>安装插件：主目录下 npm i –save hexo-wordcount</li>
+<li>修改主题配置文件 _config.yml的 <font color="#FF0000">busuanzi_count</font> 属性<ul>
+<li><table><tr><td bgcolor="#C1E2E9">
+# 文章字数展示设置  
+post_wordcount:  
+# 文本显示  
+item_text: true  
+# 文章字数统计  
+wordcount: true  
+# 阅读时长  
+min2read: true  
+# 站点总字数统计  
+totalcount: false  
+# 该post_wordcount的所有设置另起一行显示  
+separated_meta: true  
+</td></tr>
+</table>     
+
+</li>
+</ul>
+</li>
 </ol>
+<h2 id="3，添加评论"><a href="#3，添加评论" class="headerlink" title="3，添加评论"></a>3，添加评论</h2><ol>
+<li>参加文章：<a href="https://blog.csdn.net/qq_28963397/article/details/82910554" target="_blank" rel="noopener">https://blog.csdn.net/qq_28963397/article/details/82910554</a></li>
+<li>还是使用leanClound项目的appid和appkey</li>
+<li>找到配置文件next/_config.yml的 <font color="#FF0000">valine</font> 属性<ul>
+<li><table><tr><td bgcolor="#C1E2E9">
+  valine:  
+  enable: true  
+  appid: xxxxxx # 填写 leancloud  appid  
+  appkey: xxxxxx # 填写 leancloud  appkey  
+  notify: false #   
+  verify: false # Verification code  
+  placeholder: 各位道友，请举手发言 # comment box placeholder     
+</td></tr>
+</table>     
+
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="4，添加RSS"><a href="#4，添加RSS" class="headerlink" title="4，添加RSS"></a>4，添加RSS</h2><ol>
+<li>安装插件：npm install hexo-generator-feed –save</li>
+<li>在根目录下的/theme/next/_config.yml文件中添加配置<ul>
+<li><table><tr><td bgcolor="#C1E2E9">
+feed:  
+type: rss2  
+path: rss2.xml  
+limit: 20  
+hub:  
+content: 'true'  
+   </td></tr>
+</table>     
+type: RSS的类型(atom/rss2)   
+path: 文件路径,默认是atom.xml/rss2.xml  
+limit: 展示文章的数量,使用0或则false代表展示全部  
+content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为false
+
+</li>
+</ul>
+</li>
+</ol>
+<p>打赏的功能</p>
 
           
         
@@ -503,6 +577,16 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/30/hexo搭建个人博客-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/30/hexo搭建个人博客-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -745,6 +829,16 @@ categories:
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/30/hexo搭建个人博客-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/30/hexo搭建个人博客-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -963,6 +1057,13 @@ categories:
           </nav>
 
           
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
 
           
 
@@ -1005,7 +1106,7 @@ categories:
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">806</span>
+    <span title="Site words total count">1.1k</span>
   
 </div>
 
@@ -1184,6 +1285,28 @@ categories:
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI',
+        appKey: 'OtX3yrmzOhO0oJgt7V2bS3fU',
+        placeholder: '🙋欢迎举手发言🙋‍♂️',
+        avatar:'http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 

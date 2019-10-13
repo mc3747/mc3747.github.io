@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  334
                 </span>
               
 
@@ -425,7 +425,32 @@
       
         
           
-            
+            <h2 id="1-字体，字号和颜色"><a href="#1-字体，字号和颜色" class="headerlink" title="1,字体，字号和颜色"></a>1,字体，字号和颜色</h2><pre><code>1，markdown只有粗体和斜体的语法
+2，可以借助font标签来实现：
+&lt;font face=&quot;黑体&quot;&gt;我是黑体字&lt;/font&gt;
+&lt;font size=5&gt;我是尺寸&lt;/font&gt;
+&lt;font color=red&gt;我是红色&lt;/font&gt;</code></pre><p><font color="red">我是红色</font> </p>
+<h2 id="2，背景颜色"><a href="#2，背景颜色" class="headerlink" title="2，背景颜色"></a>2，背景颜色</h2><pre><code>1，借助table标签的td单元格设置
+2，⚠️：html的标签
+        ul 和li标签 （无序列表）
+        ol 和li标签 （有序列表）    
+        table，tr（table的行便签），td（table的每一个单元格）
+3，&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=yellow&gt;背景色yellow&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre><table><tr><td bgcolor="yellow">背景色yellow</td></tr></table>
+
+<h2 id="3，图片大小，百分比及居中"><a href="#3，图片大小，百分比及居中" class="headerlink" title="3，图片大小，百分比及居中"></a>3，图片大小，百分比及居中</h2><pre><code>1，图片大小：&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;251&quot; height=&quot;350&quot; &gt;
+2，图片百分比：&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;
+3，图片居中：&lt;div align=center&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;&lt;/div&gt;</code></pre><div align="center"><img src="http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg" width="30%" height="30%"></div>
+
+<h2 id="4，背景区块颜色"><a href="#4，背景区块颜色" class="headerlink" title="4，背景区块颜色"></a>4，背景区块颜色</h2><blockquote>
+<p>wo</p>
+<blockquote>
+<p>ow</p>
+</blockquote>
+</blockquote>
+<h2 id="5，代码区块背景颜色"><a href="#5，代码区块背景颜色" class="headerlink" title="5，代码区块背景颜色"></a>5，代码区块背景颜色</h2><pre><code>在next主题中修改，详见博客配置3</code></pre><h2 id="6，代码区块高亮，添加行号"><a href="#6，代码区块高亮，添加行号" class="headerlink" title="6，代码区块高亮，添加行号"></a>6，代码区块高亮，添加行号</h2><pre><code>代码引用采用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```Python</span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line">print(&quot;Hello, World!&quot;);</span><br></pre></td></tr></table></figure></code></pre><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">code</span></span><br></pre></td></tr></table></figure>
+
+<p>代码高亮<br>代码行号</p>
+
           
         
       
@@ -579,7 +604,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  442
+                  476
                 </span>
               
 
@@ -621,6 +646,7 @@
             <h2 id="1，学习链接"><a href="#1，学习链接" class="headerlink" title="1，学习链接"></a>1，学习链接</h2><ol>
 <li>在线参考：<a href="http://www.markdown.cn" target="_blank" rel="noopener">http://www.markdown.cn</a>  </li>
 <li>菜鸟教程：<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/markdown/md-tutorial.html</a></li>
+<li>网友整理：<a href="https://blog.csdn.net/witnessai1/article/details/52551362" target="_blank" rel="noopener">https://blog.csdn.net/witnessai1/article/details/52551362</a></li>
 </ol>
 <h2 id="2，标题"><a href="#2，标题" class="headerlink" title="2，标题"></a>2，标题</h2><ol>
 <li>几个#，就是几级标题</li>
@@ -660,23 +686,27 @@ ___粗斜体文本___</code></pre><h2 id="5，换行"><a href="#5，换行" clas
     > > 第一层嵌套
     > > > 第二层嵌套
 ## 14，代码
-    三种形式：
+    四种形式：
     1，普通前后加`
     2, 有回车加tab键
     3，指定语言，前后加```
+    4，借助标签：<pre><code>代码 </code></pre>，但是没有代码高亮显示
 ```javascript
 $(document).ready(function () {
     alert('RUNOOB');
 });
 ```    
-## 15，表格
-    基本格式：
-    | 左对齐 | 右对齐 | 居中对齐 |
-    | :-----| ----: | :----: |
-    | 单元格 | 单元格 | 单元格 |
-    | 单元格 | 单元格 | 单元格 |
+<pre><code>
+$(document).ready(function () {
+    alert('RUNOOB');
+});
+</code></pre>
 
-<table>
+<h2 id="15，表格"><a href="#15，表格" class="headerlink" title="15，表格"></a>15，表格</h2><pre><code>基本格式：
+| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 单元格 | 单元格 | 单元格 |
+| 单元格 | 单元格 | 单元格 |</code></pre><table>
 <thead>
 <tr>
 <th align="left">左对齐</th>
@@ -849,7 +879,7 @@ $(document).ready(function () {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  930
+                  972
                 </span>
               
 
@@ -967,19 +997,19 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
 <li>进入/themes/next/layout/_partials/head.swig文件</li>
 <li>添加脚本链接</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;//cdn.bootcss.com/pace/1.0.2/pace.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;link href=&quot;//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script <span class="attribute">src</span>=<span class="string">"//cdn.bootcss.com/pace/1.0.2/pace.min.js"</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;link <span class="attribute">href</span>=<span class="string">"//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css"</span> <span class="attribute">rel</span>=<span class="string">"stylesheet"</span>&gt;</span><br></pre></td></tr></table></figure>
 
 <ol start="4">
 <li>更改加载框的颜色样式</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .pace .pace-progress &#123;</span><br><span class="line">        background: #1E92FB; /*进度条颜色*/</span><br><span class="line">        height: 3px;</span><br><span class="line">    &#125;</span><br><span class="line">    .pace .pace-progress-inner &#123;</span><br><span class="line">         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/</span><br><span class="line">    &#125;</span><br><span class="line">    .pace .pace-activity &#123;</span><br><span class="line">        border-top-color: #1E92FB;    /*上边框颜色*/</span><br><span class="line">        border-left-color: #1E92FB;    /*左边框颜色*/</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="selector-class">.pace</span> <span class="selector-class">.pace-progress</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">background</span>: <span class="selector-id">#1E92FB</span>; <span class="comment">/*进度条颜色*/</span></span></span><br><span class="line">        height: 3px;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.pace</span> <span class="selector-class">.pace-progress-inner</span> &#123;</span></span><br><span class="line"><span class="css">         <span class="selector-tag">box-shadow</span>: 0 0 10<span class="selector-tag">px</span> <span class="selector-id">#1E92FB</span>, 0 0 5<span class="selector-tag">px</span>     <span class="selector-id">#1E92FB</span>; <span class="comment">/*阴影颜色*/</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="css">    <span class="selector-class">.pace</span> <span class="selector-class">.pace-activity</span> &#123;</span></span><br><span class="line"><span class="css">        <span class="selector-tag">border-top-color</span>: <span class="selector-id">#1E92FB</span>;    <span class="comment">/*上边框颜色*/</span></span></span><br><span class="line"><span class="css">        <span class="selector-tag">border-left-color</span>: <span class="selector-id">#1E92FB</span>;    <span class="comment">/*左边框颜色*/</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="6-设置头像的旋转"><a href="#6-设置头像的旋转" class="headerlink" title="6,设置头像的旋转"></a>6,设置头像的旋转</h2><ol>
 <li>参考链接<a href="https://segmentfault.com/a/1190000009544924#articleHeader7" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009544924#articleHeader7</a></li>
 <li>打开\themes\next\source\css_common\components\sidebar\sidebar-author.styl</li>
 <li>添加代码</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">.site-author-image &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: $site-author-image-padding;</span><br><span class="line">  max-width: $site-author-image-width;</span><br><span class="line">  height: $site-author-image-height;</span><br><span class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line"></span><br><span class="line">  /* 头像圆形 */</span><br><span class="line">  border-radius: 80px;</span><br><span class="line">  -webkit-border-radius: 80px;</span><br><span class="line">  -moz-border-radius: 80px;</span><br><span class="line">  box-shadow: inset 0 -1px 0 #333sf;</span><br><span class="line"></span><br><span class="line">  /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 </span><br><span class="line">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">  /* 鼠标经过头像旋转360度 */</span><br><span class="line">  -webkit-transition: -webkit-transform 1.0s ease-out;</span><br><span class="line">  -moz-transition: -moz-transform 1.0s ease-out;</span><br><span class="line">  transition: transform 1.0s ease-out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">img:hover &#123;</span><br><span class="line">  /* 鼠标经过停止头像旋转 </span><br><span class="line">  -webkit-animation-play-state:paused;</span><br><span class="line">  animation-play-state:paused;*/</span><br><span class="line"></span><br><span class="line">  /* 鼠标经过头像旋转360度 */</span><br><span class="line">  -webkit-transform: rotateZ(360deg);</span><br><span class="line">  -moz-transform: rotateZ(360deg);</span><br><span class="line">  transform: rotateZ(360deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* Z 轴旋转动画 */</span><br><span class="line">@-webkit-keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    -webkit-transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    -webkit-transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@-moz-keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    -moz-transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    -moz-transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.site-author-image</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> auto;</span><br><span class="line">  <span class="attribute">padding</span>: $site-author-image-padding;</span><br><span class="line">  <span class="attribute">max-width</span>: $site-author-image-width;</span><br><span class="line">  <span class="attribute">height</span>: $site-author-image-height;</span><br><span class="line">  <span class="attribute">border</span>: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 头像圆形 */</span></span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-webkit-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">-moz-border-radius</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">box-shadow</span>: inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="number">#333</span>sf;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 </span></span><br><span class="line"><span class="comment">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  <span class="attribute">-webkit-transition</span>: -webkit-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">-moz-transition</span>: -moz-transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">  <span class="attribute">transition</span>: transform <span class="number">1.0s</span> ease-out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:hover</span> &#123;</span><br><span class="line">  <span class="comment">/* 鼠标经过停止头像旋转 </span></span><br><span class="line"><span class="comment">  -webkit-animation-play-state:paused;</span></span><br><span class="line"><span class="comment">  animation-play-state:paused;*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* 鼠标经过头像旋转360度 */</span></span><br><span class="line">  <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">  <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(360deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* Z 轴旋转动画 */</span></span><br><span class="line">@-<span class="keyword">webkit</span>-<span class="keyword">keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">-webkit-transform</span>: <span class="built_in">rotateZ</span>(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@-<span class="keyword">moz</span>-<span class="keyword">keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">-moz-transform</span>: <span class="built_in">rotateZ</span>(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="keyword">keyframes</span> play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">rotateZ</span>(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="7，添加个人联系方式"><a href="#7，添加个人联系方式" class="headerlink" title="7，添加个人联系方式"></a>7，添加个人联系方式</h2><ol>
 <li>主题配置文件_config.yml中的的social属性打开</li>
@@ -991,7 +1021,18 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
 </li>
 <li>图标配置网站：<a href="https://fontawesome.com/icons?d=gallery" target="_blank" rel="noopener">https://fontawesome.com/icons?d=gallery</a></li>
 </ol>
-<p>未完成：<br>打赏的功能<br>个性化设置参考：<a href="https://www.cnblogs.com/php-linux/p/8416116.html" target="_blank" rel="noopener">https://www.cnblogs.com/php-linux/p/8416116.html</a><br>申请域名绑定github：<a href="https://www.jianshu.com/p/cea41e5c9b2a" target="_blank" rel="noopener">https://www.jianshu.com/p/cea41e5c9b2a</a></p>
+<h2 id="8，修改代码引用的背景颜色"><a href="#8，修改代码引用的背景颜色" class="headerlink" title="8，修改代码引用的背景颜色"></a>8，修改代码引用的背景颜色</h2><pre><code>1. 主题的_config.yml文件，默认启动高亮
+    highlight:
+          enable: true
+          line_number: true
+         auto_detect: true
+          tab_replace:
+
+2. 站点的_config.yml文件,设置如下：
+    highlight_theme: night eighties
+
+3. 代码块的引用格式要如下
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code here</span><br></pre></td></tr></table></figure></code></pre><p>未完成：<br>打赏的功能<br>申请域名绑定github：<a href="https://www.jianshu.com/p/cea41e5c9b2a" target="_blank" rel="noopener">https://www.jianshu.com/p/cea41e5c9b2a</a></p>
 
           
         
@@ -1482,7 +1523,7 @@ categories:
 <li><p>本地blog的路径下，找到_config.yml并打开</p>
 </li>
 <li><p>滚动到最底部,修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	type: git  </span><br><span class="line">	repo: https://github.com/mc3747/mc3747.github.io.git  </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">deploy</span>:  </span><br><span class="line">	<span class="attribute">type</span>: git  </span><br><span class="line">	<span class="attribute">repo</span>: <span class="attribute">https</span>:<span class="comment">//github.com/mc3747/mc3747.github.io.git  </span></span><br><span class="line">	<span class="attribute">branch</span>: master</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -1599,7 +1640,7 @@ categories:
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1610,7 +1651,7 @@ categories:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1718,7 +1759,7 @@ categories:
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">2.1k</span>
+    <span title="Site words total count">2.5k</span>
   
 </div>
 

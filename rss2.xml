@@ -8,8 +8,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Sun, 20 Oct 2019 09:53:54 GMT</pubDate>
+    <pubDate>Mon, 21 Oct 2019 06:59:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>打包生成ipa文件的方法</title>
+      <link>https://github.com/2019/10/21/%E6%89%93%E5%8C%85%E7%94%9F%E6%88%90ipa%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <guid>https://github.com/2019/10/21/%E6%89%93%E5%8C%85%E7%94%9F%E6%88%90ipa%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <pubDate>Mon, 21 Oct 2019 06:07:33 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2019/10/21/%E6%89%93%E5%8C%85%E7%94%9F%E6%88%90ipa%E6%96%87%E4%BB%B6%E7%9A%84%E6%96%B9%E6%B3%95/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Eclipse新建java项目</title>

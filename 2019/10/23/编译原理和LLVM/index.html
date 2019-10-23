@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="ipa文件,">
+  <meta name="keywords" content="编译器,">
 
 
 
@@ -96,21 +96,23 @@
 
 
 
-<meta name="description" content="脚本部分参考：https://www.jianshu.com/p/8214fdade670  #安装iOS的方式： 1，直接连线跑真机麻烦，很low2，完全自动化脚本1，打包命令行，执行脚本 2，在第三方打包平台（Jekins，或者58二维码打包）直接生成链接，或者二维码 3，通过邮件发出指定收件人 4，这个方式会专门用一篇来讲3，生成.ipa文件1. 生成.app文件1. 方法1：编译到模拟器">
-<meta name="keywords" content="ipa文件">
+<meta name="description" content="参考文章1 参考文章2 1，编译原理 基本原理：源程序→编译器 →目标机器代码程序  基本过程：  1，词法分析：将代码拆分成一个个token 2，语法分析：把词法分析的结果转换成AST(abstract syntax tree, 抽象语法树) 3，语义分析：类型分析和检查；类型转换 4，中间代码生成：简单的记号系统，类似于伪代码 5，中间代码优化：对程序的控制流和数据流的分析中进行优化 6，目标">
+<meta name="keywords" content="编译器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="打包生成ipa文件的方法">
-<meta property="og:url" content="https://github.com/2019/10/21/打包生成ipa文件的方法/index.html">
+<meta property="og:title" content="编译原理和LLVM">
+<meta property="og:url" content="https://github.com/2019/10/23/编译原理和LLVM/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="脚本部分参考：https://www.jianshu.com/p/8214fdade670  #安装iOS的方式： 1，直接连线跑真机麻烦，很low2，完全自动化脚本1，打包命令行，执行脚本 2，在第三方打包平台（Jekins，或者58二维码打包）直接生成链接，或者二维码 3，通过邮件发出指定收件人 4，这个方式会专门用一篇来讲3，生成.ipa文件1. 生成.app文件1. 方法1：编译到模拟器">
+<meta property="og:description" content="参考文章1 参考文章2 1，编译原理 基本原理：源程序→编译器 →目标机器代码程序  基本过程：  1，词法分析：将代码拆分成一个个token 2，语法分析：把词法分析的结果转换成AST(abstract syntax tree, 抽象语法树) 3，语义分析：类型分析和检查；类型转换 4，中间代码生成：简单的记号系统，类似于伪代码 5，中间代码优化：对程序的控制流和数据流的分析中进行优化 6，目标">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wx4.sinaimg.cn/large/007H8042ly1g85tyk9vtuj30xc0k0gou.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/large/007H8042ly1g85tq16vuhj30xc0jj41q.jpg">
-<meta property="og:updated_time" content="2019-10-21T06:59:52.511Z">
+<meta property="og:image" content="http://wx1.sinaimg.cn/large/007H8042ly1g887js1bi2j30e00hd3zn.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007H8042ly1g887kh9znnj30mn0fy403.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/large/007H8042ly1g887qmfck9j30hw078mxl.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/large/007H8042ly1g887ucsda8j30q60e4t9z.jpg">
+<meta property="og:updated_time" content="2019-10-23T08:33:06.594Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="打包生成ipa文件的方法">
-<meta name="twitter:description" content="脚本部分参考：https://www.jianshu.com/p/8214fdade670  #安装iOS的方式： 1，直接连线跑真机麻烦，很low2，完全自动化脚本1，打包命令行，执行脚本 2，在第三方打包平台（Jekins，或者58二维码打包）直接生成链接，或者二维码 3，通过邮件发出指定收件人 4，这个方式会专门用一篇来讲3，生成.ipa文件1. 生成.app文件1. 方法1：编译到模拟器">
-<meta name="twitter:image" content="http://wx4.sinaimg.cn/large/007H8042ly1g85tyk9vtuj30xc0k0gou.jpg">
+<meta name="twitter:title" content="编译原理和LLVM">
+<meta name="twitter:description" content="参考文章1 参考文章2 1，编译原理 基本原理：源程序→编译器 →目标机器代码程序  基本过程：  1，词法分析：将代码拆分成一个个token 2，语法分析：把词法分析的结果转换成AST(abstract syntax tree, 抽象语法树) 3，语义分析：类型分析和检查；类型转换 4，中间代码生成：简单的记号系统，类似于伪代码 5，中间代码优化：对程序的控制流和数据流的分析中进行优化 6，目标">
+<meta name="twitter:image" content="http://wx1.sinaimg.cn/large/007H8042ly1g887js1bi2j30e00hd3zn.jpg">
 
 
 
@@ -140,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/2019/10/21/打包生成ipa文件的方法/">
+  <link rel="canonical" href="https://github.com/2019/10/23/编译原理和LLVM/">
 
 
 
 
 
-  <title>打包生成ipa文件的方法 | 小新的个人博客</title>
+  <title>编译原理和LLVM | 小新的个人博客</title>
   
 
 
@@ -283,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/21/打包生成ipa文件的方法/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/23/编译原理和LLVM/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -300,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">打包生成ipa文件的方法</h1>
+          <h1 class="post-title" itemprop="name headline">编译原理和LLVM</h1>
         
 
         <div class="post-meta">
@@ -312,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T14:07:33+08:00">
-                2019-10-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T15:34:37+08:00">
+                2019-10-23
               </time>
             
 
@@ -335,8 +337,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
                   </a>
                 </span>
 
@@ -353,8 +355,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/21/打包生成ipa文件的方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/21/打包生成ipa文件的方法/" itemprop="commentCount"></span>
+                <a href="/2019/10/23/编译原理和LLVM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/编译原理和LLVM/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,7 +364,7 @@
 
           
           
-             <span id="/2019/10/21/打包生成ipa文件的方法/" class="leancloud_visitors" data-flag-title="打包生成ipa文件的方法">
+             <span id="/2019/10/23/编译原理和LLVM/" class="leancloud_visitors" data-flag-title="编译原理和LLVM">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -387,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  826
+                  872
                 </span>
               
 
@@ -424,33 +426,42 @@
       
 
       
-        <blockquote>
-<p>脚本部分参考：<a href="https://www.jianshu.com/p/8214fdade670" target="_blank" rel="noopener">https://www.jianshu.com/p/8214fdade670</a></p>
-</blockquote>
-<p>#安装iOS的方式：</p>
-<h2 id="1，直接连线跑真机"><a href="#1，直接连线跑真机" class="headerlink" title="1，直接连线跑真机"></a>1，直接连线跑真机</h2><pre><code>麻烦，很low</code></pre><h2 id="2，完全自动化脚本"><a href="#2，完全自动化脚本" class="headerlink" title="2，完全自动化脚本"></a>2，完全自动化脚本</h2><pre><code>1，打包命令行，执行脚本
-2，在第三方打包平台（Jekins，或者58二维码打包）直接生成链接，或者二维码
-3，通过邮件发出指定收件人
-4，这个方式会专门用一篇来讲</code></pre><h2 id="3，生成-ipa文件"><a href="#3，生成-ipa文件" class="headerlink" title="3，生成.ipa文件"></a>3，生成.ipa文件</h2><h3 id="1-生成-app文件"><a href="#1-生成-app文件" class="headerlink" title="1. 生成.app文件"></a>1. 生成.app文件</h3><pre><code>1. 方法1：编译到模拟器或者真机后的.app文件 -》 showInFinder</code></pre><p><img src="http://wx4.sinaimg.cn/large/007H8042ly1g85tyk9vtuj30xc0k0gou.jpg" alt="图片14.jpeg"></p>
-<pre><code>2. 方法2：生成.app文件
-    ①选中设备Generic iOS Devices，
-    ②xcode默认archive生成的是release模式，需要将服务器地址更正一下(在代码中改正)；
-    ③然后Xcode菜单栏-&gt;Product-&gt;Archive；
-    ④生成的xcproject文件 -》showInFinder
-    ⑤复制后更改xcproject文件的后缀为.ipa,形成文件夹,进入文件夹找到.app文件
+        <p><a href="https://www.cnblogs.com/rufi/archive/2011/09/03/2164110.html" target="_blank" rel="noopener">参考文章1</a></p>
+<p><a href="https://www.jianshu.com/p/1367dad95445" target="_blank" rel="noopener">参考文章2</a></p>
+<h2 id="1，编译原理"><a href="#1，编译原理" class="headerlink" title="1，编译原理"></a>1，编译原理</h2><ol>
+<li><p>基本原理：源程序→编译器 →目标机器代码程序</p>
+</li>
+<li><p>基本过程：<br> <img src="http://wx1.sinaimg.cn/large/007H8042ly1g887js1bi2j30e00hd3zn.jpg" alt="图片26.jpeg"></p>
+<pre><code>1，词法分析：将代码拆分成一个个token
+2，语法分析：把词法分析的结果转换成AST(abstract syntax tree, 抽象语法树)
+3，语义分析：类型分析和检查；类型转换
+4，中间代码生成：简单的记号系统，类似于伪代码
+5，中间代码优化：对程序的控制流和数据流的分析中进行优化
+6，目标代码生成：汇编代码或者可执行的代码
+7，符号表管理
+8，出错处理</code></pre></li>
+<li><p>基本架构<br><img src="http://wx4.sinaimg.cn/large/007H8042ly1g887kh9znnj30mn0fy403.jpg" alt="图片27.jpeg"></p>
+<pre><code>1，中间代码是虚拟机的机器语言，虚拟机目前主要有四种：
+    1，CLR用于.Net平台，
+    2，JVM用于Java语言，这两个是基于栈的虚拟机。
+    3，Parrot用于脚本语言，比如Perl,Python,Ruby等；
+    4，LLVM用于C、C++等语言，这两个是基于寄存器的虚拟机。
+    备注：在性能上比较而言，基于寄存器的虚拟机优于基于栈的虚拟机。
+2，CPU的体系架构，目前主要有三种：x86/x64, ARM, MIPS（嵌入式系统）。</code></pre></li>
+<li><p>架构示例<br> LLVM<br> GCC</p>
+</li>
+</ol>
+<h2 id="2，LLVM"><a href="#2，LLVM" class="headerlink" title="2，LLVM"></a>2，LLVM</h2><h3 id="2-1-基本介绍"><a href="#2-1-基本介绍" class="headerlink" title="2.1 基本介绍"></a>2.1 基本介绍</h3><pre><code>1. Low Level Virtual Machine(低级虚拟机)的缩写简称，官方描述如下The name &quot;LLVM&quot; itself is not an acronym; it is the full name of the project. “LLVM”这个名称本身不是首字母缩略词; 它是项目的全名
+2. 创始人:Chris Lattner，亦是Swift之父
+3. 美国计算机协会 (ACM) 将其2012 年软件系统奖项颁给了LLVM，之前曾经获得此奖项的软件和技术包括:Java、Apache、 Mosaic、the World Wide Web、Smalltalk、UNIX、Eclipse等等</code></pre><h3 id="2-2-基本构成"><a href="#2-2-基本构成" class="headerlink" title="2.2 基本构成"></a>2.2 基本构成</h3><p><img src="http://wx4.sinaimg.cn/large/007H8042ly1g887qmfck9j30hw078mxl.jpg" alt="图片28.jpeg"></p>
+<h3 id="2-3-组成特点"><a href="#2-3-组成特点" class="headerlink" title="2.3 组成特点"></a>2.3 组成特点</h3><pre><code>1，不同的前端后端使用统一的中间代码LLVM Intermediate Representation (LLVM IR)
+2，如果需要支持一种新的编程语言，那么只需要实现一个新的前端
+3，如果需要支持一种新的硬件设备，那么只需要实现一个新的后端
+4，优化阶段是一个通用的阶段，它针对的是统一的LLVM IR，不论是支持新的编程语言，还是支持新的硬件设备，都不需要对优化阶段做修改，相比之下，GCC的前端和后端没分得太开，前端后端耦合在了一起。所以GCC为了支持一门新的语言，或者为了支持一个新的目标平台，就 变得特别困难
+5，LLVM现在被作为实现各种静态和运行时编译语言的通用基础结构(GCC家族、Java、.NET、Python、Ruby、Scheme、Haskell、D等)</code></pre><h2 id="3，CLang"><a href="#3，CLang" class="headerlink" title="3，CLang"></a>3，CLang</h2><h3 id="3-1-基本定义"><a href="#3-1-基本定义" class="headerlink" title="3.1 基本定义"></a>3.1 基本定义</h3><p>LLVM项目的一个子项目，基于LLVM架构的C/C++/Objective-C编译器前端</p>
+<h3 id="3-2-Clang比GCC优点"><a href="#3-2-Clang比GCC优点" class="headerlink" title="3.2 Clang比GCC优点"></a>3.2 Clang比GCC优点</h3><p>编译速度快:在某些平台上，Clang的编译速度显著的快过GCC(Debug模式下编译OC速度比GGC快3倍)<br>占用内存小:Clang生成的AST所占用的内存是GCC的五分之一左右<br>模块化设计:Clang采用基于库的模块化设计，易于 IDE 集成及其他用途的重用<br>诊断信息可读性强:在编译过程中，Clang 创建并保留了大量详细的元数据 (metadata)，有利于调试和错误报告<br>设计清晰简单，容易理解，易于扩展增强</p>
+<h3 id="3-3-Clang与LLVM关系"><a href="#3-3-Clang与LLVM关系" class="headerlink" title="3.3 Clang与LLVM关系"></a>3.3 Clang与LLVM关系</h3><p><img src="http://wx3.sinaimg.cn/large/007H8042ly1g887ucsda8j30q60e4t9z.jpg" alt="图片29.jpeg"></p>
 
-3. 方法3：直接进目录 ~/Library/Developer/Xcode/Archives查找方法2中生成的.xcproject文件</code></pre><h3 id="2-生成-ipa文件"><a href="#2-生成-ipa文件" class="headerlink" title="2. 生成.ipa文件"></a>2. 生成.ipa文件</h3><pre><code>1. 方法1：新建Payload文件夹生成
-    ①: 新建“Payload”文件夹，注意名字要一字不差；
-    ②: 将你的.app包放到Payload中，注意app的名字不做任何更改，就用xcode生成的app名称；
-    ③: 在Payload文件夹上右键压缩成zip，然后将生成的.zip文件后缀改成.ipa即可
-
-2.     方法2：脚本生成</code></pre><p><img src="http://wx4.sinaimg.cn/large/007H8042ly1g85tq16vuhj30xc0jj41q.jpg" alt="图片15.jpeg"></p>
-<pre><code>①：进入脚本文件make_ipa_file.sh目录，        ②：执行脚本语句：sh make_ipa_file.sh(也可以把 make_ipa_file.sh 改为 make_ipa_file_sh 名字，然后在终端为文件添加可执行权限：chmod +x /Users/HTC/Desktop/make_ipa_file_sh,这样就生成了 Unix 文件，双击就会打开到终端)
-③：按照提示，分别输入.app文件目录，.ipa文件保存目录（默认桌面），生成的ipa文件名称
-④：脚本链接： &lt;https://github.com/iHTCboy/iShell&gt;，代码如下</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义用到的变量</span></span><br><span class="line">projectAppPath=""</span><br><span class="line">outputPath=""</span><br><span class="line">ipaFileName=""</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 定义读取输入字符的函数</span></span><br><span class="line">getProjectAppPath() &#123;</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 输出换行，方便查看</span></span><br><span class="line">	echo "\n================================================"</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 监听输入并且赋值给变量</span></span><br><span class="line">	read -p " Enter .app path: " projectAppPath</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 如果为空值，从新监听</span></span><br><span class="line">	if test -z "$projectAppPath"; then</span><br><span class="line">		getprojectAppPath</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getOutputPath() &#123;</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 输出换行，方便查看</span></span><br><span class="line">	echo "\n================================================"</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 监听输入并且赋值给变量</span></span><br><span class="line">	read -p " Enter output path: " outputPath</span><br><span class="line"></span><br><span class="line">	if test -z "$outputPath"; then</span><br><span class="line"><span class="meta">		#</span><span class="bash"> 如果没有输出路径，默认输出到桌面</span></span><br><span class="line">	  outputPath="Desktop"</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getipaFileName() &#123;</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 输出换行，方便查看</span></span><br><span class="line">	echo "\n================================================"</span><br><span class="line"><span class="meta">	#</span><span class="bash"> 监听输入并且赋值给变量</span></span><br><span class="line">	read -p " Enter ipa FileName: " ipaFileName</span><br><span class="line"></span><br><span class="line">	if test -z "$ipaFileName"; then</span><br><span class="line">		getipaFileName</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行函数，给变量赋值</span></span><br><span class="line">getProjectAppPath</span><br><span class="line">getOutputPath</span><br><span class="line">getipaFileName</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换到当前用户的home目录，方便创建桌面目录</span></span><br><span class="line">cd ~</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在输出路径下创建 Payload 文件夹</span></span><br><span class="line">mkdir -p "$&#123;outputPath&#125;/Payload"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将.app 文件复制到 输出路径的 Payload 文件夹下</span></span><br><span class="line">cp -r "$&#123;projectAppPath&#125;" "$&#123;outputPath&#125;/Payload/"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 切换到输出路径</span></span><br><span class="line">cd "$&#123;outputPath&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将 Payload 文件夹压缩成 ipa 包</span></span><br><span class="line">zip -r "$&#123;ipaFileName&#125;.ipa" Payload</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除当前路径下 Payload 文件夹【-r 就是向下递归，不管有多少级目录，一并删除 -f 就是直接强行删除，不作任何提示的意思】</span></span><br><span class="line">rm -rf "Payload"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 成功提示</span></span><br><span class="line">echo "\n\n=====================【转换ipa完成】=========================\n"</span><br><span class="line"></span><br><span class="line">echo $&#123;outputPath&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># 打开输出的路径</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">open -a Finder <span class="string">"<span class="variable">$&#123;outputPath&#125;</span>"</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 从当前位置打开finder</span></span><br><span class="line">open .</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 结束退出</span></span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="3-安装-ipa文件"><a href="#3-安装-ipa文件" class="headerlink" title="3. 安装.ipa文件"></a>3. 安装.ipa文件</h3><pre><code>通过itools Pro工具，直接拖进去</code></pre>
       
     </div>
     
@@ -467,7 +478,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ipa文件/" rel="tag"># ipa文件</a>
+            <a href="/tags/编译器/" rel="tag"># 编译器</a>
           
         </div>
       
@@ -480,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/10/20/Eclipse新建java项目/" rel="next" title="Eclipse新建java项目">
-                <i class="fa fa-chevron-left"></i> Eclipse新建java项目
+              <a href="/2019/10/23/xcode中workspace:project:scheme:target:product等概念/" rel="next" title="xcode中workspace/project/scheme/target/product等概念">
+                <i class="fa fa-chevron-left"></i> xcode中workspace/project/scheme/target/product等概念
               </a>
             
           </div>
@@ -489,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/21/mac电脑开启服务器汇总/" rel="prev" title="mac电脑开启服务器汇总">
-                mac电脑开启服务器汇总 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -686,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，直接连线跑真机"><span class="nav-number">1.</span> <span class="nav-text">1，直接连线跑真机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，完全自动化脚本"><span class="nav-number">2.</span> <span class="nav-text">2，完全自动化脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，生成-ipa文件"><span class="nav-number">3.</span> <span class="nav-text">3，生成.ipa文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-生成-app文件"><span class="nav-number">3.1.</span> <span class="nav-text">1. 生成.app文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-生成-ipa文件"><span class="nav-number">3.2.</span> <span class="nav-text">2. 生成.ipa文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-安装-ipa文件"><span class="nav-number">3.3.</span> <span class="nav-text">3. 安装.ipa文件</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，编译原理"><span class="nav-number">1.</span> <span class="nav-text">1，编译原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，LLVM"><span class="nav-number">2.</span> <span class="nav-text">2，LLVM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-基本介绍"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-基本构成"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 基本构成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-组成特点"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 组成特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，CLang"><span class="nav-number">3.</span> <span class="nav-text">3，CLang</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-基本定义"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 基本定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Clang比GCC优点"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Clang比GCC优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Clang与LLVM关系"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 Clang与LLVM关系</span></a></li></ol></li></ol></div>
             
 
           </div>

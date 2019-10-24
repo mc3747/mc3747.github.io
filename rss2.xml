@@ -8,8 +8,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Wed, 23 Oct 2019 08:33:06 GMT</pubDate>
+    <pubDate>Wed, 23 Oct 2019 10:09:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>xcode的调试技能</title>
+      <link>https://github.com/2019/10/23/xcode%E7%9A%84%E8%B0%83%E8%AF%95%E6%8A%80%E8%83%BD/</link>
+      <guid>https://github.com/2019/10/23/xcode%E7%9A%84%E8%B0%83%E8%AF%95%E6%8A%80%E8%83%BD/</guid>
+      <pubDate>Wed, 23 Oct 2019 08:35:43 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2019/10/23/xcode%E7%9A%84%E8%B0%83%E8%AF%95%E6%8A%80%E8%83%BD/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>编译原理和LLVM</title>

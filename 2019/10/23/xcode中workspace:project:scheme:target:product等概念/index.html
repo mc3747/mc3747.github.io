@@ -96,28 +96,28 @@
 
 
 
-<meta name="description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等  3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一个">
+<meta name="description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等   3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一">
 <meta name="keywords" content="xcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="xcode中workspace&#x2F;project&#x2F;scheme&#x2F;target&#x2F;product等概念">
 <meta property="og:url" content="https://github.com/2019/10/23/xcode中workspace:project:scheme:target:product等概念/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等  3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一个">
+<meta property="og:description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等   3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://wx3.sinaimg.cn/large/007H8042ly1g87w8ub3hkj30pc0eognv.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/large/007H8042ly1g87w9i2zjij319c0l2dkb.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/large/007H8042ly1g87wa5y5xej31ic0oojwh.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/large/007H8042ly1g87wfjb8h9j30xc0k30vg.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/large/007H8042ly1g87wfwmxdfj30zl0u0gsm.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/large/007H8042ly1g87wgel0plj30q00ny774.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cn/large/007H8042ly1g87wgwq71sj30xc0iuq5a.jpg">
-<meta property="og:image" content="http://wx1.sinaimg.cn/large/007H8042ly1g87whbodc1j30xc0rtn1l.jpg">
-<meta property="og:image" content="http://wx1.sinaimg.cn/large/007H8042ly1g87whcelx9j30u00xpwk6.jpg">
-<meta property="og:updated_time" content="2019-10-23T02:20:03.004Z">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8717.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8718.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8719.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8720.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8721.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8722.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8723.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8724.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8725.jpg">
+<meta property="og:updated_time" content="2019-10-24T02:46:10.784Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xcode中workspace&#x2F;project&#x2F;scheme&#x2F;target&#x2F;product等概念">
-<meta name="twitter:description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等  3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一个">
-<meta name="twitter:image" content="http://wx3.sinaimg.cn/large/007H8042ly1g87w8ub3hkj30pc0eognv.jpg">
+<meta name="twitter:description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等   3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一">
+<meta name="twitter:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8717.png">
 
 
 
@@ -436,24 +436,25 @@
 <li>Xcode Workspace可类比为“办公大楼”</li>
 <li>维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库</li>
 </ol>
-<p><img src="http://wx3.sinaimg.cn/large/007H8042ly1g87w8ub3hkj30pc0eognv.jpg" alt="图片17.jpeg"><br><img src="http://wx3.sinaimg.cn/large/007H8042ly1g87w9i2zjij319c0l2dkb.jpg" alt="图片18.jpeg"><br><img src="http://wx2.sinaimg.cn/large/007H8042ly1g87wa5y5xej31ic0oojwh.jpg" alt="图片19.jpeg"></p>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8717.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8718.jpg" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8719.jpg" alt></p>
 <h2 id="2，Project"><a href="#2，Project" class="headerlink" title="2，Project"></a>2，Project</h2><ol>
 <li>可理解为“在办公大楼里的公司”</li>
 <li>包含所有源文件和资源文件</li>
-<li>指定环境变量debug，release等<br><img src="http://wx4.sinaimg.cn/large/007H8042ly1g87wfjb8h9j30xc0k30vg.jpg" alt="图片20.jpeg"><br><img src="http://wx2.sinaimg.cn/large/007H8042ly1g87wfwmxdfj30zl0u0gsm.jpg" alt="图片21.jpeg"></li>
+<li>指定环境变量debug，release等<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8720.png" alt></li>
 </ol>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8721.jpg" alt></p>
 <h2 id="3，Scheme"><a href="#3，Scheme" class="headerlink" title="3，Scheme"></a>3，Scheme</h2><ol>
 <li>可以理解为“公司里的项目团队”</li>
 <li>定义target的构建信息</li>
-<li>只有一个是活跃的<br><img src="http://wx2.sinaimg.cn/large/007H8042ly1g87wgel0plj30q00ny774.jpg" alt="图片22.jpeg"><br><img src="http://wx3.sinaimg.cn/large/007H8042ly1g87wgwq71sj30xc0iuq5a.jpg" alt="图片23.jpeg"></li>
+<li>只有一个是活跃的<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8722.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8723.png" alt></li>
 </ol>
 <h2 id="4，Target"><a href="#4，Target" class="headerlink" title="4，Target"></a>4，Target</h2><ol>
 <li>可以理解为“公司里项目团队的产品”</li>
 <li>构建设置和构建阶段（Build settings 和 Build phases）</li>
-<li>target继承了project的构建设置。但是你可以在target层次覆盖任何project的设置<br><img src="http://wx1.sinaimg.cn/large/007H8042ly1g87whbodc1j30xc0rtn1l.jpg" alt="图片24.jpeg"></li>
+<li>target继承了project的构建设置。但是你可以在target层次覆盖任何project的设置<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8724.png" alt></li>
 </ol>
 <h2 id="5，Product"><a href="#5，Product" class="headerlink" title="5，Product"></a>5，Product</h2><ol>
-<li>可以理解为“公司里项目的成型产品”<br><img src="http://wx1.sinaimg.cn/large/007H8042ly1g87whcelx9j30u00xpwk6.jpg" alt="图片25.jpeg"></li>
+<li>可以理解为“公司里项目的成型产品”<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8725.jpg" alt></li>
 </ol>
 
       
@@ -579,7 +580,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -601,7 +602,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

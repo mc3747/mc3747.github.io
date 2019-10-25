@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  711
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -425,7 +425,42 @@
       
         
           
-            
+            <h2 id="1，类"><a href="#1，类" class="headerlink" title="1，类"></a>1，类</h2><pre><code>1，包括变量和方法
+2，通过构造函数生成对象</code></pre><h2 id="2，对象"><a href="#2，对象" class="headerlink" title="2，对象"></a>2，对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">			<span class="comment">//变量和方法</span></span><br><span class="line">			<span class="keyword">int</span> dogAge;</span><br><span class="line">			String dogColor;</span><br><span class="line">			<span class="function"><span class="keyword">void</span> <span class="title">barking</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.printf(<span class="string">"我有%d岁,我是%s色"</span>,dogAge,dogColor);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//构造函数</span></span><br><span class="line">		 	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> age,String color)</span></span>&#123;</span><br><span class="line">			dogAge = age;</span><br><span class="line">			dogColor = color;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="comment">//类的初始化	</span></span><br><span class="line">		Dog dog = <span class="keyword">new</span> Dog(<span class="number">5</span>,<span class="string">"red"</span>);</span><br><span class="line">		dog.barking();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>1. 声明：声明一个对象，包括对象名称和对象类型。
+2. 实例化：使用关键字new来创建一个对象。
+3. 初始化：使用new创建对象时，会调用构造方法初始化对象。</code></pre><h2 id="3，new关键字的作用"><a href="#3，new关键字的作用" class="headerlink" title="3，new关键字的作用"></a>3，new关键字的作用</h2><pre><code>1. 为对象分配内存空间。
+2. 引起对象构造方法的调用。
+3. 为对象返回一个引用。</code></pre><h2 id="4，类中的变量"><a href="#4，类中的变量" class="headerlink" title="4，类中的变量"></a>4，类中的变量</h2><ol>
+<li>局部变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在方法、构造方法、语句块中定义的变量。其声明和初始化在方法中实现，在方法结束后自动销毁</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>成员变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外。变量在创建对象时实例化。成员变量可被类中的方法、构造方法以及特定类的语句块访问</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>类变量<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外，但必须要有 static 来声明变量类型。静态成员属于整个类，可通过对象名或类名来调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="5，构造方法"><a href="#5，构造方法" class="headerlink" title="5，构造方法"></a>5，构造方法</h2><h3 id="5-1-隐式声明构造方法"><a href="#5-1-隐式声明构造方法" class="headerlink" title="5.1. 隐式声明构造方法"></a>5.1. 隐式声明构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个没有显式声明构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">    <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(); <span class="comment">// People() 是People类的默认构造函数，它什么也不干</span></span><br><span class="line">xiaoMing.getAge();<span class="comment">//打印年龄</span></span><br></pre></td></tr></table></figure>
+
+<p>###5.2 显示声明构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个带显式构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">        <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+ age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 显式声明一个带参数的构造函数，用于初始化年龄</span></span><br><span class="line">    <span class="function">Public <span class="title">People</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = a; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(<span class="number">20</span>); <span class="comment">// 使用带参数的构造函数来实例化对象</span></span><br><span class="line">xiaoMing.getAge(); <span class="comment">// 打印出来的年龄变为20</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-方法"><a href="#6-方法" class="headerlink" title="6,方法"></a>6,方法</h2><h3 id="6-1方法的种类"><a href="#6-1方法的种类" class="headerlink" title="6.1方法的种类"></a>6.1方法的种类</h3><pre><code>1，构造方法（方法名和类名一致）
+2，普通方法</code></pre><h3 id="6-2方法的注意项"><a href="#6-2方法的注意项" class="headerlink" title="6.2方法的注意项"></a>6.2方法的注意项</h3><pre><code>1，方法的重载：
+    必须拥有不同的参数列表
+2，可变参数：
+    以下2种表示方法
+    void function(String... args);
+    void function(String [] args);
+3，finalize() 方法：
+    在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象</code></pre>
           
         
       
@@ -2423,7 +2458,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  469
+                  596
                 </span>
               
 
@@ -2439,7 +2474,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -2462,17 +2497,18 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
       
         
           
-            <h2 id="1，java环境基本配置"><a href="#1，java环境基本配置" class="headerlink" title="1，java环境基本配置"></a>1，java环境基本配置</h2><blockquote>
-<p>JavaSE（J2SE）（Java2 Platform Standard Edition，java平台标准版）<br>    JavaEE(J2EE)      (Java 2 Platform,Enterprise Edition，java平台企业版)<br>    JavaME(J2ME)    (Java 2 Platform Micro Edition，java平台微型版)。</p>
-</blockquote>
-<table>
+            <h2 id="1，java分类"><a href="#1，java分类" class="headerlink" title="1，java分类"></a>1，java分类</h2><pre><code>JavaSE（J2SE）（Java2 Platform Standard Edition，java平台标准版）
+JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)
+JavaME(J2ME)  (Java 2 Platform Micro Edition，java平台微型版)。</code></pre><h2 id="2，java工程的关系"><a href="#2，java工程的关系" class="headerlink" title="2，java工程的关系"></a>2，java工程的关系</h2><p>###2.1，JDK，JRE，JVM的关系图<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8733.png" alt></p>
+<p>###2.2，JDK和tomcat之间的关系<br>    tomcat v7.0——-support——–&gt;Java EE 5 and 6<br>    tomcat v8.0——-support——–&gt;Java EE 5,6 and 7<br>    tomcat v8.5——-support——–&gt;Java EE 5,6 and 7<br>    tomcat v9.0——-support——–&gt;Java EE 5,6,7 and 8<br>    （Tomcat版本要比jdk高）</p>
+<h2 id="3，java工程的组成"><a href="#3，java工程的组成" class="headerlink" title="3，java工程的组成"></a>3，java工程的组成</h2><table>
 <tr>
 <td bgcolor="#FF8248">
 1,JDK
 </td>
 </tr>
 </table>
-    1,(Java Development Kit)又称J2SDK(Java2 Software Development Kit)，是Java开发工具包，它提供了Java的开发环境(提供了编译器javac等工具，用于将java文件编译为class文件)和运行环境(提 供了JVM和Runtime辅助包，用于解析class文件使其得到运行)。
+    1,(Java Development Kit)又称J2SDK(Java2 Software Development Kit)，是Java开发工具包，它提供了Java的开发环境(提供了编译器javac等工具，用于将java文件编译为class文件)和运行环境(提供了JVM和Runtime辅助包，用于解析class文件使其得到运行)。
     如果你下载并安装了JDK，那么你不仅可以开发Java程序，也同时拥有了运行Java程序的平台。JDK是整个Java的核心，包括了Java运行环境(JRE)，一堆Java工具tools.jar和Java标准类库 (rt.jar)
 
 <pre><code>2，查看JDK的安装目录（所有版本和安装目录）：
@@ -2493,7 +2529,18 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
 命令行：/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -version</code></pre><table>
 <tr>
 <td bgcolor="#FF8248">
-3,tomcat
+3,JVM
+</td>
+</tr>
+</table>
+    1，JVM是Java Virtual Machine（Java虚拟机）的缩写
+    2，通过在实际的计算机上仿真模拟各种计算机功能来实现
+    3，查看jvm的版本：/usr/libexec/java_home -V
+
+<table>
+<tr>
+<td bgcolor="#FF8248">
+4,tomcat
 </td>
 </tr>
 </table>
@@ -2502,7 +2549,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
         进入到tomcat安装目录，bin文件夹 
         命令行：sh version.sh
 
-<h2 id="2，eclipse基本设置"><a href="#2，eclipse基本设置" class="headerlink" title="2，eclipse基本设置"></a>2，eclipse基本设置</h2><ol>
+<h2 id="3，eclipse基本设置"><a href="#3，eclipse基本设置" class="headerlink" title="3，eclipse基本设置"></a>3，eclipse基本设置</h2><ol>
 <li><p>修改智能提示<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8730.jpg" alt></p>
 <pre><code>提示添加.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</code></pre></li>
 <li><p>修改工作空间的编码格式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8731.jpg" alt></p>
@@ -2725,7 +2772,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.3k</span>
+    <span title="Site words total count">13.1k</span>
   
 </div>
 

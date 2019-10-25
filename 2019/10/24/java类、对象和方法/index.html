@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1，类1，包括变量和方法 2，通过构造函数生成对象2，对象123456789101112131415161718192021public class Test &amp;#123;	public static void main(String[] args) &amp;#123;//类		class Dog&amp;#123;			//变量和方法			int dogAge;			String dogColor;			vo">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java类、对象和方法">
 <meta property="og:url" content="https://github.com/2019/10/24/java类、对象和方法/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1，类1，包括变量和方法 2，通过构造函数生成对象2，对象123456789101112131415161718192021public class Test &amp;#123;	public static void main(String[] args) &amp;#123;//类		class Dog&amp;#123;			//变量和方法			int dogAge;			String dogColor;			vo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-24T08:42:54.049Z">
+<meta property="og:updated_time" content="2019-10-25T01:40:12.951Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java类、对象和方法">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1，类1，包括变量和方法 2，通过构造函数生成对象2，对象123456789101112131415161718192021public class Test &amp;#123;	public static void main(String[] args) &amp;#123;//类		class Dog&amp;#123;			//变量和方法			int dogAge;			String dogColor;			vo">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  711
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -421,7 +421,42 @@
       
 
       
-        
+        <h2 id="1，类"><a href="#1，类" class="headerlink" title="1，类"></a>1，类</h2><pre><code>1，包括变量和方法
+2，通过构造函数生成对象</code></pre><h2 id="2，对象"><a href="#2，对象" class="headerlink" title="2，对象"></a>2，对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">			<span class="comment">//变量和方法</span></span><br><span class="line">			<span class="keyword">int</span> dogAge;</span><br><span class="line">			String dogColor;</span><br><span class="line">			<span class="function"><span class="keyword">void</span> <span class="title">barking</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.printf(<span class="string">"我有%d岁,我是%s色"</span>,dogAge,dogColor);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//构造函数</span></span><br><span class="line">		 	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> age,String color)</span></span>&#123;</span><br><span class="line">			dogAge = age;</span><br><span class="line">			dogColor = color;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="comment">//类的初始化	</span></span><br><span class="line">		Dog dog = <span class="keyword">new</span> Dog(<span class="number">5</span>,<span class="string">"red"</span>);</span><br><span class="line">		dog.barking();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>1. 声明：声明一个对象，包括对象名称和对象类型。
+2. 实例化：使用关键字new来创建一个对象。
+3. 初始化：使用new创建对象时，会调用构造方法初始化对象。</code></pre><h2 id="3，new关键字的作用"><a href="#3，new关键字的作用" class="headerlink" title="3，new关键字的作用"></a>3，new关键字的作用</h2><pre><code>1. 为对象分配内存空间。
+2. 引起对象构造方法的调用。
+3. 为对象返回一个引用。</code></pre><h2 id="4，类中的变量"><a href="#4，类中的变量" class="headerlink" title="4，类中的变量"></a>4，类中的变量</h2><ol>
+<li>局部变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在方法、构造方法、语句块中定义的变量。其声明和初始化在方法中实现，在方法结束后自动销毁</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>成员变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外。变量在创建对象时实例化。成员变量可被类中的方法、构造方法以及特定类的语句块访问</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>类变量<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外，但必须要有 static 来声明变量类型。静态成员属于整个类，可通过对象名或类名来调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="5，构造方法"><a href="#5，构造方法" class="headerlink" title="5，构造方法"></a>5，构造方法</h2><h3 id="5-1-隐式声明构造方法"><a href="#5-1-隐式声明构造方法" class="headerlink" title="5.1. 隐式声明构造方法"></a>5.1. 隐式声明构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个没有显式声明构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">    <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(); <span class="comment">// People() 是People类的默认构造函数，它什么也不干</span></span><br><span class="line">xiaoMing.getAge();<span class="comment">//打印年龄</span></span><br></pre></td></tr></table></figure>
+
+<p>###5.2 显示声明构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个带显式构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">        <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+ age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 显式声明一个带参数的构造函数，用于初始化年龄</span></span><br><span class="line">    <span class="function">Public <span class="title">People</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = a; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(<span class="number">20</span>); <span class="comment">// 使用带参数的构造函数来实例化对象</span></span><br><span class="line">xiaoMing.getAge(); <span class="comment">// 打印出来的年龄变为20</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-方法"><a href="#6-方法" class="headerlink" title="6,方法"></a>6,方法</h2><h3 id="6-1方法的种类"><a href="#6-1方法的种类" class="headerlink" title="6.1方法的种类"></a>6.1方法的种类</h3><pre><code>1，构造方法（方法名和类名一致）
+2，普通方法</code></pre><h3 id="6-2方法的注意项"><a href="#6-2方法的注意项" class="headerlink" title="6.2方法的注意项"></a>6.2方法的注意项</h3><pre><code>1，方法的重载：
+    必须拥有不同的参数列表
+2，可变参数：
+    以下2种表示方法
+    void function(String... args);
+    void function(String [] args);
+3，finalize() 方法：
+    在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象</code></pre>
       
     </div>
     
@@ -514,8 +549,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -635,6 +679,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，类"><span class="nav-number">1.</span> <span class="nav-text">1，类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，对象"><span class="nav-number">2.</span> <span class="nav-text">2，对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，new关键字的作用"><span class="nav-number">3.</span> <span class="nav-text">3，new关键字的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，类中的变量"><span class="nav-number">4.</span> <span class="nav-text">4，类中的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，构造方法"><span class="nav-number">5.</span> <span class="nav-text">5，构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-隐式声明构造方法"><span class="nav-number">5.1.</span> <span class="nav-text">5.1. 隐式声明构造方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-方法"><span class="nav-number">6.</span> <span class="nav-text">6,方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1方法的种类"><span class="nav-number">6.1.</span> <span class="nav-text">6.1方法的种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2方法的注意项"><span class="nav-number">6.2.</span> <span class="nav-text">6.2方法的注意项</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -662,7 +722,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">12.3k</span>
+    <span title="Site words total count">13.1k</span>
   
 </div>
 

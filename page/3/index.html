@@ -280,6 +280,269 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/09/30/hexo搭建个人博客-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/09/30/hexo搭建个人博客-2/" itemprop="url">hexo搭建个人博客-2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T14:26:31+08:00">
+                2019-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/30/hexo搭建个人博客-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/30/hexo搭建个人博客-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/09/30/hexo搭建个人博客-2/" class="leancloud_visitors" data-flag-title="hexo搭建个人博客-2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  421
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，修改主题"><a href="#1，修改主题" class="headerlink" title="1，修改主题"></a>1，修改主题</h2><ul>
+<li>寻找自己喜欢的主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
+<li>进入配置blog的目录（选用的next主题）：<br>  <code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></li>
+<li>打开_config.yml文件，将“theme”改成“next”</li>
+</ul>
+<h2 id="2，验证主题"><a href="#2，验证主题" class="headerlink" title="2，验证主题"></a>2，验证主题</h2><ul>
+<li>启动本地调试模式：hexo s –debug</li>
+<li>访问网站：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></li>
+<li><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%874.png" alt></li>
+</ul>
+<h2 id="3，本地图片未显示"><a href="#3，本地图片未显示" class="headerlink" title="3，本地图片未显示"></a>3，本地图片未显示</h2><ul>
+<li>方案1<ul>
+<li>新建_post文件夹平行的文件夹images，里面放图片</li>
+<li>设置属性：post_asset_folder设置成 false不变</li>
+<li>相对路径引用图片</li>
+<li>结果时有时无</li>
+</ul>
+</li>
+<li>方案2<ul>
+<li>安装插件：cd /d 你的hexo根目录<br>npm install <a href="https://github.com/7ym0n/hexo-asset-image">https://github.com/7ym0n/hexo-asset-image</a> –save</li>
+<li>设置属性：post_asset_folder设置成 true</li>
+<li>运行hexo n “你的博文名字”生成md博文时，/source/_posts目录下会生成一个与md同名的文件夹，将图片放人该文件夹</li>
+<li>使用! <a href="你的博文名字/图片名称"></a>插入图片即可</li>
+<li>结果时有时无</li>
+</ul>
+</li>
+<li>方案3<ul>
+<li>使用图床：<a href="https://upload.cc" target="_blank" rel="noopener">https://upload.cc</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="4，添加个人头像"><a href="#4，添加个人头像" class="headerlink" title="4，添加个人头像"></a>4，添加个人头像</h2><ul>
+<li>进入文件夹路径themes/next/source/images</li>
+<li>添加一张图片avatar.jpg</li>
+<li>进入路径themes/next/_config.yml,设置avatar属性:<ul>
+<li><code>avatar: /images/avatar.jpg</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="5，添加分类"><a href="#5，添加分类" class="headerlink" title="5，添加分类"></a>5，添加分类</h2><ul>
+<li>1，进入blog主文件夹目录，输入 <code>$ hexo new page categories</code></li>
+<li>2, 生成categories文件夹，里面的index.md,添加type属性如下<ul>
+<li><table><tr><td bgcolor="#C1E2E9">
+title: 文章分类  
+date: 2019-10-09 17:11:48  
+type: "categories"
+</td></tr>
+</table></li>
+</ul>
+</li>
+<li>3，给文章添加“categories”属性，添加categories属性<ul>
+<li><table><tr><td bgcolor="#C1E2E9">
+title: hexo搭建个人博客1  
+date: 2019-09-30 14:26:12  
+categories: 
+  — 工程相关
+</td></tr>
+</table>
+
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="6，添加标签"><a href="#6，添加标签" class="headerlink" title="6，添加标签"></a>6，添加标签</h2><ul>
+<li>与添加分类基本一致</li>
+<li>新建命令为：<code>hexo new page tags</code></li>
+<li>index.md中新增type： <code>type: &quot;tags&quot;</code></li>
+<li>文章中新增：<code>tags:- jQuery</code></li>
+<li>不同点：一篇文章可以拥有多个tag，但是分类只能嵌套</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/09/30/hexo搭建个人博客-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -567,7 +830,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +852,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -697,7 +960,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.1k</span>
+    <span title="Site words total count">13.2k</span>
   
 </div>
 

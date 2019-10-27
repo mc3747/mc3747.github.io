@@ -105,7 +105,7 @@
 <meta property="og:description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，chisel工具 5，静态工具（instruments中Profile） 6，UI调试  ##1. 宏定义，预编译打印 1234567//NSLog输出//DEBUG  模式下打印日志：当前方法 + 行号 + 打印的内容#ifdef DEBUG#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8732.png">
-<meta property="og:updated_time" content="2019-10-24T10:01:44.741Z">
+<meta property="og:updated_time" content="2019-10-27T12:13:14.636Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xcode的调试技能1-日志">
 <meta name="twitter:description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，chisel工具 5，静态工具（instruments中Profile） 6，UI调试  ##1. 宏定义，预编译打印 1234567//NSLog输出//DEBUG  模式下打印日志：当前方法 + 行号 + 打印的内容#ifdef DEBUG#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d">
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  574
+                  891
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -443,8 +443,34 @@ oc:&lt;https://github.com/CoderJackyHuang/HYBUnicodeReadable&gt;
 swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. 控制台打印模型<br>        重写NSObject的decriptioon和debugDescription方法</p>
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"NSObject+DebugDescription.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSObject</span> (<span class="title">DebugDescription</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 重写description方法(调用NSLog方法打印时执行)</span></span><br><span class="line">- (<span class="built_in">NSString</span> )description &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]] || [<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]] || [<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]] || [<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.description;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//初始化一个字典</span></span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *dictionary = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    <span class="comment">//得到当前class的所有属性</span></span><br><span class="line">    uint count;</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;count);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;count; i++) &#123; <span class="comment">//循环并用KVC得到每个属性的值</span></span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        <span class="built_in">NSString</span> *name = @(property_getName(property));</span><br><span class="line">        <span class="keyword">id</span> value = [<span class="keyword">self</span> valueForKey:name]?:<span class="string">@"nil"</span>;<span class="comment">//默认值为nil字符串</span></span><br><span class="line">        [dictionary setObject:value forKey:name];<span class="comment">//装载到字典里</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//释放</span></span><br><span class="line">    free(properties);</span><br><span class="line">    <span class="comment">//return</span></span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"&lt;%@: %p&gt; -- %@"</span>,[<span class="keyword">self</span> <span class="keyword">class</span>],<span class="keyword">self</span>,dictionary];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 重写debugDescription方法（控制台使用po命令时调用）</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)debugDescription &#123;</span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]] || [<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]] || [<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]] || [<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">self</span>.debugDescription;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//初始化一个字典</span></span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *dictionary = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    <span class="comment">//得到当前class的所有属性</span></span><br><span class="line">    uint count;</span><br><span class="line">    objc_property_t *properties = class_copyPropertyList([<span class="keyword">self</span> <span class="keyword">class</span>], &amp;count);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;count; i++) &#123; <span class="comment">//循环并用KVC得到每个属性的值</span></span><br><span class="line">        objc_property_t property = properties[i];</span><br><span class="line">        <span class="built_in">NSString</span> *name = @(property_getName(property));</span><br><span class="line">        <span class="keyword">id</span> value = [<span class="keyword">self</span> valueForKey:name]?:<span class="string">@"nil"</span>;<span class="comment">//默认值为nil字符串</span></span><br><span class="line">        [dictionary setObject:value forKey:name];<span class="comment">//装载到字典里</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//释放</span></span><br><span class="line">    free(properties);</span><br><span class="line">    <span class="comment">//return</span></span><br><span class="line">    <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"&lt;%@: %p&gt; -- %@"</span>,[<span class="keyword">self</span> <span class="keyword">class</span>],<span class="keyword">self</span>,dictionary];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>##6. 日志保存到文件</p>
-<p>##7. 日志实时输出</p>
+<p>##6. 日志查看方法总结<br>    1，连电脑，跑源代码：xcode控制台查看</p>
+<pre><code>2，连电脑，跑app：
+    方法1：xcode查看：Window-&gt;Devices and Simulators查看手机日志
+    方法2：Console控制台查看：mac本机的Console.app控制台
+    方法3：终端查看：安装libimobiledevice
+
+3，浏览器实时显示
+    方法1：CocoaHTTPServer
+    方法2：GCDWebServer，一直维护推荐使用
+
+4，手机实时显示：小工具很多
+    方法1：oc版的XKConsoleBoard
+    方法2：oc版的HAMLogtOutputWindow
+    方法3：oc版的DCLog
+    方法4：swift版的GodEye
+
+5，保存成日志文件
+    方法1：CocoaLumberjack
+    方法2：plcrashreporter：崩溃日志收集
+    方法3：NSLogger框架
+
+6，第三方的日志框架
+    方法1：腾讯的bugly
+    方法2：美团的logan</code></pre><p>##7. NSLog的输出位置<br>    1，NSLog默认被系统输出到了一个文件中， /var/log/syslog这个文件中，非越狱手机没有查看权限；<br>    2，使用Apple System Log(ASL:苹果自己实现的输出日志的一套接口)的API.在iOS真机设备上,使用ASL记录的log被缓存在一个文件中,直到设备被重启</p>
+<p>##8，NSLog的重定向方法<br>参考:<a href="https://juejin.im/entry/576252855bbb500063e51c7d" target="_blank" rel="noopener">https://juejin.im/entry/576252855bbb500063e51c7d</a></p>
+<pre><code>1，STDERR_FILENO的c语言句柄
+2，dup2重定向
+3，使用GCD的dispatch Source</code></pre><p>计划方案：保存日志文件，上传服务器，然后展示</p>
 
       
     </div>
@@ -560,7 +586,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -582,7 +608,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -690,7 +716,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.2k</span>
+    <span title="Site words total count">13.6k</span>
   
 </div>
 

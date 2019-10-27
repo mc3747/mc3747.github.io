@@ -8,8 +8,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Fri, 25 Oct 2019 09:12:40 GMT</pubDate>
+    <pubDate>Sun, 27 Oct 2019 14:09:09 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>浏览器扩展插件</title>
+      <link>https://github.com/2019/10/27/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6/</link>
+      <guid>https://github.com/2019/10/27/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6/</guid>
+      <pubDate>Sun, 27 Oct 2019 14:07:46 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2019/10/27/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95%E6%8F%92%E4%BB%B6/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>github相关的小技巧</title>
@@ -400,27 +421,6 @@
       
       
       <comments>https://github.com/2019/10/12/markdown%E7%9A%84%E7%94%A8%E6%B3%95-2/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>markdown的用法-1</title>
-      <link>https://github.com/2019/10/12/markdown%E7%9A%84%E7%94%A8%E6%B3%95-1/</link>
-      <guid>https://github.com/2019/10/12/markdown%E7%9A%84%E7%94%A8%E6%B3%95-1/</guid>
-      <pubDate>Sat, 12 Oct 2019 02:43:35 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://github.com/2019/10/12/markdown%E7%9A%84%E7%94%A8%E6%B3%95-1/#disqus_thread</comments>
     </item>
     
   </channel>

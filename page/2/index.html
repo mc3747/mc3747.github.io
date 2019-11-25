@@ -280,6 +280,343 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/22/15_算法的复杂度/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/22/15_算法的复杂度/" itemprop="url">15_算法的复杂度</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-22T10:58:47+08:00">
+                2019-10-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/22/15_算法的复杂度/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/22/15_算法的复杂度/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/22/15_算法的复杂度/" class="leancloud_visitors" data-flag-title="15_算法的复杂度">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  719
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，怎样评估算法的好坏"><a href="#1，怎样评估算法的好坏" class="headerlink" title="1，怎样评估算法的好坏"></a>1，怎样评估算法的好坏</h2><pre><code>1，正确性
+2，可读性
+3，健壮性
+4，时间复杂度：time complexity，估算程序的执行次数
+5，空间复杂度：space ciplexity，估算所需占用的存储空间</code></pre><h2 id="2，评估算法的方法"><a href="#2，评估算法的方法" class="headerlink" title="2，评估算法的方法"></a>2，评估算法的方法</h2><ol>
+<li><p>事后统计法</p>
+<pre><code>✅优点：准确
+❎缺点：
+    1 执行时间严重依赖硬件以及运行时各种不确定的环境因素 
+    2 必须编写相应的测算代码 
+    3 测试数据的选择比较难保证公正性</code></pre></li>
+<li><p>大o统计法</p>
+<p> ✅优点：简单估算<br> ❎缺点：不特别准确,实际对应的是汇编的操作数</p>
+</li>
+</ol>
+<h2 id="3，大o统计法案例"><a href="#3，大o统计法案例" class="headerlink" title="3，大o统计法案例"></a>3，大o统计法案例</h2><pre><code class="java">    <span class="comment">// O(1)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="comment">// 1次，O(1)</span>
+        <span class="keyword">if</span> (n &gt; <span class="number">10</span>) { 
+            System.out.println(<span class="string">"n &gt; 10"</span>);
+        } <span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">5</span>) { <span class="comment">// 2</span>
+            System.out.println(<span class="string">"n &gt; 5"</span>);
+        } <span class="keyword">else</span> {
+            System.out.println(<span class="string">"n &lt;= 5"</span>); 
+        }
+
+        <span class="comment">// 1 + 4 + 4 + 4</span>
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) {
+            System.out.println(<span class="string">"test"</span>);
+        }
+
+    }
+
+    <span class="comment">// O(n)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+
+        <span class="comment">// 1 + 3n</span>
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {
+            System.out.println(<span class="string">"test"</span>);
+        }
+    }
+
+    <span class="comment">// O(n^2)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="comment">// 1 + 2n + n * (1 + 3n)</span>
+        <span class="comment">// 1 + 2n + n + 3n^2</span>
+        <span class="comment">// 3n^2 + 3n + 1</span>
+
+
+        <span class="comment">// O(n)</span>
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {
+            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) {
+                System.out.println(<span class="string">"test"</span>);
+            }
+        }
+    }
+
+    <span class="comment">// O(n)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="comment">// 1 + 2n + n * (1 + 45)</span>
+        <span class="comment">// 1 + 2n + 46n</span>
+        <span class="comment">// 48n + 1</span>
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) {
+            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">15</span>; j++) {
+                System.out.println(<span class="string">"test"</span>);
+            }
+        }
+    }
+
+    <span class="comment">// O(logn)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test5</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="comment">// 8 = 2^3</span>
+        <span class="comment">// 16 = 2^4</span>
+
+        <span class="comment">// 3 = log2(8)</span>
+        <span class="comment">// 4 = log2(16)</span>
+
+        <span class="comment">// 执行次数 = log2(n)</span>
+        <span class="keyword">while</span> ((n = n / <span class="number">2</span>) &gt; <span class="number">0</span>) {
+            System.out.println(<span class="string">"test"</span>);
+        }
+    }
+
+    <span class="comment">// O(logn)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test6</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="comment">// log5(n)</span>
+        <span class="keyword">while</span> ((n = n / <span class="number">5</span>) &gt; <span class="number">0</span>) {
+            System.out.println(<span class="string">"test"</span>);
+        }
+    }
+
+    <span class="comment">// O(nlogn)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test7</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="comment">// 1 + 2*log2(n) + log2(n) * (1 + 3n)</span>
+        <span class="comment">// 1 + 3*log2(n) + 2 * nlog2(n)</span>
+
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i = i * <span class="number">2</span>) {
+            <span class="comment">// 1 + 3n</span>
+            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) {
+                System.out.println(<span class="string">"test"</span>);
+            }
+        }
+    }
+    <span class="comment">//    斐波那契数1:递归,重复调用：O(2^n)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">test8</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;
+        <span class="keyword">return</span> fib1(n - <span class="number">1</span>) + fib1(n - <span class="number">2</span>);
+    }
+
+<span class="comment">//    斐波那契数2：O(n)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">test9</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;
+        <span class="keyword">int</span> first = <span class="number">0</span>;
+        <span class="keyword">int</span> second = <span class="number">1</span>;
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) {
+            <span class="keyword">int</span> sum = first + second;
+            first = second;
+            second = sum;
+        }
+        <span class="keyword">return</span> second;
+
+    }
+    <span class="comment">// O(n)</span>
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test10</span><span class="params">(<span class="keyword">int</span> n)</span> </span>{
+        <span class="keyword">int</span> a = <span class="number">10</span>;
+        <span class="keyword">int</span> b = <span class="number">20</span>;
+        <span class="keyword">int</span> c = a + b;
+        <span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[n];
+        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) {
+            System.out.println(array[i] + c);
+        }
+    }</code></pre>
+<h2 id="4，大o表示法总结"><a href="#4，大o表示法总结" class="headerlink" title="4，大o表示法总结"></a>4，大o表示法总结</h2><ol>
+<li>大O只是是估算</li>
+<li>大O也可以表示空间复杂度</li>
+<li>对数阶的公式：log2(n) = log2(9) * log9(n)</li>
+<li>常数阶O(1)，对数阶O(log2n)，线性阶O(n)，线性对数阶O(nlog2n)，平方阶O(n2)，立方阶O(n3)，…， k次方阶O(nk)，指数阶O(2n)。随着问题规模n的不断增大，上述时间复杂度不断增大，算法的执行效率越低。</li>
+<li>一般规律：O(1) &lt; O(log2n) &lt; O(n) &lt; O(n*log2n) &lt; O(n2) &lt; O(n3) &lt; O(2n) &lt; O(3n) &lt; O(n!) （c是一个常量）</li>
+</ol>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8716.jpg" alt></p>
+<h2 id="5，算法的优化方向"><a href="#5，算法的优化方向" class="headerlink" title="5，算法的优化方向"></a>5，算法的优化方向</h2><ol>
+<li>时间换空间</li>
+<li>空间换时间</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/21/14_mac电脑开启服务器汇总/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2408,223 +2745,6 @@ MJExtension</code></pre></li>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/12/5_markdown的用法-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/12/5_markdown的用法-2/" itemprop="url">5_markdown的用法-2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-12T17:34:38+08:00">
-                2019-10-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/12/5_markdown的用法-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/12/5_markdown的用法-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/12/5_markdown的用法-2/" class="leancloud_visitors" data-flag-title="5_markdown的用法-2">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  326
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-字体，字号和颜色"><a href="#1-字体，字号和颜色" class="headerlink" title="1,字体，字号和颜色"></a>1,字体，字号和颜色</h2><pre><code>1，markdown只有粗体和斜体的语法
-2，可以借助font标签来实现：
-&lt;font face=&quot;黑体&quot;&gt;我是黑体字&lt;/font&gt;
-&lt;font size=5&gt;我是尺寸&lt;/font&gt;
-&lt;font color=red&gt;我是红色&lt;/font&gt;</code></pre><p><font color="red">我是红色</font> </p>
-<h2 id="2，背景颜色"><a href="#2，背景颜色" class="headerlink" title="2，背景颜色"></a>2，背景颜色</h2><pre><code>1，借助table标签的td单元格设置
-2，⚠️：html的标签
-        ul 和li标签 （无序列表）
-        ol 和li标签 （有序列表）    
-        table，tr（table的行便签），td（table的每一个单元格）
-3，&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=yellow&gt;背景色yellow&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre><table><tr><td bgcolor="yellow">背景色yellow</td></tr></table>
-
-<h2 id="3，图片大小，百分比及居中"><a href="#3，图片大小，百分比及居中" class="headerlink" title="3，图片大小，百分比及居中"></a>3，图片大小，百分比及居中</h2><pre><code>1，图片大小：&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;251&quot; height=&quot;350&quot; &gt;
-2，图片百分比：&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;
-3，图片居中：&lt;div align=center&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;&lt;/div&gt;</code></pre><div align="center"><img src="http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg" width="30%" height="30%"></div>
-
-<h2 id="4，背景区块颜色"><a href="#4，背景区块颜色" class="headerlink" title="4，背景区块颜色"></a>4，背景区块颜色</h2><blockquote>
-<p>wo</p>
-<blockquote>
-<p>ow</p>
-</blockquote>
-</blockquote>
-<h2 id="5，代码区块背景颜色"><a href="#5，代码区块背景颜色" class="headerlink" title="5，代码区块背景颜色"></a>5，代码区块背景颜色</h2><pre><code>在next主题中修改，详见博客配置3</code></pre><h2 id="6，代码区块高亮，添加行号"><a href="#6，代码区块高亮，添加行号" class="headerlink" title="6，代码区块高亮，添加行号"></a>6，代码区块高亮，添加行号</h2><pre><code>代码引用采用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```Python</span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line">print(&quot;Hello, World!&quot;);</span><br></pre></td></tr></table></figure></code></pre><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">code</span></span><br></pre></td></tr></table></figure>
-
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2677,7 +2797,7 @@ MJExtension</code></pre></li>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2699,7 +2819,7 @@ MJExtension</code></pre></li>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2807,7 +2927,7 @@ MJExtension</code></pre></li>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">13.8k</span>
+    <span title="Site words total count">14k</span>
   
 </div>
 

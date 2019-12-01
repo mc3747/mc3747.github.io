@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="1，定义不需要连续的内存空间 2，分类####1，单链表 node：头结点，结点，尾结点（next指针指向null） data：存储数据 next：后继指针（指向下一个数据的data）优点：链表的插入和删除数据的复杂度O(1),数组的插入和删除数据的复杂度O(n), 缺点：随机访问元素的复杂度为O(n)，数组随机访问元素的复杂度为O(1), ####2，循环链表    特殊的单链表，尾结点的nex">
+<meta name="description" content="1，定义不需要连续的内存空间 2，分类2.1，单链表node：头结点，结点，尾结点（next指针指向null） data：存储数据 next：后继指针（指向下一个数据的data）优点：链表的插入和删除数据的复杂度O(1),数组的插入和删除数据的复杂度O(n), 缺点：随机访问元素的复杂度为O(n)，数组随机访问元素的复杂度为O(1), 2.2，循环链表特殊的单链表，尾结点的next指针指向头结点">
 <meta name="keywords" content="数据结构和算法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="30_算法3-链表">
 <meta property="og:url" content="https://github.com/2019/11/28/30_算法3-链表/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="1，定义不需要连续的内存空间 2，分类####1，单链表 node：头结点，结点，尾结点（next指针指向null） data：存储数据 next：后继指针（指向下一个数据的data）优点：链表的插入和删除数据的复杂度O(1),数组的插入和删除数据的复杂度O(n), 缺点：随机访问元素的复杂度为O(n)，数组随机访问元素的复杂度为O(1), ####2，循环链表    特殊的单链表，尾结点的nex">
+<meta property="og:description" content="1，定义不需要连续的内存空间 2，分类2.1，单链表node：头结点，结点，尾结点（next指针指向null） data：存储数据 next：后继指针（指向下一个数据的data）优点：链表的插入和删除数据的复杂度O(1),数组的插入和删除数据的复杂度O(n), 缺点：随机访问元素的复杂度为O(n)，数组随机访问元素的复杂度为O(1), 2.2，循环链表特殊的单链表，尾结点的next指针指向头结点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-28T11:47:09.832Z">
+<meta property="og:updated_time" content="2019-12-01T09:30:12.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="30_算法3-链表">
-<meta name="twitter:description" content="1，定义不需要连续的内存空间 2，分类####1，单链表 node：头结点，结点，尾结点（next指针指向null） data：存储数据 next：后继指针（指向下一个数据的data）优点：链表的插入和删除数据的复杂度O(1),数组的插入和删除数据的复杂度O(n), 缺点：随机访问元素的复杂度为O(n)，数组随机访问元素的复杂度为O(1), ####2，循环链表    特殊的单链表，尾结点的nex">
+<meta name="twitter:description" content="1，定义不需要连续的内存空间 2，分类2.1，单链表node：头结点，结点，尾结点（next指针指向null） data：存储数据 next：后继指针（指向下一个数据的data）优点：链表的插入和删除数据的复杂度O(1),数组的插入和删除数据的复杂度O(n), 缺点：随机访问元素的复杂度为O(n)，数组随机访问元素的复杂度为O(1), 2.2，循环链表特殊的单链表，尾结点的next指针指向头结点">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  324
+                  327
                 </span>
               
 
@@ -422,19 +422,25 @@
 
       
         <h2 id="1，定义"><a href="#1，定义" class="headerlink" title="1，定义"></a>1，定义</h2><p>不需要连续的内存空间</p>
-<h2 id="2，分类"><a href="#2，分类" class="headerlink" title="2，分类"></a>2，分类</h2><p>####1，单链表</p>
-<pre><code>node：头结点，结点，尾结点（next指针指向null）
+<h2 id="2，分类"><a href="#2，分类" class="headerlink" title="2，分类"></a>2，分类</h2><h3 id="2-1，单链表"><a href="#2-1，单链表" class="headerlink" title="2.1，单链表"></a>2.1，单链表</h3><pre><code>node：头结点，结点，尾结点（next指针指向null）
 data：存储数据
 next：后继指针（指向下一个数据的data）</code></pre><p>优点：链表的插入和删除数据的复杂度O(1),<br>数组的插入和删除数据的复杂度O(n),</p>
 <p>缺点：随机访问元素的复杂度为O(n)，<br>数组随机访问元素的复杂度为O(1),</p>
-<p>####2，循环链表<br>    特殊的单链表，尾结点的next指针指向头结点<br>    例子：约瑟夫问题</p>
-<p>####3，双向链表<br>    node：<br>    data：<br>    next：后继指针（指向后一数据的prev指针）<br>    prev：前驱指针（指向前一数据的next指针）<br>    删除：<br>        1，值等于给定值的结点：查找O（n），删除O（1）<br>        2，给定指针指向的结点：单链表O（n），双向链表O（1）<br>        例子：java中的LinkedHashMap</p>
-<p>####4，双向循环链表</p>
-<h2 id="3，思想"><a href="#3，思想" class="headerlink" title="3，思想"></a>3，思想</h2><p>时间换空间：手机或者单片机上的程序<br>空间换时间：缓存技术</p>
-<h2 id="4，数组和链表的对比："><a href="#4，数组和链表的对比：" class="headerlink" title="4，数组和链表的对比："></a>4，数组和链表的对比：</h2><pre><code>1，时间复杂度
+<h3 id="2-2，循环链表"><a href="#2-2，循环链表" class="headerlink" title="2.2，循环链表"></a>2.2，循环链表</h3><pre><code>特殊的单链表，尾结点的next指针指向头结点
+例子：约瑟夫问题</code></pre><h3 id="2-3，双向链表"><a href="#2-3，双向链表" class="headerlink" title="2.3，双向链表"></a>2.3，双向链表</h3><pre><code>node：
+data：
+next：后继指针（指向后一数据的prev指针）
+prev：前驱指针（指向前一数据的next指针）
+删除：
+    1，值等于给定值的结点：查找O（n），删除O（1）
+    2，给定指针指向的结点：单链表O（n），双向链表O（1）
+    例子：java中的LinkedHashMap</code></pre><h3 id="2-4，双向循环链表"><a href="#2-4，双向循环链表" class="headerlink" title="2.4，双向循环链表"></a>2.4，双向循环链表</h3><h2 id="3，思想"><a href="#3，思想" class="headerlink" title="3，思想"></a>3，思想</h2><pre><code>时间换空间：手机或者单片机上的程序
+空间换时间：缓存技术</code></pre><h2 id="4，数组和链表的对比："><a href="#4，数组和链表的对比：" class="headerlink" title="4，数组和链表的对比："></a>4，数组和链表的对比：</h2><pre><code>1，时间复杂度
 2，数组：适合缓存
-3，链表：动态扩容</code></pre><h2 id="5，应用"><a href="#5，应用" class="headerlink" title="5，应用"></a>5，应用</h2><p>数组对CPU缓存友好<br>快慢指针实现：<br>LRU淘汰算法：<br>回文字符串的访问</p>
-
+3，链表：动态扩容</code></pre><h2 id="5，应用"><a href="#5，应用" class="headerlink" title="5，应用"></a>5，应用</h2><pre><code>数组对CPU缓存友好
+快慢指针实现：
+LRU淘汰算法：
+回文字符串的访问</code></pre>
       
     </div>
     
@@ -558,7 +564,7 @@ next：后继指针（指向下一个数据的data）</code></pre><p>优点：�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +586,7 @@ next：后继指针（指向下一个数据的data）</code></pre><p>优点：�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -670,7 +676,7 @@ next：后继指针（指向下一个数据的data）</code></pre><p>优点：�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，定义"><span class="nav-number">1.</span> <span class="nav-text">1，定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，分类"><span class="nav-number">2.</span> <span class="nav-text">2，分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，思想"><span class="nav-number">3.</span> <span class="nav-text">3，思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，数组和链表的对比："><span class="nav-number">4.</span> <span class="nav-text">4，数组和链表的对比：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，应用"><span class="nav-number">5.</span> <span class="nav-text">5，应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，定义"><span class="nav-number">1.</span> <span class="nav-text">1，定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，分类"><span class="nav-number">2.</span> <span class="nav-text">2，分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1，单链表"><span class="nav-number">2.1.</span> <span class="nav-text">2.1，单链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2，循环链表"><span class="nav-number">2.2.</span> <span class="nav-text">2.2，循环链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3，双向链表"><span class="nav-number">2.3.</span> <span class="nav-text">2.3，双向链表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4，双向循环链表"><span class="nav-number">2.4.</span> <span class="nav-text">2.4，双向循环链表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，思想"><span class="nav-number">3.</span> <span class="nav-text">3，思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，数组和链表的对比："><span class="nav-number">4.</span> <span class="nav-text">4，数组和链表的对比：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，应用"><span class="nav-number">5.</span> <span class="nav-text">5，应用</span></a></li></ol></div>
             
 
           </div>
@@ -704,7 +710,7 @@ next：后继指针（指向下一个数据的data）</code></pre><p>优点：�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.4k</span>
+    <span title="Site words total count">17.2k</span>
   
 </div>
 

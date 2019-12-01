@@ -96,18 +96,20 @@
 
 
 
-<meta name="description" content="1,Webpack代码编译工具，有入口，出口、loader和插件2，学习网站1-webpack中文网 2-菜鸟入门文档 webpack的封装：阿里的easywebpack 3，webpack的安装1，安装webpack：使用权限安装sudo npm install webpack -g 2，查看版本webpack -v 3，如果查看版本报错（webpack-cli ），执行npm install">
+<meta name="description" content="1,Webpack代码编译工具，有入口，出口、loader，插件，模式5个部分2，学习网站1-webpack中文网 2-webpack英文官网 3-webpack的封装：阿里的easywebpack 3，webpack的安装1，安装webpack：使用权限安装sudo npm install webpack -g 2，查看版本webpack -v 3，如果查看版本报错（webpack-cli ），">
 <meta name="keywords" content="前端工程化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="31_前端工程化1-webpack">
 <meta property="og:url" content="https://github.com/2019/11/29/31_前端工程化1-webpack/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="1,Webpack代码编译工具，有入口，出口、loader和插件2，学习网站1-webpack中文网 2-菜鸟入门文档 webpack的封装：阿里的easywebpack 3，webpack的安装1，安装webpack：使用权限安装sudo npm install webpack -g 2，查看版本webpack -v 3，如果查看版本报错（webpack-cli ），执行npm install">
+<meta property="og:description" content="1,Webpack代码编译工具，有入口，出口、loader，插件，模式5个部分2，学习网站1-webpack中文网 2-webpack英文官网 3-webpack的封装：阿里的easywebpack 3，webpack的安装1，安装webpack：使用权限安装sudo npm install webpack -g 2，查看版本webpack -v 3，如果查看版本报错（webpack-cli ），">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-29T09:50:23.234Z">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8736.jpg">
+<meta property="og:updated_time" content="2019-12-01T09:19:42.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="31_前端工程化1-webpack">
-<meta name="twitter:description" content="1,Webpack代码编译工具，有入口，出口、loader和插件2，学习网站1-webpack中文网 2-菜鸟入门文档 webpack的封装：阿里的easywebpack 3，webpack的安装1，安装webpack：使用权限安装sudo npm install webpack -g 2，查看版本webpack -v 3，如果查看版本报错（webpack-cli ），执行npm install">
+<meta name="twitter:description" content="1,Webpack代码编译工具，有入口，出口、loader，插件，模式5个部分2，学习网站1-webpack中文网 2-webpack英文官网 3-webpack的封装：阿里的easywebpack 3，webpack的安装1，安装webpack：使用权限安装sudo npm install webpack -g 2，查看版本webpack -v 3，如果查看版本报错（webpack-cli ），">
+<meta name="twitter:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8736.jpg">
 
 
 
@@ -384,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  190
+                  425
                 </span>
               
 
@@ -400,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -421,15 +423,51 @@
       
 
       
-        <h2 id="1-Webpack"><a href="#1-Webpack" class="headerlink" title="1,Webpack"></a>1,Webpack</h2><pre><code>代码编译工具，有入口，出口、loader和插件</code></pre><h2 id="2，学习网站"><a href="#2，学习网站" class="headerlink" title="2，学习网站"></a>2，学习网站</h2><p><a href="https://www.webpackjs.com" target="_blank" rel="noopener">1-webpack中文网</a></p>
-<p><a href="https://www.runoob.com/w3cnote/webpack-tutorial.html" target="_blank" rel="noopener">2-菜鸟入门文档</a></p>
-<p>webpack的封装：<a href="http://hubcarl.github.io/easywebpack/webpack/" target="_blank" rel="noopener">阿里的easywebpack</a></p>
+        <h2 id="1-Webpack"><a href="#1-Webpack" class="headerlink" title="1,Webpack"></a>1,Webpack</h2><pre><code>代码编译工具，有入口，出口、loader，插件，模式5个部分</code></pre><h2 id="2，学习网站"><a href="#2，学习网站" class="headerlink" title="2，学习网站"></a>2，学习网站</h2><p><a href="https://www.webpackjs.com" target="_blank" rel="noopener">1-webpack中文网</a></p>
+<p><a href="https://webpack.github.io" target="_blank" rel="noopener">2-webpack英文官网</a></p>
+<p>3-webpack的封装：<a href="http://hubcarl.github.io/easywebpack/webpack/" target="_blank" rel="noopener">阿里的easywebpack</a></p>
 <h2 id="3，webpack的安装"><a href="#3，webpack的安装" class="headerlink" title="3，webpack的安装"></a>3，webpack的安装</h2><pre><code>1，安装webpack：使用权限安装sudo npm install webpack -g
 2，查看版本webpack -v
 3，如果查看版本报错（webpack-cli ），执行npm install webpack-cli -g
-4，运行webpack命令时报错，执行：npm install --save-dev webpack</code></pre><h2 id="4，工程应用"><a href="#4，工程应用" class="headerlink" title="4，工程应用"></a>4，工程应用</h2><pre><code>1，初始化项目：npm init (一直回车，最后yes，生成一个package文件)
+4，运行webpack命令时报错，执行：npm install --save-dev webpack</code></pre><h2 id="4，简单工程应用"><a href="#4，简单工程应用" class="headerlink" title="4，简单工程应用"></a>4，简单工程应用</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8736.jpg" alt="图片36"></p>
+<pre><code>1，初始化项目：npm init (一直回车，最后yes，生成一个package文件)
 2. webpack安装Webpack: npm install --save-dev 
-3. 创建两个文件夹,app文件夹和public文件夹（app文件夹为源码文件，public文件夹包括可供浏览器访问的文件（包括打包生成的js文件和一个index.html））</code></pre>
+3. 创建两个文件夹,src文件夹和public文件夹（src文件夹为源码文件，public文件夹包括可供浏览器访问的文件（包括打包生成的js文件和一个index.html））
+4. src中新建main.js，代码为：
+    document.write(&quot;hello  world&quot;);
+5. index.html代码为：
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;    
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+    body {
+        background-color: yellow;
+    }
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;script src=&quot;./bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+6. 创建一个webpack.config.js文件，内容为
+    const  path = require(&apos;path&apos;);
+    module.exports = {
+    entry:&apos;./src/main.js&apos;,
+    output:{
+    path:path.resolve(__dirname,&apos;public&apos;),
+    filename:&apos;bundle.js&apos;
+        }
+    }
+7. 运行命令：webpack --mode  development
+8. 打开index.html文件，可以看到执行完的html文件</code></pre><h2 id="5，进阶"><a href="#5，进阶" class="headerlink" title="5，进阶"></a>5，进阶</h2><pre><code>1. 加载css文件，使用css-loader,以及style-loader
+2. 加载图片,使用file-loader
+3. 生成html模板，使用html-webpck-plugin插件
+4. css文件分类：使用extract-text-webpack-plugin插件
+5. 自动刷新：使用webpack-dev-server和webpack-cli</code></pre>
       
     </div>
     
@@ -553,7 +591,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +613,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -665,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Webpack"><span class="nav-number">1.</span> <span class="nav-text">1,Webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，学习网站"><span class="nav-number">2.</span> <span class="nav-text">2，学习网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，webpack的安装"><span class="nav-number">3.</span> <span class="nav-text">3，webpack的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，工程应用"><span class="nav-number">4.</span> <span class="nav-text">4，工程应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Webpack"><span class="nav-number">1.</span> <span class="nav-text">1,Webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，学习网站"><span class="nav-number">2.</span> <span class="nav-text">2，学习网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，webpack的安装"><span class="nav-number">3.</span> <span class="nav-text">3，webpack的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，简单工程应用"><span class="nav-number">4.</span> <span class="nav-text">4，简单工程应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，进阶"><span class="nav-number">5.</span> <span class="nav-text">5，进阶</span></a></li></ol></div>
             
 
           </div>
@@ -699,7 +737,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.4k</span>
+    <span title="Site words total count">17.2k</span>
   
 </div>
 

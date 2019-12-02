@@ -280,6 +280,441 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/20_java基础语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/24/20_java基础语法/" itemprop="url">20_java基础语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T15:06:39+08:00">
+                2019-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/24/20_java基础语法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/20_java基础语法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/24/20_java基础语法/" class="leancloud_visitors" data-flag-title="20_java基础语法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，基本结构"><a href="#1，基本结构" class="headerlink" title="1，基本结构"></a>1，基本结构</h2><ol>
+<li><p>一个完整的Java。源程序应该包括下列部分：</p>
+<pre><code>1，package语句，该部分至多只有一句，必须放在源程序的第一句。
+ 2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。
+ 3，public classDefinition，公共类定义部分，至多只有一个公共类的定义，
+4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。
+ 5，classDefinition，类定义部分，可以有0个或者多个类定义。
+6，interfaceDefinition，接口定义部分，可以有0个或者多个接口定义。</code></pre></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javawork.helloworld;</span><br><span class="line"><span class="comment">/*把编译生成的所有．class文件放到包javawork.helloworld中*/</span></span><br><span class="line"><span class="keyword">import</span> java awt.*;</span><br><span class="line"><span class="comment">//告诉编译器本程序中用到系统的AWT包</span></span><br><span class="line"><span class="keyword">import</span> javawork.newcentury;</span><br><span class="line"><span class="comment">/*告诉编译器本程序中用到用户自定义的包javawork.newcentury*/</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldApp</span></span>&#123;...｝</span><br><span class="line"><span class="comment">/*公共类HelloWorldApp的定义，名字与文件名相同*/</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TheFirstClass</span>｛...｝</span>;</span><br><span class="line"><span class="comment">//第一个普通类TheFirstClass的定义 </span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TheFirstInterface</span></span>&#123;......&#125;</span><br><span class="line"><span class="comment">/*定义一个接口TheFirstInterface*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-入口函数"><a href="#2-入口函数" class="headerlink" title="2,入口函数"></a>2,入口函数</h2><blockquote>
+<p>public static void main(String[] args)<br>这是 Java 程序的入口地址，Java 虚拟机运行程序的时候首先找的就是 main 方法。跟 C 语言里面的 main() 函数的作用是一样的。只有有 main() 方法的 Java 程序才能够被 Java 虚拟机运行，可理解为规定的格式。</p>
+</blockquote>
+<pre><code>1,public：表示的这个程序的访问权限，表示的是任何的场合可以被引用，这样 Java 虚拟机就可以找到 main() 方法,从而来运行 javac 程序。
+ 2,static： 表明方法是静态的，不依赖类的对象的，是属于类的，在类加载的时候 main() 方法也随着加载到内存中去。
+ 3,void:main()：方法是不需要返回值的。
+ 4,main：约定俗成，规定的。
+ 5,String[] args：从控制台接收参数。</code></pre><h2 id="3-命名规范"><a href="#3-命名规范" class="headerlink" title="3,命名规范"></a>3,命名规范</h2><ol>
+<li>项目名全部小写</li>
+<li>包名全部小写</li>
+<li>类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。如：public class MyFirstClass{}</li>
+<li>变量名、方法名首字母小写，如果名称由多个单词组成，每个单词的首字母都要大写。如：<br>int index=0;<br>public void toString(){}</li>
+<li>常量名全部大写<br>A,如：public static final String GAME_COLOR=”RED”;</li>
+<li>所有命名规则必须遵循以下规则：<br>1)、名称只能由字母、数字、下划线、$符号组成<br>2)、不能以数字开头<br>3)、名称不能使用JAVA中的关键字。<br>4)、坚决不允许出现中文及拼音命名。</li>
+</ol>
+<h2 id="4-数据类型"><a href="#4-数据类型" class="headerlink" title="4,数据类型"></a>4,数据类型</h2><blockquote>
+<p>原始类型：boolean，char，byte，short，int，long，float，double。</p>
+<blockquote>
+<p>   包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</p>
+</blockquote>
+</blockquote>
+<pre><code>boolean   布尔型   1个字节 8bit（8位）
+byte     字节类型   1个字节
+char     字符类型   2个字节
+short     短整型     2个字节
+int          整型        4个字节
+float      浮点型（单精度）4个字节
+long      长整型      8个字节
+double   双精度类型  8个字节</code></pre><h2 id="5-修饰符"><a href="#5-修饰符" class="headerlink" title="5,修饰符"></a>5,修饰符</h2><h3 id="5-1访问修饰符"><a href="#5-1访问修饰符" class="headerlink" title="5.1访问修饰符"></a>5.1访问修饰符</h3><pre><code>default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。
+private : 在同一类内可见。使用对象：变量、方法。 注意：不能修饰类（外部类）
+public : 对所有类可见。使用对象：类、接口、变量、方法
+protected : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）。</code></pre><h3 id="5-2非访问修饰符"><a href="#5-2非访问修饰符" class="headerlink" title="5.2非访问修饰符"></a>5.2非访问修饰符</h3><pre><code>static 修饰符，用来修饰类方法和类变量。
+final 修饰符，用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。
+abstract 修饰符，用来创建抽象类和抽象方法。
+synchronized 修饰符：声明的方法同一时间只能被一个线程访问。修饰符可以应用于四个访问修饰符。
+transient 修饰符：序列化的对象包含被 transient 修饰的实例变量时，java 虚拟机(JVM)跳过该特定的变量。该修饰符包含在定义变量的语句中，用来预处理类和变量的数据类型
+volatile 修饰符：修饰的成员变量在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值。而且，当成员变量发生变化时，会强制线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/19_我用“阿里云”来搞事情/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/24/19_我用“阿里云”来搞事情/" itemprop="url">19_我用“阿里云”来搞事情</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T11:25:05+08:00">
+                2019-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/24/19_我用“阿里云”来搞事情/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/19_我用“阿里云”来搞事情/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/24/19_我用“阿里云”来搞事情/" class="leancloud_visitors" data-flag-title="19_我用“阿里云”来搞事情">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  59
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，搭配PicGo构建图床"><a href="#1，搭配PicGo构建图床" class="headerlink" title="1，搭配PicGo构建图床"></a>1，搭配PicGo构建图床</h2><p>参考：<a href="https://www.cnblogs.com/progor/p/9850514.html" target="_blank" rel="noopener">参考文章1</a></p>
+<h2 id="2，申请域名"><a href="#2，申请域名" class="headerlink" title="2，申请域名"></a>2，申请域名</h2><h2 id="3，测试调用API"><a href="#3，测试调用API" class="headerlink" title="3，测试调用API"></a>3，测试调用API</h2><pre><code>api市场：https://market.aliyun.com/products/56956004?spm=5176.730006-56956004-57126001-cmapi011151.102.1.35083685k7cGvq
+postman模拟：https://help.aliyun.com/document_detail/93641.html?spm=a2c4g.11186623.6.573.50145d77Is8e00</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/23/18_xcode的调试技能1-日志/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2087,440 +2522,6 @@ center：居中</code></pre><h2 id="4，flex-items设置"><a href="#4，flex-ite
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/20/10_VSCode工具的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/20/10_VSCode工具的使用/" itemprop="url">10_VSCode工具的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T09:22:52+08:00">
-                2019-10-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/20/10_VSCode工具的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/20/10_VSCode工具的使用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/20/10_VSCode工具的使用/" class="leancloud_visitors" data-flag-title="10_VSCode工具的使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  84
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考：<a href="https://www.cnblogs.com/summit7ca/p/6944215.html" target="_blank" rel="noopener">https://www.cnblogs.com/summit7ca/p/6944215.html</a></p>
-<p>##1，快捷键：<br>返回上一级：control + ‘-’</p>
-<p>##2，在js文件中设置emmet智能提示<br>    1，找到vscode的 setting.json文件<br>        方法1：设置界面 -》在搜索栏里搜索setting.json<br>        方法2：设置界面 -》右上角一个‘{}’图标，可以切换setting.json<br>    2，设置”emmet.includeLanguages”: {<br>      “javascript”: “html”<br>  }</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/17/9_iOS空值过滤/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/17/9_iOS空值过滤/" itemprop="url">9_iOS空值过滤</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T10:56:09+08:00">
-                2019-10-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/17/9_iOS空值过滤/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/17/9_iOS空值过滤/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/17/9_iOS空值过滤/" class="leancloud_visitors" data-flag-title="9_iOS空值过滤">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  582
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，数据传输的过程"><a href="#1，数据传输的过程" class="headerlink" title="1，数据传输的过程"></a>1，数据传输的过程</h2><table><tr>
-<td bgcolor="orange">json层:后台返回的json数据</td>
-<td bgcolor="yellow">🔜</td>
-<td bgcolor="green">字典层:本地序列化解析json数据</td>
-<td bgcolor="yellow">🔜</td>
-<td bgcolor="B6EEDE">模型层:字典转成模型</td>
-<td bgcolor="yellow">🔜</td>
-<td bgcolor="EEB6E8">应用层:直接使用模型</td>
-</tr>
-
-</table>
-
-<h2 id="2，出现空值的几个环节"><a href="#2，出现空值的几个环节" class="headerlink" title="2，出现空值的几个环节"></a>2，出现空值的几个环节</h2><ol>
-<li><p>本地新建<br>未赋值的变量为（null）<br>字段和数组的value不能为nil，只能是NSNull</p>
-</li>
-<li><p>服务器返回</p>
-<pre><code>1,没有返回值object，直接使用会崩
-2,没有返回值object的某个字段key1
-    返回（null），不会崩溃
-3,返回值的某个字段未赋值
-    数据库中为null，解析成&lt;null&gt;
-    不是String，不是nil，会引起崩溃
-4,返回值的某个字段赋值为null,与未赋值类似</code></pre></li>
-</ol>
-<h2 id="3，采取的安全方法"><a href="#3，采取的安全方法" class="headerlink" title="3，采取的安全方法"></a>3，采取的安全方法</h2><ol>
-<li>安全的集合数据：空值都转成空字符串<br> 应用在字典层</li>
-</ol>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">id</span>)noEmptyWithObject:(<span class="keyword">id</span>)object&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="built_in">NSString</span> *nullStr = <span class="string">@""</span>;</span><br><span class="line">    <span class="comment">//数据处理</span></span><br><span class="line">    <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="built_in">NSMutableArray</span> *array = [(<span class="built_in">NSArray</span> *)object mutableCopy];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index&lt;array.count; index++) &#123;</span><br><span class="line">            <span class="comment">//遍历后每个数据</span></span><br><span class="line">            <span class="keyword">id</span> arrayObject = array[index] ;</span><br><span class="line">            <span class="comment">//返回数据</span></span><br><span class="line">            <span class="keyword">id</span> useObject = [<span class="keyword">self</span> noEmptyWithObject:arrayObject];</span><br><span class="line">            <span class="comment">//存档</span></span><br><span class="line">            [array setObject:useObject atIndexedSubscript:index];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="built_in">NSMutableDictionary</span> *mutableDic = [(<span class="built_in">NSDictionary</span> *)object mutableCopy];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> key <span class="keyword">in</span> mutableDic.allKeys) &#123;</span><br><span class="line">            <span class="comment">//遍历后每个数据</span></span><br><span class="line">            <span class="keyword">id</span> value = mutableDic[key];</span><br><span class="line">            <span class="comment">//返回数据</span></span><br><span class="line">            <span class="keyword">id</span> useObject = [<span class="keyword">self</span> noEmptyWithObject:value];</span><br><span class="line">            <span class="comment">//存档</span></span><br><span class="line">            [mutableDic setObject:useObject forKey:key];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> mutableDic;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isEqual:[<span class="built_in">NSNull</span> null]]||object == <span class="literal">nil</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> nullStr;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>第三方库 NullSafe:将NSNull转成nil<br> 应用在字典层<br> 参考链接：<a href="https://github.com/nicklockwood/NullSafe">https://github.com/nicklockwood/NullSafe</a></li>
-</ol>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>，创建一个方法缓存，这个缓存会缓存项目中类的所有类名。</span><br><span class="line"><span class="number">2</span>，遍历缓存，寻找是否已经有可以执行此方法的类。</span><br><span class="line"><span class="number">3</span>，如果有的话，返回这个 <span class="built_in">NSMethodSignature</span> 。</span><br><span class="line"><span class="number">4</span>，如果没有的话，返回 <span class="literal">nil</span> , 接下来会走 forwardInvocation:方法。</span><br><span class="line">[invocation invokeWithTarget:<span class="literal">nil</span>]; 将消息转发给 <span class="literal">nil</span>。</span><br><span class="line"></span><br><span class="line">	- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)selector</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//look up method signature</span></span><br><span class="line">    <span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">super</span> methodSignatureForSelector:selector];</span><br><span class="line">    <span class="keyword">if</span> (!signature)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (Class someClass <span class="keyword">in</span> @[</span><br><span class="line">            [<span class="built_in">NSMutableArray</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSMutableDictionary</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSMutableString</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSNumber</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSDate</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSData</span> <span class="keyword">class</span>]</span><br><span class="line">        ])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">@try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> ([someClass instancesRespondToSelector:selector])</span><br><span class="line">                &#123;</span><br><span class="line">                    signature = [someClass instanceMethodSignatureForSelector:selector];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">@catch</span> (__unused <span class="built_in">NSException</span> *unused) &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> signature;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation</span><br><span class="line">&#123;</span><br><span class="line">    invocation.target = <span class="literal">nil</span>;</span><br><span class="line">    [invocation invoke];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<ol start="3">
-<li><p>第三方json解析<br> 1，应用在json层<br> 2，解析方法</p>
-<pre><code>除了原生的NSJSONSerialization外
-TouchJson
-SBJson 
-JSONKit </code></pre></li>
-<li><p>字典转模型<br> 1，应用在模型层<br> 2，字典转模型，会用单独的一篇来讲，<br> 3，字典转模型方法</p>
-<pre><code>YYModel
-MJExtension</code></pre></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2573,7 +2574,7 @@ MJExtension</code></pre></li>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2595,7 +2596,7 @@ MJExtension</code></pre></li>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2703,7 +2704,7 @@ MJExtension</code></pre></li>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">18k</span>
+    <span title="Site words total count">18.2k</span>
   
 </div>
 

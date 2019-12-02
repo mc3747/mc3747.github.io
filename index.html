@@ -280,6 +280,210 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/02/38_算法5-队列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/02/38_算法5-队列/" itemprop="url">38_算法5-队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-02T14:40:51+08:00">
+                2019-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/02/38_算法5-队列/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/02/38_算法5-队列/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/02/38_算法5-队列/" class="leancloud_visitors" data-flag-title="38_算法5-队列">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  246
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1 定义"></a>1 定义</h2><pre><code>1，先进者先出
+2，入队enqueue（），出队dequeue（）
+3，队尾插入元素，队头删除元素</code></pre><h2 id="2-组成"><a href="#2-组成" class="headerlink" title="2 组成"></a>2 组成</h2><pre><code>栈只需一个栈顶指针，队列需要一个head指针，指向队头；一个tail指针，指向队尾</code></pre><h2 id="3-实现方式"><a href="#3-实现方式" class="headerlink" title="3    实现方式"></a>3    实现方式</h2><pre><code>1. 数组实现：顺序队列</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8745.jpeg" alt></p>
+<pre><code>2. 链表实现：链式队列</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8746.jpeg" alt></p>
+<h2 id="4-循环队列"><a href="#4-循环队列" class="headerlink" title="4    循环队列"></a>4    循环队列</h2><pre><code>数组实现队列时，会有数据搬移操作，解决办法就是循环队列；
+循环队列的关键：队空和队满的条件</code></pre><h2 id="5-阻塞队列"><a href="#5-阻塞队列" class="headerlink" title="5    阻塞队列"></a>5    阻塞队列</h2><pre><code>2种情形：
+    1，队列为空时，队头获取数据就会被阻塞
+    2，如果队列已满，队尾插入数据就会被阻塞</code></pre><h2 id="6-并发队列"><a href="#6-并发队列" class="headerlink" title="6    并发队列"></a>6    并发队列</h2><pre><code>定义：线程安全的队列
+方法：加锁</code></pre><h2 id="7-实际应用"><a href="#7-实际应用" class="headerlink" title="7 实际应用"></a>7 实际应用</h2><pre><code>循环并发队列：高性能队列Disruptor，Linux循环缓存；
+实现公平锁：java concurrent并发包利用ArrayBlockingQueue
+实现无锁并发队列：cas + 数组
+分布式消息队列：kafka</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/01/37_java1-java简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1285,7 +1489,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/32_前端工程化2-redux/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/32_前端工程化2-flux和redux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -1304,7 +1508,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/29/32_前端工程化2-redux/" itemprop="url">32_前端工程化2-redux</a></h1>
+                <a class="post-title-link" href="/2019/11/29/32_前端工程化2-flux和redux/" itemprop="url">32_前端工程化2-flux和redux</a></h1>
         
 
         <div class="post-meta">
@@ -1357,8 +1561,8 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/29/32_前端工程化2-redux/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/32_前端工程化2-redux/" itemprop="commentCount"></span>
+                <a href="/2019/11/29/32_前端工程化2-flux和redux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/32_前端工程化2-flux和redux/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1366,7 +1570,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
 
           
           
-             <span id="/2019/11/29/32_前端工程化2-redux/" class="leancloud_visitors" data-flag-title="32_前端工程化2-redux">
+             <span id="/2019/11/29/32_前端工程化2-flux和redux/" class="leancloud_visitors" data-flag-title="32_前端工程化2-flux和redux">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1391,7 +1595,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  535
                 </span>
               
 
@@ -1407,7 +1611,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -1430,7 +1634,24 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
       
         
           
-            
+            <h2 id="1，Flux"><a href="#1，Flux" class="headerlink" title="1，Flux"></a>1，Flux</h2><p><a href="https://facebook.github.io/flux/" target="_blank" rel="noopener">英文官网</a></p>
+<h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><pre><code>Flux是Facebook用于构建客户端Web应用程序的基本架构，我们可以将Flux看做一种应用程序中的数据流的设计模式</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8740.png" alt></p>
+<h3 id="1-2-组成"><a href="#1-2-组成" class="headerlink" title="1.2 组成"></a>1.2 组成</h3><pre><code>Dispacher：调度器，接收到Action，并将它们发送给Store。
+Action：动作消息，包含动作类型与动作描述。
+Store：数据中心，持有应用程序的数据，并会响应Action消息。
+View：应用视图，可展示Store数据，并实时响应Store的更新。</code></pre><h3 id="1-3-原理"><a href="#1-3-原理" class="headerlink" title="1.3 原理"></a>1.3 原理</h3><pre><code>Flux应用中的数据以单一方向流动：
+    视图产生动作消息，将动作传递给调度器。
+    调度器将动作消息发送给每一个数据中心。
+    数据中心再将数据传递给视图。</code></pre><h3 id="1-4-示例代码"><a href="#1-4-示例代码" class="headerlink" title="1.4 示例代码"></a>1.4 示例代码</h3><h2 id="2，Redux"><a href="#2，Redux" class="headerlink" title="2，Redux"></a>2，Redux</h2><p><a href="https://www.redux.org.cn" target="_blank" rel="noopener">Redux中文文档</a></p>
+<pre><code>是JavaScript应用可预测的状态管理容器</code></pre><h3 id="2-1-数据流向对比"><a href="#2-1-数据流向对比" class="headerlink" title="2.1 数据流向对比"></a>2.1 数据流向对比</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8741.jpg" alt></p>
+<h3 id="2-2-redux和flux区别"><a href="#2-2-redux和flux区别" class="headerlink" title="2.2 redux和flux区别"></a>2.2 redux和flux区别</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8742.jpg" alt></p>
+<pre><code>1，Redux并没有 dispatcher。它依赖纯函数来替代事件处理器，也不需要额外的实体来管理它们。Flux尝尝被表述为：(state, action) =&gt; state，Redux 拥有 Flux 所没有的 Reducer。Reducer 根据 action 的 type 去执行对应的 state 做变化的函式叫做 Reducer。你可以使用 switch 或是使用函式 mapping 的方式去对应处理的方式
+2，Redux为不可变数据集。在每次Action请求触发以后，Redux都会生成一个新的对象来更新State，而不是在当前状态上进行更改。
+3，Redux有且只有一个Store对象。它的Store储存了整个应用程序的State。
+4，Redux 拥有许多方便好用的辅助测试工具（例如：redux-devtools、react-transform-boilerplate），方便测试和使用 Hot Module Reload</code></pre><h2 id="3，React-Redux"><a href="#3，React-Redux" class="headerlink" title="3，React-Redux"></a>3，React-Redux</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8743.jpg" alt></p>
+<pre><code>react-redux 是 React 和 Redux 间的桥梁，使用 Provider、connect 去连结 store 和 React View；</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8744.png" alt>    </p>
+<pre><code>整合了 react-redux 后，我们的 React App 就可以解决传统跨 Component 之前传递 state 的问题和困难。
+只要透过 Provider 就可以让每个 React App 中的 Component 取用 store 中的 state，非常方便（接下来我们也会更详细说明 Container/Component、connect 的用法）。</code></pre>
           
         
       
@@ -2107,199 +2328,6 @@ LRU淘汰算法：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/27/27_接口2-测试和抓包软件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/27/27_接口2-测试和抓包软件/" itemprop="url">27_接口2-测试和抓包软件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-27T17:46:01+08:00">
-                2019-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/27/27_接口2-测试和抓包软件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/27/27_接口2-测试和抓包软件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/11/27/27_接口2-测试和抓包软件/" class="leancloud_visitors" data-flag-title="27_接口2-测试和抓包软件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2352,7 +2380,7 @@ LRU淘汰算法：
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">37</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2482,7 +2510,7 @@ LRU淘汰算法：
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">17.2k</span>
+    <span title="Site words total count">18k</span>
   
 </div>
 

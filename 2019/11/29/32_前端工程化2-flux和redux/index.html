@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="前端工程化,">
 
 
 
@@ -96,17 +96,24 @@
 
 
 
-<meta name="description" content="做难事必有所得">
-<meta name="keywords" content="上进，博学，深刻">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小新的个人博客">
-<meta property="og:url" content="https://github.com/tags/github/index.html">
+<meta name="description" content="1，Flux英文官网 1.1 简介Flux是Facebook用于构建客户端Web应用程序的基本架构，我们可以将Flux看做一种应用程序中的数据流的设计模式 1.2 组成Dispacher：调度器，接收到Action，并将它们发送给Store。 Action：动作消息，包含动作类型与动作描述。 Store：数据中心，持有应用程序的数据，并会响应Action消息。 View：应用视图，可展示Store">
+<meta name="keywords" content="前端工程化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="32_前端工程化2-flux和redux">
+<meta property="og:url" content="https://github.com/2019/11/29/32_前端工程化2-flux和redux/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1，Flux英文官网 1.1 简介Flux是Facebook用于构建客户端Web应用程序的基本架构，我们可以将Flux看做一种应用程序中的数据流的设计模式 1.2 组成Dispacher：调度器，接收到Action，并将它们发送给Store。 Action：动作消息，包含动作类型与动作描述。 Store：数据中心，持有应用程序的数据，并会响应Action消息。 View：应用视图，可展示Store">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8740.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8741.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8742.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8743.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8744.png">
+<meta property="og:updated_time" content="2019-12-02T06:37:12.601Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小新的个人博客">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:title" content="32_前端工程化2-flux和redux">
+<meta name="twitter:description" content="1，Flux英文官网 1.1 简介Flux是Facebook用于构建客户端Web应用程序的基本架构，我们可以将Flux看做一种应用程序中的数据流的设计模式 1.2 组成Dispacher：调度器，接收到Action，并将它们发送给Store。 Action：动作消息，包含动作类型与动作描述。 Store：数据中心，持有应用程序的数据，并会响应Action消息。 View：应用视图，可展示Store">
+<meta name="twitter:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8740.png">
 
 
 
@@ -136,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/tags/github/">
+  <link rel="canonical" href="https://github.com/2019/11/29/32_前端工程化2-flux和redux/">
 
 
 
 
 
-  <title>标签: github | 小新的个人博客</title>
+  <title>32_前端工程化2-flux和redux | 小新的个人博客</title>
   
 
 
@@ -161,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,52 +272,241 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>github<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/32_前端工程化2-flux和redux/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/10/25/23_github相关的小技巧/" itemprop="url">
-              
-                <span itemprop="name">23_github相关的小技巧</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">32_前端工程化2-flux和redux</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-25T16:27:17+08:00" content="2019-10-25">
-          10-25
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T11:32:50+08:00">
+                2019-11-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/29/32_前端工程化2-flux和redux/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/32_前端工程化2-flux和redux/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/29/32_前端工程化2-flux和redux/" class="leancloud_visitors" data-flag-title="32_前端工程化2-flux和redux">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  535
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h2 id="1，Flux"><a href="#1，Flux" class="headerlink" title="1，Flux"></a>1，Flux</h2><p><a href="https://facebook.github.io/flux/" target="_blank" rel="noopener">英文官网</a></p>
+<h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><pre><code>Flux是Facebook用于构建客户端Web应用程序的基本架构，我们可以将Flux看做一种应用程序中的数据流的设计模式</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8740.png" alt></p>
+<h3 id="1-2-组成"><a href="#1-2-组成" class="headerlink" title="1.2 组成"></a>1.2 组成</h3><pre><code>Dispacher：调度器，接收到Action，并将它们发送给Store。
+Action：动作消息，包含动作类型与动作描述。
+Store：数据中心，持有应用程序的数据，并会响应Action消息。
+View：应用视图，可展示Store数据，并实时响应Store的更新。</code></pre><h3 id="1-3-原理"><a href="#1-3-原理" class="headerlink" title="1.3 原理"></a>1.3 原理</h3><pre><code>Flux应用中的数据以单一方向流动：
+    视图产生动作消息，将动作传递给调度器。
+    调度器将动作消息发送给每一个数据中心。
+    数据中心再将数据传递给视图。</code></pre><h3 id="1-4-示例代码"><a href="#1-4-示例代码" class="headerlink" title="1.4 示例代码"></a>1.4 示例代码</h3><h2 id="2，Redux"><a href="#2，Redux" class="headerlink" title="2，Redux"></a>2，Redux</h2><p><a href="https://www.redux.org.cn" target="_blank" rel="noopener">Redux中文文档</a></p>
+<pre><code>是JavaScript应用可预测的状态管理容器</code></pre><h3 id="2-1-数据流向对比"><a href="#2-1-数据流向对比" class="headerlink" title="2.1 数据流向对比"></a>2.1 数据流向对比</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8741.jpg" alt></p>
+<h3 id="2-2-redux和flux区别"><a href="#2-2-redux和flux区别" class="headerlink" title="2.2 redux和flux区别"></a>2.2 redux和flux区别</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8742.jpg" alt></p>
+<pre><code>1，Redux并没有 dispatcher。它依赖纯函数来替代事件处理器，也不需要额外的实体来管理它们。Flux尝尝被表述为：(state, action) =&gt; state，Redux 拥有 Flux 所没有的 Reducer。Reducer 根据 action 的 type 去执行对应的 state 做变化的函式叫做 Reducer。你可以使用 switch 或是使用函式 mapping 的方式去对应处理的方式
+2，Redux为不可变数据集。在每次Action请求触发以后，Redux都会生成一个新的对象来更新State，而不是在当前状态上进行更改。
+3，Redux有且只有一个Store对象。它的Store储存了整个应用程序的State。
+4，Redux 拥有许多方便好用的辅助测试工具（例如：redux-devtools、react-transform-boilerplate），方便测试和使用 Hot Module Reload</code></pre><h2 id="3，React-Redux"><a href="#3，React-Redux" class="headerlink" title="3，React-Redux"></a>3，React-Redux</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8743.jpg" alt></p>
+<pre><code>react-redux 是 React 和 Redux 间的桥梁，使用 Provider、connect 去连结 store 和 React View；</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8744.png" alt>    </p>
+<pre><code>整合了 react-redux 后，我们的 React App 就可以解决传统跨 Component 之前传递 state 的问题和困难。
+只要透过 Provider 就可以让每个 React App 中的 Component 取用 store 中的 state，非常方便（接下来我们也会更详细说明 Container/Component、connect 的用法）。</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端工程化/" rel="tag"># 前端工程化</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/29/31_前端工程化1-webpack/" rel="next" title="31_前端工程化1-webpack">
+                <i class="fa fa-chevron-left"></i> 31_前端工程化1-webpack
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/29/33_前端工程化3-babel和JSX/" rel="prev" title="33_前端工程化3-babel">
+                33_前端工程化3-babel <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -318,6 +514,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -338,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -458,6 +670,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，Flux"><span class="nav-number">1.</span> <span class="nav-text">1，Flux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-简介"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-组成"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 组成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-原理"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-示例代码"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 示例代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，Redux"><span class="nav-number">2.</span> <span class="nav-text">2，Redux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-数据流向对比"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 数据流向对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-redux和flux区别"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 redux和flux区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，React-Redux"><span class="nav-number">3.</span> <span class="nav-text">3，React-Redux</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -627,6 +855,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

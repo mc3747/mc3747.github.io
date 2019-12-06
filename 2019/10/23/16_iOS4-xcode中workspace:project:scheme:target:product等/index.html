@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="xcode,">
 
 
 
@@ -96,17 +96,28 @@
 
 
 
-<meta name="description" content="做难事必有所得">
-<meta name="keywords" content="上进，博学，深刻">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小新的个人博客">
-<meta property="og:url" content="https://github.com/tags/ipa文件/index.html">
+<meta name="description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等   3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一">
+<meta name="keywords" content="xcode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="16_iOS4-xcode中workspace&#x2F;project&#x2F;scheme&#x2F;target&#x2F;product等">
+<meta property="og:url" content="https://github.com/2019/10/23/16_iOS4-xcode中workspace:project:scheme:target:product等/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等   3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8717.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8718.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8719.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8720.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8721.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8722.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8723.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8724.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8725.jpg">
+<meta property="og:updated_time" content="2019-12-06T08:41:36.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小新的个人博客">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:title" content="16_iOS4-xcode中workspace&#x2F;project&#x2F;scheme&#x2F;target&#x2F;product等">
+<meta name="twitter:description" content="参考文章1参考文章2 1，Workspace Xcode Workspace可类比为“办公大楼” 维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库   2，Project 可理解为“在办公大楼里的公司” 包含所有源文件和资源文件 指定环境变量debug，release等   3，Scheme 可以理解为“公司里的项目团队” 定义target的构建信息 只有一">
+<meta name="twitter:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8717.png">
 
 
 
@@ -136,13 +147,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/tags/ipa文件/">
+  <link rel="canonical" href="https://github.com/2019/10/23/16_iOS4-xcode中workspace:project:scheme:target:product等/">
 
 
 
 
 
-  <title>标签: ipa文件 | 小新的个人博客</title>
+  <title>16_iOS4-xcode中workspace/project/scheme/target/product等 | 小新的个人博客</title>
   
 
 
@@ -161,7 +172,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,52 +276,249 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>ipa文件<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/23/16_iOS4-xcode中workspace:project:scheme:target:product等/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/10/21/13_iOS3-生成ipa文件的方法/" itemprop="url">
-              
-                <span itemprop="name">13_iOS3-生成ipa文件的方法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">16_iOS4-xcode中workspace/project/scheme/target/product等</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-21T14:07:33+08:00" content="2019-10-21">
-          10-21
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T08:49:01+08:00">
+                2019-10-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/23/16_iOS4-xcode中workspace:project:scheme:target:product等/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/16_iOS4-xcode中workspace:project:scheme:target:product等/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/23/16_iOS4-xcode中workspace:project:scheme:target:product等/" class="leancloud_visitors" data-flag-title="16_iOS4-xcode中workspace/project/scheme/target/product等">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  185
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.cnblogs.com/lxlx1798/p/9369537.html" target="_blank" rel="noopener">参考文章1</a><br><a href="https://www.jianshu.com/p/5740f41881d9" target="_blank" rel="noopener">参考文章2</a></p>
+<h2 id="1，Workspace"><a href="#1，Workspace" class="headerlink" title="1，Workspace"></a>1，Workspace</h2><ol>
+<li>Xcode Workspace可类比为“办公大楼”</li>
+<li>维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库</li>
+</ol>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8717.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8718.jpg" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8719.jpg" alt></p>
+<h2 id="2，Project"><a href="#2，Project" class="headerlink" title="2，Project"></a>2，Project</h2><ol>
+<li>可理解为“在办公大楼里的公司”</li>
+<li>包含所有源文件和资源文件</li>
+<li>指定环境变量debug，release等<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8720.png" alt></li>
+</ol>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8721.jpg" alt></p>
+<h2 id="3，Scheme"><a href="#3，Scheme" class="headerlink" title="3，Scheme"></a>3，Scheme</h2><ol>
+<li>可以理解为“公司里的项目团队”</li>
+<li>定义target的构建信息</li>
+<li>只有一个是活跃的<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8722.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8723.png" alt></li>
+</ol>
+<h2 id="4，Target"><a href="#4，Target" class="headerlink" title="4，Target"></a>4，Target</h2><ol>
+<li>可以理解为“公司里项目团队的产品”</li>
+<li>构建设置和构建阶段（Build settings 和 Build phases）</li>
+<li>target继承了project的构建设置。但是你可以在target层次覆盖任何project的设置<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8724.png" alt></li>
+</ol>
+<h2 id="5，Product"><a href="#5，Product" class="headerlink" title="5，Product"></a>5，Product</h2><ol>
+<li>可以理解为“公司里项目的成型产品”<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8725.jpg" alt></li>
+</ol>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/xcode/" rel="tag"># xcode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/22/15_算法1-复杂度/" rel="next" title="15_算法1-复杂度">
+                <i class="fa fa-chevron-left"></i> 15_算法1-复杂度
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/23/17_编译原理和LLVM/" rel="prev" title="17_编译原理和LLVM">
+                17_编译原理和LLVM <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -318,6 +526,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -338,8 +553,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -458,6 +682,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，Workspace"><span class="nav-number">1.</span> <span class="nav-text">1，Workspace</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，Project"><span class="nav-number">2.</span> <span class="nav-text">2，Project</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，Scheme"><span class="nav-number">3.</span> <span class="nav-text">3，Scheme</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，Target"><span class="nav-number">4.</span> <span class="nav-text">4，Target</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，Product"><span class="nav-number">5.</span> <span class="nav-text">5，Product</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -627,6 +867,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

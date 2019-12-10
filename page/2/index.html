@@ -280,6 +280,210 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/02/38_算法5-队列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/02/38_算法5-队列/" itemprop="url">38_算法5-队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-02T14:40:51+08:00">
+                2019-12-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/02/38_算法5-队列/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/02/38_算法5-队列/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/02/38_算法5-队列/" class="leancloud_visitors" data-flag-title="38_算法5-队列">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  246
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1 定义"></a>1 定义</h2><pre><code>1，先进者先出
+2，入队enqueue（），出队dequeue（）
+3，队尾插入元素，队头删除元素</code></pre><h2 id="2-组成"><a href="#2-组成" class="headerlink" title="2 组成"></a>2 组成</h2><pre><code>栈只需一个栈顶指针，队列需要一个head指针，指向队头；一个tail指针，指向队尾</code></pre><h2 id="3-实现方式"><a href="#3-实现方式" class="headerlink" title="3    实现方式"></a>3    实现方式</h2><pre><code>1. 数组实现：顺序队列</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8745.jpeg" alt></p>
+<pre><code>2. 链表实现：链式队列</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8746.jpeg" alt></p>
+<h2 id="4-循环队列"><a href="#4-循环队列" class="headerlink" title="4    循环队列"></a>4    循环队列</h2><pre><code>数组实现队列时，会有数据搬移操作，解决办法就是循环队列；
+循环队列的关键：队空和队满的条件</code></pre><h2 id="5-阻塞队列"><a href="#5-阻塞队列" class="headerlink" title="5    阻塞队列"></a>5    阻塞队列</h2><pre><code>2种情形：
+    1，队列为空时，队头获取数据就会被阻塞
+    2，如果队列已满，队尾插入数据就会被阻塞</code></pre><h2 id="6-并发队列"><a href="#6-并发队列" class="headerlink" title="6    并发队列"></a>6    并发队列</h2><pre><code>定义：线程安全的队列
+方法：加锁</code></pre><h2 id="7-实际应用"><a href="#7-实际应用" class="headerlink" title="7 实际应用"></a>7 实际应用</h2><pre><code>循环并发队列：高性能队列Disruptor，Linux循环缓存；
+实现公平锁：java concurrent并发包利用ArrayBlockingQueue
+实现无锁并发队列：cas + 数组
+分布式消息队列：kafka</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/01/37_java1-java简介/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -706,7 +910,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/35_前端工程化5-css,sass,less/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -725,7 +929,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/29/35_前端工程化5-css,sass,less/" itemprop="url">35_前端工程化5-css,sass,less</a></h1>
+                <a class="post-title-link" href="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/" itemprop="url">35_前端工程化5-css,sass,less</a></h1>
         
 
         <div class="post-meta">
@@ -778,8 +982,8 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/29/35_前端工程化5-css,sass,less/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/35_前端工程化5-css,sass,less/" itemprop="commentCount"></span>
+                <a href="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -787,7 +991,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
 
           
           
-             <span id="/2019/11/29/35_前端工程化5-css,sass,less/" class="leancloud_visitors" data-flag-title="35_前端工程化5-css,sass,less">
+             <span id="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/" class="leancloud_visitors" data-flag-title="35_前端工程化5-css,sass,less">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -812,7 +1016,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  262
                 </span>
               
 
@@ -851,7 +1055,25 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
       
         
           
-            
+            <p>less在线编译：<a href="http://lesscss.cn" target="_blank" rel="noopener">http://lesscss.cn</a><br>sass在线编译：<a href="https://www.sass.hk/css2sass/" target="_blank" rel="noopener">https://www.sass.hk/css2sass/</a><br>kola工具转换：</p>
+<p>##1， less</p>
+<h3 id="1-1-中文官网"><a href="#1-1-中文官网" class="headerlink" title="1.1 中文官网"></a>1.1 中文官网</h3><pre><code>https://less.bootcss.com    </code></pre><h3 id="1-2-在-Node-js-环境中使用-Less"><a href="#1-2-在-Node-js-环境中使用-Less" class="headerlink" title="1.2 在 Node.js 环境中使用 Less"></a>1.2 在 Node.js 环境中使用 Less</h3><pre><code>1. 新建工程：npm init
+2. 安装less：npm install -g less
+3. 新建less文件：touch styles1.less
+4. 编译命令：
+    终端显示对应的css命令：lessc styles.less
+    输出css文件的命令：lessc styles1.less styles1.css</code></pre><h3 id="1-3-在浏览器中使用less"><a href="#1-3-在浏览器中使用less" class="headerlink" title="1.3 在浏览器中使用less"></a>1.3 在浏览器中使用less</h3><pre><code>&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/3.10.0-beta/less.min.js&quot; &gt;&lt;/script&gt;</code></pre><h2 id="2，Sass"><a href="#2，Sass" class="headerlink" title="2，Sass"></a>2，Sass</h2><h3 id="2-1-Sass中文网"><a href="#2-1-Sass中文网" class="headerlink" title="2.1 Sass中文网"></a>2.1 Sass中文网</h3><pre><code>https://www.sass.hk</code></pre><h3 id="2-2-Sass安装"><a href="#2-2-Sass安装" class="headerlink" title="2.2 Sass安装"></a>2.2 Sass安装</h3><pre><code>1. 安装ruby环境（）
+    mac自带ruby环境
+    查看版本：ruby -v
+2. 安装sass    
+    //安装如下(如mac安装遇到权限问题需加 sudo gem install sass)
+    gem install sass
+    gem install compass
+3. 查看sass版本：sass -v
+4. 查看compass版本：compass -v</code></pre><h3 id="2-4-文件生成"><a href="#2-4-文件生成" class="headerlink" title="2.4 文件生成"></a>2.4 文件生成</h3><pre><code>1. scss文件直接生成css文件：sass style.scss:style.css
+2. 添加编译格式的命令：
+    sass --watch input.scss:output.css --sourcemap</code></pre>
           
         
       
@@ -1005,7 +1227,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  355
                 </span>
               
 
@@ -1044,7 +1266,53 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
       
         
           
-            
+            <p>1，npm和yarn的相同</p>
+<pre><code>1，都是JS包管理工具
+2，都会将依赖的版本号进行锁定</code></pre><p>2, Yarn和npm命令对比</p>
+<pre><code>npm init  🚦 yarn init
+npm install  🚦 yarn 
+npm install xxx@1.1.1 -g  🚦 yarn global add xxx@1.1.1
+npm install xxx@1.1.1 --save  🚦 yarn add xxx@1.1.1
+npm install xxx@1.1.1 --save-dev  🚦 yarn add xxx@1.1.1 --dev
+npm uninstall xxx --save(-dev)  🚦yarn remove xxx
+npm run xxx   🚦 yarn run xxxx</code></pre><p>3，npm和yarn的不同</p>
+<pre><code>npm下载的时候是同步下载的   npm不会有缓存  ，速度慢
+yarn下载的时候是异步下载的  yarn会有缓存   ，速度快
+
+ 1、查看版本
+    yarn --version
+    npm -version(或者 node -v)
+2、安装淘宝镜像
+     yarn config set registry &apos;https://registry.npm.taobao.org&apos;     
+     npm install -g cnpm --registry=http://registry.npm.taobao.org 
+3、初始化某个项目
+      yarn init                                                  
+      npm init 
+4、默认安装项目依赖
+      yarn install                                            
+      cnpm install 
+5、安装某个依赖，并且默认保存到package 
+    yarn add xxx                                        
+    cnpm install xxx --save
+6、卸载某个项目依赖
+       yarn remove xxx                                    
+       cnpm uninstall xxx --save
+7、更新某个项目依赖 
+    yarn upgrade xxx                                  
+    cnpm update xxx --save
+8、安装某个全局的项目依赖
+      yarn global add xxx                                
+      cnpm install xxx -g 
+9、安装某个特定版本号的项目依赖
+      yarn add xxx@                                       
+      cnpm install xxx@1.2.33 --save 
+10、发布/登录/登出，一系列NPM Registry操作
+       yarn publish/login/logout                         
+       npm publish/login/logout 
+11、运行某个命令 
+    yarn run/test                                           
+    npm run/test</code></pre><p>4，总结</p>
+<pre><code>参考官方文档学习</code></pre>
           
         
       
@@ -1092,7 +1360,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/33_前端工程化3-babel和JSX/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/33_前端工程化3-babel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -1111,7 +1379,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/29/33_前端工程化3-babel和JSX/" itemprop="url">33_前端工程化3-babel</a></h1>
+                <a class="post-title-link" href="/2019/11/29/33_前端工程化3-babel/" itemprop="url">33_前端工程化3-babel</a></h1>
         
 
         <div class="post-meta">
@@ -1164,8 +1432,8 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/11/29/33_前端工程化3-babel和JSX/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/33_前端工程化3-babel和JSX/" itemprop="commentCount"></span>
+                <a href="/2019/11/29/33_前端工程化3-babel/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/33_前端工程化3-babel/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1173,7 +1441,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
 
           
           
-             <span id="/2019/11/29/33_前端工程化3-babel和JSX/" class="leancloud_visitors" data-flag-title="33_前端工程化3-babel">
+             <span id="/2019/11/29/33_前端工程化3-babel/" class="leancloud_visitors" data-flag-title="33_前端工程化3-babel">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1198,7 +1466,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  159
                 </span>
               
 
@@ -1237,7 +1505,25 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
       
         
           
-            
+            <p>1, 功能：</p>
+<pre><code>1. es6转es5，在目前不支持 ES6 浏览器上执行 React 代码
+2. 内嵌了对 JSX 的支持
+3. </code></pre><p>2, 官网在线编辑：<a href="https://www.babeljs.cn" target="_blank" rel="noopener">https://www.babeljs.cn</a></p>
+<p>3, 核心组成</p>
+<pre><code>1. @babel/core:把js代码编程抽象语法树AST
+2. @babel/preset-env:插件集合，例如解析箭头函数
+3. @babel/cli：js文件的转码</code></pre><p>5, 工程</p>
+<pre><code>1. npm新建工程：npm init
+2. 安装3个模块：npm install @babel/core @babel/cli @babel/preset-env 
+3. 新建.babelrc文件
+    {
+        &quot;presets&quot;: [
+    &quot;@babel/preset-env&quot;
+        ]
+    }
+
+4. 新建一个printIn文件，写一段es6代码
+5. 运行命令：npx babel printIn.js -o printOut.js，输出文件printOut.js</code></pre>
           
         
       
@@ -2124,199 +2410,6 @@ LRU淘汰算法：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/27/27_接口2-测试和抓包软件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/27/27_接口2-测试和抓包软件/" itemprop="url">27_接口2-测试和抓包软件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-27T17:46:01+08:00">
-                2019-11-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/27/27_接口2-测试和抓包软件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/27/27_接口2-测试和抓包软件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/11/27/27_接口2-测试和抓包软件/" class="leancloud_visitors" data-flag-title="27_接口2-测试和抓包软件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2369,7 +2462,7 @@ LRU淘汰算法：
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2391,7 +2484,7 @@ LRU淘汰算法：
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2499,7 +2592,7 @@ LRU淘汰算法：
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.4k</span>
+    <span title="Site words total count">22.2k</span>
   
 </div>
 

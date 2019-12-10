@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1，npm和yarn的相同 1，都是JS包管理工具 2，都会将依赖的版本号进行锁定2, Yarn和npm命令对比 npm init  🚦 yarn init npm install  🚦 yarn  npm install xxx@1.1.1 -g  🚦 yarn global add xxx@1.1.1 npm install xxx@1.1.1 --save  🚦 yarn add x">
 <meta name="keywords" content="前端工程化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="34_前端工程化4-npm和yarn">
 <meta property="og:url" content="https://github.com/2019/11/29/34_前端工程化4-npm和yarn/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1，npm和yarn的相同 1，都是JS包管理工具 2，都会将依赖的版本号进行锁定2, Yarn和npm命令对比 npm init  🚦 yarn init npm install  🚦 yarn  npm install xxx@1.1.1 -g  🚦 yarn global add xxx@1.1.1 npm install xxx@1.1.1 --save  🚦 yarn add x">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-29T03:51:10.180Z">
+<meta property="og:updated_time" content="2019-12-10T01:55:32.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="34_前端工程化4-npm和yarn">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1，npm和yarn的相同 1，都是JS包管理工具 2，都会将依赖的版本号进行锁定2, Yarn和npm命令对比 npm init  🚦 yarn init npm install  🚦 yarn  npm install xxx@1.1.1 -g  🚦 yarn global add xxx@1.1.1 npm install xxx@1.1.1 --save  🚦 yarn add x">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  355
                 </span>
               
 
@@ -421,7 +421,53 @@
       
 
       
-        
+        <p>1，npm和yarn的相同</p>
+<pre><code>1，都是JS包管理工具
+2，都会将依赖的版本号进行锁定</code></pre><p>2, Yarn和npm命令对比</p>
+<pre><code>npm init  🚦 yarn init
+npm install  🚦 yarn 
+npm install xxx@1.1.1 -g  🚦 yarn global add xxx@1.1.1
+npm install xxx@1.1.1 --save  🚦 yarn add xxx@1.1.1
+npm install xxx@1.1.1 --save-dev  🚦 yarn add xxx@1.1.1 --dev
+npm uninstall xxx --save(-dev)  🚦yarn remove xxx
+npm run xxx   🚦 yarn run xxxx</code></pre><p>3，npm和yarn的不同</p>
+<pre><code>npm下载的时候是同步下载的   npm不会有缓存  ，速度慢
+yarn下载的时候是异步下载的  yarn会有缓存   ，速度快
+
+ 1、查看版本
+    yarn --version
+    npm -version(或者 node -v)
+2、安装淘宝镜像
+     yarn config set registry &apos;https://registry.npm.taobao.org&apos;     
+     npm install -g cnpm --registry=http://registry.npm.taobao.org 
+3、初始化某个项目
+      yarn init                                                  
+      npm init 
+4、默认安装项目依赖
+      yarn install                                            
+      cnpm install 
+5、安装某个依赖，并且默认保存到package 
+    yarn add xxx                                        
+    cnpm install xxx --save
+6、卸载某个项目依赖
+       yarn remove xxx                                    
+       cnpm uninstall xxx --save
+7、更新某个项目依赖 
+    yarn upgrade xxx                                  
+    cnpm update xxx --save
+8、安装某个全局的项目依赖
+      yarn global add xxx                                
+      cnpm install xxx -g 
+9、安装某个特定版本号的项目依赖
+      yarn add xxx@                                       
+      cnpm install xxx@1.2.33 --save 
+10、发布/登录/登出，一系列NPM Registry操作
+       yarn publish/login/logout                         
+       npm publish/login/logout 
+11、运行某个命令 
+    yarn run/test                                           
+    npm run/test</code></pre><p>4，总结</p>
+<pre><code>参考官方文档学习</code></pre>
       
     </div>
     
@@ -451,7 +497,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/29/33_前端工程化3-babel和JSX/" rel="next" title="33_前端工程化3-babel">
+              <a href="/2019/11/29/33_前端工程化3-babel/" rel="next" title="33_前端工程化3-babel">
                 <i class="fa fa-chevron-left"></i> 33_前端工程化3-babel
               </a>
             
@@ -461,7 +507,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/11/29/35_前端工程化5-css,sass,less/" rel="prev" title="35_前端工程化5-css,sass,less">
+              <a href="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/" rel="prev" title="35_前端工程化5-css,sass,less">
                 35_前端工程化5-css,sass,less <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -536,7 +582,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">47</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -558,7 +604,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -666,7 +712,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">21.4k</span>
+    <span title="Site words total count">22.2k</span>
   
 </div>
 

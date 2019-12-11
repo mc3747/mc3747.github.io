@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1, VSCode参考：https://www.cnblogs.com/summit7ca/p/6944215.html ###1.1，快捷键：    返回上一级：control + ‘-’ ###1.2，在js文件中设置emmet智能提示    1，找到vscode的 setting.json文件        方法1：设置界面 -》在搜索栏里搜索setting.json        方法2：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T08:24:21.016Z">
+<meta property="og:updated_time" content="2019-12-11T10:00:37.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10_工具1-各种IDE的使用">
 <meta name="twitter:description" content="1, VSCode参考：https://www.cnblogs.com/summit7ca/p/6944215.html ###1.1，快捷键：    返回上一级：control + ‘-’ ###1.2，在js文件中设置emmet智能提示    1，找到vscode的 setting.json文件        方法1：设置界面 -》在搜索栏里搜索setting.json        方法2：">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  144
+                  355
                 </span>
               
 
@@ -423,8 +423,41 @@
       
         <h2 id="1-VSCode"><a href="#1-VSCode" class="headerlink" title="1, VSCode"></a>1, VSCode</h2><p>参考：<a href="https://www.cnblogs.com/summit7ca/p/6944215.html" target="_blank" rel="noopener">https://www.cnblogs.com/summit7ca/p/6944215.html</a></p>
 <p>###1.1，快捷键：<br>    返回上一级：control + ‘-’</p>
-<p>###1.2，在js文件中设置emmet智能提示<br>    1，找到vscode的 setting.json文件<br>        方法1：设置界面 -》在搜索栏里搜索setting.json<br>        方法2：设置界面 -》右上角一个‘{}’图标，可以切换setting.json<br>    2，设置”emmet.includeLanguages”: {<br>      “javascript”: “html”<br>  }</p>
-<h2 id="2-Eclipse"><a href="#2-Eclipse" class="headerlink" title="2, Eclipse"></a>2, Eclipse</h2><pre><code>1. 删除整行：Command+d</code></pre><h2 id="3-excel软件"><a href="#3-excel软件" class="headerlink" title="3,excel软件"></a>3,excel软件</h2><pre><code>1. 单元格内换行：option + enter
+<p>###1.2，在js文件中设置emmet智能提示<br>    1，找到vscode的 setting.json文件<br>        方法1：设置界面 -》在搜索栏里搜索setting.json<br>        方法2：设置界面 -》右上角一个‘{}’图标，可以切换setting.json</p>
+<pre><code>2，设置&quot;emmet.includeLanguages&quot;: {
+  &quot;javascript&quot;: &quot;html&quot;}
+
+  3,常用的简写：输入后按tab
+      1. 元素：div 👉 &lt;div&gt; &lt;/div&gt;
+      2. 文本：div{这是一段文本} 👉 &lt;div&gt;这是一段文本&lt;/div&gt;
+      3. 属性：
+          div.test  👉 &lt;div class=&quot;test&quot;&gt;&lt;/div&gt;
+        div#pageId 👉 &lt;div id=&quot;pageId&quot;&gt;&lt;/div&gt;
+      4. 分组和嵌套
+          子级:&gt;；
+          同级:+；
+          父级:^
+          div&gt;(ul&gt;li+span)&gt;a 👉
+            &lt;div&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                    &lt;span&gt;&lt;/span&gt;
+                &lt;/ul&gt;
+                &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+            &lt;/div&gt;
+      5. 乘法
+        div * 3 👉
+            &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;/div&gt;
+      6. 自动计数
+        ul&gt;li.item${item number:$}*3 👉
+        &lt;ul&gt;
+        &lt;li class=&quot;item1&quot;&gt;item number:1&lt;/li&gt;
+        &lt;li class=&quot;item2&quot;&gt;item number:2&lt;/li&gt;
+        &lt;li class=&quot;item3&quot;&gt;item number:3&lt;/li&gt;
+        &lt;/ul&gt;
+      7. </code></pre><h2 id="2-Eclipse"><a href="#2-Eclipse" class="headerlink" title="2, Eclipse"></a>2, Eclipse</h2><pre><code>1. 删除整行：Command+d</code></pre><h2 id="3-excel软件"><a href="#3-excel软件" class="headerlink" title="3,excel软件"></a>3,excel软件</h2><pre><code>1. 单元格内换行：option + enter
 2. 整行或者整列移动：黑十字，shift拖动
 3. 宽高设置：选择行，或者列，或者全部，拖动黑十字设置</code></pre>
       
@@ -550,7 +583,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -696,7 +729,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.2k</span>
+    <span title="Site words total count">22.6k</span>
   
 </div>
 

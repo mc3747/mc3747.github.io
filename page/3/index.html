@@ -280,6 +280,455 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/31_前端工程化1-webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/29/31_前端工程化1-webpack/" itemprop="url">31_前端工程化1-webpack</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T11:26:50+08:00">
+                2019-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/29/31_前端工程化1-webpack/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/31_前端工程化1-webpack/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/29/31_前端工程化1-webpack/" class="leancloud_visitors" data-flag-title="31_前端工程化1-webpack">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  425
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-Webpack"><a href="#1-Webpack" class="headerlink" title="1,Webpack"></a>1,Webpack</h2><pre><code>代码编译工具，有入口，出口、loader，插件，模式5个部分</code></pre><h2 id="2，学习网站"><a href="#2，学习网站" class="headerlink" title="2，学习网站"></a>2，学习网站</h2><p><a href="https://www.webpackjs.com" target="_blank" rel="noopener">1-webpack中文网</a></p>
+<p><a href="https://webpack.github.io" target="_blank" rel="noopener">2-webpack英文官网</a></p>
+<p>3-webpack的封装：<a href="http://hubcarl.github.io/easywebpack/webpack/" target="_blank" rel="noopener">阿里的easywebpack</a></p>
+<h2 id="3，webpack的安装"><a href="#3，webpack的安装" class="headerlink" title="3，webpack的安装"></a>3，webpack的安装</h2><pre><code>1，安装webpack：使用权限安装sudo npm install webpack -g
+2，查看版本webpack -v
+3，如果查看版本报错（webpack-cli ），执行npm install webpack-cli -g
+4，运行webpack命令时报错，执行：npm install --save-dev webpack</code></pre><h2 id="4，简单工程应用"><a href="#4，简单工程应用" class="headerlink" title="4，简单工程应用"></a>4，简单工程应用</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8736.jpg" alt="图片36"></p>
+<pre><code>1，初始化项目：npm init (一直回车，最后yes，生成一个package文件)
+2. webpack安装Webpack: npm install --save-dev 
+3. 创建两个文件夹,src文件夹和public文件夹（src文件夹为源码文件，public文件夹包括可供浏览器访问的文件（包括打包生成的js文件和一个index.html））
+4. src中新建main.js，代码为：
+    document.write(&quot;hello  world&quot;);
+5. index.html代码为：
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;    
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+    body {
+        background-color: yellow;
+    }
+    &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;script src=&quot;./bundle.js&quot;&gt;&lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+
+6. 创建一个webpack.config.js文件，内容为
+    const  path = require(&apos;path&apos;);
+    module.exports = {
+    entry:&apos;./src/main.js&apos;,
+    output:{
+    path:path.resolve(__dirname,&apos;public&apos;),
+    filename:&apos;bundle.js&apos;
+        }
+    }
+7. 运行命令：webpack --mode  development
+8. 打开index.html文件，可以看到执行完的html文件</code></pre><h2 id="5，进阶"><a href="#5，进阶" class="headerlink" title="5，进阶"></a>5，进阶</h2><pre><code>1. 加载css文件，使用css-loader,以及style-loader
+2. 加载图片,使用file-loader
+3. 生成html模板，使用html-webpck-plugin插件
+4. css文件分类：使用extract-text-webpack-plugin插件
+5. 自动刷新：使用webpack-dev-server和webpack-cli</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/28/30_算法3-链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/28/30_算法3-链表/" itemprop="url">30_算法3-链表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-28T14:51:11+08:00">
+                2019-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/28/30_算法3-链表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/28/30_算法3-链表/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/28/30_算法3-链表/" class="leancloud_visitors" data-flag-title="30_算法3-链表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  327
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，定义"><a href="#1，定义" class="headerlink" title="1，定义"></a>1，定义</h2><p>不需要连续的内存空间</p>
+<h2 id="2，分类"><a href="#2，分类" class="headerlink" title="2，分类"></a>2，分类</h2><h3 id="2-1，单链表"><a href="#2-1，单链表" class="headerlink" title="2.1，单链表"></a>2.1，单链表</h3><pre><code>node：头结点，结点，尾结点（next指针指向null）
+data：存储数据
+next：后继指针（指向下一个数据的data）</code></pre><p>优点：链表的插入和删除数据的复杂度O(1),<br>数组的插入和删除数据的复杂度O(n),</p>
+<p>缺点：随机访问元素的复杂度为O(n)，<br>数组随机访问元素的复杂度为O(1),</p>
+<h3 id="2-2，循环链表"><a href="#2-2，循环链表" class="headerlink" title="2.2，循环链表"></a>2.2，循环链表</h3><pre><code>特殊的单链表，尾结点的next指针指向头结点
+例子：约瑟夫问题</code></pre><h3 id="2-3，双向链表"><a href="#2-3，双向链表" class="headerlink" title="2.3，双向链表"></a>2.3，双向链表</h3><pre><code>node：
+data：
+next：后继指针（指向后一数据的prev指针）
+prev：前驱指针（指向前一数据的next指针）
+删除：
+    1，值等于给定值的结点：查找O（n），删除O（1）
+    2，给定指针指向的结点：单链表O（n），双向链表O（1）
+    例子：java中的LinkedHashMap</code></pre><h3 id="2-4，双向循环链表"><a href="#2-4，双向循环链表" class="headerlink" title="2.4，双向循环链表"></a>2.4，双向循环链表</h3><h2 id="3，思想"><a href="#3，思想" class="headerlink" title="3，思想"></a>3，思想</h2><pre><code>时间换空间：手机或者单片机上的程序
+空间换时间：缓存技术</code></pre><h2 id="4，数组和链表的对比："><a href="#4，数组和链表的对比：" class="headerlink" title="4，数组和链表的对比："></a>4，数组和链表的对比：</h2><pre><code>1，时间复杂度
+2，数组：适合缓存
+3，链表：动态扩容</code></pre><h2 id="5，应用"><a href="#5，应用" class="headerlink" title="5，应用"></a>5，应用</h2><pre><code>数组对CPU缓存友好
+快慢指针实现：
+LRU淘汰算法：
+回文字符串的访问</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/27/28_接口3-接口文档/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1900,479 +2349,11 @@ java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/21_java类、对象和方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/24/21_java类、对象和方法/" itemprop="url">21_java类、对象和方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T16:42:24+08:00">
-                2019-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/24/21_java类、对象和方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/21_java类、对象和方法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/24/21_java类、对象和方法/" class="leancloud_visitors" data-flag-title="21_java类、对象和方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  711
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，类"><a href="#1，类" class="headerlink" title="1，类"></a>1，类</h2><pre><code>1，包括变量和方法
-2，通过构造函数生成对象</code></pre><h2 id="2，对象"><a href="#2，对象" class="headerlink" title="2，对象"></a>2，对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">			<span class="comment">//变量和方法</span></span><br><span class="line">			<span class="keyword">int</span> dogAge;</span><br><span class="line">			String dogColor;</span><br><span class="line">			<span class="function"><span class="keyword">void</span> <span class="title">barking</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.printf(<span class="string">"我有%d岁,我是%s色"</span>,dogAge,dogColor);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//构造函数</span></span><br><span class="line">		 	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> age,String color)</span></span>&#123;</span><br><span class="line">			dogAge = age;</span><br><span class="line">			dogColor = color;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="comment">//类的初始化	</span></span><br><span class="line">		Dog dog = <span class="keyword">new</span> Dog(<span class="number">5</span>,<span class="string">"red"</span>);</span><br><span class="line">		dog.barking();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<pre><code>1. 声明：声明一个对象，包括对象名称和对象类型。
-2. 实例化：使用关键字new来创建一个对象。
-3. 初始化：使用new创建对象时，会调用构造方法初始化对象。</code></pre><h2 id="3，new关键字的作用"><a href="#3，new关键字的作用" class="headerlink" title="3，new关键字的作用"></a>3，new关键字的作用</h2><pre><code>1. 为对象分配内存空间。
-2. 引起对象构造方法的调用。
-3. 为对象返回一个引用。</code></pre><h2 id="4，类中的变量"><a href="#4，类中的变量" class="headerlink" title="4，类中的变量"></a>4，类中的变量</h2><ol>
-<li>局部变量</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在方法、构造方法、语句块中定义的变量。其声明和初始化在方法中实现，在方法结束后自动销毁</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>成员变量</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外。变量在创建对象时实例化。成员变量可被类中的方法、构造方法以及特定类的语句块访问</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li>类变量<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外，但必须要有 static 来声明变量类型。静态成员属于整个类，可通过对象名或类名来调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="5，构造方法"><a href="#5，构造方法" class="headerlink" title="5，构造方法"></a>5，构造方法</h2><h3 id="5-1-隐式声明构造方法"><a href="#5-1-隐式声明构造方法" class="headerlink" title="5.1. 隐式声明构造方法"></a>5.1. 隐式声明构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个没有显式声明构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">    <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(); <span class="comment">// People() 是People类的默认构造函数，它什么也不干</span></span><br><span class="line">xiaoMing.getAge();<span class="comment">//打印年龄</span></span><br></pre></td></tr></table></figure>
-
-<p>###5.2 显示声明构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个带显式构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">        <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+ age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 显式声明一个带参数的构造函数，用于初始化年龄</span></span><br><span class="line">    <span class="function">Public <span class="title">People</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = a; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(<span class="number">20</span>); <span class="comment">// 使用带参数的构造函数来实例化对象</span></span><br><span class="line">xiaoMing.getAge(); <span class="comment">// 打印出来的年龄变为20</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="6-方法"><a href="#6-方法" class="headerlink" title="6,方法"></a>6,方法</h2><h3 id="6-1方法的种类"><a href="#6-1方法的种类" class="headerlink" title="6.1方法的种类"></a>6.1方法的种类</h3><pre><code>1，构造方法（方法名和类名一致）
-2，普通方法</code></pre><h3 id="6-2方法的注意项"><a href="#6-2方法的注意项" class="headerlink" title="6.2方法的注意项"></a>6.2方法的注意项</h3><pre><code>1，方法的重载：
-    必须拥有不同的参数列表
-2，可变参数：
-    以下2种表示方法
-    void function(String... args);
-    void function(String [] args);
-3，finalize() 方法：
-    在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/20_java基础语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/24/20_java基础语法/" itemprop="url">20_java基础语法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T15:06:39+08:00">
-                2019-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/24/20_java基础语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/20_java基础语法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/24/20_java基础语法/" class="leancloud_visitors" data-flag-title="20_java基础语法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，基本结构"><a href="#1，基本结构" class="headerlink" title="1，基本结构"></a>1，基本结构</h2><ol>
-<li><p>一个完整的Java。源程序应该包括下列部分：</p>
-<pre><code>1，package语句，该部分至多只有一句，必须放在源程序的第一句。
- 2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。
- 3，public classDefinition，公共类定义部分，至多只有一个公共类的定义，
-4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。
- 5，classDefinition，类定义部分，可以有0个或者多个类定义。
-6，interfaceDefinition，接口定义部分，可以有0个或者多个接口定义。</code></pre></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javawork.helloworld;</span><br><span class="line"><span class="comment">/*把编译生成的所有．class文件放到包javawork.helloworld中*/</span></span><br><span class="line"><span class="keyword">import</span> java awt.*;</span><br><span class="line"><span class="comment">//告诉编译器本程序中用到系统的AWT包</span></span><br><span class="line"><span class="keyword">import</span> javawork.newcentury;</span><br><span class="line"><span class="comment">/*告诉编译器本程序中用到用户自定义的包javawork.newcentury*/</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldApp</span></span>&#123;...｝</span><br><span class="line"><span class="comment">/*公共类HelloWorldApp的定义，名字与文件名相同*/</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TheFirstClass</span>｛...｝</span>;</span><br><span class="line"><span class="comment">//第一个普通类TheFirstClass的定义 </span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TheFirstInterface</span></span>&#123;......&#125;</span><br><span class="line"><span class="comment">/*定义一个接口TheFirstInterface*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-入口函数"><a href="#2-入口函数" class="headerlink" title="2,入口函数"></a>2,入口函数</h2><blockquote>
-<p>public static void main(String[] args)<br>这是 Java 程序的入口地址，Java 虚拟机运行程序的时候首先找的就是 main 方法。跟 C 语言里面的 main() 函数的作用是一样的。只有有 main() 方法的 Java 程序才能够被 Java 虚拟机运行，可理解为规定的格式。</p>
-</blockquote>
-<pre><code>1,public：表示的这个程序的访问权限，表示的是任何的场合可以被引用，这样 Java 虚拟机就可以找到 main() 方法,从而来运行 javac 程序。
- 2,static： 表明方法是静态的，不依赖类的对象的，是属于类的，在类加载的时候 main() 方法也随着加载到内存中去。
- 3,void:main()：方法是不需要返回值的。
- 4,main：约定俗成，规定的。
- 5,String[] args：从控制台接收参数。</code></pre><h2 id="3-命名规范"><a href="#3-命名规范" class="headerlink" title="3,命名规范"></a>3,命名规范</h2><ol>
-<li>项目名全部小写</li>
-<li>包名全部小写</li>
-<li>类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。如：public class MyFirstClass{}</li>
-<li>变量名、方法名首字母小写，如果名称由多个单词组成，每个单词的首字母都要大写。如：<br>int index=0;<br>public void toString(){}</li>
-<li>常量名全部大写<br>A,如：public static final String GAME_COLOR=”RED”;</li>
-<li>所有命名规则必须遵循以下规则：<br>1)、名称只能由字母、数字、下划线、$符号组成<br>2)、不能以数字开头<br>3)、名称不能使用JAVA中的关键字。<br>4)、坚决不允许出现中文及拼音命名。</li>
-</ol>
-<h2 id="4-数据类型"><a href="#4-数据类型" class="headerlink" title="4,数据类型"></a>4,数据类型</h2><blockquote>
-<p>原始类型：boolean，char，byte，short，int，long，float，double。</p>
-<blockquote>
-<p>   包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</p>
-</blockquote>
-</blockquote>
-<pre><code>boolean   布尔型   1个字节 8bit（8位）
-byte     字节类型   1个字节
-char     字符类型   2个字节
-short     短整型     2个字节
-int          整型        4个字节
-float      浮点型（单精度）4个字节
-long      长整型      8个字节
-double   双精度类型  8个字节</code></pre><h2 id="5-修饰符"><a href="#5-修饰符" class="headerlink" title="5,修饰符"></a>5,修饰符</h2><h3 id="5-1访问修饰符"><a href="#5-1访问修饰符" class="headerlink" title="5.1访问修饰符"></a>5.1访问修饰符</h3><pre><code>default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。
-private : 在同一类内可见。使用对象：变量、方法。 注意：不能修饰类（外部类）
-public : 对所有类可见。使用对象：类、接口、变量、方法
-protected : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）。</code></pre><h3 id="5-2非访问修饰符"><a href="#5-2非访问修饰符" class="headerlink" title="5.2非访问修饰符"></a>5.2非访问修饰符</h3><pre><code>static 修饰符，用来修饰类方法和类变量。
-final 修饰符，用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。
-abstract 修饰符，用来创建抽象类和抽象方法。
-synchronized 修饰符：声明的方法同一时间只能被一个线程访问。修饰符可以应用于四个访问修饰符。
-transient 修饰符：序列化的对象包含被 transient 修饰的实例变量时，java 虚拟机(JVM)跳过该特定的变量。该修饰符包含在定义变量的语句中，用来预处理类和变量的数据类型
-volatile 修饰符：修饰的成员变量在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值。而且，当成员变量发生变化时，会强制线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2420,7 +2401,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2431,7 +2412,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2442,7 +2423,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2550,7 +2531,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.6k</span>
+    <span title="Site words total count">22.9k</span>
   
 </div>
 

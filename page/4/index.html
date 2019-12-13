@@ -280,6 +280,474 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/21_java类、对象和方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/24/21_java类、对象和方法/" itemprop="url">21_java类、对象和方法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T16:42:24+08:00">
+                2019-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/24/21_java类、对象和方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/21_java类、对象和方法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/24/21_java类、对象和方法/" class="leancloud_visitors" data-flag-title="21_java类、对象和方法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  711
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，类"><a href="#1，类" class="headerlink" title="1，类"></a>1，类</h2><pre><code>1，包括变量和方法
+2，通过构造函数生成对象</code></pre><h2 id="2，对象"><a href="#2，对象" class="headerlink" title="2，对象"></a>2，对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">			<span class="comment">//变量和方法</span></span><br><span class="line">			<span class="keyword">int</span> dogAge;</span><br><span class="line">			String dogColor;</span><br><span class="line">			<span class="function"><span class="keyword">void</span> <span class="title">barking</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.printf(<span class="string">"我有%d岁,我是%s色"</span>,dogAge,dogColor);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//构造函数</span></span><br><span class="line">		 	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> age,String color)</span></span>&#123;</span><br><span class="line">			dogAge = age;</span><br><span class="line">			dogColor = color;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="comment">//类的初始化	</span></span><br><span class="line">		Dog dog = <span class="keyword">new</span> Dog(<span class="number">5</span>,<span class="string">"red"</span>);</span><br><span class="line">		dog.barking();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>1. 声明：声明一个对象，包括对象名称和对象类型。
+2. 实例化：使用关键字new来创建一个对象。
+3. 初始化：使用new创建对象时，会调用构造方法初始化对象。</code></pre><h2 id="3，new关键字的作用"><a href="#3，new关键字的作用" class="headerlink" title="3，new关键字的作用"></a>3，new关键字的作用</h2><pre><code>1. 为对象分配内存空间。
+2. 引起对象构造方法的调用。
+3. 为对象返回一个引用。</code></pre><h2 id="4，类中的变量"><a href="#4，类中的变量" class="headerlink" title="4，类中的变量"></a>4，类中的变量</h2><ol>
+<li>局部变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在方法、构造方法、语句块中定义的变量。其声明和初始化在方法中实现，在方法结束后自动销毁</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>成员变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外。变量在创建对象时实例化。成员变量可被类中的方法、构造方法以及特定类的语句块访问</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>类变量<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外，但必须要有 static 来声明变量类型。静态成员属于整个类，可通过对象名或类名来调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="5，构造方法"><a href="#5，构造方法" class="headerlink" title="5，构造方法"></a>5，构造方法</h2><h3 id="5-1-隐式声明构造方法"><a href="#5-1-隐式声明构造方法" class="headerlink" title="5.1. 隐式声明构造方法"></a>5.1. 隐式声明构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个没有显式声明构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">    <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(); <span class="comment">// People() 是People类的默认构造函数，它什么也不干</span></span><br><span class="line">xiaoMing.getAge();<span class="comment">//打印年龄</span></span><br></pre></td></tr></table></figure>
+
+<p>###5.2 显示声明构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个带显式构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">        <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+ age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 显式声明一个带参数的构造函数，用于初始化年龄</span></span><br><span class="line">    <span class="function">Public <span class="title">People</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = a; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(<span class="number">20</span>); <span class="comment">// 使用带参数的构造函数来实例化对象</span></span><br><span class="line">xiaoMing.getAge(); <span class="comment">// 打印出来的年龄变为20</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-方法"><a href="#6-方法" class="headerlink" title="6,方法"></a>6,方法</h2><h3 id="6-1方法的种类"><a href="#6-1方法的种类" class="headerlink" title="6.1方法的种类"></a>6.1方法的种类</h3><pre><code>1，构造方法（方法名和类名一致）
+2，普通方法</code></pre><h3 id="6-2方法的注意项"><a href="#6-2方法的注意项" class="headerlink" title="6.2方法的注意项"></a>6.2方法的注意项</h3><pre><code>1，方法的重载：
+    必须拥有不同的参数列表
+2，可变参数：
+    以下2种表示方法
+    void function(String... args);
+    void function(String [] args);
+3，finalize() 方法：
+    在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/20_java基础语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/24/20_java基础语法/" itemprop="url">20_java基础语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T15:06:39+08:00">
+                2019-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/24/20_java基础语法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/20_java基础语法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/24/20_java基础语法/" class="leancloud_visitors" data-flag-title="20_java基础语法">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，基本结构"><a href="#1，基本结构" class="headerlink" title="1，基本结构"></a>1，基本结构</h2><ol>
+<li><p>一个完整的Java。源程序应该包括下列部分：</p>
+<pre><code>1，package语句，该部分至多只有一句，必须放在源程序的第一句。
+ 2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。
+ 3，public classDefinition，公共类定义部分，至多只有一个公共类的定义，
+4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。
+ 5，classDefinition，类定义部分，可以有0个或者多个类定义。
+6，interfaceDefinition，接口定义部分，可以有0个或者多个接口定义。</code></pre></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javawork.helloworld;</span><br><span class="line"><span class="comment">/*把编译生成的所有．class文件放到包javawork.helloworld中*/</span></span><br><span class="line"><span class="keyword">import</span> java awt.*;</span><br><span class="line"><span class="comment">//告诉编译器本程序中用到系统的AWT包</span></span><br><span class="line"><span class="keyword">import</span> javawork.newcentury;</span><br><span class="line"><span class="comment">/*告诉编译器本程序中用到用户自定义的包javawork.newcentury*/</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldApp</span></span>&#123;...｝</span><br><span class="line"><span class="comment">/*公共类HelloWorldApp的定义，名字与文件名相同*/</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TheFirstClass</span>｛...｝</span>;</span><br><span class="line"><span class="comment">//第一个普通类TheFirstClass的定义 </span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TheFirstInterface</span></span>&#123;......&#125;</span><br><span class="line"><span class="comment">/*定义一个接口TheFirstInterface*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-入口函数"><a href="#2-入口函数" class="headerlink" title="2,入口函数"></a>2,入口函数</h2><blockquote>
+<p>public static void main(String[] args)<br>这是 Java 程序的入口地址，Java 虚拟机运行程序的时候首先找的就是 main 方法。跟 C 语言里面的 main() 函数的作用是一样的。只有有 main() 方法的 Java 程序才能够被 Java 虚拟机运行，可理解为规定的格式。</p>
+</blockquote>
+<pre><code>1,public：表示的这个程序的访问权限，表示的是任何的场合可以被引用，这样 Java 虚拟机就可以找到 main() 方法,从而来运行 javac 程序。
+ 2,static： 表明方法是静态的，不依赖类的对象的，是属于类的，在类加载的时候 main() 方法也随着加载到内存中去。
+ 3,void:main()：方法是不需要返回值的。
+ 4,main：约定俗成，规定的。
+ 5,String[] args：从控制台接收参数。</code></pre><h2 id="3-命名规范"><a href="#3-命名规范" class="headerlink" title="3,命名规范"></a>3,命名规范</h2><ol>
+<li>项目名全部小写</li>
+<li>包名全部小写</li>
+<li>类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。如：public class MyFirstClass{}</li>
+<li>变量名、方法名首字母小写，如果名称由多个单词组成，每个单词的首字母都要大写。如：<br>int index=0;<br>public void toString(){}</li>
+<li>常量名全部大写<br>A,如：public static final String GAME_COLOR=”RED”;</li>
+<li>所有命名规则必须遵循以下规则：<br>1)、名称只能由字母、数字、下划线、$符号组成<br>2)、不能以数字开头<br>3)、名称不能使用JAVA中的关键字。<br>4)、坚决不允许出现中文及拼音命名。</li>
+</ol>
+<h2 id="4-数据类型"><a href="#4-数据类型" class="headerlink" title="4,数据类型"></a>4,数据类型</h2><blockquote>
+<p>原始类型：boolean，char，byte，short，int，long，float，double。</p>
+<blockquote>
+<p>   包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</p>
+</blockquote>
+</blockquote>
+<pre><code>boolean   布尔型   1个字节 8bit（8位）
+byte     字节类型   1个字节
+char     字符类型   2个字节
+short     短整型     2个字节
+int          整型        4个字节
+float      浮点型（单精度）4个字节
+long      长整型      8个字节
+double   双精度类型  8个字节</code></pre><h2 id="5-修饰符"><a href="#5-修饰符" class="headerlink" title="5,修饰符"></a>5,修饰符</h2><h3 id="5-1访问修饰符"><a href="#5-1访问修饰符" class="headerlink" title="5.1访问修饰符"></a>5.1访问修饰符</h3><pre><code>default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。
+private : 在同一类内可见。使用对象：变量、方法。 注意：不能修饰类（外部类）
+public : 对所有类可见。使用对象：类、接口、变量、方法
+protected : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）。</code></pre><h3 id="5-2非访问修饰符"><a href="#5-2非访问修饰符" class="headerlink" title="5.2非访问修饰符"></a>5.2非访问修饰符</h3><pre><code>static 修饰符，用来修饰类方法和类变量。
+final 修饰符，用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。
+abstract 修饰符，用来创建抽象类和抽象方法。
+synchronized 修饰符：声明的方法同一时间只能被一个线程访问。修饰符可以应用于四个访问修饰符。
+transient 修饰符：序列化的对象包含被 transient 修饰的实例变量时，java 虚拟机(JVM)跳过该特定的变量。该修饰符包含在定义变量的语句中，用来预处理类和变量的数据类型
+volatile 修饰符：修饰的成员变量在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值。而且，当成员变量发生变化时，会强制线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/19_工具3-我用“阿里云”来搞事情/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2040,484 +2508,11 @@ JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，J
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/20/11_web1-flex布局/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/20/11_web1-flex布局/" itemprop="url">11_web1-flex布局</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T10:53:12+08:00">
-                2019-10-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/20/11_web1-flex布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/20/11_web1-flex布局/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/20/11_web1-flex布局/" class="leancloud_visitors" data-flag-title="11_web1-flex布局">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  558
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，官方文档"><a href="#1，官方文档" class="headerlink" title="1，官方文档"></a>1，官方文档</h2><pre><code>&lt;https://www.w3.org/TR/css-flexbox-1/&gt;
-&lt;https://www.w3.org/TR/css-align-3/&gt;</code></pre><h2 id="2，flex布局整体设置"><a href="#2，flex布局整体设置" class="headerlink" title="2，flex布局整体设置"></a>2，flex布局整体设置</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. 设置display为flex</span><br><span class="line"></span><br><span class="line">2. 设置父容器flex container</span><br><span class="line">	1. flex-flow是flex-direction || flex-wrap的简写</span><br><span class="line">	2. flex-direction设置主轴（main axis）的方向</span><br><span class="line">	3. flex-wrap设置是否能换行</span><br><span class="line">	4. justify-content设置flex items在main axis上的对齐方式</span><br><span class="line">	5. align-items设置flex items在cross axis上的对齐方式（一般是针对单行）</span><br><span class="line">	6. align-content设置flex items在cross axis上的对齐方式（一般是针对多行）</span><br><span class="line">	</span><br><span class="line">3. 设置子容器flex items</span><br><span class="line">	1. flex是flex-grow flex-shrink? || flex-basis的简写</span><br><span class="line">	2. flex-grow决定了flex items在main axis方向上如何扩展</span><br><span class="line">	3. flex-shrink决定了flex items在main axis方向上如何收缩</span><br><span class="line">	4. flex-basis设置flex items在main axis方向上的base size</span><br><span class="line">	5. order设置flex items的排布顺序</span><br><span class="line">	6. align-self允许flex items覆盖flex container设置的align-items</span><br></pre></td></tr></table></figure>
-
-<h2 id="3，flex-container设置"><a href="#3，flex-container设置" class="headerlink" title="3，flex container设置"></a>3，flex container设置</h2><p>1.flex-direction：主轴main axis方向</p>
-<pre><code>row：横向
-row-reverse
-column：纵向
-column-reverse</code></pre><p>2.justify-content：主轴对齐方式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8710.jpg" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8711.jpg" alt></p>
-<pre><code>flex-start：和main start对齐
-flex-end：和main end对齐
-center：居中
-space-between：和main start，main end对齐，中间相等
-space-evenly：flex items之间，flex items和main start，main end之间的距离相等
-space-evenly：flex items之间距离相等，flex items和main start，main end之间的距离为flex items之间距离的一半</code></pre><ol start="3">
-<li><p>align-items：交叉轴cross axis上的对齐方式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8712.jpg" alt></p>
-<pre><code>stretch：当flex items在cross axis方向size 为auto，会自动填充父容器flex container
-flex-start：和cross start对齐
-flex-end：和cross end对齐
-center：居中
-baseline：与基线对齐</code></pre></li>
-<li><p>flex-wrap：父容器是否换行</p>
-<p> nowrap：单行<br> wrap：多行<br> wrap-reverse：多行，交叉轴的cross start和cross end相反</p>
-</li>
-<li><p>flex-flow是：flex-direction || flex-wrap的简写</p>
-</li>
-<li><p>align-content：多行时，交叉轴cross axis的对齐方式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8713.jpg" alt></p>
-<pre><code>stretch：默认值
-flex-start：和cross start对齐
-flex-end：和cross end对齐
-center：居中</code></pre><h2 id="4，flex-items设置"><a href="#4，flex-items设置" class="headerlink" title="4，flex items设置"></a>4，flex items设置</h2></li>
-<li><p>order：flex items的排布顺序</p>
-</li>
-<li><p>align-self：遵从父容器的align-items的设置</p>
-</li>
-<li><p>flex-grow：如何扩大</p>
-</li>
-<li><p>flex-shrink：如何收缩</p>
-</li>
-<li><p>flex-basis：主轴main axis上的base size大小</p>
-</li>
-<li><p>flex 是flex-grow flex-shrink？ || flex-basis的简写</p>
-</li>
-</ol>
-<h2 id="5，决定flex-item-最终base-size的因素优先级"><a href="#5，决定flex-item-最终base-size的因素优先级" class="headerlink" title="5，决定flex item 最终base size的因素优先级"></a>5，决定flex item 最终base size的因素优先级</h2><ol>
-<li>max-width\max-height\min-width\min-height </li>
-<li>flex-basis</li>
-<li>width\height</li>
-<li>内容本身的 size</li>
-</ol>
-<h2 id="6，常用案例"><a href="#6，常用案例" class="headerlink" title="6，常用案例"></a>6，常用案例</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/20/10_工具1-各种IDE的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/20/10_工具1-各种IDE的使用/" itemprop="url">10_工具1-各种IDE的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T09:22:52+08:00">
-                2019-10-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/20/10_工具1-各种IDE的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/20/10_工具1-各种IDE的使用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/20/10_工具1-各种IDE的使用/" class="leancloud_visitors" data-flag-title="10_工具1-各种IDE的使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  355
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-VSCode"><a href="#1-VSCode" class="headerlink" title="1, VSCode"></a>1, VSCode</h2><p>参考：<a href="https://www.cnblogs.com/summit7ca/p/6944215.html" target="_blank" rel="noopener">https://www.cnblogs.com/summit7ca/p/6944215.html</a></p>
-<p>###1.1，快捷键：<br>    返回上一级：control + ‘-’</p>
-<p>###1.2，在js文件中设置emmet智能提示<br>    1，找到vscode的 setting.json文件<br>        方法1：设置界面 -》在搜索栏里搜索setting.json<br>        方法2：设置界面 -》右上角一个‘{}’图标，可以切换setting.json</p>
-<pre><code>2，设置&quot;emmet.includeLanguages&quot;: {
-  &quot;javascript&quot;: &quot;html&quot;}
-
-  3,常用的简写：输入后按tab
-      1. 元素：div 👉 &lt;div&gt; &lt;/div&gt;
-      2. 文本：div{这是一段文本} 👉 &lt;div&gt;这是一段文本&lt;/div&gt;
-      3. 属性：
-          div.test  👉 &lt;div class=&quot;test&quot;&gt;&lt;/div&gt;
-        div#pageId 👉 &lt;div id=&quot;pageId&quot;&gt;&lt;/div&gt;
-      4. 分组和嵌套
-          子级:&gt;；
-          同级:+；
-          父级:^
-          div&gt;(ul&gt;li+span)&gt;a 👉
-            &lt;div&gt;
-                &lt;ul&gt;
-                    &lt;li&gt;&lt;/li&gt;
-                    &lt;span&gt;&lt;/span&gt;
-                &lt;/ul&gt;
-                &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
-            &lt;/div&gt;
-      5. 乘法
-        div * 3 👉
-            &lt;div&gt;&lt;/div&gt;
-                &lt;div&gt;&lt;/div&gt;
-            &lt;div&gt;&lt;/div&gt;
-      6. 自动计数
-        ul&gt;li.item${item number:$}*3 👉
-        &lt;ul&gt;
-        &lt;li class=&quot;item1&quot;&gt;item number:1&lt;/li&gt;
-        &lt;li class=&quot;item2&quot;&gt;item number:2&lt;/li&gt;
-        &lt;li class=&quot;item3&quot;&gt;item number:3&lt;/li&gt;
-        &lt;/ul&gt;
-      7. </code></pre><h2 id="2-Eclipse"><a href="#2-Eclipse" class="headerlink" title="2, Eclipse"></a>2, Eclipse</h2><pre><code>1. 删除整行：Command+d</code></pre><h2 id="3-excel软件"><a href="#3-excel软件" class="headerlink" title="3,excel软件"></a>3,excel软件</h2><pre><code>1. 单元格内换行：option + enter
-2. 整行或者整列移动：黑十字，shift拖动
-3. 宽高设置：选择行，或者列，或者全部，拖动黑十字设置</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2565,7 +2560,7 @@ center：居中</code></pre><h2 id="4，flex-items设置"><a href="#4，flex-ite
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2576,7 +2571,7 @@ center：居中</code></pre><h2 id="4，flex-items设置"><a href="#4，flex-ite
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2587,7 +2582,7 @@ center：居中</code></pre><h2 id="4，flex-items设置"><a href="#4，flex-ite
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2695,7 +2690,7 @@ center：居中</code></pre><h2 id="4，flex-items设置"><a href="#4，flex-ite
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.6k</span>
+    <span title="Site words total count">22.9k</span>
   
 </div>
 

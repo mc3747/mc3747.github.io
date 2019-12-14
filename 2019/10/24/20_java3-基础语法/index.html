@@ -99,14 +99,14 @@
 <meta name="description" content="1，基本结构 一个完整的Java。源程序应该包括下列部分： 1，package语句，该部分至多只有一句，必须放在源程序的第一句。  2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。  3，public classDefinition，公共类定义部分，至多只有一个公共类的定义， 4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。  5">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20_java基础语法">
-<meta property="og:url" content="https://github.com/2019/10/24/20_java基础语法/index.html">
+<meta property="og:title" content="20_java3-基础语法">
+<meta property="og:url" content="https://github.com/2019/10/24/20_java3-基础语法/index.html">
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1，基本结构 一个完整的Java。源程序应该包括下列部分： 1，package语句，该部分至多只有一句，必须放在源程序的第一句。  2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。  3，public classDefinition，公共类定义部分，至多只有一个公共类的定义， 4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。  5">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-18T07:42:49.150Z">
+<meta property="og:updated_time" content="2019-12-14T16:44:02.214Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="20_java基础语法">
+<meta name="twitter:title" content="20_java3-基础语法">
 <meta name="twitter:description" content="1，基本结构 一个完整的Java。源程序应该包括下列部分： 1，package语句，该部分至多只有一句，必须放在源程序的第一句。  2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。  3，public classDefinition，公共类定义部分，至多只有一个公共类的定义， 4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。  5">
 
 
@@ -137,13 +137,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/2019/10/24/20_java基础语法/">
+  <link rel="canonical" href="https://github.com/2019/10/24/20_java3-基础语法/">
 
 
 
 
 
-  <title>20_java基础语法 | 小新的个人博客</title>
+  <title>20_java3-基础语法 | 小新的个人博客</title>
   
 
 
@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/20_java基础语法/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/20_java3-基础语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -297,7 +297,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">20_java基础语法</h1>
+          <h1 class="post-title" itemprop="name headline">20_java3-基础语法</h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/24/20_java基础语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/20_java基础语法/" itemprop="commentCount"></span>
+                <a href="/2019/10/24/20_java3-基础语法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/20_java3-基础语法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -359,7 +359,7 @@
 
           
           
-             <span id="/2019/10/24/20_java基础语法/" class="leancloud_visitors" data-flag-title="20_java基础语法">
+             <span id="/2019/10/24/20_java3-基础语法/" class="leancloud_visitors" data-flag-title="20_java3-基础语法">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.2k
+                  1.3k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -439,31 +439,46 @@
  2,static： 表明方法是静态的，不依赖类的对象的，是属于类的，在类加载的时候 main() 方法也随着加载到内存中去。
  3,void:main()：方法是不需要返回值的。
  4,main：约定俗成，规定的。
- 5,String[] args：从控制台接收参数。</code></pre><h2 id="3-命名规范"><a href="#3-命名规范" class="headerlink" title="3,命名规范"></a>3,命名规范</h2><ol>
-<li>项目名全部小写</li>
-<li>包名全部小写</li>
-<li>类名首字母大写，如果类名由多个单词组成，每个单词的首字母都要大写。如：public class MyFirstClass{}</li>
-<li>变量名、方法名首字母小写，如果名称由多个单词组成，每个单词的首字母都要大写。如：<br>int index=0;<br>public void toString(){}</li>
-<li>常量名全部大写<br>A,如：public static final String GAME_COLOR=”RED”;</li>
-<li>所有命名规则必须遵循以下规则：<br>1)、名称只能由字母、数字、下划线、$符号组成<br>2)、不能以数字开头<br>3)、名称不能使用JAVA中的关键字。<br>4)、坚决不允许出现中文及拼音命名。</li>
-</ol>
-<h2 id="4-数据类型"><a href="#4-数据类型" class="headerlink" title="4,数据类型"></a>4,数据类型</h2><blockquote>
-<p>原始类型：boolean，char，byte，short，int，long，float，double。</p>
-<blockquote>
-<p>   包装类型：Boolean，Character，Byte，Short，Integer，Long，Float，Double</p>
-</blockquote>
-</blockquote>
-<pre><code>boolean   布尔型   1个字节 8bit（8位）
+ 5,String[] args：从控制台接收参数。</code></pre><h2 id="3-命名规范"><a href="#3-命名规范" class="headerlink" title="3,命名规范"></a>3,命名规范</h2><pre><code>1. 项目名：大驼峰
+2. 包名全部小写
+3. 类名：大驼峰。如：public class MyFirstClass{}
+4. 变量名、方法名：小驼峰。如：
+    int index=0;
+    public void toString(){}
+5. 常量名全部大写
+    A,如：public static final String GAME_COLOR=&quot;RED&quot;;
+6. 所有命名规则必须遵循以下规则：
+    1)、名称只能由字母、数字、下划线、$符号组成
+     2)、不能以数字开头
+     3)、名称不能使用JAVA中的关键字。
+     4)、坚决不允许出现中文及拼音命名。</code></pre><h2 id="4，代码格式及注释"><a href="#4，代码格式及注释" class="headerlink" title="4，代码格式及注释"></a>4，代码格式及注释</h2><pre><code>1. 代码格式：右键 -》source -》format
+2. 注释
+    1，单行：//
+    2，多行:/*
+    3，文档:/**
+3. syso是打印的简写</code></pre><h2 id="5-数据类型"><a href="#5-数据类型" class="headerlink" title="5,数据类型"></a>5,数据类型</h2><h3 id="4-1-基本类型primitive-type"><a href="#4-1-基本类型primitive-type" class="headerlink" title="4.1 基本类型primitive type"></a>4.1 基本类型primitive type</h3><pre><code>boolean   布尔型   1个字节 8bit（8位）
 byte     字节类型   1个字节
 char     字符类型   2个字节
 short     短整型     2个字节
 int          整型        4个字节
 float      浮点型（单精度）4个字节
 long      长整型      8个字节
-double   双精度类型  8个字节</code></pre><h2 id="5-修饰符"><a href="#5-修饰符" class="headerlink" title="5,修饰符"></a>5,修饰符</h2><h3 id="5-1访问修饰符"><a href="#5-1访问修饰符" class="headerlink" title="5.1访问修饰符"></a>5.1访问修饰符</h3><pre><code>default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。
+double   双精度类型  8个字节
+
+if条件：
+    c语言是非真及假
+    java必须要是bool类型</code></pre><h3 id="4-2-引用类型reference-type"><a href="#4-2-引用类型reference-type" class="headerlink" title="4.2 引用类型reference type"></a>4.2 引用类型reference type</h3><pre><code>1，对对象的引用，即存储的值是对象的地址
+2，String是引用类型</code></pre><h3 id="4-3-数据类型转换"><a href="#4-3-数据类型转换" class="headerlink" title="4.3 数据类型转换"></a>4.3 数据类型转换</h3><pre><code>只是数值类型的转换，没有bool</code></pre><h3 id="4-4-字面量赋值"><a href="#4-4-字面量赋值" class="headerlink" title="4.4 字面量赋值"></a>4.4 字面量赋值</h3><pre><code>⚠️：单纯的根据字面量是不知道是什么具体类型的
+byte a = 10；
+int a = 10</code></pre><h2 id="5，运算符"><a href="#5，运算符" class="headerlink" title="5，运算符"></a>5，运算符</h2><pre><code>位运算：&amp;和|，对比&amp;&amp;和||，功能一样，就是少了短路功能</code></pre><h2 id="6，关键字"><a href="#6，关键字" class="headerlink" title="6，关键字"></a>6，关键字</h2><pre><code>true，false，null不是关键字，是字面量</code></pre><h2 id="7，标识符"><a href="#7，标识符" class="headerlink" title="7，标识符"></a>7，标识符</h2><pre><code>1，标识符定义：
+    1. 不限长度的java字符和数字，且以java字符开头
+    2. 不包括关键字和字面量
+    3. 
+2，java字母：
+3，java数字：0~9</code></pre><h2 id="8-修饰符"><a href="#8-修饰符" class="headerlink" title="8,修饰符"></a>8,修饰符</h2><h3 id="8-1访问修饰符"><a href="#8-1访问修饰符" class="headerlink" title="8.1访问修饰符"></a>8.1访问修饰符</h3><pre><code>default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。
 private : 在同一类内可见。使用对象：变量、方法。 注意：不能修饰类（外部类）
 public : 对所有类可见。使用对象：类、接口、变量、方法
-protected : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）。</code></pre><h3 id="5-2非访问修饰符"><a href="#5-2非访问修饰符" class="headerlink" title="5.2非访问修饰符"></a>5.2非访问修饰符</h3><pre><code>static 修饰符，用来修饰类方法和类变量。
+protected : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）。</code></pre><h3 id="8-2非访问修饰符"><a href="#8-2非访问修饰符" class="headerlink" title="8.2非访问修饰符"></a>8.2非访问修饰符</h3><pre><code>static 修饰符，用来修饰类方法和类变量。
 final 修饰符，用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。
 abstract 修饰符，用来创建抽象类和抽象方法。
 synchronized 修饰符：声明的方法同一时间只能被一个线程访问。修饰符可以应用于四个访问修饰符。
@@ -704,7 +719,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，基本结构"><span class="nav-number">1.</span> <span class="nav-text">1，基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-入口函数"><span class="nav-number">2.</span> <span class="nav-text">2,入口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-命名规范"><span class="nav-number">3.</span> <span class="nav-text">3,命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数据类型"><span class="nav-number">4.</span> <span class="nav-text">4,数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-修饰符"><span class="nav-number">5.</span> <span class="nav-text">5,修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1访问修饰符"><span class="nav-number">5.1.</span> <span class="nav-text">5.1访问修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2非访问修饰符"><span class="nav-number">5.2.</span> <span class="nav-text">5.2非访问修饰符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，基本结构"><span class="nav-number">1.</span> <span class="nav-text">1，基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-入口函数"><span class="nav-number">2.</span> <span class="nav-text">2,入口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-命名规范"><span class="nav-number">3.</span> <span class="nav-text">3,命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，代码格式及注释"><span class="nav-number">4.</span> <span class="nav-text">4，代码格式及注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数据类型"><span class="nav-number">5.</span> <span class="nav-text">5,数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-基本类型primitive-type"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 基本类型primitive type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-引用类型reference-type"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 引用类型reference type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-数据类型转换"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 数据类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-字面量赋值"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 字面量赋值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，运算符"><span class="nav-number">6.</span> <span class="nav-text">5，运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6，关键字"><span class="nav-number">7.</span> <span class="nav-text">6，关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7，标识符"><span class="nav-number">8.</span> <span class="nav-text">7，标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-修饰符"><span class="nav-number">9.</span> <span class="nav-text">8,修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1访问修饰符"><span class="nav-number">9.1.</span> <span class="nav-text">8.1访问修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2非访问修饰符"><span class="nav-number">9.2.</span> <span class="nav-text">8.2非访问修饰符</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -738,7 +753,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">22.9k</span>
+    <span title="Site words total count">23.1k</span>
   
 </div>
 

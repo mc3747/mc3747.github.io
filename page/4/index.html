@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/21_java类、对象和方法/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/28/29_算法2-数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -299,7 +299,834 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/24/21_java类、对象和方法/" itemprop="url">21_java类、对象和方法</a></h1>
+                <a class="post-title-link" href="/2019/10/28/29_算法2-数组/" itemprop="url">29_算法2-数组</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-28T10:58:47+08:00">
+                2019-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/28/29_算法2-数组/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/28/29_算法2-数组/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/28/29_算法2-数组/" class="leancloud_visitors" data-flag-title="29_算法2-数组">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  618
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，数据按逻辑分类："><a href="#1，数据按逻辑分类：" class="headerlink" title="1，数据按逻辑分类："></a>1，数据按逻辑分类：</h2><pre><code>1.集合结构
+2.线性结构
+3.树形结构
+4.图形结构</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8735.png" alt></p>
+<h2 id="2，数据按存储分类："><a href="#2，数据按存储分类：" class="headerlink" title="2，数据按存储分类："></a>2，数据按存储分类：</h2><pre><code>1.顺序存储结构
+2.链接存储结构
+3.数据索引存储结构
+4.数据散列存储结构</code></pre><h2 id="3，线性表和非线性表"><a href="#3，线性表和非线性表" class="headerlink" title="3，线性表和非线性表"></a>3，线性表和非线性表</h2><pre><code>线性表
+1. n个相同类型元素的有限序列
+2. 最多有前后2个方向
+3. 例如：数组，链表，栈，队列，哈希表
+非线性表：
+数据不是简单的前后关系
+树（二叉树，AVL树，红黑树，B树，哈夫曼树），堆，图，并查集</code></pre><h2 id="4，数组"><a href="#4，数组" class="headerlink" title="4，数组"></a>4，数组</h2><pre><code>定义：
+    1. 顺序存储
+    2. 内存地址连续
+优点：
+    1. 随机访问
+    2. 查询速度快（根据下标访问的复杂度为O(1),二分查找为O(logn)）
+缺点：
+    1. 固定长度
+    2. 删除和插入效率低
+        1） 插入：从最好O(1) 最坏O(n) 平均O(n)
+        2）    插入：数组若无序，插入新的元素时，可以将第K个位置元素移动到数组末尾，把心的元素，插入到第k个位置，此处复杂度为O(1)。作者举例说明
+        3）    删除：从最好O(1) 最坏O(n) 平均O(n)
+        4）    多次删除集中在一起，提高删除效率
+            记录下已经被删除的数据，每次的删除操作并不是搬移数据，只是记录数据已经被删除，当数组没有更多的存储空间时，再触发一次真正的删除操作。即JVM标记清除垃圾回收算法</code></pre><h2 id="5，数组越界"><a href="#5，数组越界" class="headerlink" title="5，数组越界"></a>5，数组越界</h2><pre><code>C语言未解决，需要程序员处理
+java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数组从0开始" class="headerlink" title="6，数组从0开始"></a>6，数组从0开始</h2><pre><code>数组的内存模型：a[k]_address = base_address + k * type_size</code></pre><h2 id="7-JVM"><a href="#7-JVM" class="headerlink" title="7, JVM"></a>7, JVM</h2><pre><code>清除垃圾回收算法</code></pre><h2 id="8-容器"><a href="#8-容器" class="headerlink" title="8, 容器"></a>8, 容器</h2><pre><code>1，java中的ArrayList，可以删除，插入数据，动态扩容
+2，每次存储空间不够时，自动扩容1.5倍，
+3，事先指定大小，可以省掉多次内存申请和数据搬移操作</code></pre><h2 id="7，数组总结"><a href="#7，数组总结" class="headerlink" title="7，数组总结"></a>7，数组总结</h2><pre><code>1）    Java ArrayList 的使用涉及装箱拆箱，有一定的性能损耗，如果特别管柱性能，可以考虑数组
+2）    若数据大小事先已知，并且涉及的数据操作非常简单，可以使用数组
+3）    表示多维数组时，数组往往更加直观。
+4）    业务开发容器即可，底层开发，如网络框架，性能优化。选择数组</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/27/24_工具5-浏览器扩展插件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/27/24_工具5-浏览器扩展插件/" itemprop="url">24_工具5-浏览器扩展插件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-27T22:07:46+08:00">
+                2019-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/27/24_工具5-浏览器扩展插件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/27/24_工具5-浏览器扩展插件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/27/24_工具5-浏览器扩展插件/" class="leancloud_visitors" data-flag-title="24_工具5-浏览器扩展插件">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  222
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，Chrome浏览器"><a href="#1，Chrome浏览器" class="headerlink" title="1，Chrome浏览器"></a>1，Chrome浏览器</h2><h3 id="1-1-扩展的来源"><a href="#1-1-扩展的来源" class="headerlink" title="1.1 扩展的来源"></a>1.1 扩展的来源</h3><pre><code>1，谷歌商店（国外）
+    https://chrome.google.com/webstore/category/extensions?hl=zh-CN
+2，插件网（国内）
+    http://www.cnplugins.com/
+    http://chromecj.com/
+3，github上网友分享：
+    https://github.com/cy920820/awesome-chrome-plugin-recommends
+4，本地的crx，xrs文件：
+    1，将.crx改为.zip文件
+    2，命令行解压：unzip Charset.zip -d  Charset
+    3，安装插件：选择浏览器右上角三个点-&gt;更多工具-&gt;扩展程序-&gt;加载已解压的扩展程序-&gt;选取文件夹-&gt;选择</code></pre><h3 id="1-2-插件的安装路径"><a href="#1-2-插件的安装路径" class="headerlink" title="1.2 插件的安装路径"></a>1.2 插件的安装路径</h3><pre><code>~/Library/Application Support/Google/Chrome/Default/Extensions</code></pre><h3 id="1-3-常用的扩展"><a href="#1-3-常用的扩展" class="headerlink" title="1.3 常用的扩展"></a>1.3 常用的扩展</h3><pre><code>1，下载某个文件夹的扩展：
+    https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn?hl=zh-CN
+2，显示文件大小及下载：
+    Enhanced GitHub    :(https://chrome.google.com/webstore/search/Enhanced%20Github?hl=zh-CN)
+3，显示项目结构
+    Octotree：（https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=zh-CN）</code></pre><h2 id="2，Safari浏览器"><a href="#2，Safari浏览器" class="headerlink" title="2，Safari浏览器"></a>2，Safari浏览器</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/25/23_工具4-github相关的小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/25/23_工具4-github相关的小技巧/" itemprop="url">23_工具4-github相关的小技巧</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-25T16:27:17+08:00">
+                2019-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/25/23_工具4-github相关的小技巧/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/23_工具4-github相关的小技巧/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/25/23_工具4-github相关的小技巧/" class="leancloud_visitors" data-flag-title="23_工具4-github相关的小技巧">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  58
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>##1，下载github项目某个文件夹</p>
+<h3 id="1-1-谷歌浏览器插件"><a href="#1-1-谷歌浏览器插件" class="headerlink" title="1.1 谷歌浏览器插件"></a>1.1 谷歌浏览器插件</h3><pre><code>https://chrome.google.com/webstore/category/extensions?hl=zh-CN</code></pre><h3 id="1-2-翻墙网站"><a href="#1-2-翻墙网站" class="headerlink" title="1.2 翻墙网站"></a>1.2 翻墙网站</h3><pre><code>https://minhaskamal.github.io/DownGit/#/home</code></pre><p>##2，显示github文件目录</p>
+<h3 id="2-1-谷歌浏览器插件"><a href="#2-1-谷歌浏览器插件" class="headerlink" title="2.1 谷歌浏览器插件"></a>2.1 谷歌浏览器插件</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/25/22_iOS6-静态库和动态库/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/25/22_iOS6-静态库和动态库/" itemprop="url">22_iOS6-静态库和动态库</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-25T14:15:42+08:00">
+                2019-10-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/25/22_iOS6-静态库和动态库/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/25/22_iOS6-静态库和动态库/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/25/22_iOS6-静态库和动态库/" class="leancloud_visitors" data-flag-title="22_iOS6-静态库和动态库">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  105
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，查看静态库支持的架构"><a href="#1，查看静态库支持的架构" class="headerlink" title="1，查看静态库支持的架构"></a>1，查看静态库支持的架构</h2><pre><code>第一种：用命令cd到静态库所在的文件下（⚠️静态库文件夹里边的可执行文件），然后用命令lipo -info 静态库名
+第二种：直接用lipo -info 静态库路径（直接把静态库拖到终端就生成路径了）</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8734.jpg" alt></p>
+<pre><code>模拟器：iphone4s～5 ：i386           
+        iphone5s～8 ：x86_64
+真机： iphone3gs～4s：armv7         
+        iphone5/5c ：armv7s(armv7兼容armv7s)    
+        iphone5s～8 ： arm64</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/21_java4-面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/24/21_java4-面向对象/" itemprop="url">21_java4-面向对象</a></h1>
         
 
         <div class="post-meta">
@@ -352,8 +1179,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/10/24/21_java类、对象和方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/21_java类、对象和方法/" itemprop="commentCount"></span>
+                <a href="/2019/10/24/21_java4-面向对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/21_java4-面向对象/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -361,7 +1188,7 @@
 
           
           
-             <span id="/2019/10/24/21_java类、对象和方法/" class="leancloud_visitors" data-flag-title="21_java类、对象和方法">
+             <span id="/2019/10/24/21_java4-面向对象/" class="leancloud_visitors" data-flag-title="21_java4-面向对象">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1632,897 +2459,6 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><p>##5. �
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/22/15_算法1-复杂度/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/22/15_算法1-复杂度/" itemprop="url">15_算法1-复杂度</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-22T10:58:47+08:00">
-                2019-10-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/22/15_算法1-复杂度/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/22/15_算法1-复杂度/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/22/15_算法1-复杂度/" class="leancloud_visitors" data-flag-title="15_算法1-复杂度">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.7k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，怎样评估算法的好坏"><a href="#1，怎样评估算法的好坏" class="headerlink" title="1，怎样评估算法的好坏"></a>1，怎样评估算法的好坏</h2><pre><code>1，正确性
-2，可读性
-3，健壮性
-4，时间复杂度：(asymptotic渐进)time complexity，估算程序的执行次数
-5，空间复杂度：(asymptotic渐进)space ciplexity，估算所需占用的存储空间</code></pre><h2 id="2，评估算法的方法"><a href="#2，评估算法的方法" class="headerlink" title="2，评估算法的方法"></a>2，评估算法的方法</h2><ol>
-<li><p>事后统计法</p>
-<pre><code>✅优点：准确
-❎缺点：
-    1 执行时间严重依赖硬件以及运行时各种不确定的环境因素 
-    2 必须编写相应的测算代码 
-    3 测试数据的选择比较难保证公正性</code></pre></li>
-<li><p>大o统计法</p>
-<p> ✅优点：简单估算<br> ❎缺点：不特别准确,实际对应的是汇编的操作数</p>
-</li>
-</ol>
-<h2 id="3，大O统计"><a href="#3，大O统计" class="headerlink" title="3，大O统计"></a>3，大O统计</h2><pre><code>1,公式：T(n) = O(f(n))    
-    n：数据规模的大小；
-    T(n)：代码执行的时间
-    f(n)：代码执行次数综合
-    O:执行时间与执行次数成正比
-2,意义
-    代码执行时间随数据规模增长的变化趋势
-    也叫渐进时间复杂度asymptotic time complexity</code></pre><h2 id="4，大o统计法案例"><a href="#4，大o统计法案例" class="headerlink" title="4，大o统计法案例"></a>4，大o统计法案例</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">// O(1)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 1次，O(1)</span></span><br><span class="line">		<span class="keyword">if</span> (n &gt; <span class="number">10</span>) &#123; </span><br><span class="line">			System.out.println(<span class="string">"n &gt; 10"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (n &gt; <span class="number">5</span>) &#123; <span class="comment">// 2</span></span><br><span class="line">			System.out.println(<span class="string">"n &gt; 5"</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">"n &lt;= 5"</span>); </span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 1 + 4 + 4 + 4</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"test"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// O(n)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 1 + 3n</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			System.out.println(<span class="string">"test"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// O(n^2)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 1 + 2n + n * (1 + 3n)</span></span><br><span class="line">		<span class="comment">// 1 + 2n + n + 3n^2</span></span><br><span class="line">		<span class="comment">// 3n^2 + 3n + 1</span></span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// O(n)</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">				System.out.println(<span class="string">"test"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// O(n)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test4</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 1 + 2n + n * (1 + 45)</span></span><br><span class="line">		<span class="comment">// 1 + 2n + 46n</span></span><br><span class="line">		<span class="comment">// 48n + 1</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">15</span>; j++) &#123;</span><br><span class="line">				System.out.println(<span class="string">"test"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// O(logn)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test5</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 8 = 2^3</span></span><br><span class="line">		<span class="comment">// 16 = 2^4</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 3 = log2(8)</span></span><br><span class="line">		<span class="comment">// 4 = log2(16)</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 执行次数 = log2(n)</span></span><br><span class="line">		<span class="keyword">while</span> ((n = n / <span class="number">2</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">"test"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// O(logn)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test6</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// log5(n)</span></span><br><span class="line">		<span class="keyword">while</span> ((n = n / <span class="number">5</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">"test"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// O(nlogn)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test7</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// 1 + 2*log2(n) + log2(n) * (1 + 3n)</span></span><br><span class="line">		<span class="comment">// 1 + 3*log2(n) + 2 * nlog2(n)</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i = i * <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="comment">// 1 + 3n</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">				System.out.println(<span class="string">"test"</span>);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//	斐波那契数1:递归,重复调用：O(2^n)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">test8</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">		<span class="keyword">return</span> fib1(n - <span class="number">1</span>) + fib1(n - <span class="number">2</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//	斐波那契数2：O(n)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">test9</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (n &lt;= <span class="number">1</span>) <span class="keyword">return</span> n;</span><br><span class="line">		<span class="keyword">int</span> first = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">int</span> second = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> sum = first + second;</span><br><span class="line">			first = second;</span><br><span class="line">			second = sum;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> second;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// O(n)</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test10</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">		<span class="keyword">int</span> b = <span class="number">20</span>;</span><br><span class="line">		<span class="keyword">int</span> c = a + b;</span><br><span class="line">		<span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">			System.out.println(array[i] + c);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line">## 5，时间复杂度分析的方法</span><br><span class="line">	<span class="number">1</span>，只关注循环执行次数最多的一段代码；</span><br><span class="line">	<span class="number">2</span>，加法法则：总复杂度等于量级最大的代码复杂度</span><br><span class="line">	<span class="number">3</span>，乘法法则：嵌套代码的复杂度等于嵌套代码内外复杂度的乘积</span><br><span class="line">	</span><br><span class="line">## 6，大O表示法总结</span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>. 大O只是是估算</span><br><span class="line">	<span class="number">2</span>. 大O也可以表示空间复杂度</span><br><span class="line">	<span class="number">3</span>. 对数阶的公式：log2(n) = log2(<span class="number">9</span>) * log9(n)</span><br><span class="line">	<span class="number">4</span>. 常数阶O(<span class="number">1</span>)，对数阶O(log2n)，线性阶O(n)，线性对数阶O(nlog2n)，平方阶O(n2)，立方阶O(n3)，...， k次方阶O(nk)，指数阶O(<span class="number">2</span>n)。随着问题规模n的不断增大，上述时间复杂度不断增大，算法的执行效率越低。</span><br><span class="line">	<span class="number">5</span>. 一般规律：O(<span class="number">1</span>) &lt; O(logn) &lt; O(n) &lt; O(n*logn) &lt; O(n^<span class="number">2</span>) &lt; O(n^<span class="number">3</span>) &lt; O(<span class="number">2</span>^n) &lt; O(<span class="number">3</span>^n) &lt; O(n!) </span><br><span class="line">	<span class="number">6</span>. 多项式时间复杂度:如果某个算法的复杂度可以表示为O(n^k),即问题规模n出现在底数的位置;</span><br><span class="line">	<span class="number">7</span>. 非多项式时间复杂度(non-deterministic polynomial)，某个算法的复杂度表示为O(k^n)或O(n!)，随着数据的增长，时间和空间占用暴增，性能极差；</span><br><span class="line">	<span class="number">8</span>. 复杂度可以有<span class="number">2</span>个数据，O(m+n),O(m * n)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">![](https:<span class="comment">//horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/图片16.jpg)</span></span><br><span class="line"></span><br><span class="line">## 7，性能测试和复杂度分析的关系</span><br></pre></td></tr></table></figure>
-
-<pre><code>渐进时间，空间复杂度分析为我们提供了一个很好的理论分析的方向，并且它是宿主平台无关的，能够让我们对我们的程序或算法有一个大致的认识，让我们知道，比如在最坏的情况下程序的执行效率如何，同时也为我们交流提供了一个不错的桥梁，我们可以说，算法1的时间复杂度是O(n)，算法2的时间复杂度是O(logN)，这样我们立刻就对不同的算法有了一个“效率”上的感性认识。
-当然，渐进式时间，空间复杂度分析只是一个理论模型，只能提供给粗略的估计分析，我们不能直接断定就觉得O(logN)的算法一定优于O(n), 针对不同的宿主环境，不同的数据集，不同的数据量的大小，在实际应用上面可能真正的性能会不同，个人觉得，针对不同的实际情况，进而进行一定的性能基准测试是很有必要的，比如在统一一批手机上(同样的硬件，系统等等)进行横向基准测试，进而选择适合特定应用场景下的最有算法。
-综上所述，渐进式时间，空间复杂度分析与性能基准测试并不冲突，而是相辅相成的，但是一个低阶的时间复杂度程序有极大的可能性会优于一个高阶的时间复杂度程序，所以在实际编程中，时刻关心理论时间，空间度模型是有助于产出效率高的程序的，同时，因为渐进式时间，空间复杂度分析只是提供一个粗略的分析模型，因此也不会浪费太多时间，重点在于在编程时，要具有这种复杂度分析的思维。</code></pre><p>```</p>
-<h2 id="8，四个复杂度"><a href="#8，四个复杂度" class="headerlink" title="8，四个复杂度"></a>8，四个复杂度</h2><pre><code>1.最好情况时间复杂度（best case time complexity）。
-2.最坏情况时间复杂度（worst case time complexity）。
-3.平均情况时间复杂度（average case time complexity）：加权平均
-4.均摊时间复杂度（amortized time complexity）。两个条件满足时使用：1）代码在绝大多数情况下是低级别复杂度，只有极少数情况是高级别复杂度；2）低级别和高级别复杂度出现具有时序规律。均摊结果一般都等于低级别复杂度。</code></pre><h2 id="9，算法的优化方向"><a href="#9，算法的优化方向" class="headerlink" title="9，算法的优化方向"></a>9，算法的优化方向</h2><ol>
-<li>时间换空间</li>
-<li>空间换时间</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/21/14_工具2-mac电脑开启服务器汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/21/14_工具2-mac电脑开启服务器汇总/" itemprop="url">14_工具2-mac电脑开启服务器汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T17:55:29+08:00">
-                2019-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/21/14_工具2-mac电脑开启服务器汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/21/14_工具2-mac电脑开启服务器汇总/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/21/14_工具2-mac电脑开启服务器汇总/" class="leancloud_visitors" data-flag-title="14_工具2-mac电脑开启服务器汇总">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/21/13_iOS3-生成ipa文件的方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/21/13_iOS3-生成ipa文件的方法/" itemprop="url">13_iOS3-生成ipa文件的方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T14:07:33+08:00">
-                2019-10-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/21/13_iOS3-生成ipa文件的方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/21/13_iOS3-生成ipa文件的方法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/21/13_iOS3-生成ipa文件的方法/" class="leancloud_visitors" data-flag-title="13_iOS3-生成ipa文件的方法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  826
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>脚本部分参考：<a href="https://www.jianshu.com/p/8214fdade670" target="_blank" rel="noopener">https://www.jianshu.com/p/8214fdade670</a></p>
-</blockquote>
-<p>#安装iOS的方式：</p>
-<h2 id="1，直接连线跑真机"><a href="#1，直接连线跑真机" class="headerlink" title="1，直接连线跑真机"></a>1，直接连线跑真机</h2><pre><code>麻烦，很low</code></pre><h2 id="2，完全自动化脚本"><a href="#2，完全自动化脚本" class="headerlink" title="2，完全自动化脚本"></a>2，完全自动化脚本</h2><pre><code>1，打包命令行，执行脚本
-2，在第三方打包平台（Jekins，或者58二维码打包）直接生成链接，或者二维码
-3，通过邮件发出指定收件人
-4，这个方式会专门用一篇来讲</code></pre><h2 id="3，生成-ipa文件"><a href="#3，生成-ipa文件" class="headerlink" title="3，生成.ipa文件"></a>3，生成.ipa文件</h2><h3 id="1-生成-app文件"><a href="#1-生成-app文件" class="headerlink" title="1. 生成.app文件"></a>1. 生成.app文件</h3><pre><code>1. 方法1：编译到模拟器或者真机后的.app文件 -》 showInFinder</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8714.png" alt></p>
-<pre><code>2. 方法2：生成.app文件
-    ①选中设备Generic iOS Devices，
-    ②xcode默认archive生成的是release模式，需要将服务器地址更正一下(在代码中改正)；
-    ③然后Xcode菜单栏-&gt;Product-&gt;Archive；
-    ④生成的xcproject文件 -》showInFinder
-    ⑤复制后更改xcproject文件的后缀为.ipa,形成文件夹,进入文件夹找到.app文件
-
-3. 方法3：直接进目录 ~/Library/Developer/Xcode/Archives查找方法2中生成的.xcproject文件</code></pre><h3 id="2-生成-ipa文件"><a href="#2-生成-ipa文件" class="headerlink" title="2. 生成.ipa文件"></a>2. 生成.ipa文件</h3><pre><code>1. 方法1：新建Payload文件夹生成
-    ①: 新建“Payload”文件夹，注意名字要一字不差；
-    ②: 将你的.app包放到Payload中，注意app的名字不做任何更改，就用xcode生成的app名称；
-    ③: 在Payload文件夹上右键压缩成zip，然后将生成的.zip文件后缀改成.ipa即可
-
-2.     方法2：脚本生成</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8715.png" alt></p>
-<pre><code>①：进入脚本文件make_ipa_file.sh目录，        ②：执行脚本语句：sh make_ipa_file.sh(也可以把 make_ipa_file.sh 改为 make_ipa_file_sh 名字，然后在终端为文件添加可执行权限：chmod +x /Users/HTC/Desktop/make_ipa_file_sh,这样就生成了 Unix 文件，双击就会打开到终端)
-③：按照提示，分别输入.app文件目录，.ipa文件保存目录（默认桌面），生成的ipa文件名称
-④：脚本链接： &lt;https://github.com/iHTCboy/iShell&gt;，代码如下</code></pre><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span>!/bin/bash</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 定义用到的变量</span><br><span class="line">projectAppPath=""</span><br><span class="line">outputPath=""</span><br><span class="line">ipaFileName=""</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 定义读取输入字符的函数</span><br><span class="line">getProjectAppPath() &#123;</span><br><span class="line"><span class="meta">	#</span> 输出换行，方便查看</span><br><span class="line">	echo "\n================================================"</span><br><span class="line"><span class="meta">	#</span> 监听输入并且赋值给变量</span><br><span class="line">	read -p " Enter .app path: " projectAppPath</span><br><span class="line"><span class="meta">	#</span> 如果为空值，从新监听</span><br><span class="line">	if test -z "$projectAppPath"; then</span><br><span class="line">		getprojectAppPath</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getOutputPath() &#123;</span><br><span class="line"><span class="meta">	#</span> 输出换行，方便查看</span><br><span class="line">	echo "\n================================================"</span><br><span class="line"><span class="meta">	#</span> 监听输入并且赋值给变量</span><br><span class="line">	read -p " Enter output path: " outputPath</span><br><span class="line"></span><br><span class="line">	if test -z "$outputPath"; then</span><br><span class="line"><span class="meta">		#</span> 如果没有输出路径，默认输出到桌面</span><br><span class="line">	  outputPath="Desktop"</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">getipaFileName() &#123;</span><br><span class="line"><span class="meta">	#</span> 输出换行，方便查看</span><br><span class="line">	echo "\n================================================"</span><br><span class="line"><span class="meta">	#</span> 监听输入并且赋值给变量</span><br><span class="line">	read -p " Enter ipa FileName: " ipaFileName</span><br><span class="line"></span><br><span class="line">	if test -z "$ipaFileName"; then</span><br><span class="line">		getipaFileName</span><br><span class="line">	fi</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 执行函数，给变量赋值</span><br><span class="line">getProjectAppPath</span><br><span class="line">getOutputPath</span><br><span class="line">getipaFileName</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 切换到当前用户的home目录，方便创建桌面目录</span><br><span class="line">cd ~</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 在输出路径下创建 Payload 文件夹</span><br><span class="line">mkdir -p "$&#123;outputPath&#125;/Payload"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将.app 文件复制到 输出路径的 Payload 文件夹下</span><br><span class="line">cp -r "$&#123;projectAppPath&#125;" "$&#123;outputPath&#125;/Payload/"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 切换到输出路径</span><br><span class="line">cd "$&#123;outputPath&#125;"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 将 Payload 文件夹压缩成 ipa 包</span><br><span class="line">zip -r "$&#123;ipaFileName&#125;.ipa" Payload</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 删除当前路径下 Payload 文件夹【-r 就是向下递归，不管有多少级目录，一并删除 -f 就是直接强行删除，不作任何提示的意思】</span><br><span class="line">rm -rf "Payload"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 成功提示</span><br><span class="line">echo "\n\n=====================【转换ipa完成】=========================\n"</span><br><span class="line"></span><br><span class="line">echo $&#123;outputPath&#125;</span><br><span class="line"><span class="meta">#</span># 打开输出的路径</span><br><span class="line"><span class="meta">#</span>open -a Finder "$&#123;outputPath&#125;"</span><br><span class="line"><span class="meta">#</span> 从当前位置打开finder</span><br><span class="line">open .</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 结束退出</span><br><span class="line">exit 0</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="3-安装-ipa文件"><a href="#3-安装-ipa文件" class="headerlink" title="3. 安装.ipa文件"></a>3. 安装.ipa文件</h3><pre><code>通过itools Pro工具，直接拖进去</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/20/12_java2-工程搭建/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/20/12_java2-工程搭建/" itemprop="url">12_java2-工程搭建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T17:25:27+08:00">
-                2019-10-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/20/12_java2-工程搭建/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/20/12_java2-工程搭建/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/20/12_java2-工程搭建/" class="leancloud_visitors" data-flag-title="12_java2-工程搭建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  605
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，java工程中相关概念"><a href="#1，java工程中相关概念" class="headerlink" title="1，java工程中相关概念"></a>1，java工程中相关概念</h2><h3 id="1-1-JDK，JRE，JVM"><a href="#1-1-JDK，JRE，JVM" class="headerlink" title="1.1 JDK，JRE，JVM"></a>1.1 JDK，JRE，JVM</h3><pre><code>JDK：Java Development Kit，java开发工具包，提供各种工具
-JRE：Java Runtime Enviroment，java运行环境
-JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，JVM的运行关系图"><a href="#1-2-JDK，JRE，JVM的运行关系图" class="headerlink" title="1.2 JDK，JRE，JVM的运行关系图"></a>1.2 JDK，JRE，JVM的运行关系图</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8739.jpg" alt></p>
-<h3 id="1-3，JDK，JRE，JVM的包含关系图"><a href="#1-3，JDK，JRE，JVM的包含关系图" class="headerlink" title="1.3，JDK，JRE，JVM的包含关系图"></a>1.3，JDK，JRE，JVM的包含关系图</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8733.png" alt></p>
-<p>###2.2，JDK和tomcat之间的关系<br>    tomcat v7.0——-support——–&gt;Java EE 5 and 6<br>    tomcat v8.0——-support——–&gt;Java EE 5,6 and 7<br>    tomcat v8.5——-support——–&gt;Java EE 5,6 and 7<br>    tomcat v9.0——-support——–&gt;Java EE 5,6,7 and 8<br>    （Tomcat版本要比jdk高）</p>
-<h2 id="2，java工程的组成"><a href="#2，java工程的组成" class="headerlink" title="2，java工程的组成"></a>2，java工程的组成</h2><table>
-<tr>
-<td bgcolor="#FF8248">
-1,JDK
-</td>
-</tr>
-</table>
-    1,(Java Development Kit)又称J2SDK(Java2 Software Development Kit)，是Java开发工具包，它提供了Java的开发环境(提供了编译器javac等工具，用于将java文件编译为class文件)和运行环境(提供了JVM和Runtime辅助包，用于解析class文件使其得到运行)。
-    如果你下载并安装了JDK，那么你不仅可以开发Java程序，也同时拥有了运行Java程序的平台。JDK是整个Java的核心，包括了Java运行环境(JRE)，一堆Java工具tools.jar和Java标准类库 (rt.jar)
-
-<pre><code>2，查看JDK的安装目录（所有版本和安装目录）：
-命令行：/usr/libexec/java_home -V
-
-3，查看JDK的版本
-命令行：java -version</code></pre><table>
-<tr>
-<td bgcolor="#FF8248">
-2,JRE
-</td>
-</tr>
-</table>
-    1,JRE(Java Runtime Enviroment)是Java的运行环境。面向Java程序的使用者，而不是开发者。如果你仅下载并安装了JRE，那么你的系统只能运行Java程序。
-    JRE是运行Java程序所必须环境的集合，包含JVM标准实现及 Java核心类库。它包括Java虚拟机、Java平台核心类和支持文件。它不包含开发工具(编译器、调试器等)。
-
-<pre><code>2,查看JRE的版本
-命令行：/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -version</code></pre><table>
-<tr>
-<td bgcolor="#FF8248">
-3,JVM
-</td>
-</tr>
-</table>
-    1，JVM是Java Virtual Machine（Java虚拟机）的缩写
-    2，通过在实际的计算机上仿真模拟各种计算机功能来实现
-    3，查看jvm的版本：/usr/libexec/java_home -V
-
-<table>
-<tr>
-<td bgcolor="#FF8248">
-4,tomcat
-</td>
-</tr>
-</table>
-    1,Tomcat：是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器
-    2,查看tomcat版本
-        进入到tomcat安装目录，bin文件夹 
-        命令行：sh version.sh
-
-<h2 id="3，eclipse基本设置"><a href="#3，eclipse基本设置" class="headerlink" title="3，eclipse基本设置"></a>3，eclipse基本设置</h2><ol>
-<li><p>修改智能提示<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8730.jpg" alt></p>
-<pre><code>提示添加.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</code></pre></li>
-<li><p>修改工作空间的编码格式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8731.jpg" alt></p>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2575,7 +2511,7 @@ JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，J
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2705,7 +2641,7 @@ JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，J
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">23.1k</span>
+    <span title="Site words total count">27k</span>
   
 </div>
 

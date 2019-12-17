@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="##1，清理旧的android studio    参考网上教程，要彻底删除 ##2， android studio下载    http://developer.android.com/intl/zh-cn/sdk/index.html ##3，免安装android SDK的方法    下载android studio的dmg文件后    intall的type选择custom自定义，而不是sta">
+<meta name="description" content="1，清理旧的android studio参考网上教程，要彻底删除2， android studio下载http://developer.android.com/intl/zh-cn/sdk/index.html3，免安装android SDK的方法下载android studio的dmg文件后 intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK4">
 <meta name="keywords" content="android">
 <meta property="og:type" content="article">
 <meta property="og:title" content="50_android1-mac配置android环境">
 <meta property="og:url" content="https://github.com/2019/12/12/50_android1-mac配置android环境/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="##1，清理旧的android studio    参考网上教程，要彻底删除 ##2， android studio下载    http://developer.android.com/intl/zh-cn/sdk/index.html ##3，免安装android SDK的方法    下载android studio的dmg文件后    intall的type选择custom自定义，而不是sta">
+<meta property="og:description" content="1，清理旧的android studio参考网上教程，要彻底删除2， android studio下载http://developer.android.com/intl/zh-cn/sdk/index.html3，免安装android SDK的方法下载android studio的dmg文件后 intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-16T08:01:25.148Z">
+<meta property="og:updated_time" content="2019-12-17T08:54:01.746Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="50_android1-mac配置android环境">
-<meta name="twitter:description" content="##1，清理旧的android studio    参考网上教程，要彻底删除 ##2， android studio下载    http://developer.android.com/intl/zh-cn/sdk/index.html ##3，免安装android SDK的方法    下载android studio的dmg文件后    intall的type选择custom自定义，而不是sta">
+<meta name="twitter:description" content="1，清理旧的android studio参考网上教程，要彻底删除2， android studio下载http://developer.android.com/intl/zh-cn/sdk/index.html3，免安装android SDK的方法下载android studio的dmg文件后 intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK4">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  304
+                  297
                 </span>
               
 
@@ -421,16 +421,24 @@
       
 
       
-        <p>##1，清理旧的android studio<br>    参考网上教程，要彻底删除</p>
-<p>##2， android studio下载<br>    <a href="http://developer.android.com/intl/zh-cn/sdk/index.html" target="_blank" rel="noopener">http://developer.android.com/intl/zh-cn/sdk/index.html</a></p>
-<p>##3，免安装android SDK的方法<br>    下载android studio的dmg文件后<br>    intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK</p>
-<p>##4，安装adb<br>    1，对于bash终端：<br>        1.  cd ~/ :进入用户目录,⚠️一定要是用户目录，否则没法用全局;<br>        2. 输入:touch .bash_profile,如果当前没有这个文件,则会默认创建;<br>        3. 输入:open .bash_profile,如果是第一次创建,则默认为空白的文件;<br>        4. 编辑如下三句即可，若之前有变量，在后面添加（第一个sdk目录，可以在android stuio中的preference -》appearance&amp;behavior -》system setting -》Android SDK中查看）<br>            export ANDROID_HOME=/Users/xxx/Library/Android/sdk<br>            export PATH=${PATH}:${ANDROID_HOME}/tools<br>            export PATH=${PATH}:${ANDROID_HOME}/platform-tools<br>        5. 修改完保存，然后执行：source .bash_profile 即可使改动生效</p>
-<pre><code>2，对于zsh终端
+        <h2 id="1，清理旧的android-studio"><a href="#1，清理旧的android-studio" class="headerlink" title="1，清理旧的android studio"></a>1，清理旧的android studio</h2><pre><code>参考网上教程，要彻底删除</code></pre><h2 id="2，-android-studio下载"><a href="#2，-android-studio下载" class="headerlink" title="2， android studio下载"></a>2， android studio下载</h2><pre><code>http://developer.android.com/intl/zh-cn/sdk/index.html</code></pre><h2 id="3，免安装android-SDK的方法"><a href="#3，免安装android-SDK的方法" class="headerlink" title="3，免安装android SDK的方法"></a>3，免安装android SDK的方法</h2><pre><code>下载android studio的dmg文件后
+intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK</code></pre><h2 id="4，安装adb"><a href="#4，安装adb" class="headerlink" title="4，安装adb"></a>4，安装adb</h2><pre><code>1，对于bash终端：
+    1.  cd ~/ :进入用户目录,⚠️一定要是用户目录，否则没法用全局;
+    2. 输入:touch .bash_profile,如果当前没有这个文件,则会默认创建;
+    3. 输入:open .bash_profile,如果是第一次创建,则默认为空白的文件;
+    4. 编辑如下三句即可，若之前有变量，在后面添加（第一个sdk目录，可以在android stuio中的preference -》appearance&amp;behavior -》system setting -》Android SDK中查看）
+        export ANDROID_HOME=/Users/xxx/Library/Android/sdk
+        export PATH=${PATH}:${ANDROID_HOME}/tools
+        export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+    5. 修改完保存，然后执行：source .bash_profile 即可使改动生效
+
+2，对于zsh终端
     1. 同理， cd ~/ :进入用户目录
     2. 找到.zshrc文件
     3. 在“# User configuration” 位置加入 “source ~/.bash_profile”
-    4. 执行source.zshrc</code></pre><p>##5，利用adb安装apk<br>    1. 生成apk：android studio -》Build -》Build APKS<br>    2. 找到apk：app -》build -》outputs -》apk<br>    3. 终端执行命令adb install apk的路径</p>
-
+    4. 执行source.zshrc</code></pre><h2 id="5，利用adb安装apk"><a href="#5，利用adb安装apk" class="headerlink" title="5，利用adb安装apk"></a>5，利用adb安装apk</h2><pre><code>1. 生成apk：android studio -》Build -》Build APKS
+2. 找到apk：app -》build -》outputs -》apk
+3. 终端执行命令adb install apk的路径</code></pre>
       
     </div>
     
@@ -527,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -648,6 +665,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，清理旧的android-studio"><span class="nav-number">1.</span> <span class="nav-text">1，清理旧的android studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，-android-studio下载"><span class="nav-number">2.</span> <span class="nav-text">2， android studio下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，免安装android-SDK的方法"><span class="nav-number">3.</span> <span class="nav-text">3，免安装android SDK的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，安装adb"><span class="nav-number">4.</span> <span class="nav-text">4，安装adb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，利用adb安装apk"><span class="nav-number">5.</span> <span class="nav-text">5，利用adb安装apk</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -675,7 +708,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">27k</span>
+    <span title="Site words total count">27.9k</span>
   
 </div>
 

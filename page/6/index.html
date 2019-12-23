@@ -1694,7 +1694,7 @@ $(document).ready(function () {
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  978
+                  999
                 </span>
               
 
@@ -1742,10 +1742,10 @@ $(document).ready(function () {
 <li>新建class类，类名Counter</li>
 <li>修改配置文件next/_config.yml的 <font color="#FF0000">leancloud_visitors</font> 属性</li>
 </ul>
-<h2 id="2，添加字数统计和阅读时长"><a href="#2，添加字数统计和阅读时长" class="headerlink" title="2，添加字数统计和阅读时长"></a>2，添加字数统计和阅读时长</h2><ol>
+<h2 id="2，添加文章头部字数统计和阅读时长"><a href="#2，添加文章头部字数统计和阅读时长" class="headerlink" title="2，添加文章头部字数统计和阅读时长"></a>2，添加文章头部字数统计和阅读时长</h2><ol>
 <li>参考文章：<a href="https://lewky.cn/posts/22195.html" target="_blank" rel="noopener">https://lewky.cn/posts/22195.html</a></li>
 <li>安装插件：主目录下 npm i –save hexo-wordcount</li>
-<li>修改主题配置文件 _config.yml的 <font color="#FF0000">busuanzi_count</font> 属性<ul>
+<li>修改主题配置文件 _config.yml的 <font color="#FF0000">post_wordcount </font> 属性<ul>
 <li><table><tr><td bgcolor="#C1E2E9">
 # 文章字数展示设置<br>
 post_wordcount:<br>
@@ -1766,6 +1766,7 @@ separated_meta: true<br>
 </ul>
 </li>
 </ol>
+<h2 id="3，添加文章底部字数统计和阅读时长"><a href="#3，添加文章底部字数统计和阅读时长" class="headerlink" title="3，添加文章底部字数统计和阅读时长"></a>3，添加文章底部字数统计和阅读时长</h2><p>busuanzi_count </p>
 <h2 id="3，添加评论"><a href="#3，添加评论" class="headerlink" title="3，添加评论"></a>3，添加评论</h2><ol>
 <li>参加文章：<a href="https://blog.csdn.net/qq_28963397/article/details/82910554" target="_blank" rel="noopener">https://blog.csdn.net/qq_28963397/article/details/82910554</a></li>
 <li>还是使用leanClound项目的appid和appkey</li>
@@ -2576,7 +2577,7 @@ categories:
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.2k</span>
+    <span title="Site words total count">29.3k</span>
   
 </div>
 
@@ -2596,10 +2597,10 @@ categories:
 
         
 <div class="busuanzi-count">
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
 
   
-    <span class="site-uv">
+    <span class=" site-uv">
       <i class="fa fa-user"></i> 访问人数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       人次
@@ -2761,7 +2762,7 @@ categories:
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
+    var guest = '';
     guest = guest.split(',').filter(item=>{
       return GUEST.indexOf(item)>-1;
     });
@@ -2908,5 +2909,5 @@ categories:
 
   
 
-</body>
+</div></div></footer></div></body>
 </html>

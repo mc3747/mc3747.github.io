@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1，gdb和lldb GDB:GNU发布的调试器，UNIX及UNIX-like下的调试工具，可以查看程序如何运行或崩溃时的状态  LLDB：LLDB是个开源的内置于XCode的具有REPL(read-eval-print-loop)特征的Debugger，其可以安装C++或者Python插件。  两者关系xcode里有内置的Debugger，老版使用的是GDB，xcode自4.3之后默认使用的就是">
 <meta name="keywords" content="上进，博学，深刻">
 <meta property="og:type" content="article">
 <meta property="og:title" content="58_iOS12-xcode的调试技能3-lldb">
 <meta property="og:url" content="https://github.com/2019/12/20/58_iOS12-xcode的调试技能3-lldb/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1，gdb和lldb GDB:GNU发布的调试器，UNIX及UNIX-like下的调试工具，可以查看程序如何运行或崩溃时的状态  LLDB：LLDB是个开源的内置于XCode的具有REPL(read-eval-print-loop)特征的Debugger，其可以安装C++或者Python插件。  两者关系xcode里有内置的Debugger，老版使用的是GDB，xcode自4.3之后默认使用的就是">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-20T08:54:55.247Z">
+<meta property="og:updated_time" content="2019-12-23T06:50:28.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="58_iOS12-xcode的调试技能3-lldb">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1，gdb和lldb GDB:GNU发布的调试器，UNIX及UNIX-like下的调试工具，可以查看程序如何运行或崩溃时的状态  LLDB：LLDB是个开源的内置于XCode的具有REPL(read-eval-print-loop)特征的Debugger，其可以安装C++或者Python插件。  两者关系xcode里有内置的Debugger，老版使用的是GDB，xcode自4.3之后默认使用的就是">
 
 
 
@@ -362,7 +362,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  560
                 </span>
               
 
@@ -378,7 +378,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -399,7 +399,30 @@
       
 
       
-        
+        <h2 id="1，gdb和lldb"><a href="#1，gdb和lldb" class="headerlink" title="1，gdb和lldb"></a>1，gdb和lldb</h2><ol>
+<li><p>GDB:<br>GNU发布的调试器，UNIX及UNIX-like下的调试工具，可以查看程序如何运行或崩溃时的状态</p>
+</li>
+<li><p>LLDB：<br>LLDB是个开源的内置于XCode的具有REPL(read-eval-print-loop)特征的Debugger，其可以安装C++或者Python插件。</p>
+</li>
+<li><p>两者关系<br>xcode里有内置的Debugger，老版使用的是GDB，xcode自4.3之后默认使用的就是LLDB<br>也可以说LLDB是比较高级的版本，或者在调试开发iOS应用时比较好用<br>GDB与LLDB的命令对照表：<a href="http://lldb.llvm.org/lldb-gdb.html" target="_blank" rel="noopener">http://lldb.llvm.org/lldb-gdb.html</a></p>
+</li>
+</ol>
+<h2 id="2，lldb的常用命令"><a href="#2，lldb的常用命令" class="headerlink" title="2，lldb的常用命令"></a>2，lldb的常用命令</h2><h2 id="2-1-p（print的简写）"><a href="#2-1-p（print的简写）" class="headerlink" title="2.1 p（print的简写）"></a>2.1 p（print的简写）</h2><pre><code>1,打印基本数据，打印类型和值
+2,打印的结果显示很全
+3,也可以打印对象，显示对象的指针地址和值
+4,基础数据类型，还可以指定格式打印，如用16进制的格式打印</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$0 、 $1的字样。我们可以将它看作是lldb内部的变量，我们可以在后面的查询中直接使用这些值</span><br><span class="line">(lldb) p str</span><br><span class="line">(__NSCFConstantString *) $1 = 0x000000010c14e068 @&quot;我是一个普通的字符串&quot;</span><br><span class="line"></span><br><span class="line">(lldb) p intDemo</span><br><span class="line">(NSInteger) $2 = 2</span><br><span class="line"></span><br><span class="line">(lldb) p $1</span><br><span class="line">(__NSCFConstantString *) $1 = 0x000000010c14e068 @&quot;我是一个普通的字符串&quot;</span><br><span class="line"></span><br><span class="line">//打印基本数据类型</span><br><span class="line">(lldb) p/x intDemo</span><br><span class="line">(NSInteger) $14 = 0x0000000000000002</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-po（print-object的简写）"><a href="#2-2-po（print-object的简写）" class="headerlink" title="2.2 po（print object的简写）"></a>2.2 po（print object的简写）</h2><pre><code>打印对象</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(lldb)  po str</span><br><span class="line">我是一个普通的字符串</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-e命令（expression的简写）"><a href="#2-3-e命令（expression的简写）" class="headerlink" title="2.3 e命令（expression的简写）"></a>2.3 e命令（expression的简写）</h2><pre><code>热修改变量或者模型的值</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//注意：表达式之后不需要加分号，加了分号之后会报错</span><br><span class="line"> e vc.bankCardModel.cardType = @“3”</span><br><span class="line"> </span><br><span class="line">(lldb) expr self.productId = @&quot;A0000001076&quot;</span><br><span class="line">(__NSCFString *) $0 = 0x00007ffc78a8f300 @&quot;A0000001076&quot;</span><br><span class="line"> </span><br><span class="line">(lldb) expr self.currentSkuId = @&quot;sku10210013&quot;</span><br><span class="line">(__NSCFString *) $1 = 0x00007ffc790610c0 @&quot;sku10210013&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-call命令"><a href="#2-4-call命令" class="headerlink" title="2.4 call命令"></a>2.4 call命令</h2><pre><code>1，作用是调用方法
+2，p，po命令也有此功能
+3，例如(lldb) call [self.view setBackgroundColor:[UIColor redColor]]</code></pre><h2 id="2-5-image-lookup-–address命令"><a href="#2-5-image-lookup-–address命令" class="headerlink" title="2.5 image lookup –address命令"></a>2.5 image lookup –address命令</h2><pre><code>1，作用是定位异常</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">(lldb) image lookup --address 0x00000001097c396f</span><br><span class="line"> </span><br><span class="line">输出：</span><br><span class="line">Address: GomeEShop[0x00000001006af96f] (GomeEShop.__TEXT.__text + 7000239)</span><br><span class="line">Summary: GomeEShop`-[GMFPTGoodsDetailVC initNecessaryViews] + 3903 at GMFPTGoodsDetailVC.m:589</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-6-线程相关"><a href="#2-6-线程相关" class="headerlink" title="2.6 线程相关"></a>2.6 线程相关</h2><pre><code>thread backtrace：线程回溯</code></pre><h2 id="2-7-架构相关"><a href="#2-7-架构相关" class="headerlink" title="2.7 架构相关"></a>2.7 架构相关</h2><pre><code>frame variable ：打印所有变量
+frame variable self：打印某个变量</code></pre><h2 id="2-8-堆栈相关"><a href="#2-8-堆栈相关" class="headerlink" title="2.8 堆栈相关"></a>2.8 堆栈相关</h2><pre><code>bt all：打印所有堆栈信息
+bt（backTrace的简写）：打印当前堆栈信息；</code></pre><h2 id="2-9-n命令"><a href="#2-9-n命令" class="headerlink" title="2.9 n命令"></a>2.9 n命令</h2><pre><code>n：单步调试</code></pre>
       
     </div>
     
@@ -432,6 +455,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/12/23/59_iOS13-xcode的调试技能4-其他/" rel="prev" title="59_iOS13-xcode的调试技能4-其他">
+                59_iOS13-xcode的调试技能4-其他 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -486,8 +513,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -504,7 +540,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -607,6 +643,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，gdb和lldb"><span class="nav-number">1.</span> <span class="nav-text">1，gdb和lldb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，lldb的常用命令"><span class="nav-number">2.</span> <span class="nav-text">2，lldb的常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-p（print的简写）"><span class="nav-number">3.</span> <span class="nav-text">2.1 p（print的简写）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-po（print-object的简写）"><span class="nav-number">4.</span> <span class="nav-text">2.2 po（print object的简写）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-e命令（expression的简写）"><span class="nav-number">5.</span> <span class="nav-text">2.3 e命令（expression的简写）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-call命令"><span class="nav-number">6.</span> <span class="nav-text">2.4 call命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-image-lookup-–address命令"><span class="nav-number">7.</span> <span class="nav-text">2.5 image lookup –address命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-6-线程相关"><span class="nav-number">8.</span> <span class="nav-text">2.6 线程相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-架构相关"><span class="nav-number">9.</span> <span class="nav-text">2.7 架构相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-堆栈相关"><span class="nav-number">10.</span> <span class="nav-text">2.8 堆栈相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-9-n命令"><span class="nav-number">11.</span> <span class="nav-text">2.9 n命令</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -634,7 +686,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.3k</span>
+    <span title="Site words total count">30k</span>
   
 </div>
 

@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1，leanCloud统计阅读次数 参考文章：https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app   注册leancound账号，下载国际版，可以免费 新建应用，获取应用的APP ID和APP Key 新建class类，类名Counter 修改配置文件next/_config.yml的 leancloud_visitors 属">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-23T02:05:30.024Z">
+<meta property="og:updated_time" content="2019-12-23T02:24:59.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3_hexo搭建个人博客-3">
 <meta name="twitter:description" content="1，leanCloud统计阅读次数 参考文章：https://www.jianshu.com/p/f2ec7eea543d?utm_source=oschina-app   注册leancound账号，下载国际版，可以免费 新建应用，获取应用的APP ID和APP Key 新建class类，类名Counter 修改配置文件next/_config.yml的 leancloud_visitors 属">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  999
+                  1.1k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  5
                 </span>
               
             </div>
@@ -430,7 +430,7 @@
 <li>新建class类，类名Counter</li>
 <li>修改配置文件next/_config.yml的 <font color="#FF0000">leancloud_visitors</font> 属性</li>
 </ul>
-<h2 id="2，添加文章头部字数统计和阅读时长"><a href="#2，添加文章头部字数统计和阅读时长" class="headerlink" title="2，添加文章头部字数统计和阅读时长"></a>2，添加文章头部字数统计和阅读时长</h2><ol>
+<h2 id="2，添加文章头部-字数统计和阅读时长"><a href="#2，添加文章头部-字数统计和阅读时长" class="headerlink" title="2，添加文章头部-字数统计和阅读时长"></a>2，添加文章头部-字数统计和阅读时长</h2><ol>
 <li>参考文章：<a href="https://lewky.cn/posts/22195.html" target="_blank" rel="noopener">https://lewky.cn/posts/22195.html</a></li>
 <li>安装插件：主目录下 npm i –save hexo-wordcount</li>
 <li>修改主题配置文件 _config.yml的 <font color="#FF0000">post_wordcount </font> 属性<ul>
@@ -454,8 +454,16 @@ separated_meta: true<br>
 </ul>
 </li>
 </ol>
-<h2 id="3，添加文章底部字数统计和阅读时长"><a href="#3，添加文章底部字数统计和阅读时长" class="headerlink" title="3，添加文章底部字数统计和阅读时长"></a>3，添加文章底部字数统计和阅读时长</h2><p>busuanzi_count </p>
-<h2 id="3，添加评论"><a href="#3，添加评论" class="headerlink" title="3，添加评论"></a>3，添加评论</h2><ol>
+<h2 id="3，添加文章底部-字数统计和阅读时长"><a href="#3，添加文章底部-字数统计和阅读时长" class="headerlink" title="3，添加文章底部-字数统计和阅读时长"></a>3，添加文章底部-字数统计和阅读时长</h2><ol>
+<li>集成默认的不蒜子统计</li>
+<li>参考文章：<a href="https://www.jianshu.com/p/efdcad39ad10" target="_blank" rel="noopener">https://www.jianshu.com/p/efdcad39ad10</a></li>
+<li>主题配置文件中_config.yml中的 <font color="#FF0000"> busuanzi_count </font> 属性,将enable设置为true</li>
+<li>配置完后如发现不能统计, 可能是引用网址更换了，检查 themes\next\layout_third-party\analytics\busuanzi-counter.swig 文件，找到如下代码：<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+修改为：<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</li>
+</ol>
+<h2 id="4，添加评论"><a href="#4，添加评论" class="headerlink" title="4，添加评论"></a>4，添加评论</h2><ol>
 <li>参加文章：<a href="https://blog.csdn.net/qq_28963397/article/details/82910554" target="_blank" rel="noopener">https://blog.csdn.net/qq_28963397/article/details/82910554</a></li>
 <li>还是使用leanClound项目的appid和appkey</li>
 <li>找到配置文件next/_config.yml的 <font color="#FF0000">valine</font> 属性<ul>
@@ -475,7 +483,7 @@ separated_meta: true<br>
 </ul>
 </li>
 </ol>
-<h2 id="4，添加RSS"><a href="#4，添加RSS" class="headerlink" title="4，添加RSS"></a>4，添加RSS</h2><ol>
+<h2 id="5，添加RSS"><a href="#5，添加RSS" class="headerlink" title="5，添加RSS"></a>5，添加RSS</h2><ol>
 <li>安装插件：npm install hexo-generator-feed –save</li>
 <li>在根目录下的/theme/next/_config.yml文件中添加配置<font color="#FF0000"> feed </font>属性<ul>
 <li><table><tr><td bgcolor="#C1E2E9">
@@ -496,7 +504,7 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
 <li>站点配置/theme/next/_config.yml文件中配置<font color="#FF0000"> url </font>属性</li>
 <li>⚠️没有域名，订阅的rss能看到目录，但访问不了详情</li>
 </ol>
-<h2 id="5-添加顶部加载条"><a href="#5-添加顶部加载条" class="headerlink" title="5,添加顶部加载条"></a>5,添加顶部加载条</h2><ol>
+<h2 id="6-添加顶部加载条"><a href="#6-添加顶部加载条" class="headerlink" title="6,添加顶部加载条"></a>6,添加顶部加载条</h2><ol>
 <li>参考链接：<a href="https://segmentfault.com/a/1190000009544924#articleHeader18" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009544924#articleHeader18</a></li>
 <li>进入/themes/next/layout/_partials/head.swig文件</li>
 <li>添加脚本链接</li>
@@ -508,14 +516,14 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    .pace .pace-progress &#123;</span><br><span class="line">        background: #1E92FB; /*进度条颜色*/</span><br><span class="line">        height: 3px;</span><br><span class="line">    &#125;</span><br><span class="line">    .pace .pace-progress-inner &#123;</span><br><span class="line">         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/</span><br><span class="line">    &#125;</span><br><span class="line">    .pace .pace-activity &#123;</span><br><span class="line">        border-top-color: #1E92FB;    /*上边框颜色*/</span><br><span class="line">        border-left-color: #1E92FB;    /*左边框颜色*/</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
-<h2 id="6-设置头像的旋转"><a href="#6-设置头像的旋转" class="headerlink" title="6,设置头像的旋转"></a>6,设置头像的旋转</h2><ol>
+<h2 id="7-设置头像的旋转"><a href="#7-设置头像的旋转" class="headerlink" title="7,设置头像的旋转"></a>7,设置头像的旋转</h2><ol>
 <li>参考链接<a href="https://segmentfault.com/a/1190000009544924#articleHeader7" target="_blank" rel="noopener">https://segmentfault.com/a/1190000009544924#articleHeader7</a></li>
 <li>打开\themes\next\source\css_common\components\sidebar\sidebar-author.styl</li>
 <li>添加代码</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">.site-author-image &#123;</span><br><span class="line">  display: block;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  padding: $site-author-image-padding;</span><br><span class="line">  max-width: $site-author-image-width;</span><br><span class="line">  height: $site-author-image-height;</span><br><span class="line">  border: $site-author-image-border-width solid $site-author-image-border-color;</span><br><span class="line"></span><br><span class="line">  /* 头像圆形 */</span><br><span class="line">  border-radius: 80px;</span><br><span class="line">  -webkit-border-radius: 80px;</span><br><span class="line">  -moz-border-radius: 80px;</span><br><span class="line">  box-shadow: inset 0 -1px 0 #333sf;</span><br><span class="line"></span><br><span class="line">  /* 设置循环动画 [animation: (play)动画名称 (2s)动画播放时长单位秒或微秒 (ase-out)动画播放的速度曲线为以低速结束 </span><br><span class="line">    (1s)等待1秒然后开始动画 (1)动画播放次数(infinite为循环播放) ]*/</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">  /* 鼠标经过头像旋转360度 */</span><br><span class="line">  -webkit-transition: -webkit-transform 1.0s ease-out;</span><br><span class="line">  -moz-transition: -moz-transform 1.0s ease-out;</span><br><span class="line">  transition: transform 1.0s ease-out;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">img:hover &#123;</span><br><span class="line">  /* 鼠标经过停止头像旋转 </span><br><span class="line">  -webkit-animation-play-state:paused;</span><br><span class="line">  animation-play-state:paused;*/</span><br><span class="line"></span><br><span class="line">  /* 鼠标经过头像旋转360度 */</span><br><span class="line">  -webkit-transform: rotateZ(360deg);</span><br><span class="line">  -moz-transform: rotateZ(360deg);</span><br><span class="line">  transform: rotateZ(360deg);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* Z 轴旋转动画 */</span><br><span class="line">@-webkit-keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    -webkit-transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    -webkit-transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@-moz-keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    -moz-transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    -moz-transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes play &#123;</span><br><span class="line">  0% &#123;</span><br><span class="line">    transform: rotateZ(0deg);</span><br><span class="line">  &#125;</span><br><span class="line">  100% &#123;</span><br><span class="line">    transform: rotateZ(-360deg);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="7，添加个人联系方式"><a href="#7，添加个人联系方式" class="headerlink" title="7，添加个人联系方式"></a>7，添加个人联系方式</h2><ol>
+<h2 id="8，添加个人联系方式"><a href="#8，添加个人联系方式" class="headerlink" title="8，添加个人联系方式"></a>8，添加个人联系方式</h2><ol>
 <li>主题配置文件_config.yml中的的social属性打开</li>
 <li>配置如：GitHub: <a href="https://github.com/yourname">https://github.com/yourname</a> || github，<ul>
 <li>GitHub为展示</li>
@@ -525,7 +533,7 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
 </li>
 <li>图标配置网站：<a href="https://fontawesome.com/icons?d=gallery" target="_blank" rel="noopener">https://fontawesome.com/icons?d=gallery</a></li>
 </ol>
-<h2 id="8，修改代码引用的背景颜色"><a href="#8，修改代码引用的背景颜色" class="headerlink" title="8，修改代码引用的背景颜色"></a>8，修改代码引用的背景颜色</h2><pre><code>1. 主题的_config.yml文件，默认启动高亮
+<h2 id="9，修改代码引用的背景颜色"><a href="#9，修改代码引用的背景颜色" class="headerlink" title="9，修改代码引用的背景颜色"></a>9，修改代码引用的背景颜色</h2><pre><code>1. 主题的_config.yml文件，默认启动高亮
     highlight:
           enable: true
           line_number: true
@@ -661,7 +669,7 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">58</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -773,7 +781,7 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，leanCloud统计阅读次数"><span class="nav-number">1.</span> <span class="nav-text">1，leanCloud统计阅读次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，添加文章头部字数统计和阅读时长"><span class="nav-number">2.</span> <span class="nav-text">2，添加文章头部字数统计和阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，添加文章底部字数统计和阅读时长"><span class="nav-number">3.</span> <span class="nav-text">3，添加文章底部字数统计和阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，添加评论"><span class="nav-number">4.</span> <span class="nav-text">3，添加评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，添加RSS"><span class="nav-number">5.</span> <span class="nav-text">4，添加RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-添加顶部加载条"><span class="nav-number">6.</span> <span class="nav-text">5,添加顶部加载条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-设置头像的旋转"><span class="nav-number">7.</span> <span class="nav-text">6,设置头像的旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7，添加个人联系方式"><span class="nav-number">8.</span> <span class="nav-text">7，添加个人联系方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8，修改代码引用的背景颜色"><span class="nav-number">9.</span> <span class="nav-text">8，修改代码引用的背景颜色</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，leanCloud统计阅读次数"><span class="nav-number">1.</span> <span class="nav-text">1，leanCloud统计阅读次数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，添加文章头部-字数统计和阅读时长"><span class="nav-number">2.</span> <span class="nav-text">2，添加文章头部-字数统计和阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，添加文章底部-字数统计和阅读时长"><span class="nav-number">3.</span> <span class="nav-text">3，添加文章底部-字数统计和阅读时长</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，添加评论"><span class="nav-number">4.</span> <span class="nav-text">4，添加评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，添加RSS"><span class="nav-number">5.</span> <span class="nav-text">5，添加RSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-添加顶部加载条"><span class="nav-number">6.</span> <span class="nav-text">6,添加顶部加载条</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-设置头像的旋转"><span class="nav-number">7.</span> <span class="nav-text">7,设置头像的旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8，添加个人联系方式"><span class="nav-number">8.</span> <span class="nav-text">8，添加个人联系方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9，修改代码引用的背景颜色"><span class="nav-number">9.</span> <span class="nav-text">9，修改代码引用的背景颜色</span></a></li></ol></div>
             
 
           </div>
@@ -807,7 +815,7 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.3k</span>
+    <span title="Site words total count">30k</span>
   
 </div>
 

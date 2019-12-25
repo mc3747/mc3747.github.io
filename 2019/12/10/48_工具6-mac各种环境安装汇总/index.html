@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1,Homebrew(苹果):1,是Mac OSX上的软件包管理工具，能在Mac中方便的安装软件或者卸载软件。 2,安装Homebrew     ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  3，查看版本： brew -v 4，更新版本： br">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="48_工具6-mac各种环境安装汇总">
 <meta property="og:url" content="https://github.com/2019/12/10/48_工具6-mac各种环境安装汇总/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1,Homebrew(苹果):1,是Mac OSX上的软件包管理工具，能在Mac中方便的安装软件或者卸载软件。 2,安装Homebrew     ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  3，查看版本： brew -v 4，更新版本： br">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-10T08:31:31.157Z">
+<meta property="og:updated_time" content="2019-12-25T01:14:59.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="48_工具6-mac各种环境安装汇总">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1,Homebrew(苹果):1,是Mac OSX上的软件包管理工具，能在Mac中方便的安装软件或者卸载软件。 2,安装Homebrew     ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;  3，查看版本： brew -v 4，更新版本： br">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  583
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -421,7 +421,62 @@
       
 
       
-        
+        <h2 id="1-Homebrew-苹果"><a href="#1-Homebrew-苹果" class="headerlink" title="1,Homebrew(苹果):"></a>1,Homebrew(苹果):</h2><pre><code>1,是Mac OSX上的软件包管理工具，能在Mac中方便的安装软件或者卸载软件。
+2,安装Homebrew
+    ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+
+3，查看版本： brew -v
+4，更新版本： brew update
+5，查看已安装列表： brew list
+6，卸载任意包： brew uninstall &lt;packageName&gt;
+7，常见应用：
+    安装node： brew install node
+    安装ruby：    brew install ruby</code></pre><h2 id="2-npm-谷歌"><a href="#2-npm-谷歌" class="headerlink" title="2,npm(谷歌):"></a>2,npm(谷歌):</h2><pre><code>1,npm:（node package manager)是nodejs的包管理器
+2,node.js是javascript的一种运行环境，也是开发环境,是对Google V8引擎进行的封装。是一个服务器端的javascript的解释器
+3,直接安装Node.js，网址：https://nodejs.org/en/download/,安装node.js后,npm也一并安装了
+4,通过Homebrew安装
+    brew install node
+5,查看是否安装成功:
+    node -v:查看node版本
+    npm -v：查看npm版本
+6，更新npm到最新
+    sudo npm install npm -g
+7,安装，卸载，更新依赖包:
+    1，安装模块
+    本地安装:npm install express 
+        1. 将安装包放在 ./node_modules 下（运行 npm 命令时所在的目录），如果没有 node_modules 目录，会在当前执行 npm 命令的目录下生成 node_modules 目录。
+        2. 可以通过 require() 来引入本地安装的包。
+
+    全局安装:npm install express -g   
+        1. 将安装包放在 /usr/local 下或者你 node 的安装目录。
+        2. 可以直接在命令行里使用。
+
+    2，卸载模块
+    我们可以使用以下命令来卸载 Node.js 模块。
+     npm uninstall express
+
+    3，更新模块
+    npm update express
+
+8,查看包命令
+    npm ls
+9，Package.json 属性说明
+    name - 包名。
+    version - 包的版本号。
+    description - 包的描述。
+    homepage - 包的官网 url 。
+    author - 包的作者姓名。
+    contributors - 包的其他贡献者姓名。
+    dependencies - 依赖包列表。如果依赖包没有安装，npm 会自动将依赖包安装在 node_module 目录下。
+    repository - 包代码存放的地方的类型，可以是 git 或 svn，git 可在 Github 上。
+    main - main 字段指定了程序的主入口文件，require(&apos;moduleName&apos;) 就会加载这个文件。这个字段的默认值是模块根目录下面的 index.js。
+    keywords - 关键字</code></pre><h2 id="3-yarn-Facebook"><a href="#3-yarn-Facebook" class="headerlink" title="3,yarn (Facebook)"></a>3,yarn (Facebook)</h2><pre><code>1,yarn就是一个类似于npm的包管理工具，它是由facebook推出并开源.
+
+2,通过homebrew安装
+    brew install yarn
+
+3,运行依赖包
+    yarn install</code></pre>
       
     </div>
     
@@ -518,8 +573,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -536,7 +600,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">63</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -558,7 +622,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -639,6 +703,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Homebrew-苹果"><span class="nav-number">1.</span> <span class="nav-text">1,Homebrew(苹果):</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-npm-谷歌"><span class="nav-number">2.</span> <span class="nav-text">2,npm(谷歌):</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-yarn-Facebook"><span class="nav-number">3.</span> <span class="nav-text">3,yarn (Facebook)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -666,7 +746,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">31.9k</span>
+    <span title="Site words total count">33.4k</span>
   
 </div>
 

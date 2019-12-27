@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1，js引擎的作用读取网页中的 JavaScript 代码，对其处理后运行2，js引擎运行的优缺点优点：JavaScript 是一种解释型语言，不需要编译，由解释器实时运行。好处是运行和修改都比较方便，刷新页面就可以重新解释； 缺点：每次运行都要调用解释器，系统开销较大，运行速度慢于编译型语言3，浏览器对js的处理过程1，读取代码，进行词法分析（Lexical analysis），将代码分解成词元">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-27T09:54:06.402Z">
+<meta property="og:updated_time" content="2019-12-27T09:59:19.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="65_web5-浏览器的js引擎">
 <meta name="twitter:description" content="1，js引擎的作用读取网页中的 JavaScript 代码，对其处理后运行2，js引擎运行的优缺点优点：JavaScript 是一种解释型语言，不需要编译，由解释器实时运行。好处是运行和修改都比较方便，刷新页面就可以重新解释； 缺点：每次运行都要调用解释器，系统开销较大，运行速度慢于编译型语言3，浏览器对js的处理过程1，读取代码，进行词法分析（Lexical analysis），将代码分解成词元">
@@ -440,12 +440,11 @@
 5，V8 (Chrome, Chromium)</code></pre><h2 id="5，浏览器加载js原理"><a href="#5，浏览器加载js原理" class="headerlink" title="5，浏览器加载js原理"></a>5，浏览器加载js原理</h2><pre><code>1，浏览器一边下载 HTML 网页，一边开始解析。也就是说，不等到下载完，就开始解析。
 2，解析过程中，浏览器发现&lt;script&gt;元素，就暂停解析，把网页渲染的控制权转交给 JavaScript 引擎。
 3，如果&lt;script&gt;元素引用了外部脚本，就下载该脚本再执行，否则就直接执行代码。
-4，JavaScript 引擎执行完毕，控制权交还渲染引擎，恢复往下解析 HTML 网页。</code></pre><div style="background-color:#EEF4EC;border-left:5px #5DB24C solid">
+4，JavaScript 引擎执行完毕，控制权交还渲染引擎，恢复往下解析 HTML 网页。</code></pre><p style="background-color:#EEF4EC;border-left:5px #5DB24C solid">
     <font color="#110B13" size="2.5" face="黑体">
         &nbsp;&nbsp;♻️&nbsp&nbsp    如果外部脚本加载时间很长（一直无法完成下载），那么浏览器就会一直等待脚本下载完成，造成网页长时间失去响应，浏览器就会呈现“假死”状态，这被称为“阻塞效应”；
     </font>
-</div>
-
+</p>
 
 <p style="background-color:#ffc1c1;border-left:5px #CB372D solid">
     <font color="#190C01" size="2.5" face="黑体">
@@ -726,7 +725,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">36.7k</span>
+    <span title="Site words total count">36.8k</span>
   
 </div>
 

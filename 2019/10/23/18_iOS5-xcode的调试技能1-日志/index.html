@@ -96,19 +96,19 @@
 
 
 
-<meta name="description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，静态工具（instruments中Profile） 5，UI调试 6，其他  1, 宏定义，预编译打印1234567//NSLog输出//DEBUG  模式下打印日志：当前方法 + 行号 + 打印的内容#ifdef DEBUG#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt),">
+<meta name="description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，静态工具（instruments中Profile） 5，UI调试 6，其他  1, 宏定义，预编译打印1，__func__(和__FUNCTION__等效)    %s    打印当前函数名（例子：NSLog(@&amp;quot;%s&amp;quot;, __func__);） 2，__LINE__    %d    源码文件中的行号（例子">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="18_iOS5-xcode的调试技能1-日志">
 <meta property="og:url" content="https://github.com/2019/10/23/18_iOS5-xcode的调试技能1-日志/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，静态工具（instruments中Profile） 5，UI调试 6，其他  1, 宏定义，预编译打印1234567//NSLog输出//DEBUG  模式下打印日志：当前方法 + 行号 + 打印的内容#ifdef DEBUG#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt),">
+<meta property="og:description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，静态工具（instruments中Profile） 5，UI调试 6，其他  1, 宏定义，预编译打印1，__func__(和__FUNCTION__等效)    %s    打印当前函数名（例子：NSLog(@&amp;quot;%s&amp;quot;, __func__);） 2，__LINE__    %d    源码文件中的行号（例子">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8732.png">
-<meta property="og:updated_time" content="2019-12-23T06:12:50.889Z">
+<meta property="og:updated_time" content="2019-12-26T06:32:54.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="18_iOS5-xcode的调试技能1-日志">
-<meta name="twitter:description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，静态工具（instruments中Profile） 5，UI调试 6，其他  1, 宏定义，预编译打印1234567//NSLog输出//DEBUG  模式下打印日志：当前方法 + 行号 + 打印的内容#ifdef DEBUG#define DLog(fmt, ...) NSLog((@&quot;%s [Line %d] &quot; fmt),">
+<meta name="twitter:description" content="调试方法：    1，日志调试 2，断点调试 3，lldb调试 4，静态工具（instruments中Profile） 5，UI调试 6，其他  1, 宏定义，预编译打印1，__func__(和__FUNCTION__等效)    %s    打印当前函数名（例子：NSLog(@&amp;quot;%s&amp;quot;, __func__);） 2，__LINE__    %d    源码文件中的行号（例子">
 <meta name="twitter:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8732.png">
 
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  931
+                  1k
                 </span>
               
 
@@ -429,9 +429,12 @@
 </blockquote>
 <p> 1，日志调试<br> 2，断点调试<br> 3，lldb调试<br> 4，静态工具（instruments中Profile）<br> 5，UI调试<br> 6，其他</p>
 </blockquote>
-<h2 id="1-宏定义，预编译打印"><a href="#1-宏定义，预编译打印" class="headerlink" title="1, 宏定义，预编译打印"></a>1, 宏定义，预编译打印</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//NSLog输出</span></span><br><span class="line"><span class="comment">//DEBUG  模式下打印日志：当前方法 + 行号 + 打印的内容</span></span><br><span class="line"><span class="meta">#ifdef DEBUG</span></span><br><span class="line"><span class="meta">#define DLog(fmt, ...) NSLog((@<span class="meta-string">"%s [Line %d] "</span> fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);</span></span><br><span class="line"><span class="meta">#else</span></span><br><span class="line"><span class="meta">#define DLog(...)</span></span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-宏定义，预编译打印"><a href="#1-宏定义，预编译打印" class="headerlink" title="1, 宏定义，预编译打印"></a>1, 宏定义，预编译打印</h2><pre><code>1，__func__(和__FUNCTION__等效)    %s    打印当前函数名（例子：NSLog(@&quot;%s&quot;, __func__);）
+2，__LINE__    %d    源码文件中的行号（例子：NSLog(@&quot;%s&quot;, __LINE__);）
+3，__FILE__    %s    源码文件完整路径（例子：NSLog(@&quot;%s&quot;, __FILE__);）
+4，__PRETTY_FUNCTION__    %s    和__func__类似, 但是在 C++ 代码中包含更多的信息.</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//全局NSLog输出</span></span><br><span class="line"><span class="comment">//DEBUG  模式下打印日志：当前方法 + 行号 + 打印的内容</span></span><br><span class="line"><span class="meta">#ifdef DEBUG</span></span><br><span class="line"><span class="meta">#define DLog(fmt, ...) NSLog((@<span class="meta-string">"%s [Line %d] "</span> fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);</span></span><br><span class="line"><span class="meta">#else</span></span><br><span class="line"><span class="meta">#define DLog(...)</span></span><br><span class="line"><span class="meta">#endif</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="2-日志输出表达式"><a href="#2-日志输出表达式" class="headerlink" title="2, 日志输出表达式"></a>2, 日志输出表达式</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  当前方法名</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"当前方法名：%@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  当前类名</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"当前类名：%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> <span class="keyword">class</span>]));</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  源码文件名</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"源码文件名：%@"</span>,  [[<span class="built_in">NSString</span> stringWithUTF8String:__FILE__] lastPathComponent]);</span><br><span class="line"><span class="comment">//  当前堆栈</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"当前堆栈：%@"</span>, [<span class="built_in">NSThread</span> callStackSymbols]);</span><br></pre></td></tr></table></figure>
+<h2 id="2-日志输出表达式"><a href="#2-日志输出表达式" class="headerlink" title="2, 日志输出表达式"></a>2, 日志输出表达式</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  1，当前方法名</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"当前方法名：%@"</span>, <span class="built_in">NSStringFromSelector</span>(_cmd));</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  2，当前类名</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"当前类名：%@"</span>, <span class="built_in">NSStringFromClass</span>([<span class="keyword">self</span> <span class="keyword">class</span>]));</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  3，源码文件名</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"源码文件名：%@"</span>,  [[<span class="built_in">NSString</span> stringWithUTF8String:__FILE__] lastPathComponent]);</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  4，当前堆栈</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"当前堆栈：%@"</span>, [<span class="built_in">NSThread</span> callStackSymbols]);</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-开启僵尸对象和堆栈"><a href="#3-开启僵尸对象和堆栈" class="headerlink" title="3, 开启僵尸对象和堆栈"></a>3, 开启僵尸对象和堆栈</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8732.png" alt><br>        xcode里面点击Product菜单的Edit Schema，加两个环境变量：NSZombieEnabled, MallocStackLogging，都设为YES<br>        NSZombieEnabled启用会打出类似*** -[CALayer release]: message sent to deallocated instance 0xce93c90这具体的错误提示，有利于定位错误 </p>
 <h2 id="4-控制台打印中文"><a href="#4-控制台打印中文" class="headerlink" title="4, 控制台打印中文"></a>4, 控制台打印中文</h2><pre><code>原理就是将unicode转成中文
@@ -595,7 +598,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><h2 id="5
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -741,7 +744,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><h2 id="5
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">33.4k</span>
+    <span title="Site words total count">36.7k</span>
   
 </div>
 

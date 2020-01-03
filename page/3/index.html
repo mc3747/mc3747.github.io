@@ -280,6 +280,514 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/16/53_iOS7-UIViewController要点介绍/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/16/53_iOS7-UIViewController要点介绍/" itemprop="url">53_iOS7-UIViewController的生命周期&创建&对应view的创建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T17:36:01+08:00">
+                2019-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/16/53_iOS7-UIViewController要点介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/53_iOS7-UIViewController要点介绍/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/16/53_iOS7-UIViewController要点介绍/" class="leancloud_visitors" data-flag-title="53_iOS7-UIViewController的生命周期&创建&对应view的创建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>包含四部分：1，控制器的生命周期；2，控制器的创建方式；3，控制器view的延时加载；4，控制器view的加载事项</p>
+</blockquote>
+<h2 id="1-控制器的生命周期"><a href="#1-控制器的生命周期" class="headerlink" title="1.控制器的生命周期"></a>1.控制器的生命周期</h2><h3 id="1-1-常用的方法"><a href="#1-1-常用的方法" class="headerlink" title="1.1 常用的方法"></a>1.1 常用的方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非storyBoard(xib或非xib)都走这个方法</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithNibName:(<span class="built_in">NSString</span> *)nibNameOrNil bundle:(<span class="built_in">NSBundle</span> *)nibBundleOrNil &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果连接了串联图storyBoard 走这个方法</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder]) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// xib 加载 完成</span></span><br><span class="line">- (<span class="keyword">void</span>)awakeFromNib &#123;</span><br><span class="line">    [<span class="keyword">super</span> awakeFromNib];</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载视图(默认从nib)</span></span><br><span class="line">- (<span class="keyword">void</span>)loadView &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    <span class="keyword">self</span>.view = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图控制器中的视图加载完成，viewController自带的view加载完成</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要出现</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// view 即将布局其 Subviews</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillLayoutSubviews &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewWillLayoutSubviews];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// view 已经布局其 Subviews</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLayoutSubviews &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidLayoutSubviews];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经出现</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidAppear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewWillDisappear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidDisappear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出现内存警告  //模拟内存警告:点击模拟器-&gt;hardware-&gt; Simulate Memory Warning</span></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 视图被销毁</span></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-打印执行顺序"><a href="#1-2-打印执行顺序" class="headerlink" title="1.2 打印执行顺序"></a>1.2 打印执行顺序</h3><pre><code>2017-03-01 18:03:41.577 ViewControllerLifeCircle[32254:401790] -[ViewController initWithCoder:]
+2017-03-01 18:03:41.579 ViewControllerLifeCircle[32254:401790] -[ViewController awakeFromNib]
+2017-03-01 18:03:41.581 ViewControllerLifeCircle[32254:401790] -[ViewController loadView]
+2017-03-01 18:03:46.485 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLoad]
+2017-03-01 18:03:46.486 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillAppear:]
+2017-03-01 18:03:46.487 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillLayoutSubviews]
+2017-03-01 18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLayoutSubviews]
+2017-03-01 18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillLayoutSubviews]
+2017-03-01 18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLayoutSubviews]
+2017-03-01 18:03:46.490 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidAppear:]
+2017-03-01 19:03:13.308 ViewControllerLifeCircle[32611:427962] -[ViewController viewWillDisappear:]
+2017-03-01 19:03:14.683 ViewControllerLifeCircle[32611:427962] -[ViewController viewDidDisappear:]
+2017-03-01 19:03:14.683 ViewControllerLifeCircle[32611:427962] -[ViewController dealloc]
+2017-03-01 19:12:05.927 ViewControllerLifeCircle[32611:427962] -[ViewController didReceiveMemoryWarning]</code></pre><h3 id="1-3-总结执行顺序"><a href="#1-3-总结执行顺序" class="headerlink" title="1.3 总结执行顺序"></a>1.3 总结执行顺序</h3><pre><code>非storyboard走initWithNibName (storyboard走initWithCoder) 👉
+awakeFromNib（各种视图层加载完毕）👉 loadView (此时才能进行视图操作)👉 
+viewDidLoad 👉 viewWillAppear 👉 viewWillLayoutSubviews 👉
+viewDidLayoutSubviews 👉  viewDidAppear 👉 viewWillDisappear 👉 
+viewDidDisappear 👉 dealloc 👉 didReceiveMemoryWarning</code></pre><h3 id="1-4-每个生命周期方法的总结"><a href="#1-4-每个生命周期方法的总结" class="headerlink" title="1.4 每个生命周期方法的总结"></a>1.4 每个生命周期方法的总结</h3><pre><code>1.initWithNibName:bundle:
+初始化UIViewController，执行关键数据初始化操作，非StoryBoard创建UIViewController都会调用这个方法。
+** 注意: 不要在这里做View相关操作，View在loadView方法中才初始化。**
+
+2. initWithCoder:
+如果使用StoryBoard进行视图管理，程序不会直接初始化一个UIViewController，StoryBoard会自动初始化或在segue被触发时自动初始化，因此方法initWithNibName:bundle不会被调用，但是initWithCoder会被调用。
+
+3. awakeFromNib
+当awakeFromNib方法被调用时，所有视图的outlet和action已经连接，但还没有被确定，这个方法可以算作适合视图控制器的实例化配合一起使用的，因为有些需要根据用户喜好来进行设置的内容，无法存在storyBoard或xib中，所以可以在awakeFromNib方法中被加载进来。
+
+4. loadView
+当执行到loadView方法时，如果视图控制器是通过nib创建，那么视图控制器已经从nib文件中被解档并创建好了，接下来任务就是对view进行初始化。
+
+loadView方法在UIViewController对象的view被访问且为空的时候调用。这是它与awakeFromNib方法的一个区别。
+假设我们在处理内存警告时释放view属性:self.view = nil。因此loadView方法在视图控制器的生命周期内可能被调用多次。
+loadView方法不应该直接被调用，而是由系统调用。它会加载或创建一个view并把它赋值给UIViewController的view属性。
+
+在创建view的过程中，首先会根据nibName去找对应的nib文件然后加载。如果nibName为空或找不到对应的nib文件，则会创建一个空视图(这种情况一般是纯代码)
+注意:在重写loadView方法的时候，不要调用父类的方法。
+
+5. viewDidLoad
+当loadView将view载入内存中，会进一步调用viewDidLoad方法来进行进一步设置。此时，视图层次已经放到内存中，通常，我们对于各种初始化数据的载入，初始设定、修改约束、移除视图等很多操作都可以这个方法中实现。
+视图层次(view hierachy):因为每个视图都有自己的子视图，这个视图层次其实也可以理解为一颗树状的数据结构。而树的根节点，也就是根视图(root view),在UIViewController中以view属性。它可以看做是其他所有子视图的容器，也就是根节点。
+
+6. viewWillAppear
+系统在载入所有的数据后，将会在屏幕上显示视图，这时会先调用这个方法，通常我们会在这个方法对即将显示的视图做进一步的设置。比如，设置设备不同方向时该如何显示；设置状态栏方向、设置视图显示样式等。
+另一方面，当APP有多个视图时，上下级视图切换是也会调用这个方法，如果在调入视图时，需要对数据做更新，就只能在这个方法内实现。
+
+7. viewWillLayoutSubviews
+view 即将布局其Subviews。 比如view的bounds改变了(例如:状态栏从不显示到显示,视图方向变化)，要调整Subviews的位置，在调整之前要做的工作可以放在该方法中实现
+
+8. viewDidLayoutSubviews
+view已经布局其Subviews，这里可以放置调整完成之后需要做的工作。
+
+9. viewDidAppear
+在view被添加到视图层级中以及多视图，上下级视图切换时调用这个方法，在这里可以对正在显示的视图做进一步的设置。
+
+10. viewWillDisappear
+在视图切换时，当前视图在即将被移除、或被覆盖是，会调用该方法，此时还没有调用removeFromSuperview。
+
+11. viewDidDisappear
+view已经消失或被覆盖，此时已经调用removeFromSuperView;
+
+12. dealloc
+视图被销毁，此次需要对你在init和viewDidLoad中创建的对象进行释放。
+
+13. didReceiveMemoryWarning
+在内存足够的情况下，app的视图通常会一直保存在内存中，但是如果内存不够，一些没有正在显示的viewController就会收到内存不足的警告，然后就会释放自己拥有的视图，以达到释放内存的目的。但是系统只会释放内存，并不会释放对象的所有权，所以通常我们需要在这里将不需要显示在内存中保留的对象释放它的所有权，将其指针置nil。</code></pre><h3 id="1-5-生命周期方法的小结"><a href="#1-5-生命周期方法的小结" class="headerlink" title="1.5 生命周期方法的小结"></a>1.5 生命周期方法的小结</h3><pre><code>1. 只有init系列的方法,如initWithNibName需要自己调用，其他方法如loadView和awakeFromNib则是系统自动调用。而viewWill/Did系列的方法则类似于回调和通知，也会被自动调用。
+
+2. 纯代码写视图布局时需要注意，要手动调用loadView方法，而且不要调用父类的loadView方法。纯代码和用IB的区别仅存在于loadView方法及其之前，编程时需要注意的也就是loadView方法。
+
+3. 除了initWithNibName和awakeFromNib方法是处理视图控制器外，其他方法都是处理视图。这两个方法在视图控制器的生命周期里只会调用一次。</code></pre><h2 id="2-控制器的创建方法"><a href="#2-控制器的创建方法" class="headerlink" title="2.控制器的创建方法"></a>2.控制器的创建方法</h2><h3 id="2-1-通过纯代码创建VC"><a href="#2-1-通过纯代码创建VC" class="headerlink" title="2.1 通过纯代码创建VC"></a>2.1 通过纯代码创建VC</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ViewController *VC = [storyboard instantiateInitialViewController];</span><br><span class="line">ViewController *VC = [[ViewController alloc] init];</span><br><span class="line"><span class="built_in">UINavigationController</span> *naviVC = [[<span class="built_in">UINavigationController</span> alloc] initWithRootViewController:VC];</span><br><span class="line"><span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line"><span class="keyword">self</span>.window.rootViewController = naviVC;</span><br><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+
+<pre><code>✳️纯代码创建VC的方式ViewControllerWith *vc = [[ViewControllerWith alloc] init];方法调用顺序：
+1,init
+2,initWithNibName:bundle: - 加载带有xib的控制器(默认ViewController)
+3,loadView - 加载控制器视图
+4,viewDidLoad - 加载完毕</code></pre><h3 id="2-2-通过Storyboard创建VC"><a href="#2-2-通过Storyboard创建VC" class="headerlink" title="2.2 通过Storyboard创建VC"></a>2.2 通过Storyboard创建VC</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>,创建窗口</span><br><span class="line">        <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="number">2</span>,加载main.storyboard</span><br><span class="line">        <span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line">    <span class="number">3</span>,设置main.storyboard描述的控制器        </span><br><span class="line">        方法一:<span class="built_in">UIViewController</span> *vc = [storyboard instantiateInitialViewController];</span><br><span class="line">            (其中 instantiateInitialViewController:加载的是箭头指向的控制器)</span><br><span class="line">            方法二:  <span class="built_in">UIViewController</span> *vc = [storyboard instantiateViewControllerWithIdentifier:<span class="string">@"vc1"</span>];</span><br><span class="line">            (其中可以在控制器的类操作里边,绑定ID)</span><br><span class="line"> </span><br><span class="line">    <span class="number">4</span>,设置窗口的根控制器</span><br><span class="line">        <span class="keyword">self</span>.window.rootViewController = vc;</span><br><span class="line">    <span class="number">5</span>,显示窗口</span><br><span class="line">        [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+
+
+<pre><code>✳️storyboard加载控制器，内部调用方法顺序：
+    1，initWithCoder:
+    2，awakeFromNib
+    3，loadView(控制器的View的子控件也是在控制器实例化之后加载view)
+    4，viewDidLoad</code></pre><h3 id="2-3-通过xib创建VC"><a href="#2-3-通过xib创建VC" class="headerlink" title="2.3 通过xib创建VC"></a>2.3 通过xib创建VC</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">   <span class="number">1</span>,创建一个xib文件;</span><br><span class="line">    <span class="number">2</span>,拖一个view来描述控制器的view,并在上边布置需要显示的部件;</span><br><span class="line">    <span class="number">3</span>,点击xib的File’s owner里边设置控制器类名;</span><br><span class="line">        (File’s owner代表的就是viewController)</span><br><span class="line">    <span class="number">4</span>,File’s owner与view连线,告诉控制器需要描述的view</span><br><span class="line">        (storyboard里边系统自动帮助连接)</span><br><span class="line">   在代理方法里边:</span><br><span class="line">    <span class="number">1</span>,创建窗口</span><br><span class="line">        <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="number">2</span>,创建控制器</span><br><span class="line">         ViewController *vc = [[ViewController alloc] initWithNibName:<span class="string">@"VC"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line">    <span class="number">3</span>,设置窗口的根控制器</span><br><span class="line">        <span class="keyword">self</span>.window.rootViewController = vc;</span><br><span class="line">    <span class="number">4</span>,显示窗口</span><br><span class="line">        [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+
+<pre><code>✳️xib加载控制器，内部调用方法顺序：
+1，initWithNibName:bundle:
+2，loadView
+3，viewDidLoad
+
+⚠️xib拖线时的注意事项
+1,设置File’s owner的目的是用来描述控制器的,更改控制器名,view里的控件就可以往控制器里边拖线;(File’s owner的作用就是让xib与控制器产生关联,体现view里的内容是用来描述该控制器的)
+2,点击view,再更改控制器类名,view里的控件也可以往其他自定义的类里面拖;
+3,具体xib里的控件往哪儿拖,就要看哪个地方需要使用;</code></pre><h2 id="3-控制器view的延时加载"><a href="#3-控制器view的延时加载" class="headerlink" title="3.控制器view的延时加载"></a>3.控制器view的延时加载</h2><pre><code>创建控制器并不一定会创建控制器的view，等用到时再加载</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">APPDelegate中：</span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="comment">// 创建控制器,并一定会创建控制器的view</span></span><br><span class="line">    ViewController *vc = [[ViewController alloc] init];</span><br><span class="line">    </span><br><span class="line">    vc.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.window.rootViewController = vc;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">自定义控制器中</span><br><span class="line">(<span class="keyword">void</span>)loadView</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,func);</span><br><span class="line"><span class="built_in">UIView</span> *view = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">view.backgroundColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line"><span class="keyword">self</span>.view = view;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 控制器的view加载完成的时候调用</span></span><br><span class="line">(<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">[<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"><span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,func);</span><br></pre></td></tr></table></figure>
+
+<pre><code>✳️总结：控制器的view颜色是红色的，
+这是因为view的get方法底层中实现了loadView 和 viewDidLoad方法，loadView中将view设置为绿色，viewDidLoad方法中又将view设置成蓝色，
+但是最后被vc.view.backgroundColor = [UIColor redColor]设置为红色</code></pre><h2 id="4-控制器view的加载事项"><a href="#4-控制器view的加载事项" class="headerlink" title="4.控制器view的加载事项"></a>4.控制器view的加载事项</h2><h3 id="4-1-loadView"><a href="#4-1-loadView" class="headerlink" title="4.1 loadView"></a>4.1 loadView</h3><pre><code>1. loadView什么时候被调用？
+   每次访问UIViewController的view（如 controller.view、self.view）并且view为nil，loadView方法就会被调用
+
+2. 有什么作用
+    loadView 方法是用来负责创建UIViewController的view
+
+3. 默认实现是怎样的？
+    默认实现即[super loadView]里面做了好多事情：
+    1&gt; 它会先去查找与UIViewController相关联的xib文件，通过加载xib文件来创建UIViewController的view
+        *  如果在初始化UIViewController指定了xib文件名，就会根据传入的xib文件名加载对应的xib文件：[[MJViewController alloc] initWithNibName:@&quot;MJViewController&quot; bundle:nil];
+        *  如果没有明显地传xib文件名，就会加载跟UIViewController同名的xib文件：[[MJViewController alloc] init]; // 加载MJViewController.xib
+    2&gt; 如果没有找到相关联的xib文件，就会创建一个空白的UIView，然后赋值给UIViewController的view属性，大致如下：
+        self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];  // applicationFrame的值是：{{x = 0, y = 20}, {width = 320, height = 460}} 
+        [super loadView]里面就大致完成1&gt;和2&gt;中叙述的内容
+
+4. 纯代码创建VC的view，没必要写[super loadView]，浪费性能
+      [super loadView]默认创建一个空白的UIView。
+      我们既然要通过代码来自定义UIVIew,那么就没必要事先创建一个空白的UIView,以节省不必要的开销，正确的做法应该是这样的：      -(void)loadView {
+        self.view = [[[UIWebView alloc] initWithFrame:[UIScreen             mainScreen].applicationFrame] autorelease];}</code></pre><h3 id="4-2-viewDidLoad"><a href="#4-2-viewDidLoad" class="headerlink" title="4.2 viewDidLoad"></a>4.2 viewDidLoad</h3><pre><code>1. view创建完毕后，最终都会调用viewDidLoad方法
+2. 一般会在这里做界面上的初始化的操作</code></pre><h3 id="4-3-viewDidUnload"><a href="#4-3-viewDidUnload" class="headerlink" title="4.3 viewDidUnload"></a>4.3 viewDidUnload</h3><pre><code>1. 发生内存警告的情形下
+2. 如果当前UIViewController的view不在应用程序的视图层次结构(View Hierarchy)中，即view的superview为nil的时候，就会将view释放，并且调用viewDidUnload方法</code></pre><h3 id="4-4-dealloc"><a href="#4-4-dealloc" class="headerlink" title="4.4 dealloc"></a>4.4 dealloc</h3><pre><code>dealloc方法只会在UIViewController被释放的时候调用</code></pre><h3 id="4-5-viewDidLayoutSubviews"><a href="#4-5-viewDidLayoutSubviews" class="headerlink" title="4.5 viewDidLayoutSubviews"></a>4.5 viewDidLayoutSubviews</h3><pre><code>从storyboard和xib加载的控制器，当在- (void)viewDidLoad；获取上面添加的控件时的frame，不是适配后的，应该在viewDidLayoutSubviews方法中获取真实适配的</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/16/52_java5-内存分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/16/52_java5-内存分析/" itemprop="url">52_java5-内存分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T15:16:30+08:00">
+                2019-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/16/52_java5-内存分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/52_java5-内存分析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/16/52_java5-内存分析/" class="leancloud_visitors" data-flag-title="52_java5-内存分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/13/51_工具7-终端用的飞起/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1948,1386 +2456,6 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/04/43_设计1-颜色/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/04/43_设计1-颜色/" itemprop="url">43_设计1-颜色</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-04T11:12:53+08:00">
-                2019-12-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/产品设计/" itemprop="url" rel="index">
-                    <span itemprop="name">产品设计</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/04/43_设计1-颜色/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/04/43_设计1-颜色/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/12/04/43_设计1-颜色/" class="leancloud_visitors" data-flag-title="43_设计1-颜色">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.6k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://tool.c7sky.com/webcolor/" target="_blank" rel="noopener">网页配色表参考</a></p>
-<h2 id="1，常用颜色参考"><a href="#1，常用颜色参考" class="headerlink" title="1，常用颜色参考"></a>1，常用颜色参考</h2><table width="100%">
-<tbody>
-<tr>
-<td width="15%" align="middle">&nbsp;</td>
-<td align="middle">颜色名</td>
-<td height="28" align="middle">中文名称</td>
-<td align="middle">Hex&nbsp;RGB</td>
-<td align="middle">十进制 Decimal</td>
-<td width="15%" align="middle">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffb6c1">&nbsp;</td>
-<td bgcolor="#dedede">LightPink</td>
-<td bgcolor="#dedede" height="28">浅粉红</td>
-<td bgcolor="#c0c0c0">#FFB6C1</td>
-<td bgcolor="#c0c0c0">255,182,193</td>
-<td bgcolor="#ffb6c1">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffc0cb">&nbsp;</td>
-<td bgcolor="#dedede">Pink</td>
-<td bgcolor="#dedede" height="28">粉红</td>
-<td bgcolor="#c0c0c0">#FFC0CB</td>
-<td bgcolor="#c0c0c0">255,192,203</td>
-<td bgcolor="#ffc0cb">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#dc143c">&nbsp;</td>
-<td bgcolor="#dedede">Crimson</td>
-<td bgcolor="#dedede" height="28">深红(猩红)</td>
-<td bgcolor="#c0c0c0">#DC143C</td>
-<td bgcolor="#c0c0c0">220,20,60</td>
-<td bgcolor="#dc143c">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fff0f5">&nbsp;</td>
-<td bgcolor="#dedede">LavenderBlush</td>
-<td bgcolor="#dedede" height="28">淡紫红</td>
-<td bgcolor="#c0c0c0">#FFF0F5</td>
-<td bgcolor="#c0c0c0">255,240,245</td>
-<td bgcolor="#fff0f5">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#db7093">&nbsp;</td>
-<td bgcolor="#dedede">PaleVioletRed</td>
-<td bgcolor="#dedede" height="28">弱紫罗兰红</td>
-<td bgcolor="#c0c0c0">#DB7093</td>
-<td bgcolor="#c0c0c0">219,112,147</td>
-<td bgcolor="#db7093">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff69b4">&nbsp;</td>
-<td bgcolor="#dedede">HotPink</td>
-<td bgcolor="#dedede" height="28">热情的粉红</td>
-<td bgcolor="#c0c0c0">#FF69B4</td>
-<td bgcolor="#c0c0c0">255,105,180</td>
-<td bgcolor="#ff69b4">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff1493">&nbsp;</td>
-<td bgcolor="#dedede">DeepPink</td>
-<td bgcolor="#dedede" height="28">深粉红</td>
-<td bgcolor="#c0c0c0">#FF1493</td>
-<td bgcolor="#c0c0c0">255,20,147</td>
-<td bgcolor="#ff1493">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#c71585">&nbsp;</td>
-<td bgcolor="#dedede">MediumVioletRed</td>
-<td bgcolor="#dedede" height="28">中紫罗兰红</td>
-<td bgcolor="#c0c0c0">#C71585</td>
-<td bgcolor="#c0c0c0">199,21,133</td>
-<td bgcolor="#c71585">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#da70d6">&nbsp;</td>
-<td bgcolor="#dedede">Orchid</td>
-<td bgcolor="#dedede" height="28">暗紫色(兰花紫)</td>
-<td bgcolor="#c0c0c0">#DA70D6</td>
-<td bgcolor="#c0c0c0">218,112,214</td>
-<td bgcolor="#da70d6">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#d8bfd8">&nbsp;</td>
-<td bgcolor="#dedede">Thistle</td>
-<td bgcolor="#dedede" height="28">蓟色</td>
-<td bgcolor="#c0c0c0">#D8BFD8</td>
-<td bgcolor="#c0c0c0">216,191,216</td>
-<td bgcolor="#d8bfd8">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#dda0dd">&nbsp;</td>
-<td bgcolor="#dedede">Plum</td>
-<td bgcolor="#dedede" height="28">洋李色(李子紫)</td>
-<td bgcolor="#c0c0c0">#DDA0DD</td>
-<td bgcolor="#c0c0c0">221,160,221</td>
-<td bgcolor="#dda0dd">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ee82ee">&nbsp;</td>
-<td bgcolor="#dedede">Violet</td>
-<td bgcolor="#dedede" height="28">紫罗兰</td>
-<td bgcolor="#c0c0c0">#EE82EE</td>
-<td bgcolor="#c0c0c0">238,130,238</td>
-<td bgcolor="#ee82ee">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff00ff">&nbsp;</td>
-<td bgcolor="#dedede">Magenta</td>
-<td bgcolor="#dedede" height="28">洋红(玫瑰红)</td>
-<td bgcolor="#c0c0c0">#FF00FF</td>
-<td bgcolor="#c0c0c0">255,0,255</td>
-<td bgcolor="#ff00ff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff00ff">&nbsp;</td>
-<td bgcolor="#dedede">Fuchsia</td>
-<td bgcolor="#dedede" height="28">紫红(灯笼海棠)</td>
-<td bgcolor="#c0c0c0">#FF00FF</td>
-<td bgcolor="#c0c0c0">255,0,255</td>
-<td bgcolor="#ff00ff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#8b008b">&nbsp;</td>
-<td bgcolor="#dedede">DarkMagenta</td>
-<td bgcolor="#dedede" height="28">深洋红</td>
-<td bgcolor="#c0c0c0">#8B008B</td>
-<td bgcolor="#c0c0c0">139,0,139</td>
-<td bgcolor="#8b008b">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#800080">&nbsp;</td>
-<td bgcolor="#dedede">Purple</td>
-<td bgcolor="#dedede" height="28">紫色</td>
-<td bgcolor="#c0c0c0">#800080</td>
-<td bgcolor="#c0c0c0">128,0,128</td>
-<td bgcolor="#800080">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ba55d3">&nbsp;</td>
-<td bgcolor="#dedede">MediumOrchid</td>
-<td bgcolor="#dedede" height="28">中兰花紫</td>
-<td bgcolor="#c0c0c0">#BA55D3</td>
-<td bgcolor="#c0c0c0">186,85,211</td>
-<td bgcolor="#ba55d3">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#9400d3">&nbsp;</td>
-<td bgcolor="#dedede">DarkViolet</td>
-<td bgcolor="#dedede" height="28">暗紫罗兰</td>
-<td bgcolor="#c0c0c0">#9400D3</td>
-<td bgcolor="#c0c0c0">148,0,211</td>
-<td bgcolor="#9400d3">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#9932cc">&nbsp;</td>
-<td bgcolor="#dedede">DarkOrchid</td>
-<td bgcolor="#dedede" height="28">暗兰花紫</td>
-<td bgcolor="#c0c0c0">#9932CC</td>
-<td bgcolor="#c0c0c0">153,50,204</td>
-<td bgcolor="#9932cc">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#4b0082">&nbsp;</td>
-<td bgcolor="#dedede">Indigo</td>
-<td bgcolor="#dedede" height="28">靛青/紫兰色</td>
-<td bgcolor="#c0c0c0">#4B0082</td>
-<td bgcolor="#c0c0c0">75,0,130</td>
-<td bgcolor="#4b0082">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#8a2be2">&nbsp;</td>
-<td bgcolor="#dedede">BlueViolet</td>
-<td bgcolor="#dedede" height="28">蓝紫罗兰</td>
-<td bgcolor="#c0c0c0">#8A2BE2</td>
-<td bgcolor="#c0c0c0">138,43,226</td>
-<td bgcolor="#8a2be2">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#9370db">&nbsp;</td>
-<td bgcolor="#dedede">MediumPurple</td>
-<td bgcolor="#dedede" height="28">中紫色</td>
-<td bgcolor="#c0c0c0">#9370DB</td>
-<td bgcolor="#c0c0c0">147,112,219</td>
-<td bgcolor="#9370db">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#7b68ee">&nbsp;</td>
-<td bgcolor="#dedede">MediumSlateBlue</td>
-<td bgcolor="#dedede" height="28">中暗蓝色(中板岩蓝)</td>
-<td bgcolor="#c0c0c0">#7B68EE</td>
-<td bgcolor="#c0c0c0">123,104,238</td>
-<td bgcolor="#7b68ee">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#6a5acd">&nbsp;</td>
-<td bgcolor="#dedede">SlateBlue</td>
-<td bgcolor="#dedede" height="28">石蓝色(板岩蓝)</td>
-<td bgcolor="#c0c0c0">#6A5ACD</td>
-<td bgcolor="#c0c0c0">106,90,205</td>
-<td bgcolor="#6a5acd">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#483d8b">&nbsp;</td>
-<td bgcolor="#dedede">DarkSlateBlue</td>
-<td bgcolor="#dedede" height="28">暗灰蓝色(暗板岩蓝)</td>
-<td bgcolor="#c0c0c0">#483D8B</td>
-<td bgcolor="#c0c0c0">72,61,139</td>
-<td bgcolor="#483d8b">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#e6e6fa">&nbsp;</td>
-<td bgcolor="#dedede">Lavender</td>
-<td bgcolor="#dedede" height="28">淡紫色(熏衣草淡紫)</td>
-<td bgcolor="#c0c0c0">#E6E6FA</td>
-<td bgcolor="#c0c0c0">230,230,250</td>
-<td bgcolor="#e6e6fa">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f8f8ff">&nbsp;</td>
-<td bgcolor="#dedede">GhostWhite</td>
-<td bgcolor="#dedede" height="28">幽灵白</td>
-<td bgcolor="#c0c0c0">#F8F8FF</td>
-<td bgcolor="#c0c0c0">248,248,255</td>
-<td bgcolor="#f8f8ff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#0000ff">&nbsp;</td>
-<td bgcolor="#dedede">Blue</td>
-<td bgcolor="#dedede" height="28">纯蓝</td>
-<td bgcolor="#c0c0c0">#0000FF</td>
-<td bgcolor="#c0c0c0">0,0,255</td>
-<td bgcolor="#0000ff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#0000cd">&nbsp;</td>
-<td bgcolor="#dedede">MediumBlue</td>
-<td bgcolor="#dedede" height="28">中蓝色</td>
-<td bgcolor="#c0c0c0">#0000CD</td>
-<td bgcolor="#c0c0c0">0,0,205</td>
-<td bgcolor="#0000cd">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#191970">&nbsp;</td>
-<td bgcolor="#dedede">MidnightBlue</td>
-<td bgcolor="#dedede" height="28">午夜蓝</td>
-<td bgcolor="#c0c0c0">#191970</td>
-<td bgcolor="#c0c0c0">25,25,112</td>
-<td bgcolor="#191970">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00008b">&nbsp;</td>
-<td bgcolor="#dedede">DarkBlue</td>
-<td bgcolor="#dedede" height="28">暗蓝色</td>
-<td bgcolor="#c0c0c0">#00008B</td>
-<td bgcolor="#c0c0c0">0,0,139</td>
-<td bgcolor="#00008b">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#000080">&nbsp;</td>
-<td bgcolor="#dedede">Navy</td>
-<td bgcolor="#dedede" height="28">海军蓝</td>
-<td bgcolor="#c0c0c0">#000080</td>
-<td bgcolor="#c0c0c0">0,0,128</td>
-<td bgcolor="#000080">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#4169e1">&nbsp;</td>
-<td bgcolor="#dedede">RoyalBlue</td>
-<td bgcolor="#dedede" height="28">皇家蓝/宝蓝</td>
-<td bgcolor="#c0c0c0">#4169E1</td>
-<td bgcolor="#c0c0c0">65,105,225</td>
-<td bgcolor="#4169e1">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#6495ed">&nbsp;</td>
-<td bgcolor="#dedede">CornflowerBlue</td>
-<td bgcolor="#dedede" height="28">矢车菊蓝</td>
-<td bgcolor="#c0c0c0">#6495ED</td>
-<td bgcolor="#c0c0c0">100,149,237</td>
-<td bgcolor="#6495ed">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#b0c4de">&nbsp;</td>
-<td bgcolor="#dedede">LightSteelBlue</td>
-<td bgcolor="#dedede" height="28">亮钢蓝</td>
-<td bgcolor="#c0c0c0">#B0C4DE</td>
-<td bgcolor="#c0c0c0">176,196,222</td>
-<td bgcolor="#b0c4de">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#778899">&nbsp;</td>
-<td bgcolor="#dedede">LightSlateGray</td>
-<td bgcolor="#dedede" height="28">亮蓝灰(亮石板灰)</td>
-<td bgcolor="#c0c0c0">#778899</td>
-<td bgcolor="#c0c0c0">119,136,153</td>
-<td bgcolor="#778899">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#708090">&nbsp;</td>
-<td bgcolor="#dedede">SlateGray</td>
-<td bgcolor="#dedede" height="28">灰石色(石板灰)</td>
-<td bgcolor="#c0c0c0">#708090</td>
-<td bgcolor="#c0c0c0">112,128,144</td>
-<td bgcolor="#708090">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#1e90ff">&nbsp;</td>
-<td bgcolor="#dedede">DodgerBlue</td>
-<td bgcolor="#dedede" height="28">闪兰色(道奇蓝)</td>
-<td bgcolor="#c0c0c0">#1E90FF</td>
-<td bgcolor="#c0c0c0">30,144,255</td>
-<td bgcolor="#1e90ff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f0f8ff">&nbsp;</td>
-<td bgcolor="#dedede">AliceBlue</td>
-<td bgcolor="#dedede" height="28">爱丽丝蓝</td>
-<td bgcolor="#c0c0c0">#F0F8FF</td>
-<td bgcolor="#c0c0c0">240,248,255</td>
-<td bgcolor="#f0f8ff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#4682b4">&nbsp;</td>
-<td bgcolor="#dedede">SteelBlue</td>
-<td bgcolor="#dedede" height="28">钢蓝/铁青</td>
-<td bgcolor="#c0c0c0">#4682B4</td>
-<td bgcolor="#c0c0c0">70,130,180</td>
-<td bgcolor="#4682b4">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#87cefa">&nbsp;</td>
-<td bgcolor="#dedede">LightSkyBlue</td>
-<td bgcolor="#dedede" height="28">亮天蓝色</td>
-<td bgcolor="#c0c0c0">#87CEFA</td>
-<td bgcolor="#c0c0c0">135,206,250</td>
-<td bgcolor="#87cefa">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#87ceeb">&nbsp;</td>
-<td bgcolor="#dedede">SkyBlue</td>
-<td bgcolor="#dedede" height="28">天蓝色</td>
-<td bgcolor="#c0c0c0">#87CEEB</td>
-<td bgcolor="#c0c0c0">135,206,235</td>
-<td bgcolor="#87ceeb">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00bfff">&nbsp;</td>
-<td bgcolor="#dedede">DeepSkyBlue</td>
-<td bgcolor="#dedede" height="28">深天蓝</td>
-<td bgcolor="#c0c0c0">#00BFFF</td>
-<td bgcolor="#c0c0c0">0,191,255</td>
-<td bgcolor="#00bfff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#add8e6">&nbsp;</td>
-<td bgcolor="#dedede">LightBlue</td>
-<td bgcolor="#dedede" height="28">亮蓝</td>
-<td bgcolor="#c0c0c0">#ADD8E6</td>
-<td bgcolor="#c0c0c0">173,216,230</td>
-<td bgcolor="#add8e6">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#b0e0e6">&nbsp;</td>
-<td bgcolor="#dedede">PowderBlue</td>
-<td bgcolor="#dedede" height="28">粉蓝色(火药青)</td>
-<td bgcolor="#c0c0c0">#B0E0E6</td>
-<td bgcolor="#c0c0c0">176,224,230</td>
-<td bgcolor="#b0e0e6">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#5f9ea0">&nbsp;</td>
-<td bgcolor="#dedede">CadetBlue</td>
-<td bgcolor="#dedede" height="28">军兰色(军服蓝)</td>
-<td bgcolor="#c0c0c0">#5F9EA0</td>
-<td bgcolor="#c0c0c0">95,158,160</td>
-<td bgcolor="#5f9ea0">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f0ffff">&nbsp;</td>
-<td bgcolor="#dedede">Azure</td>
-<td bgcolor="#dedede" height="28">蔚蓝色</td>
-<td bgcolor="#c0c0c0">#F0FFFF</td>
-<td bgcolor="#c0c0c0">240,255,255</td>
-<td bgcolor="#f0ffff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#e0ffff">&nbsp;</td>
-<td bgcolor="#dedede">LightCyan</td>
-<td bgcolor="#dedede" height="28">淡青色</td>
-<td bgcolor="#c0c0c0">#E0FFFF</td>
-<td bgcolor="#c0c0c0">224,255,255</td>
-<td bgcolor="#e0ffff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#afeeee">&nbsp;</td>
-<td bgcolor="#dedede">PaleTurquoise</td>
-<td bgcolor="#dedede" height="28">弱绿宝石</td>
-<td bgcolor="#c0c0c0">#AFEEEE</td>
-<td bgcolor="#c0c0c0">175,238,238</td>
-<td bgcolor="#afeeee">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00ffff">&nbsp;</td>
-<td bgcolor="#dedede">Cyan</td>
-<td bgcolor="#dedede" height="28">青色</td>
-<td bgcolor="#c0c0c0">#00FFFF</td>
-<td bgcolor="#c0c0c0">0,255,255</td>
-<td bgcolor="#00ffff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00ffff">&nbsp;</td>
-<td bgcolor="#dedede">Aqua</td>
-<td bgcolor="#dedede" height="28">浅绿色(水色)</td>
-<td bgcolor="#c0c0c0">#00FFFF</td>
-<td bgcolor="#c0c0c0">0,255,255</td>
-<td bgcolor="#00ffff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00ced1">&nbsp;</td>
-<td bgcolor="#dedede">DarkTurquoise</td>
-<td bgcolor="#dedede" height="28">暗绿宝石</td>
-<td bgcolor="#c0c0c0">#00CED1</td>
-<td bgcolor="#c0c0c0">0,206,209</td>
-<td bgcolor="#00ced1">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#2f4f4f">&nbsp;</td>
-<td bgcolor="#dedede">DarkSlateGray</td>
-<td bgcolor="#dedede" height="28">暗瓦灰色(暗石板灰)</td>
-<td bgcolor="#c0c0c0">#2F4F4F</td>
-<td bgcolor="#c0c0c0">47,79,79</td>
-<td bgcolor="#2f4f4f">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#008b8b">&nbsp;</td>
-<td bgcolor="#dedede">DarkCyan</td>
-<td bgcolor="#dedede" height="28">暗青色</td>
-<td bgcolor="#c0c0c0">#008B8B</td>
-<td bgcolor="#c0c0c0">0,139,139</td>
-<td bgcolor="#008b8b">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#008080">&nbsp;</td>
-<td bgcolor="#dedede">Teal</td>
-<td bgcolor="#dedede" height="28">水鸭色</td>
-<td bgcolor="#c0c0c0">#008080</td>
-<td bgcolor="#c0c0c0">0,128,128</td>
-<td bgcolor="#008080">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#48d1cc">&nbsp;</td>
-<td bgcolor="#dedede">MediumTurquoise</td>
-<td bgcolor="#dedede" height="28">中绿宝石</td>
-<td bgcolor="#c0c0c0">#48D1CC</td>
-<td bgcolor="#c0c0c0">72,209,204</td>
-<td bgcolor="#48d1cc">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#20b2aa">&nbsp;</td>
-<td bgcolor="#dedede">LightSeaGreen</td>
-<td bgcolor="#dedede" height="28">浅海洋绿</td>
-<td bgcolor="#c0c0c0">#20B2AA</td>
-<td bgcolor="#c0c0c0">32,178,170</td>
-<td bgcolor="#20b2aa">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#40e0d0">&nbsp;</td>
-<td bgcolor="#dedede">Turquoise</td>
-<td bgcolor="#dedede" height="28">绿宝石</td>
-<td bgcolor="#c0c0c0">#40E0D0</td>
-<td bgcolor="#c0c0c0">64,224,208</td>
-<td bgcolor="#40e0d0">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#7fffd4">&nbsp;</td>
-<td bgcolor="#dedede">Aquamarine</td>
-<td bgcolor="#dedede" height="28">宝石碧绿</td>
-<td bgcolor="#c0c0c0">#7FFFD4</td>
-<td bgcolor="#c0c0c0">127,255,212</td>
-<td bgcolor="#7fffd4">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#66cdaa">&nbsp;</td>
-<td bgcolor="#dedede">MediumAquamarine</td>
-<td bgcolor="#dedede" height="28">中宝石碧绿</td>
-<td bgcolor="#c0c0c0">#66CDAA</td>
-<td bgcolor="#c0c0c0">102,205,170</td>
-<td bgcolor="#66cdaa">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00fa9a">&nbsp;</td>
-<td bgcolor="#dedede">MediumSpringGreen</td>
-<td bgcolor="#dedede" height="28">中春绿色</td>
-<td bgcolor="#c0c0c0">#00FA9A</td>
-<td bgcolor="#c0c0c0">0,250,154</td>
-<td bgcolor="#00fa9a">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f5fffa">&nbsp;</td>
-<td bgcolor="#dedede">MintCream</td>
-<td bgcolor="#dedede" height="28">薄荷奶油</td>
-<td bgcolor="#c0c0c0">#F5FFFA</td>
-<td bgcolor="#c0c0c0">245,255,250</td>
-<td bgcolor="#f5fffa">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00ff7f">&nbsp;</td>
-<td bgcolor="#dedede">SpringGreen</td>
-<td bgcolor="#dedede" height="28">春绿色</td>
-<td bgcolor="#c0c0c0">#00FF7F</td>
-<td bgcolor="#c0c0c0">0,255,127</td>
-<td bgcolor="#00ff7f">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#3cb371">&nbsp;</td>
-<td bgcolor="#dedede">MediumSeaGreen</td>
-<td bgcolor="#dedede" height="28">中海洋绿</td>
-<td bgcolor="#c0c0c0">#3CB371</td>
-<td bgcolor="#c0c0c0">60,179,113</td>
-<td bgcolor="#3cb371">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#2e8b57">&nbsp;</td>
-<td bgcolor="#dedede">SeaGreen</td>
-<td bgcolor="#dedede" height="28">海洋绿</td>
-<td bgcolor="#c0c0c0">#2E8B57</td>
-<td bgcolor="#c0c0c0">46,139,87</td>
-<td bgcolor="#2e8b57">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f0fff0">&nbsp;</td>
-<td bgcolor="#dedede">Honeydew</td>
-<td bgcolor="#dedede" height="28">蜜色(蜜瓜色)</td>
-<td bgcolor="#c0c0c0">#F0FFF0</td>
-<td bgcolor="#c0c0c0">240,255,240</td>
-<td bgcolor="#f0fff0">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#90ee90">&nbsp;</td>
-<td bgcolor="#dedede">LightGreen</td>
-<td bgcolor="#dedede" height="28">淡绿色</td>
-<td bgcolor="#c0c0c0">#90EE90</td>
-<td bgcolor="#c0c0c0">144,238,144</td>
-<td bgcolor="#90ee90">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#98fb98">&nbsp;</td>
-<td bgcolor="#dedede">PaleGreen</td>
-<td bgcolor="#dedede" height="28">弱绿色</td>
-<td bgcolor="#c0c0c0">#98FB98</td>
-<td bgcolor="#c0c0c0">152,251,152</td>
-<td bgcolor="#98fb98">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#8fbc8f">&nbsp;</td>
-<td bgcolor="#dedede">DarkSeaGreen</td>
-<td bgcolor="#dedede" height="28">暗海洋绿</td>
-<td bgcolor="#c0c0c0">#8FBC8F</td>
-<td bgcolor="#c0c0c0">143,188,143</td>
-<td bgcolor="#8fbc8f">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#32cd32">&nbsp;</td>
-<td bgcolor="#dedede">LimeGreen</td>
-<td bgcolor="#dedede" height="28">闪光深绿</td>
-<td bgcolor="#c0c0c0">#32CD32</td>
-<td bgcolor="#c0c0c0">50,205,50</td>
-<td bgcolor="#32cd32">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#00ff00">&nbsp;</td>
-<td bgcolor="#dedede">Lime</td>
-<td bgcolor="#dedede" height="28">闪光绿</td>
-<td bgcolor="#c0c0c0">#00FF00</td>
-<td bgcolor="#c0c0c0">0,255,0</td>
-<td bgcolor="#00ff00">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#228b22">&nbsp;</td>
-<td bgcolor="#dedede">ForestGreen</td>
-<td bgcolor="#dedede" height="28">森林绿</td>
-<td bgcolor="#c0c0c0">#228B22</td>
-<td bgcolor="#c0c0c0">34,139,34</td>
-<td bgcolor="#228b22">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#008000">&nbsp;</td>
-<td bgcolor="#dedede">Green</td>
-<td bgcolor="#dedede" height="28">纯绿</td>
-<td bgcolor="#c0c0c0">#008000</td>
-<td bgcolor="#c0c0c0">0,128,0</td>
-<td bgcolor="#008000">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#006400">&nbsp;</td>
-<td bgcolor="#dedede">DarkGreen</td>
-<td bgcolor="#dedede" height="28">暗绿色</td>
-<td bgcolor="#c0c0c0">#006400</td>
-<td bgcolor="#c0c0c0">0,100,0</td>
-<td bgcolor="#006400">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#7fff00">&nbsp;</td>
-<td bgcolor="#dedede">Chartreuse</td>
-<td bgcolor="#dedede" height="28">黄绿色(查特酒绿)</td>
-<td bgcolor="#c0c0c0">#7FFF00</td>
-<td bgcolor="#c0c0c0">127,255,0</td>
-<td bgcolor="#7fff00">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#7cfc00">&nbsp;</td>
-<td bgcolor="#dedede">LawnGreen</td>
-<td bgcolor="#dedede" height="28">草绿色(草坪绿_</td>
-<td bgcolor="#c0c0c0">#7CFC00</td>
-<td bgcolor="#c0c0c0">124,252,0</td>
-<td bgcolor="#7cfc00">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#adff2f">&nbsp;</td>
-<td bgcolor="#dedede">GreenYellow</td>
-<td bgcolor="#dedede" height="28">绿黄色</td>
-<td bgcolor="#c0c0c0">#ADFF2F</td>
-<td bgcolor="#c0c0c0">173,255,47</td>
-<td bgcolor="#adff2f">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#556b2f">&nbsp;</td>
-<td bgcolor="#dedede">DarkOliveGreen</td>
-<td bgcolor="#dedede" height="28">暗橄榄绿</td>
-<td bgcolor="#c0c0c0">#556B2F</td>
-<td bgcolor="#c0c0c0">85,107,47</td>
-<td bgcolor="#556b2f">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#9acd32">&nbsp;</td>
-<td bgcolor="#dedede">YellowGreen</td>
-<td bgcolor="#dedede" height="28">黄绿色</td>
-<td bgcolor="#c0c0c0">#9ACD32</td>
-<td bgcolor="#c0c0c0">154,205,50</td>
-<td bgcolor="#9acd32">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#6b8e23">&nbsp;</td>
-<td bgcolor="#dedede">OliveDrab</td>
-<td bgcolor="#dedede" height="28">橄榄褐色</td>
-<td bgcolor="#c0c0c0">#6B8E23</td>
-<td bgcolor="#c0c0c0">107,142,35</td>
-<td bgcolor="#6b8e23">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f5f5dc">&nbsp;</td>
-<td bgcolor="#dedede">Beige</td>
-<td bgcolor="#dedede" height="28">米色/灰棕色</td>
-<td bgcolor="#c0c0c0">#F5F5DC</td>
-<td bgcolor="#c0c0c0">245,245,220</td>
-<td bgcolor="#f5f5dc">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fafad2">&nbsp;</td>
-<td bgcolor="#dedede">LightGoldenrodYellow</td>
-<td bgcolor="#dedede" height="28">亮菊黄</td>
-<td bgcolor="#c0c0c0">#FAFAD2</td>
-<td bgcolor="#c0c0c0">250,250,210</td>
-<td bgcolor="#fafad2">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fffff0">&nbsp;</td>
-<td bgcolor="#dedede">Ivory</td>
-<td bgcolor="#dedede" height="28">象牙色</td>
-<td bgcolor="#c0c0c0">#FFFFF0</td>
-<td bgcolor="#c0c0c0">255,255,240</td>
-<td bgcolor="#fffff0">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffffe0">&nbsp;</td>
-<td bgcolor="#dedede">LightYellow</td>
-<td bgcolor="#dedede" height="28">浅黄色</td>
-<td bgcolor="#c0c0c0">#FFFFE0</td>
-<td bgcolor="#c0c0c0">255,255,224</td>
-<td bgcolor="#ffffe0">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffff00">&nbsp;</td>
-<td bgcolor="#dedede">Yellow</td>
-<td bgcolor="#dedede" height="28">纯黄</td>
-<td bgcolor="#c0c0c0">#FFFF00</td>
-<td bgcolor="#c0c0c0">255,255,0</td>
-<td bgcolor="#ffff00">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#808000">&nbsp;</td>
-<td bgcolor="#dedede">Olive</td>
-<td bgcolor="#dedede" height="28">橄榄</td>
-<td bgcolor="#c0c0c0">#808000</td>
-<td bgcolor="#c0c0c0">128,128,0</td>
-<td bgcolor="#808000">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#bdb76b">&nbsp;</td>
-<td bgcolor="#dedede">DarkKhaki</td>
-<td bgcolor="#dedede" height="28">暗黄褐色(深卡叽布)</td>
-<td bgcolor="#c0c0c0">#BDB76B</td>
-<td bgcolor="#c0c0c0">189,183,107</td>
-<td bgcolor="#bdb76b">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fffacd">&nbsp;</td>
-<td bgcolor="#dedede">LemonChiffon</td>
-<td bgcolor="#dedede" height="28">柠檬绸</td>
-<td bgcolor="#c0c0c0">#FFFACD</td>
-<td bgcolor="#c0c0c0">255,250,205</td>
-<td bgcolor="#fffacd">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#eee8aa">&nbsp;</td>
-<td bgcolor="#dedede">PaleGoldenrod</td>
-<td bgcolor="#dedede" height="28">灰菊黄(苍麒麟色)</td>
-<td bgcolor="#c0c0c0">#EEE8AA</td>
-<td bgcolor="#c0c0c0">238,232,170</td>
-<td bgcolor="#eee8aa">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f0e68c">&nbsp;</td>
-<td bgcolor="#dedede">Khaki</td>
-<td bgcolor="#dedede" height="28">黄褐色(卡叽布)</td>
-<td bgcolor="#c0c0c0">#F0E68C</td>
-<td bgcolor="#c0c0c0">240,230,140</td>
-<td bgcolor="#f0e68c">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffd700">&nbsp;</td>
-<td bgcolor="#dedede">Gold</td>
-<td bgcolor="#dedede" height="28">金色</td>
-<td bgcolor="#c0c0c0">#FFD700</td>
-<td bgcolor="#c0c0c0">255,215,0</td>
-<td bgcolor="#ffd700">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fff8dc">&nbsp;</td>
-<td bgcolor="#dedede">Cornsilk</td>
-<td bgcolor="#dedede" height="28">玉米丝色</td>
-<td bgcolor="#c0c0c0">#FFF8DC</td>
-<td bgcolor="#c0c0c0">255,248,220</td>
-<td bgcolor="#fff8dc">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#daa520">&nbsp;</td>
-<td bgcolor="#dedede">Goldenrod</td>
-<td bgcolor="#dedede" height="28">金菊黄</td>
-<td bgcolor="#c0c0c0">#DAA520</td>
-<td bgcolor="#c0c0c0">218,165,32</td>
-<td bgcolor="#daa520">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#b8860b">&nbsp;</td>
-<td bgcolor="#dedede">DarkGoldenrod</td>
-<td bgcolor="#dedede" height="28">暗金菊黄</td>
-<td bgcolor="#c0c0c0">#B8860B</td>
-<td bgcolor="#c0c0c0">184,134,11</td>
-<td bgcolor="#b8860b">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fffaf0">&nbsp;</td>
-<td bgcolor="#dedede">FloralWhite</td>
-<td bgcolor="#dedede" height="28">花的白色</td>
-<td bgcolor="#c0c0c0">#FFFAF0</td>
-<td bgcolor="#c0c0c0">255,250,240</td>
-<td bgcolor="#fffaf0">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fdf5e6">&nbsp;</td>
-<td bgcolor="#dedede">OldLace</td>
-<td bgcolor="#dedede" height="28">老花色(旧蕾丝)</td>
-<td bgcolor="#c0c0c0">#FDF5E6</td>
-<td bgcolor="#c0c0c0">253,245,230</td>
-<td bgcolor="#fdf5e6">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f5deb3">&nbsp;</td>
-<td bgcolor="#dedede">Wheat</td>
-<td bgcolor="#dedede" height="28">浅黄色(小麦色)</td>
-<td bgcolor="#c0c0c0">#F5DEB3</td>
-<td bgcolor="#c0c0c0">245,222,179</td>
-<td bgcolor="#f5deb3">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffe4b5">&nbsp;</td>
-<td bgcolor="#dedede">Moccasin</td>
-<td bgcolor="#dedede" height="28">鹿皮色(鹿皮靴)</td>
-<td bgcolor="#c0c0c0">#FFE4B5</td>
-<td bgcolor="#c0c0c0">255,228,181</td>
-<td bgcolor="#ffe4b5">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffa500">&nbsp;</td>
-<td bgcolor="#dedede">Orange</td>
-<td bgcolor="#dedede" height="28">橙色</td>
-<td bgcolor="#c0c0c0">#FFA500</td>
-<td bgcolor="#c0c0c0">255,165,0</td>
-<td bgcolor="#ffa500">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffefd5">&nbsp;</td>
-<td bgcolor="#dedede">PapayaWhip</td>
-<td bgcolor="#dedede" height="28">番木色(番木瓜)</td>
-<td bgcolor="#c0c0c0">#FFEFD5</td>
-<td bgcolor="#c0c0c0">255,239,213</td>
-<td bgcolor="#ffefd5">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffebcd">&nbsp;</td>
-<td bgcolor="#dedede">BlanchedAlmond</td>
-<td bgcolor="#dedede" height="28">白杏色</td>
-<td bgcolor="#c0c0c0">#FFEBCD</td>
-<td bgcolor="#c0c0c0">255,235,205</td>
-<td bgcolor="#ffebcd">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffdead">&nbsp;</td>
-<td bgcolor="#dedede">NavajoWhite</td>
-<td bgcolor="#dedede" height="28">纳瓦白(土著白)</td>
-<td bgcolor="#c0c0c0">#FFDEAD</td>
-<td bgcolor="#c0c0c0">255,222,173</td>
-<td bgcolor="#ffdead">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#faebd7">&nbsp;</td>
-<td bgcolor="#dedede">AntiqueWhite</td>
-<td bgcolor="#dedede" height="28">古董白</td>
-<td bgcolor="#c0c0c0">#FAEBD7</td>
-<td bgcolor="#c0c0c0">250,235,215</td>
-<td bgcolor="#faebd7">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#d2b48c">&nbsp;</td>
-<td bgcolor="#dedede">Tan</td>
-<td bgcolor="#dedede" height="28">茶色</td>
-<td bgcolor="#c0c0c0">#D2B48C</td>
-<td bgcolor="#c0c0c0">210,180,140</td>
-<td bgcolor="#d2b48c">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#deb887">&nbsp;</td>
-<td bgcolor="#dedede">BurlyWood</td>
-<td bgcolor="#dedede" height="28">硬木色</td>
-<td bgcolor="#c0c0c0">#DEB887</td>
-<td bgcolor="#c0c0c0">222,184,135</td>
-<td bgcolor="#deb887">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffe4c4">&nbsp;</td>
-<td bgcolor="#dedede">Bisque</td>
-<td bgcolor="#dedede" height="28">陶坯黄</td>
-<td bgcolor="#c0c0c0">#FFE4C4</td>
-<td bgcolor="#c0c0c0">255,228,196</td>
-<td bgcolor="#ffe4c4">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff8c00">&nbsp;</td>
-<td bgcolor="#dedede">DarkOrange</td>
-<td bgcolor="#dedede" height="28">深橙色</td>
-<td bgcolor="#c0c0c0">#FF8C00</td>
-<td bgcolor="#c0c0c0">255,140,0</td>
-<td bgcolor="#ff8c00">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#faf0e6">&nbsp;</td>
-<td bgcolor="#dedede">Linen</td>
-<td bgcolor="#dedede" height="28">亚麻布</td>
-<td bgcolor="#c0c0c0">#FAF0E6</td>
-<td bgcolor="#c0c0c0">250,240,230</td>
-<td bgcolor="#faf0e6">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#cd853f">&nbsp;</td>
-<td bgcolor="#dedede">Peru</td>
-<td bgcolor="#dedede" height="28">秘鲁色</td>
-<td bgcolor="#c0c0c0">#CD853F</td>
-<td bgcolor="#c0c0c0">205,133,63</td>
-<td bgcolor="#cd853f">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffdab9">&nbsp;</td>
-<td bgcolor="#dedede">PeachPuff</td>
-<td bgcolor="#dedede" height="28">桃肉色</td>
-<td bgcolor="#c0c0c0">#FFDAB9</td>
-<td bgcolor="#c0c0c0">255,218,185</td>
-<td bgcolor="#ffdab9">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f4a460">&nbsp;</td>
-<td bgcolor="#dedede">SandyBrown</td>
-<td bgcolor="#dedede" height="28">沙棕色</td>
-<td bgcolor="#c0c0c0">#F4A460</td>
-<td bgcolor="#c0c0c0">244,164,96</td>
-<td bgcolor="#f4a460">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#d2691e">&nbsp;</td>
-<td bgcolor="#dedede">Chocolate</td>
-<td bgcolor="#dedede" height="28">巧克力色</td>
-<td bgcolor="#c0c0c0">#D2691E</td>
-<td bgcolor="#c0c0c0">210,105,30</td>
-<td bgcolor="#d2691e">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#8b4513">&nbsp;</td>
-<td bgcolor="#dedede">SaddleBrown</td>
-<td bgcolor="#dedede" height="28">重褐色(马鞍棕色)</td>
-<td bgcolor="#c0c0c0">#8B4513</td>
-<td bgcolor="#c0c0c0">139,69,19</td>
-<td bgcolor="#8b4513">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fff5ee">&nbsp;</td>
-<td bgcolor="#dedede">Seashell</td>
-<td bgcolor="#dedede" height="28">海贝壳</td>
-<td bgcolor="#c0c0c0">#FFF5EE</td>
-<td bgcolor="#c0c0c0">255,245,238</td>
-<td bgcolor="#fff5ee">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#a0522d">&nbsp;</td>
-<td bgcolor="#dedede">Sienna</td>
-<td bgcolor="#dedede" height="28">黄土赭色</td>
-<td bgcolor="#c0c0c0">#A0522D</td>
-<td bgcolor="#c0c0c0">160,82,45</td>
-<td bgcolor="#a0522d">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffa07a">&nbsp;</td>
-<td bgcolor="#dedede">LightSalmon</td>
-<td bgcolor="#dedede" height="28">浅鲑鱼肉色</td>
-<td bgcolor="#c0c0c0">#FFA07A</td>
-<td bgcolor="#c0c0c0">255,160,122</td>
-<td bgcolor="#ffa07a">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff7f50">&nbsp;</td>
-<td bgcolor="#dedede">Coral</td>
-<td bgcolor="#dedede" height="28">珊瑚</td>
-<td bgcolor="#c0c0c0">#FF7F50</td>
-<td bgcolor="#c0c0c0">255,127,80</td>
-<td bgcolor="#ff7f50">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff4500">&nbsp;</td>
-<td bgcolor="#dedede">OrangeRed</td>
-<td bgcolor="#dedede" height="28">橙红色</td>
-<td bgcolor="#c0c0c0">#FF4500</td>
-<td bgcolor="#c0c0c0">255,69,0</td>
-<td bgcolor="#ff4500">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#e9967a">&nbsp;</td>
-<td bgcolor="#dedede">DarkSalmon</td>
-<td bgcolor="#dedede" height="28">深鲜肉/鲑鱼色</td>
-<td bgcolor="#c0c0c0">#E9967A</td>
-<td bgcolor="#c0c0c0">233,150,122</td>
-<td bgcolor="#e9967a">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff6347">&nbsp;</td>
-<td bgcolor="#dedede">Tomato</td>
-<td bgcolor="#dedede" height="28">番茄红</td>
-<td bgcolor="#c0c0c0">#FF6347</td>
-<td bgcolor="#c0c0c0">255,99,71</td>
-<td bgcolor="#ff6347">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffe4e1">&nbsp;</td>
-<td bgcolor="#dedede">MistyRose</td>
-<td bgcolor="#dedede" height="28">浅玫瑰色(薄雾玫瑰)</td>
-<td bgcolor="#c0c0c0">#FFE4E1</td>
-<td bgcolor="#c0c0c0">255,228,225</td>
-<td bgcolor="#ffe4e1">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fa8072">&nbsp;</td>
-<td bgcolor="#dedede">Salmon</td>
-<td bgcolor="#dedede" height="28">鲜肉/鲑鱼色</td>
-<td bgcolor="#c0c0c0">#FA8072</td>
-<td bgcolor="#c0c0c0">250,128,114</td>
-<td bgcolor="#fa8072">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#fffafa">&nbsp;</td>
-<td bgcolor="#dedede">Snow</td>
-<td bgcolor="#dedede" height="28">雪白色</td>
-<td bgcolor="#c0c0c0">#FFFAFA</td>
-<td bgcolor="#c0c0c0">255,250,250</td>
-<td bgcolor="#fffafa">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f08080">&nbsp;</td>
-<td bgcolor="#dedede">LightCoral</td>
-<td bgcolor="#dedede" height="28">淡珊瑚色</td>
-<td bgcolor="#c0c0c0">#F08080</td>
-<td bgcolor="#c0c0c0">240,128,128</td>
-<td bgcolor="#f08080">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#bc8f8f">&nbsp;</td>
-<td bgcolor="#dedede">RosyBrown</td>
-<td bgcolor="#dedede" height="28">玫瑰棕色</td>
-<td bgcolor="#c0c0c0">#BC8F8F</td>
-<td bgcolor="#c0c0c0">188,143,143</td>
-<td bgcolor="#bc8f8f">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#cd5c5c">&nbsp;</td>
-<td bgcolor="#dedede">IndianRed</td>
-<td bgcolor="#dedede" height="28">印度红</td>
-<td bgcolor="#c0c0c0">#CD5C5C</td>
-<td bgcolor="#c0c0c0">205,92,92</td>
-<td bgcolor="#cd5c5c">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ff0000">&nbsp;</td>
-<td bgcolor="#dedede">Red</td>
-<td bgcolor="#dedede" height="28">纯红</td>
-<td bgcolor="#c0c0c0">#FF0000</td>
-<td bgcolor="#c0c0c0">255,0,0</td>
-<td bgcolor="#ff0000">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#a52a2a">&nbsp;</td>
-<td bgcolor="#dedede">Brown</td>
-<td bgcolor="#dedede" height="28">棕色</td>
-<td bgcolor="#c0c0c0">#A52A2A</td>
-<td bgcolor="#c0c0c0">165,42,42</td>
-<td bgcolor="#a52a2a">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#b22222">&nbsp;</td>
-<td bgcolor="#dedede">FireBrick</td>
-<td bgcolor="#dedede" height="28">火砖色(耐火砖)</td>
-<td bgcolor="#c0c0c0">#B22222</td>
-<td bgcolor="#c0c0c0">178,34,34</td>
-<td bgcolor="#b22222">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#8b0000">&nbsp;</td>
-<td bgcolor="#dedede">DarkRed</td>
-<td bgcolor="#dedede" height="28">深红色</td>
-<td bgcolor="#c0c0c0">#8B0000</td>
-<td bgcolor="#c0c0c0">139,0,0</td>
-<td bgcolor="#8b0000">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#800000">&nbsp;</td>
-<td bgcolor="#dedede">Maroon</td>
-<td bgcolor="#dedede" height="28">栗色</td>
-<td bgcolor="#c0c0c0">#800000</td>
-<td bgcolor="#c0c0c0">128,0,0</td>
-<td bgcolor="#800000">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#ffffff">&nbsp;</td>
-<td bgcolor="#dedede">White</td>
-<td bgcolor="#dedede" height="28">纯白</td>
-<td bgcolor="#c0c0c0">#FFFFFF</td>
-<td bgcolor="#c0c0c0">255,255,255</td>
-<td bgcolor="#ffffff">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#f5f5f5">&nbsp;</td>
-<td bgcolor="#dedede">WhiteSmoke</td>
-<td bgcolor="#dedede" height="28">白烟</td>
-<td bgcolor="#c0c0c0">#F5F5F5</td>
-<td bgcolor="#c0c0c0">245,245,245</td>
-<td bgcolor="#f5f5f5">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#dcdcdc">&nbsp;</td>
-<td bgcolor="#dedede">Gainsboro</td>
-<td bgcolor="#dedede" height="28">淡灰色(庚斯博罗灰)</td>
-<td bgcolor="#c0c0c0">#DCDCDC</td>
-<td bgcolor="#c0c0c0">220,220,220</td>
-<td bgcolor="#dcdcdc">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#d3d3d3">&nbsp;</td>
-<td bgcolor="#dedede">LightGrey</td>
-<td bgcolor="#dedede" height="28">浅灰色</td>
-<td bgcolor="#c0c0c0">#D3D3D3</td>
-<td bgcolor="#c0c0c0">211,211,211</td>
-<td bgcolor="#d3d3d3">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#c0c0c0">&nbsp;</td>
-<td bgcolor="#dedede">Silver</td>
-<td bgcolor="#dedede" height="28">银灰色</td>
-<td bgcolor="#c0c0c0">#C0C0C0</td>
-<td bgcolor="#c0c0c0">192,192,192</td>
-<td bgcolor="#c0c0c0">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#a9a9a9">&nbsp;</td>
-<td bgcolor="#dedede">DarkGray</td>
-<td bgcolor="#dedede" height="28">深灰色</td>
-<td bgcolor="#c0c0c0">#A9A9A9</td>
-<td bgcolor="#c0c0c0">169,169,169</td>
-<td bgcolor="#a9a9a9">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#808080">&nbsp;</td>
-<td bgcolor="#dedede">Gray</td>
-<td bgcolor="#dedede" height="28">灰色</td>
-<td bgcolor="#c0c0c0">#808080</td>
-<td bgcolor="#c0c0c0">128,128,128</td>
-<td bgcolor="#808080">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#696969">&nbsp;</td>
-<td bgcolor="#dedede">DimGray</td>
-<td bgcolor="#dedede" height="28">暗淡的灰色</td>
-<td bgcolor="#c0c0c0">#696969</td>
-<td bgcolor="#c0c0c0">105,105,105</td>
-<td bgcolor="#696969">&nbsp;</td></tr>
-<tr>
-<td bgcolor="#000000">&nbsp;</td>
-<td bgcolor="#dedede">Black</td>
-<td bgcolor="#dedede" height="28">纯黑</td>
-<td bgcolor="#c0c0c0">#000000</td>
-<td bgcolor="#c0c0c0">0,0,0</td>
-<td bgcolor="#000000">&nbsp;</td></tr></tbody></table>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/03/42_算法7-排序/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/03/42_算法7-排序/" itemprop="url">42_算法7-排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-03T14:51:01+08:00">
-                2019-12-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/03/42_算法7-排序/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/03/42_算法7-排序/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/12/03/42_算法7-排序/" class="leancloud_visitors" data-flag-title="42_算法7-排序">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  381
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>1，排序算法的分析维度<br>    1.1，执行效率<br>        1.1.1，最好，最坏，平均时间复杂度<br>        1.1.2，小数据规模，需要考虑系数，常数和低阶<br>        1.1.3，比较的次数和移动的次数<br>    1.2，内存消耗<br>        原地排序：空间复杂度为O（1）<br>    1.3，稳定性<br>        稳定的排序，可以使值相同的对象，排序之后的前后顺序不变</p>
-<p>2，数据的逆序度，有序度，满有序度<br>    有序度：具有有序关系的元素对个数<br>    逆序度 = 满有序度 - 有序度</p>
-<p>3，算法借鉴：<br>    动画算法:<a href="https://visualgo.net/" target="_blank" rel="noopener">https://visualgo.net/</a><br>    java实现10大排序：<a href="https://mp.weixin.qq.com/s/HQg3BzzQfJXcWyltsgOfCQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/HQg3BzzQfJXcWyltsgOfCQ</a></p>
-<p>4,冒泡排序<br>    原理：只做相邻操作；只做互换操作（交换的次数=逆序度）<br>    分析：<br>        1，是原地排序；<br>        2，是稳定的排序；<br>        3，时间复杂度最好是O（n），最坏是O（n^2）,平均复杂度O（n^2）<br>5,插入排序<br>    原理：元素的比较；元素的移动（移动的次数=逆序度）<br>    分析：<br>        1，是原地排序；<br>        2，是稳定的排序；<br>        3，时间复杂度最好是O（n），最坏是O（n^2）,平均复杂度O（n^2）<br>6,选择排序<br>    原理：从非排序区找到最小值放在已排序区的结尾；<br>    分析：<br>        1，是原地排序；<br>        2，不是稳定的排序；<br>        3，时间复杂度最好是O（1），最坏是O（n^2）,平均复杂度O（n^2）</p>
-<p>7，三种排序总结    </p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3380,7 +2508,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">73</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3510,7 +2638,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">39.1k</span>
+    <span title="Site words total count">40.6k</span>
   
 </div>
 

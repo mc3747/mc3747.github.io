@@ -8,8 +8,42 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Fri, 03 Jan 2020 01:53:24 GMT</pubDate>
+    <pubDate>Fri, 03 Jan 2020 02:27:25 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>73_web9-html编写规范</title>
+      <link>https://github.com/2020/01/03/73_web9-html%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83/</link>
+      <guid>https://github.com/2020/01/03/73_web9-html%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83/</guid>
+      <pubDate>Fri, 03 Jan 2020 02:26:38 GMT</pubDate>
+      <description>
+      
+      </description>
+      
+      
+      <comments>https://github.com/2020/01/03/73_web9-html%E7%BC%96%E5%86%99%E8%A7%84%E8%8C%83/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>72_web8-html学习方法论</title>
+      <link>https://github.com/2020/01/03/72_web8-html%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E8%AE%BA/</link>
+      <guid>https://github.com/2020/01/03/72_web8-html%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E8%AE%BA/</guid>
+      <pubDate>Fri, 03 Jan 2020 02:25:18 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2020/01/03/72_web8-html%E5%AD%A6%E4%B9%A0%E6%96%B9%E6%B3%95%E8%AE%BA/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>71_IT一般开发流程和产出</title>
@@ -363,40 +397,6 @@
       
       
       <comments>https://github.com/2019/12/16/54_iOS8-UIView%E8%A6%81%E7%82%B9%E4%BB%8B%E7%BB%8D/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>53_iOS7-UIViewController的生命周期&amp;创建&amp;对应view的创建</title>
-      <link>https://github.com/2019/12/16/53_iOS7-UIViewController%E8%A6%81%E7%82%B9%E4%BB%8B%E7%BB%8D/</link>
-      <guid>https://github.com/2019/12/16/53_iOS7-UIViewController%E8%A6%81%E7%82%B9%E4%BB%8B%E7%BB%8D/</guid>
-      <pubDate>Mon, 16 Dec 2019 09:36:01 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://github.com/2019/12/16/53_iOS7-UIViewController%E8%A6%81%E7%82%B9%E4%BB%8B%E7%BB%8D/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>52_java5-内存分析</title>
-      <link>https://github.com/2019/12/16/52_java5-%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</link>
-      <guid>https://github.com/2019/12/16/52_java5-%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</guid>
-      <pubDate>Mon, 16 Dec 2019 07:16:30 GMT</pubDate>
-      <description>
-      
-      </description>
-      
-      
-      <comments>https://github.com/2019/12/16/52_java5-%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/#disqus_thread</comments>
     </item>
     
   </channel>

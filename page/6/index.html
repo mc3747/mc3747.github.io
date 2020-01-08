@@ -280,6 +280,217 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/" itemprop="url">35_前端工程化5-css,sass,less</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T11:53:10+08:00">
+                2019-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/" class="leancloud_visitors" data-flag-title="35_前端工程化5-css,sass,less">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  262
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>less在线编译：<a href="http://lesscss.cn" target="_blank" rel="noopener">http://lesscss.cn</a><br>sass在线编译：<a href="https://www.sass.hk/css2sass/" target="_blank" rel="noopener">https://www.sass.hk/css2sass/</a><br>kola工具转换：</p>
+<p>##1， less</p>
+<h3 id="1-1-中文官网"><a href="#1-1-中文官网" class="headerlink" title="1.1 中文官网"></a>1.1 中文官网</h3><pre><code>https://less.bootcss.com    </code></pre><h3 id="1-2-在-Node-js-环境中使用-Less"><a href="#1-2-在-Node-js-环境中使用-Less" class="headerlink" title="1.2 在 Node.js 环境中使用 Less"></a>1.2 在 Node.js 环境中使用 Less</h3><pre><code>1. 新建工程：npm init
+2. 安装less：npm install -g less
+3. 新建less文件：touch styles1.less
+4. 编译命令：
+    终端显示对应的css命令：lessc styles.less
+    输出css文件的命令：lessc styles1.less styles1.css</code></pre><h3 id="1-3-在浏览器中使用less"><a href="#1-3-在浏览器中使用less" class="headerlink" title="1.3 在浏览器中使用less"></a>1.3 在浏览器中使用less</h3><pre><code>&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;
+&lt;script src=&quot;//cdnjs.cloudflare.com/ajax/libs/less.js/3.10.0-beta/less.min.js&quot; &gt;&lt;/script&gt;</code></pre><h2 id="2，Sass"><a href="#2，Sass" class="headerlink" title="2，Sass"></a>2，Sass</h2><h3 id="2-1-Sass中文网"><a href="#2-1-Sass中文网" class="headerlink" title="2.1 Sass中文网"></a>2.1 Sass中文网</h3><pre><code>https://www.sass.hk</code></pre><h3 id="2-2-Sass安装"><a href="#2-2-Sass安装" class="headerlink" title="2.2 Sass安装"></a>2.2 Sass安装</h3><pre><code>1. 安装ruby环境（）
+    mac自带ruby环境
+    查看版本：ruby -v
+2. 安装sass    
+    //安装如下(如mac安装遇到权限问题需加 sudo gem install sass)
+    gem install sass
+    gem install compass
+3. 查看sass版本：sass -v
+4. 查看compass版本：compass -v</code></pre><h3 id="2-4-文件生成"><a href="#2-4-文件生成" class="headerlink" title="2.4 文件生成"></a>2.4 文件生成</h3><pre><code>1. scss文件直接生成css文件：sass style.scss:style.css
+2. 添加编译格式的命令：
+    sass --watch input.scss:output.css --sourcemap</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/34_前端工程化4-npm和yarn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2182,231 +2393,6 @@ HaoService
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/28/29_算法2-数组/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/28/29_算法2-数组/" itemprop="url">29_算法2-数组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-28T10:58:47+08:00">
-                2019-10-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/28/29_算法2-数组/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/28/29_算法2-数组/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/28/29_算法2-数组/" class="leancloud_visitors" data-flag-title="29_算法2-数组">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  618
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，数据按逻辑分类："><a href="#1，数据按逻辑分类：" class="headerlink" title="1，数据按逻辑分类："></a>1，数据按逻辑分类：</h2><pre><code>1.集合结构
-2.线性结构
-3.树形结构
-4.图形结构</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8735.png" alt></p>
-<h2 id="2，数据按存储分类："><a href="#2，数据按存储分类：" class="headerlink" title="2，数据按存储分类："></a>2，数据按存储分类：</h2><pre><code>1.顺序存储结构
-2.链接存储结构
-3.数据索引存储结构
-4.数据散列存储结构</code></pre><h2 id="3，线性表和非线性表"><a href="#3，线性表和非线性表" class="headerlink" title="3，线性表和非线性表"></a>3，线性表和非线性表</h2><pre><code>线性表
-1. n个相同类型元素的有限序列
-2. 最多有前后2个方向
-3. 例如：数组，链表，栈，队列，哈希表
-非线性表：
-数据不是简单的前后关系
-树（二叉树，AVL树，红黑树，B树，哈夫曼树），堆，图，并查集</code></pre><h2 id="4，数组"><a href="#4，数组" class="headerlink" title="4，数组"></a>4，数组</h2><pre><code>定义：
-    1. 顺序存储
-    2. 内存地址连续
-优点：
-    1. 随机访问
-    2. 查询速度快（根据下标访问的复杂度为O(1),二分查找为O(logn)）
-缺点：
-    1. 固定长度
-    2. 删除和插入效率低
-        1） 插入：从最好O(1) 最坏O(n) 平均O(n)
-        2）    插入：数组若无序，插入新的元素时，可以将第K个位置元素移动到数组末尾，把心的元素，插入到第k个位置，此处复杂度为O(1)。作者举例说明
-        3）    删除：从最好O(1) 最坏O(n) 平均O(n)
-        4）    多次删除集中在一起，提高删除效率
-            记录下已经被删除的数据，每次的删除操作并不是搬移数据，只是记录数据已经被删除，当数组没有更多的存储空间时，再触发一次真正的删除操作。即JVM标记清除垃圾回收算法</code></pre><h2 id="5，数组越界"><a href="#5，数组越界" class="headerlink" title="5，数组越界"></a>5，数组越界</h2><pre><code>C语言未解决，需要程序员处理
-java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数组从0开始" class="headerlink" title="6，数组从0开始"></a>6，数组从0开始</h2><pre><code>数组的内存模型：a[k]_address = base_address + k * type_size</code></pre><h2 id="7-JVM"><a href="#7-JVM" class="headerlink" title="7, JVM"></a>7, JVM</h2><pre><code>清除垃圾回收算法</code></pre><h2 id="8-容器"><a href="#8-容器" class="headerlink" title="8, 容器"></a>8, 容器</h2><pre><code>1，java中的ArrayList，可以删除，插入数据，动态扩容
-2，每次存储空间不够时，自动扩容1.5倍，
-3，事先指定大小，可以省掉多次内存申请和数据搬移操作</code></pre><h2 id="7，数组总结"><a href="#7，数组总结" class="headerlink" title="7，数组总结"></a>7，数组总结</h2><pre><code>1）    Java ArrayList 的使用涉及装箱拆箱，有一定的性能损耗，如果特别管柱性能，可以考虑数组
-2）    若数据大小事先已知，并且涉及的数据操作非常简单，可以使用数组
-3）    表示多维数组时，数组往往更加直观。
-4）    业务开发容器即可，底层开发，如网络框架，性能优化。选择数组</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2459,7 +2445,7 @@ java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

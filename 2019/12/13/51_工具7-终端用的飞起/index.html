@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="1,查看所有环境变量 echo $PATH 2,bash和zsh切换 切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法 echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限     1，查看文件权限：ls -l     total 24     -rw-r--r--@">
+<meta name="description" content="1,查看所有环境变量echo $PATH 2,bash和zsh切换切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限1，查看文件权限：ls -l     total 24     -rw-r--r--@ 1 gjfax">
 <meta name="keywords" content="工具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="51_工具7-终端用的飞起">
 <meta property="og:url" content="https://github.com/2019/12/13/51_工具7-终端用的飞起/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="1,查看所有环境变量 echo $PATH 2,bash和zsh切换 切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法 echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限     1，查看文件权限：ls -l     total 24     -rw-r--r--@">
+<meta property="og:description" content="1,查看所有环境变量echo $PATH 2,bash和zsh切换切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限1，查看文件权限：ls -l     total 24     -rw-r--r--@ 1 gjfax">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-20T08:49:38.998Z">
+<meta property="og:updated_time" content="2020-01-08T06:32:00.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="51_工具7-终端用的飞起">
-<meta name="twitter:description" content="1,查看所有环境变量 echo $PATH 2,bash和zsh切换 切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法 echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限     1，查看文件权限：ls -l     total 24     -rw-r--r--@">
+<meta name="twitter:description" content="1,查看所有环境变量echo $PATH 2,bash和zsh切换切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限1，查看文件权限：ls -l     total 24     -rw-r--r--@ 1 gjfax">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  331
+                  368
                 </span>
               
 
@@ -421,16 +421,12 @@
       
 
       
-        <p>1,查看所有环境变量</p>
-<p><code>echo $PATH</code></p>
-<p>2,bash和zsh切换</p>
-<pre><code>切换到bash:chsh -s /bin/bash
-切换到zsh: chsh -s /bin/zsh</code></pre><p>3,回到用户根目录的方法</p>
-<pre><code>echo home
+        <h2 id="1-查看所有环境变量"><a href="#1-查看所有环境变量" class="headerlink" title="1,查看所有环境变量"></a>1,查看所有环境变量</h2><p><code>echo $PATH</code></p>
+<h2 id="2-bash和zsh切换"><a href="#2-bash和zsh切换" class="headerlink" title="2,bash和zsh切换"></a>2,bash和zsh切换</h2><pre><code>切换到bash:chsh -s /bin/bash
+切换到zsh: chsh -s /bin/zsh</code></pre><h2 id="3-回到用户根目录的方法"><a href="#3-回到用户根目录的方法" class="headerlink" title="3,回到用户根目录的方法"></a>3,回到用户根目录的方法</h2><pre><code>echo home
 cd $HOME
 cd ~    
-cd /users/用户名    </code></pre><p>4，修改访问权限    </p>
-<pre><code>1，查看文件权限：ls -l
+cd /users/用户名    </code></pre><h2 id="4，修改访问权限"><a href="#4，修改访问权限" class="headerlink" title="4，修改访问权限"></a>4，修改访问权限</h2><pre><code>1，查看文件权限：ls -l
     total 24
     -rw-r--r--@ 1 gjfax  staff  10347  3 29  2017 PackageApplication
     代表的含义：文件类型和访问权限 文件数量 所属用户 所在群组 文件大小 修改日期（月 日 时 分） 文件名称
@@ -446,7 +442,8 @@ cd /users/用户名    </code></pre><p>4，修改访问权限    </p>
 
 4，示例：添加文件的读写权限
     sudo chmod +x PackageApplication
-    也可以：sudo chmod 777 PackageApplication</code></pre>
+    也可以：sudo chmod 777 PackageApplication</code></pre><h2 id="5，搜索文件"><a href="#5，搜索文件" class="headerlink" title="5，搜索文件"></a>5，搜索文件</h2><pre><code>1，当前目录中，搜索含有关键字的文件：find . -name &quot;*关键字*.md&quot; 
+2，全局搜索：mdfind -name 文件名</code></pre>
       
     </div>
     
@@ -543,8 +540,17 @@ cd /users/用户名    </code></pre><p>4，修改访问权限    </p>
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -561,7 +567,7 @@ cd /users/用户名    </code></pre><p>4，修改访问权限    </p>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">84</span>
+                  <span class="site-state-item-count">85</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -663,6 +669,22 @@ cd /users/用户名    </code></pre><p>4，修改访问权限    </p>
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-查看所有环境变量"><span class="nav-number">1.</span> <span class="nav-text">1,查看所有环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-bash和zsh切换"><span class="nav-number">2.</span> <span class="nav-text">2,bash和zsh切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-回到用户根目录的方法"><span class="nav-number">3.</span> <span class="nav-text">3,回到用户根目录的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，修改访问权限"><span class="nav-number">4.</span> <span class="nav-text">4，修改访问权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，搜索文件"><span class="nav-number">5.</span> <span class="nav-text">5，搜索文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

@@ -280,6 +280,229 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/01/36_算法4-栈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/01/36_算法4-栈/" itemprop="url">36_算法4-栈</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-01T17:58:26+08:00">
+                2019-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/01/36_算法4-栈/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/36_算法4-栈/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/01/36_算法4-栈/" class="leancloud_visitors" data-flag-title="36_算法4-栈">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  411
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，栈定义"><a href="#1，栈定义" class="headerlink" title="1，栈定义"></a>1，栈定义</h2><pre><code>1. 特殊的线性表，只能在一端操作
+2. 入栈：push
+3. 出栈：pop
+4. 原则：LIFO（Last In First Out）</code></pre><h2 id="2，栈存在的意义"><a href="#2，栈存在的意义" class="headerlink" title="2，栈存在的意义"></a>2，栈存在的意义</h2><pre><code>数组或链表暴露了太多的操作接口，操作上的确灵活自由，但使用时就比较不可控，自然也就更容易出错。</code></pre><h2 id="3，栈的表示"><a href="#3，栈的表示" class="headerlink" title="3，栈的表示"></a>3，栈的表示</h2><pre><code>1. 数组实现：顺序栈
+2. 链表实现：链式栈
+3. 栈的API</code></pre><h2 id="4，栈的复杂度"><a href="#4，栈的复杂度" class="headerlink" title="4，栈的复杂度"></a>4，栈的复杂度</h2><pre><code>空间复杂度:O(1)
+时间复杂度：O(1)</code></pre><h2 id="5，数据结构栈和内存空间栈区的区别"><a href="#5，数据结构栈和内存空间栈区的区别" class="headerlink" title="5，数据结构栈和内存空间栈区的区别"></a>5，数据结构栈和内存空间栈区的区别</h2><pre><code>可以说内存中的堆栈是真实存在的物理区，数据结构中的堆栈是抽象的数据存储结构。</code></pre><blockquote>
+<p>内存空间在逻辑上分为三部分：代码区、静态数据区和动态数据区，动态数据区又分为栈区和堆区。</p>
+<blockquote>
+<p>1,代码区：存储方法体的二进制代码。高级调度（作业调度）、中级调度（内存调度）、低级调度（进程调度）控制代码区执行代码的切换。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>2,静态数据区：存储全局变量、静态变量、常量，常量包括final修饰的常量和String常量。系统自动分配和回收。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>3,栈区：存储运行方法的形参、局部变量、返回值。由系统自动分配和回收。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>4,堆区：new一个对象的引用或地址存储在栈区，指向该对象存储在堆区中的真实数据。</p>
+</blockquote>
+</blockquote>
+<h2 id="5，应用场景"><a href="#5，应用场景" class="headerlink" title="5，应用场景"></a>5，应用场景</h2><pre><code>1. 函数调用栈
+2. 编译器的表达式求值
+3. 括号匹配
+4. 浏览器的前进和后退</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/35_前端工程化5-css预处理器：less，sass和stylus/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2193,206 +2416,6 @@ HaoService
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/25/25_web2-内网穿透/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/25/25_web2-内网穿透/" itemprop="url">25_web2-内网穿透</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-25T15:18:57+08:00">
-                2019-11-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/25/25_web2-内网穿透/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/25/25_web2-内网穿透/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/11/25/25_web2-内网穿透/" class="leancloud_visitors" data-flag-title="25_web2-内网穿透">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  163
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，ngrok"><a href="#1，ngrok" class="headerlink" title="1，ngrok"></a>1，ngrok</h2><pre><code>1，下载 MAC 版的 ngrok：https://ngrok.com/download
-2，见到ngrok文件（如果是压缩文件，要解压，）
-3，进入ngrok目录，输入命令：./ngrok http localhost:80（本地阿帕奇服务器默认80端口）
-4，本地运行一个80端口的程序：http://127.0.0.1:8848/demo.html
-5，使用localhost等效：http://localhost:8848/demo.html
-6，使用ip访问等效：http://localhost:8848/demo.html
-7，外网验证：拿到步骤3中的结果，例如http://5fd0d517.ngrok.io -&gt; http://localhost:80  ，通过http://5fd0d517.ngrok.io/demo.html就可以访问了
-端口的占用情况：在活动监视器中可以通过PID查看</code></pre><h2 id="2，魔法隧道"><a href="#2，魔法隧道" class="headerlink" title="2，魔法隧道"></a>2，魔法隧道</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2445,7 +2468,7 @@ HaoService
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">85</span>
+                  <span class="site-state-item-count">86</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2575,7 +2598,7 @@ HaoService
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">43.7k</span>
+    <span title="Site words total count">44.3k</span>
   
 </div>
 

@@ -8,8 +8,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Wed, 08 Jan 2020 10:21:46 GMT</pubDate>
+    <pubDate>Sat, 11 Jan 2020 02:27:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>86_和领导沟通的艺术</title>
+      <link>https://github.com/2020/01/11/86_%E5%92%8C%E9%A2%86%E5%AF%BC%E6%B2%9F%E9%80%9A%E7%9A%84%E8%89%BA%E6%9C%AF/</link>
+      <guid>https://github.com/2020/01/11/86_%E5%92%8C%E9%A2%86%E5%AF%BC%E6%B2%9F%E9%80%9A%E7%9A%84%E8%89%BA%E6%9C%AF/</guid>
+      <pubDate>Sat, 11 Jan 2020 00:38:34 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2020/01/11/86_%E5%92%8C%E9%A2%86%E5%AF%BC%E6%B2%9F%E9%80%9A%E7%9A%84%E8%89%BA%E6%9C%AF/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>85_iOS14-访问文件的方法汇总</title>
@@ -336,27 +357,6 @@
       
       
       <comments>https://github.com/2019/12/27/67_web7-html-css-js%E7%9A%84%E4%BB%A3%E7%A0%81%E5%B8%83%E5%B1%80/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>66_web6-浏览器的bom操作</title>
-      <link>https://github.com/2019/12/27/66_web6-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom%E6%93%8D%E4%BD%9C/</link>
-      <guid>https://github.com/2019/12/27/66_web6-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom%E6%93%8D%E4%BD%9C/</guid>
-      <pubDate>Fri, 27 Dec 2019 01:37:30 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://github.com/2019/12/27/66_web6-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84bom%E6%93%8D%E4%BD%9C/#disqus_thread</comments>
     </item>
     
   </channel>

@@ -1642,7 +1642,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  368
+                  1.5k
                 </span>
               
 
@@ -1658,7 +1658,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -1703,7 +1703,66 @@ cd /users/用户名    </code></pre><h2 id="4，修改访问权限"><a href="#4�
 4，示例：添加文件的读写权限
     sudo chmod +x PackageApplication
     也可以：sudo chmod 777 PackageApplication</code></pre><h2 id="5，搜索文件"><a href="#5，搜索文件" class="headerlink" title="5，搜索文件"></a>5，搜索文件</h2><pre><code>1，当前目录中，搜索含有关键字的文件：find . -name &quot;*关键字*.md&quot; 
-2，全局搜索：mdfind -name 文件名</code></pre>
+2，全局搜索：mdfind -name 文件名</code></pre><h2 id="5，查看文件树"><a href="#5，查看文件树" class="headerlink" title="5，查看文件树"></a>5，查看文件树</h2><pre><code>如果未安装，先安装： brew install tree
+     tree -l（打印英文）
+     tree  -n（打印中文）</code></pre><h2 id="6，安装了哪些shell"><a href="#6，安装了哪些shell" class="headerlink" title="6，安装了哪些shell"></a>6，安装了哪些shell</h2><pre><code>1.如果未安装zsh，
+    输入命令 ：cat /etc/shells
+2.如果已经安装zsh，
+    使用命令切换：chsh -s /bin/zsh
+    再输入：cat /etc/shells
+3.当前使用的哪个shell
+    输入：echo $SHELL</code></pre><h2 id="7，mac电脑新下载的软件无法安装"><a href="#7，mac电脑新下载的软件无法安装" class="headerlink" title="7，mac电脑新下载的软件无法安装"></a>7，mac电脑新下载的软件无法安装</h2><pre><code>下载软件时候，若提示文件已损坏：
+    1，在隐私里边，允许任何来源没有显示，若有，则勾选；若没有，继续下一步
+    2,禁止安全限制：
+         打开终端，禁止GateKeeper：sudo spctl --master-disable
+    3,安装完毕后，恢复安全限制：
+        打开终端，启用GateKeeper：sudo spctl --master-enable</code></pre><h2 id="8，cocoaPod的几个常用命令"><a href="#8，cocoaPod的几个常用命令" class="headerlink" title="8，cocoaPod的几个常用命令"></a>8，cocoaPod的几个常用命令</h2><pre><code>1，pod  install 或者update慢，终端处理方法
+    可以采用以下命令：
+    pod install --verbose --no-repo-update
+    pod update --verbose --no-repo-update
+    或者
+    pod install --no-repo-update
+    pod update --no-repo-update
+2，pod查看某个库的版本号
+    pod search ** 后都会现实当前在repo的版本
+3，查看cocoaPod的版本号
+    pod --version
+    查看完毕后，按键盘的q（注意是英文），可以退出搜索</code></pre><h2 id="9，获取电脑相关信息"><a href="#9，获取电脑相关信息" class="headerlink" title="9，获取电脑相关信息"></a>9，获取电脑相关信息</h2><h3 id="9-1-获取ip地址"><a href="#9-1-获取ip地址" class="headerlink" title="9.1 获取ip地址"></a>9.1 获取ip地址</h3><pre><code>输入“ifconfig”,-&gt;找到“en0”中的“inet”</code></pre><h3 id="9-2-获取网关地址"><a href="#9-2-获取网关地址" class="headerlink" title="9.2 获取网关地址"></a>9.2 获取网关地址</h3><pre><code>输入：netstat -r ，-&gt;找到“GateWay”中的“default”</code></pre><h3 id="9-3-ping网络"><a href="#9-3-ping网络" class="headerlink" title="9.3 ping网络"></a>9.3 ping网络</h3><pre><code>1,ping百度命令： ping www.baidu.com
+
+2,ping终端返回值：
+PING www.a.shifen.com (14.215.177.38): 56 data bytes
+64 bytes from 14.215.177.38: icmp_seq=0 ttl=56 time=33.360 ms
+64 bytes from 14.215.177.38: icmp_seq=1 ttl=56 time=8.068 ms
+64 bytes from 14.215.177.38: icmp_seq=2 ttl=56 time=8.297 ms
+64 bytes from 14.215.177.38: icmp_seq=3 ttl=56 time=7.057 ms
+
+3，ping终端返回值分析
+    1，56：测试发送数据56字节
+    2，64：返回接收到的字节
+    3，14.215.177.38：百度服务器的ip地址
+    4，icmp：ICMP 回显的顺序
+        ICMP是（Internet Control Message Protocol）Internet控制报文协议。它是TCP/IP协议族的一个子协议，用于在IP主机、路由器之间传递控制消息。控制消息是指网络通不通、主机是否可达、路由是否可用等网络本身的消息。这些控制消息虽然并不传输用户数据，但是对于用户数据的传递起着重要的作用
+    5，TTL是 Time To Live的缩写，该字段指定IP包被路由器丢弃之前允许通过的最大网段数量，TTL是IPv4包头的一个8 bit字段
+        不同的目的服务器操作系统，对应不同的ttl值；（Windows系列32，Linux系列64，Win2000/NT系列128，Unix系列255）
+        ⚠️返回的ttl = 目的服务器ttl初值 - 中间路由个数
+    6，time：数据发送到返回的时间
+
+4，ping命令返回值的不同情景
+    1，部分超时
+        结果间断返回：
+            64 bytes from 192.168.128.1: icmp_seq=1 ttl=64 time=0.897 ms 
+            Request timeout for icmp_seq 2 
+        分析：主机繁忙；电缆连接；网络故障
+        方法：尝试ping其他局域网中的主机
+    2，直接超时
+        结果全部返回：
+            Request timeout for icmp_seq 0 
+            Request timeout for icmp_seq 1 
+        分析：连接是好的但是对方的防火墙拒绝了你的ICMP回显请求，那么你讲收到ICMP请求超时的消息。如果目的主机确实响应你的ARP请求，那就意味着你的本地连接是好的同时网络状态是好的。那么就应该尝试关闭目的主机的防火墙，并再次发送PING请求，或者尝试PING一个其他的主机    
+    3，ping命令显示“Host is down”
+        分析：如果目的主机没有响应ARP请求，或者目的主机不在线，你将会接收到“Host is down”这样的消息。这样你就需要尝试ping其他主机，如果还是收到Host is down”这样的消息，那么就说明你的IP地址是配置错误的或者你的上行链路是好的，但是局域网中的其他部分是有问题的。造成这个问题的可能的原因是 上行链路的管理不当，VLAN不匹配，电缆上游存在损坏
+    4，ping命令显示”No route to host“
+        分析：如果你的本地连接是有问题的，那么你将会收到”No route to host“这样的消息，这种状态下你就需要确认你的适配器已启用，或者重新把茶以太电缆（网线），或者重启你的无线连接 </code></pre>
           
         
       
@@ -2785,7 +2844,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">44.3k</span>
+    <span title="Site words total count">45.4k</span>
   
 </div>
 

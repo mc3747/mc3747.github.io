@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="概念：    px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元    pt: point，点，印刷行业常用单位，等于1/72英寸    ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻    dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻    dp: dip，Density-independent pixel, 是安卓开发用的">
+<meta name="description" content="1 概念：px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元 pt: point，点，印刷行业常用单位，等于1/72英寸 ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻 dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻 dp: dip，Density-independent pixel, 是安卓开发用的长度单位，1dp表示在屏幕像">
 <meta name="keywords" content="设计">
 <meta property="og:type" content="article">
 <meta property="og:title" content="74_设计2-像素&amp;尺寸&amp;分辨率">
 <meta property="og:url" content="https://github.com/2020/01/05/74_设计2-像素-尺寸-分辨率/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="概念：    px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元    pt: point，点，印刷行业常用单位，等于1/72英寸    ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻    dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻    dp: dip，Density-independent pixel, 是安卓开发用的">
+<meta property="og:description" content="1 概念：px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元 pt: point，点，印刷行业常用单位，等于1/72英寸 ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻 dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻 dp: dip，Density-independent pixel, 是安卓开发用的长度单位，1dp表示在屏幕像">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-06T06:25:02.491Z">
+<meta property="og:updated_time" content="2020-01-16T02:05:02.377Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="74_设计2-像素&amp;尺寸&amp;分辨率">
-<meta name="twitter:description" content="概念：    px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元    pt: point，点，印刷行业常用单位，等于1/72英寸    ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻    dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻    dp: dip，Density-independent pixel, 是安卓开发用的">
+<meta name="twitter:description" content="1 概念：px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元 pt: point，点，印刷行业常用单位，等于1/72英寸 ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻 dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻 dp: dip，Density-independent pixel, 是安卓开发用的长度单位，1dp表示在屏幕像">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  177
+                  211
                 </span>
               
 
@@ -421,9 +421,12 @@
       
 
       
-        <p>概念：<br>    px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元<br>    pt: point，点，印刷行业常用单位，等于1/72英寸<br>    ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻<br>    dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻<br>    dp: dip，Density-independent pixel, 是安卓开发用的长度单位，1dp表示在屏幕像素点密度为160ppi时1px长度<br>    sp: scale-independent pixel，安卓开发用的字体大小单位。</p>
-<pre><code>根据屏幕分辨率，求ppi
-ppi= 屏幕对角线上的像素点数/对角线长度 = √ （屏幕横向像素点^2 + 屏幕纵向像素点^2）/对角线长度</code></pre>
+        <h2 id="1-概念："><a href="#1-概念：" class="headerlink" title="1 概念："></a>1 概念：</h2><pre><code>px：pixel，像素，电子屏幕上组成一幅图画或照片的最基本单元
+pt: point，点，印刷行业常用单位，等于1/72英寸
+ppi: pixel per inch，每英寸像素数，该值越高，则屏幕越细腻
+dpi: dot per inch，每英寸多少点，该值越高，则图片越细腻
+dp: dip，Density-independent pixel, 是安卓开发用的长度单位，1dp表示在屏幕像素点密度为160ppi时1px长度
+sp: scale-independent pixel，安卓开发用的字体大小单位。</code></pre><h2 id="2-根据屏幕分辨率，求ppi"><a href="#2-根据屏幕分辨率，求ppi" class="headerlink" title="2 根据屏幕分辨率，求ppi"></a>2 根据屏幕分辨率，求ppi</h2><pre><code>ppi= 屏幕对角线上的像素点数/对角线长度 = √ （屏幕横向像素点^2 + 屏幕纵向像素点^2）/对角线长度</code></pre><h2 id="3-查看硬件设备的网站："><a href="#3-查看硬件设备的网站：" class="headerlink" title="3 查看硬件设备的网站："></a>3 查看硬件设备的网站：</h2><pre><code>https://www.mydevice.io，用终端登陆后，就可以知道该终端的尺寸信息</code></pre>
       
     </div>
     
@@ -520,8 +523,17 @@ ppi= 屏幕对角线上的像素点数/对角线长度 = √ （屏幕横向像�
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -538,7 +550,7 @@ ppi= 屏幕对角线上的像素点数/对角线长度 = √ （屏幕横向像�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">86</span>
+                  <span class="site-state-item-count">90</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -560,7 +572,7 @@ ppi= 屏幕对角线上的像素点数/对角线长度 = √ （屏幕横向像�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -641,6 +653,22 @@ ppi= 屏幕对角线上的像素点数/对角线长度 = √ （屏幕横向像�
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-概念："><span class="nav-number">1.</span> <span class="nav-text">1 概念：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-根据屏幕分辨率，求ppi"><span class="nav-number">2.</span> <span class="nav-text">2 根据屏幕分辨率，求ppi</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-查看硬件设备的网站："><span class="nav-number">3.</span> <span class="nav-text">3 查看硬件设备的网站：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -668,7 +696,7 @@ ppi= 屏幕对角线上的像素点数/对角线长度 = √ （屏幕横向像�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">45.7k</span>
+    <span title="Site words total count">48.4k</span>
   
 </div>
 

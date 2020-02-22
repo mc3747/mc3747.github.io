@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="方法论,">
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="小新的个人博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1，怎样快速学习新技术第一步: 通读一遍官方API文档，有个整体了解，找demo实战练习，写todo list，3天左右； 第二步: 找到对应的实战视频，花一周时间左右； 第三步: 技术变现：公司推广使用新技术。先在无关紧要的项目上试试水。 第四步: 大神之路阅读github代码，出教程2，怎样提高代码质量前提：被老员工嘲笑；bug多；code的review中    被白眼 方法1：阅读《代码大全">
+<meta name="keywords" content="方法论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="90_方法论6-程序员干货营方法论">
+<meta property="og:url" content="https://github.com/2020/01/17/90_方法论6-程序员干货营方法论/index.html">
+<meta property="og:site_name" content="小新的个人博客">
+<meta property="og:description" content="1，怎样快速学习新技术第一步: 通读一遍官方API文档，有个整体了解，找demo实战练习，写todo list，3天左右； 第二步: 找到对应的实战视频，花一周时间左右； 第三步: 技术变现：公司推广使用新技术。先在无关紧要的项目上试试水。 第四步: 大神之路阅读github代码，出教程2，怎样提高代码质量前提：被老员工嘲笑；bug多；code的review中    被白眼 方法1：阅读《代码大全">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-22T15:20:24.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="90_方法论6-程序员干货营方法论">
+<meta name="twitter:description" content="1，怎样快速学习新技术第一步: 通读一遍官方API文档，有个整体了解，找demo实战练习，写todo list，3天左右； 第二步: 找到对应的实战视频，花一周时间左右； 第三步: 技术变现：公司推广使用新技术。先在无关紧要的项目上试试水。 第四步: 大神之路阅读github代码，出教程2，怎样提高代码质量前提：被老员工嘲笑；bug多；code的review中    被白眼 方法1：阅读《代码大全">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/2020/01/17/90_方法论6-程序员干货营方法论/">
+
+
+
+
+
+  <title>90_方法论6-程序员干货营方法论 | 小新的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小新的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">积极-乐观-有趣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/17/90_方法论6-程序员干货营方法论/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">90_方法论6-程序员干货营方法论</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-17T15:55:06+08:00">
+                2020-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/17/90_方法论6-程序员干货营方法论/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/17/90_方法论6-程序员干货营方法论/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/01/17/90_方法论6-程序员干货营方法论/" class="leancloud_visitors" data-flag-title="90_方法论6-程序员干货营方法论">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  745
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1，怎样快速学习新技术"><a href="#1，怎样快速学习新技术" class="headerlink" title="1，怎样快速学习新技术"></a>1，怎样快速学习新技术</h2><pre><code>第一步: 通读一遍官方API文档，有个整体了解，找demo实战练习，写todo list，3天左右；
+第二步: 找到对应的实战视频，花一周时间左右；
+第三步: 技术变现：公司推广使用新技术。先在无关紧要的项目上试试水。
+第四步: 大神之路阅读github代码，出教程</code></pre><h2 id="2，怎样提高代码质量"><a href="#2，怎样提高代码质量" class="headerlink" title="2，怎样提高代码质量"></a>2，怎样提高代码质量</h2><pre><code>前提：被老员工嘲笑；bug多；code的review中    被白眼
+方法1：阅读《代码大全》，《code clean》代码整洁之道
+方法2：以测试为驱动进行开发，它有两点好处：
+        - 让代码简洁可用
+        - 提高代码质量
+            从而提高效率。长期来看，就能建立起信任背书
+方法3：用匠人精神重构代码</code></pre><h2 id="3，自己适合学习什么语言"><a href="#3，自己适合学习什么语言" class="headerlink" title="3，自己适合学习什么语言"></a>3，自己适合学习什么语言</h2><pre><code>1. 先解决温饱,再考虑兴趣
+2. 自我感觉的难易程度和兴趣,用多学少专的模式 来试探自己的兴趣
+3. 薪资的高低
+4. 发展前景    :现在（林迪效应），卡位将来（VR，人工智能，区块链等）</code></pre><h2 id="4，前端三大框架的对比"><a href="#4，前端三大框架的对比" class="headerlink" title="4，前端三大框架的对比"></a>4，前端三大框架的对比</h2><pre><code>编程范式：
+1，angular（谷歌），作用域，
+    谷歌推出的是flutter（dart语言）
+2，react（Facebook），万物皆组件，Fiber，Hooks（class转function）
+    JSX解析
+3，vue（阿里，尤雨溪），初学者
+    weex
+总结：学习道路：html -&gt; js -&gt; nodejs -&gt; typescript -&gt; vue</code></pre><h2 id="5，程序员快速提升自己的技能"><a href="#5，程序员快速提升自己的技能" class="headerlink" title="5，程序员快速提升自己的技能"></a>5，程序员快速提升自己的技能</h2><h3 id="5-1-基础"><a href="#5-1-基础" class="headerlink" title="5.1 基础"></a>5.1 基础</h3><h3 id="5-2-提升"><a href="#5-2-提升" class="headerlink" title="5.2 提升"></a>5.2 提升</h3><pre><code>1.阅读github上的优秀开源代码
+    从最早的版本开始阅读，一层一层地阅读到最新版本，弄明白每次版本迭代的动机
+2.造自己的轮子
+    1）写小的组件
+    2）写框架
+    可从简单的UI、CSS框架开始写，再模仿vue、react写简版的框架来锻炼自己的能力
+    ps：可参考书籍《javaScript框架设计》
+3.学习设计模式
+    1）从书籍中学习不同的设计模式，有个大概的了解和区分
+    2）在别人的代码中找出并看懂设计模式
+    3）有意且刻意地在自己的练习项目中使用设计模式
+    4）尝试在工作项目中使用设计模式
+    5）在工作中重构代码，并使用设计模式</code></pre><h3 id="5-3-时间管理"><a href="#5-3-时间管理" class="headerlink" title="5.3 时间管理"></a>5.3 时间管理</h3><h2 id="6，工程"><a href="#6，工程" class="headerlink" title="6，工程"></a>6，工程</h2><pre><code>1，版本管理
+    每天提交
+    多分支
+    权限分配
+2，持续集成
+    服务器持续集成
+3，文档
+    程序设计文档
+    接口文档
+    数据结构文档
+    使用说明文档</code></pre><h2 id="7，程序的陋习"><a href="#7，程序的陋习" class="headerlink" title="7，程序的陋习"></a>7，程序的陋习</h2><pre><code>1，命名
+2，注释
+3，代码整洁之道
+    方法只有一个功能
+    空行的使用
+    代码注释掉了后，没有删掉
+    无用的代码没有删掉
+4，异常的处理
+    入参的检验
+    环境的处理（手机型号，权限，有无网络，弱网络，空间是否满了）
+    初始化的变量
+    日志</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/方法论/" rel="tag"># 方法论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/17/89_iOS16-KVO总结/" rel="next" title="89_iOS16-KVO总结">
+                <i class="fa fa-chevron-left"></i> 89_iOS16-KVO总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/02/07/91_工具8-代码片段的搜集/" rel="prev" title="91_工具8_代码片段的搜集">
+                91_工具8_代码片段的搜集 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="horse">
+            
+              <p class="site-author-name" itemprop="name">horse</p>
+              <p class="site-description motion-element" itemprop="description">做难事必有所得</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc3747@126.com" target="_blank" title="网易邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope-square"></i>网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc37473747@google.com" target="_blank" title="Google邮箱">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tel:18589052901" target="_blank" title="联系电话">
+                      
+                        <i class="fa fa-fw fa-phone"></i>联系电话</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                作品链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="csdn地址()" target="_blank">csdn地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="豆瓣地址()" target="_blank">豆瓣地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="在线简历地址()" target="_blank">在线简历地址()</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，怎样快速学习新技术"><span class="nav-number">1.</span> <span class="nav-text">1，怎样快速学习新技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，怎样提高代码质量"><span class="nav-number">2.</span> <span class="nav-text">2，怎样提高代码质量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，自己适合学习什么语言"><span class="nav-number">3.</span> <span class="nav-text">3，自己适合学习什么语言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，前端三大框架的对比"><span class="nav-number">4.</span> <span class="nav-text">4，前端三大框架的对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，程序员快速提升自己的技能"><span class="nav-number">5.</span> <span class="nav-text">5，程序员快速提升自己的技能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-基础"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-提升"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 提升</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-时间管理"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 时间管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6，工程"><span class="nav-number">6.</span> <span class="nav-text">6，工程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7，程序的陋习"><span class="nav-number">7.</span> <span class="nav-text">7，程序的陋习</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">horse</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">50.1k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI',
+        appKey: 'OtX3yrmzOhO0oJgt7V2bS3fU',
+        placeholder: '🙋欢迎举手发言🙋‍♂️',
+        avatar:'http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI", "OtX3yrmzOhO0oJgt7V2bS3fU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

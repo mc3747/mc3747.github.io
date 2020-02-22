@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1,查看所有环境变量echo $PATH 2,bash和zsh切换切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限1，查看文件权限：ls -l     total 24     -rw-r--r--@ 1 gjfax">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-13T08:31:18.149Z">
+<meta property="og:updated_time" content="2020-02-07T10:18:29.492Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="51_工具7-终端用的飞起">
 <meta name="twitter:description" content="1,查看所有环境变量echo $PATH 2,bash和zsh切换切换到bash:chsh -s /bin/bash 切换到zsh: chsh -s /bin/zsh3,回到用户根目录的方法echo home cd $HOME cd ~     cd /users/用户名    4，修改访问权限1，查看文件权限：ls -l     total 24     -rw-r--r--@ 1 gjfax">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  1.6k
                 </span>
               
 
@@ -502,7 +502,11 @@ PING www.a.shifen.com (14.215.177.38): 56 data bytes
     3，ping命令显示“Host is down”
         分析：如果目的主机没有响应ARP请求，或者目的主机不在线，你将会接收到“Host is down”这样的消息。这样你就需要尝试ping其他主机，如果还是收到Host is down”这样的消息，那么就说明你的IP地址是配置错误的或者你的上行链路是好的，但是局域网中的其他部分是有问题的。造成这个问题的可能的原因是 上行链路的管理不当，VLAN不匹配，电缆上游存在损坏
     4，ping命令显示”No route to host“
-        分析：如果你的本地连接是有问题的，那么你将会收到”No route to host“这样的消息，这种状态下你就需要确认你的适配器已启用，或者重新把茶以太电缆（网线），或者重启你的无线连接 </code></pre>
+        分析：如果你的本地连接是有问题的，那么你将会收到”No route to host“这样的消息，这种状态下你就需要确认你的适配器已启用，或者重新把茶以太电缆（网线），或者重启你的无线连接 </code></pre><h2 id="9，M修改Hosts文件的方法"><a href="#9，M修改Hosts文件的方法" class="headerlink" title="9，M修改Hosts文件的方法"></a>9，M修改Hosts文件的方法</h2><h3 id="9-1-终端命令"><a href="#9-1-终端命令" class="headerlink" title="9.1 终端命令"></a>9.1 终端命令</h3><pre><code>1,终端命令：sudo vi /etc/hosts
+2,输入本机密码后，输入 i （插入），修改hosts文件后，按 esc 键退出,
+3,再按shift+：键，再输入w和q，保存退出
+4,不保存退出，则按q和！键</code></pre><h3 id="9-2-查找文件"><a href="#9-2-查找文件" class="headerlink" title="9.2 查找文件"></a>9.2 查找文件</h3><pre><code>1，直接前往文件夹：输入/etc/hosts
+2，编辑的时候，要修改文件的读写权限</code></pre>
       
     </div>
     
@@ -626,7 +630,7 @@ PING www.a.shifen.com (14.215.177.38): 56 data bytes
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -738,7 +742,7 @@ PING www.a.shifen.com (14.215.177.38): 56 data bytes
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-查看所有环境变量"><span class="nav-number">1.</span> <span class="nav-text">1,查看所有环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-bash和zsh切换"><span class="nav-number">2.</span> <span class="nav-text">2,bash和zsh切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-回到用户根目录的方法"><span class="nav-number">3.</span> <span class="nav-text">3,回到用户根目录的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，修改访问权限"><span class="nav-number">4.</span> <span class="nav-text">4，修改访问权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，搜索文件"><span class="nav-number">5.</span> <span class="nav-text">5，搜索文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，查看文件树"><span class="nav-number">6.</span> <span class="nav-text">5，查看文件树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6，安装了哪些shell"><span class="nav-number">7.</span> <span class="nav-text">6，安装了哪些shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7，mac电脑新下载的软件无法安装"><span class="nav-number">8.</span> <span class="nav-text">7，mac电脑新下载的软件无法安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8，cocoaPod的几个常用命令"><span class="nav-number">9.</span> <span class="nav-text">8，cocoaPod的几个常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9，获取电脑相关信息"><span class="nav-number">10.</span> <span class="nav-text">9，获取电脑相关信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-获取ip地址"><span class="nav-number">10.1.</span> <span class="nav-text">9.1 获取ip地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-获取网关地址"><span class="nav-number">10.2.</span> <span class="nav-text">9.2 获取网关地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-ping网络"><span class="nav-number">10.3.</span> <span class="nav-text">9.3 ping网络</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-查看所有环境变量"><span class="nav-number">1.</span> <span class="nav-text">1,查看所有环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-bash和zsh切换"><span class="nav-number">2.</span> <span class="nav-text">2,bash和zsh切换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-回到用户根目录的方法"><span class="nav-number">3.</span> <span class="nav-text">3,回到用户根目录的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，修改访问权限"><span class="nav-number">4.</span> <span class="nav-text">4，修改访问权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，搜索文件"><span class="nav-number">5.</span> <span class="nav-text">5，搜索文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，查看文件树"><span class="nav-number">6.</span> <span class="nav-text">5，查看文件树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6，安装了哪些shell"><span class="nav-number">7.</span> <span class="nav-text">6，安装了哪些shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7，mac电脑新下载的软件无法安装"><span class="nav-number">8.</span> <span class="nav-text">7，mac电脑新下载的软件无法安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8，cocoaPod的几个常用命令"><span class="nav-number">9.</span> <span class="nav-text">8，cocoaPod的几个常用命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9，获取电脑相关信息"><span class="nav-number">10.</span> <span class="nav-text">9，获取电脑相关信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-获取ip地址"><span class="nav-number">10.1.</span> <span class="nav-text">9.1 获取ip地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-获取网关地址"><span class="nav-number">10.2.</span> <span class="nav-text">9.2 获取网关地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-3-ping网络"><span class="nav-number">10.3.</span> <span class="nav-text">9.3 ping网络</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9，M修改Hosts文件的方法"><span class="nav-number">11.</span> <span class="nav-text">9，M修改Hosts文件的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1-终端命令"><span class="nav-number">11.1.</span> <span class="nav-text">9.1 终端命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2-查找文件"><span class="nav-number">11.2.</span> <span class="nav-text">9.2 查找文件</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -772,7 +776,7 @@ PING www.a.shifen.com (14.215.177.38): 56 data bytes
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.5k</span>
+    <span title="Site words total count">50.1k</span>
   
 </div>
 

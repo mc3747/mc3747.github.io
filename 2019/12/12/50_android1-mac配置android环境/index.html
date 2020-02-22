@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1，清理旧的android studio参考网上教程，要彻底删除2， android studio下载http://developer.android.com/intl/zh-cn/sdk/index.html3，免安装android SDK的方法下载android studio的dmg文件后 intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK4">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-17T08:54:01.746Z">
+<meta property="og:updated_time" content="2020-02-18T06:09:23.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="50_android1-mac配置android环境">
 <meta name="twitter:description" content="1，清理旧的android studio参考网上教程，要彻底删除2， android studio下载http://developer.android.com/intl/zh-cn/sdk/index.html3，免安装android SDK的方法下载android studio的dmg文件后 intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK4">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  297
+                  379
                 </span>
               
 
@@ -436,9 +436,12 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
     1. 同理， cd ~/ :进入用户目录
     2. 找到.zshrc文件
     3. 在“# User configuration” 位置加入 “source ~/.bash_profile”
-    4. 执行source.zshrc</code></pre><h2 id="5，利用adb安装apk"><a href="#5，利用adb安装apk" class="headerlink" title="5，利用adb安装apk"></a>5，利用adb安装apk</h2><pre><code>1. 生成apk：android studio -》Build -》Build APKS
+    4. 执行source.zshrc</code></pre><h2 id="5，安装apk"><a href="#5，安装apk" class="headerlink" title="5，安装apk"></a>5，安装apk</h2><h3 id="5-1-利用adb安装"><a href="#5-1-利用adb安装" class="headerlink" title="5.1 利用adb安装"></a>5.1 利用adb安装</h3><pre><code>1. 生成apk：android studio -》Build -》Build APKS
 2. 找到apk：app -》build -》outputs -》apk
-3. 终端执行命令adb install apk的路径</code></pre>
+3. 打开手机USB调试开发者选项，之后输入：adb devices ,在list下面有设备即可
+4. 终端执行命令adb install apk的路径</code></pre><h3 id="5-2-利用android文件传输来安装"><a href="#5-2-利用android文件传输来安装" class="headerlink" title="5.2 利用android文件传输来安装"></a>5.2 利用android文件传输来安装</h3><pre><code>1. 打开android文件传输,显示文件
+2. 进入download文件夹,将apk拖入
+3. 进入手机的文件管理,找到apk打开即可</code></pre>
       
     </div>
     
@@ -562,7 +565,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">90</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -674,7 +677,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，清理旧的android-studio"><span class="nav-number">1.</span> <span class="nav-text">1，清理旧的android studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，-android-studio下载"><span class="nav-number">2.</span> <span class="nav-text">2， android studio下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，免安装android-SDK的方法"><span class="nav-number">3.</span> <span class="nav-text">3，免安装android SDK的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，安装adb"><span class="nav-number">4.</span> <span class="nav-text">4，安装adb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，利用adb安装apk"><span class="nav-number">5.</span> <span class="nav-text">5，利用adb安装apk</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，清理旧的android-studio"><span class="nav-number">1.</span> <span class="nav-text">1，清理旧的android studio</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，-android-studio下载"><span class="nav-number">2.</span> <span class="nav-text">2， android studio下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，免安装android-SDK的方法"><span class="nav-number">3.</span> <span class="nav-text">3，免安装android SDK的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，安装adb"><span class="nav-number">4.</span> <span class="nav-text">4，安装adb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，安装apk"><span class="nav-number">5.</span> <span class="nav-text">5，安装apk</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-利用adb安装"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 利用adb安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-利用android文件传输来安装"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 利用android文件传输来安装</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -708,7 +711,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">48.5k</span>
+    <span title="Site words total count">50.1k</span>
   
 </div>
 

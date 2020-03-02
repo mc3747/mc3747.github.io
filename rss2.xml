@@ -8,8 +8,29 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Sat, 22 Feb 2020 15:24:31 GMT</pubDate>
+    <pubDate>Mon, 02 Mar 2020 03:49:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>94_工具9_MacVim的使用</title>
+      <link>https://github.com/2020/03/02/94_%E5%B7%A5%E5%85%B79-MacVim%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <guid>https://github.com/2020/03/02/94_%E5%B7%A5%E5%85%B79-MacVim%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <pubDate>Mon, 02 Mar 2020 03:24:21 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2020/03/02/94_%E5%B7%A5%E5%85%B79-MacVim%E7%9A%84%E4%BD%BF%E7%94%A8/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>93_方法论7-逆境突破</title>
@@ -328,27 +349,6 @@
       
       
       <comments>https://github.com/2020/01/05/75_%E8%AE%BE%E8%AE%A13-%E5%AD%97%E4%BD%93/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>74_设计2-像素&amp;尺寸&amp;分辨率</title>
-      <link>https://github.com/2020/01/05/74_%E8%AE%BE%E8%AE%A12-%E5%83%8F%E7%B4%A0-%E5%B0%BA%E5%AF%B8-%E5%88%86%E8%BE%A8%E7%8E%87/</link>
-      <guid>https://github.com/2020/01/05/74_%E8%AE%BE%E8%AE%A12-%E5%83%8F%E7%B4%A0-%E5%B0%BA%E5%AF%B8-%E5%88%86%E8%BE%A8%E7%8E%87/</guid>
-      <pubDate>Sun, 05 Jan 2020 14:54:34 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://github.com/2020/01/05/74_%E8%AE%BE%E8%AE%A12-%E5%83%8F%E7%B4%A0-%E5%B0%BA%E5%AF%B8-%E5%88%86%E8%BE%A8%E7%8E%87/#disqus_thread</comments>
     </item>
     
   </channel>

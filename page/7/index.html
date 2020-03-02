@@ -280,6 +280,245 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/34_前端工程化4-npm和yarn/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/29/34_前端工程化4-npm和yarn/" itemprop="url">34_前端工程化4-npm和yarn</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T11:50:45+08:00">
+                2019-11-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/29/34_前端工程化4-npm和yarn/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/29/34_前端工程化4-npm和yarn/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/29/34_前端工程化4-npm和yarn/" class="leancloud_visitors" data-flag-title="34_前端工程化4-npm和yarn">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  355
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1，npm和yarn的相同</p>
+<pre><code>1，都是JS包管理工具
+2，都会将依赖的版本号进行锁定</code></pre><p>2, Yarn和npm命令对比</p>
+<pre><code>npm init  🚦 yarn init
+npm install  🚦 yarn 
+npm install xxx@1.1.1 -g  🚦 yarn global add xxx@1.1.1
+npm install xxx@1.1.1 --save  🚦 yarn add xxx@1.1.1
+npm install xxx@1.1.1 --save-dev  🚦 yarn add xxx@1.1.1 --dev
+npm uninstall xxx --save(-dev)  🚦yarn remove xxx
+npm run xxx   🚦 yarn run xxxx</code></pre><p>3，npm和yarn的不同</p>
+<pre><code>npm下载的时候是同步下载的   npm不会有缓存  ，速度慢
+yarn下载的时候是异步下载的  yarn会有缓存   ，速度快
+
+ 1、查看版本
+    yarn --version
+    npm -version(或者 node -v)
+2、安装淘宝镜像
+     yarn config set registry &apos;https://registry.npm.taobao.org&apos;     
+     npm install -g cnpm --registry=http://registry.npm.taobao.org 
+3、初始化某个项目
+      yarn init                                                  
+      npm init 
+4、默认安装项目依赖
+      yarn install                                            
+      cnpm install 
+5、安装某个依赖，并且默认保存到package 
+    yarn add xxx                                        
+    cnpm install xxx --save
+6、卸载某个项目依赖
+       yarn remove xxx                                    
+       cnpm uninstall xxx --save
+7、更新某个项目依赖 
+    yarn upgrade xxx                                  
+    cnpm update xxx --save
+8、安装某个全局的项目依赖
+      yarn global add xxx                                
+      cnpm install xxx -g 
+9、安装某个特定版本号的项目依赖
+      yarn add xxx@                                       
+      cnpm install xxx@1.2.33 --save 
+10、发布/登录/登出，一系列NPM Registry操作
+       yarn publish/login/logout                         
+       npm publish/login/logout 
+11、运行某个命令 
+    yarn run/test                                           
+    npm run/test</code></pre><p>4，总结</p>
+<pre><code>参考官方文档学习</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/29/33_前端工程化3-babel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2168,214 +2407,6 @@ java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/27/24_工具5-浏览器扩展插件/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/27/24_工具5-浏览器扩展插件/" itemprop="url">24_工具5-浏览器扩展插件</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-27T22:07:46+08:00">
-                2019-10-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/27/24_工具5-浏览器扩展插件/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/27/24_工具5-浏览器扩展插件/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/27/24_工具5-浏览器扩展插件/" class="leancloud_visitors" data-flag-title="24_工具5-浏览器扩展插件">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  222
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，Chrome浏览器"><a href="#1，Chrome浏览器" class="headerlink" title="1，Chrome浏览器"></a>1，Chrome浏览器</h2><h3 id="1-1-扩展的来源"><a href="#1-1-扩展的来源" class="headerlink" title="1.1 扩展的来源"></a>1.1 扩展的来源</h3><pre><code>1，谷歌商店（国外）
-    https://chrome.google.com/webstore/category/extensions?hl=zh-CN
-2，插件网（国内）
-    http://www.cnplugins.com/
-    http://chromecj.com/
-3，github上网友分享：
-    https://github.com/cy920820/awesome-chrome-plugin-recommends
-4，本地的crx，xrs文件：
-    1，将.crx改为.zip文件
-    2，命令行解压：unzip Charset.zip -d  Charset
-    3，安装插件：选择浏览器右上角三个点-&gt;更多工具-&gt;扩展程序-&gt;加载已解压的扩展程序-&gt;选取文件夹-&gt;选择</code></pre><h3 id="1-2-插件的安装路径"><a href="#1-2-插件的安装路径" class="headerlink" title="1.2 插件的安装路径"></a>1.2 插件的安装路径</h3><pre><code>~/Library/Application Support/Google/Chrome/Default/Extensions</code></pre><h3 id="1-3-常用的扩展"><a href="#1-3-常用的扩展" class="headerlink" title="1.3 常用的扩展"></a>1.3 常用的扩展</h3><pre><code>1，下载某个文件夹的扩展：
-    https://chrome.google.com/webstore/detail/gitzip-for-github/ffabmkklhbepgcgfonabamgnfafbdlkn?hl=zh-CN
-2，显示文件大小及下载：
-    Enhanced GitHub    :(https://chrome.google.com/webstore/search/Enhanced%20Github?hl=zh-CN)
-3，显示项目结构
-    Octotree：（https://chrome.google.com/webstore/detail/octotree/bkhaagjahfmjljalopjnoealnfndnagc?hl=zh-CN）</code></pre><h2 id="2，Safari浏览器"><a href="#2，Safari浏览器" class="headerlink" title="2，Safari浏览器"></a>2，Safari浏览器</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2428,7 +2459,7 @@ java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">94</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2558,7 +2589,7 @@ java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.1k</span>
+    <span title="Site words total count">50.2k</span>
   
 </div>
 

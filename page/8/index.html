@@ -1217,7 +1217,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  1.6k
                 </span>
               
 
@@ -1303,9 +1303,13 @@ double   双精度类型  8个字节
 if条件：
     c语言是非真及假
     java必须要是bool类型</code></pre><h3 id="4-2-引用类型reference-type"><a href="#4-2-引用类型reference-type" class="headerlink" title="4.2 引用类型reference type"></a>4.2 引用类型reference type</h3><pre><code>1，对对象的引用，即存储的值是对象的地址
-2，String是引用类型</code></pre><h3 id="4-3-数据类型转换"><a href="#4-3-数据类型转换" class="headerlink" title="4.3 数据类型转换"></a>4.3 数据类型转换</h3><pre><code>1. 拓宽基本数据转换(数据范围扩大),自动转换(隐式转换)
-2. 窄化基本类型转换(数据范围缩小),强制转换
-3. 只是数值类型的转换，没有bool类型</code></pre><h3 id><a href="#" class="headerlink" title=" "></a> </h3><h3 id="4-4-字面量赋值"><a href="#4-4-字面量赋值" class="headerlink" title="4.4 字面量赋值"></a>4.4 字面量赋值</h3><pre><code>⚠️：单纯的根据字面量是不知道是什么具体类型的
+2，String是引用类型</code></pre><h3 id="4-3-数据类型转换"><a href="#4-3-数据类型转换" class="headerlink" title="4.3 数据类型转换"></a>4.3 数据类型转换</h3><pre><code>1. 拓宽基本数据转换(数据范围扩大),自动转换(隐式转换);窄化基本类型转换(数据范围缩小),强制转换;只是数值类型的转换，没有bool
+2. 一元数字的提升
+    1. 条件:数组的索引,数组的长度;一元运算符+;一元运算符-;按位取反~;位移&gt;&gt;,&gt;&gt;等
+    2. 结果:自动将byte,short,char,转成int
+3. 二元数字的提升
+    1. 条件:使用运算符(加减乘除,)
+    2. 结果:拓宽其中一个或者几个范围</code></pre><h3 id="4-4-字面量赋值"><a href="#4-4-字面量赋值" class="headerlink" title="4.4 字面量赋值"></a>4.4 字面量赋值</h3><pre><code>⚠️：单纯的根据字面量是不知道是什么具体类型的
 byte a = 10；
 int a = 10</code></pre><h2 id="5，运算符"><a href="#5，运算符" class="headerlink" title="5，运算符"></a>5，运算符</h2><pre><code>&gt;&gt;有符号右移:用符号位补齐
 &gt;&gt;&gt;无符号右移:用0补齐
@@ -1313,7 +1317,7 @@ int a = 10</code></pre><h2 id="5，运算符"><a href="#5，运算符" class="he
     1. 不限长度的java字符和数字，且以java字符开头
     2. 不包括关键字和字面量
     3. 
-2，java字母：
+2，java字母：官方定义Character.isJavaIdentifierStart返回为true,就是
 3，java数字：0~9</code></pre><h2 id="8-变量"><a href="#8-变量" class="headerlink" title="8, 变量"></a>8, 变量</h2><pre><code>1,局部变量使用前必须要初始化,没有默认值
 2,非局部变量(成员变量,类变量),自动设置了初始值
 3,变量的初始值:</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8771.jpg" alt></p>
@@ -2658,7 +2662,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><h2 id="5
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.6k</span>
+    <span title="Site words total count">50.7k</span>
   
 </div>
 

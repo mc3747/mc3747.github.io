@@ -105,7 +105,7 @@
 <meta property="og:description" content="1，基本结构 一个完整的Java。源程序应该包括下列部分： 1，package语句，该部分至多只有一句，必须放在源程序的第一句。  2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。  3，public classDefinition，公共类定义部分，至多只有一个公共类的定义， 4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。  5">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8771.jpg">
-<meta property="og:updated_time" content="2020-03-03T09:29:32.793Z">
+<meta property="og:updated_time" content="2020-03-05T07:44:30.603Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20_java3-基础语法">
 <meta name="twitter:description" content="1，基本结构 一个完整的Java。源程序应该包括下列部分： 1，package语句，该部分至多只有一句，必须放在源程序的第一句。  2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。  3，public classDefinition，公共类定义部分，至多只有一个公共类的定义， 4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。  5">
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.5k
+                  1.6k
                 </span>
               
 
@@ -470,9 +470,13 @@ double   双精度类型  8个字节
 if条件：
     c语言是非真及假
     java必须要是bool类型</code></pre><h3 id="4-2-引用类型reference-type"><a href="#4-2-引用类型reference-type" class="headerlink" title="4.2 引用类型reference type"></a>4.2 引用类型reference type</h3><pre><code>1，对对象的引用，即存储的值是对象的地址
-2，String是引用类型</code></pre><h3 id="4-3-数据类型转换"><a href="#4-3-数据类型转换" class="headerlink" title="4.3 数据类型转换"></a>4.3 数据类型转换</h3><pre><code>1. 拓宽基本数据转换(数据范围扩大),自动转换(隐式转换)
-2. 窄化基本类型转换(数据范围缩小),强制转换
-3. 只是数值类型的转换，没有bool类型</code></pre><h3 id><a href="#" class="headerlink" title=" "></a> </h3><h3 id="4-4-字面量赋值"><a href="#4-4-字面量赋值" class="headerlink" title="4.4 字面量赋值"></a>4.4 字面量赋值</h3><pre><code>⚠️：单纯的根据字面量是不知道是什么具体类型的
+2，String是引用类型</code></pre><h3 id="4-3-数据类型转换"><a href="#4-3-数据类型转换" class="headerlink" title="4.3 数据类型转换"></a>4.3 数据类型转换</h3><pre><code>1. 拓宽基本数据转换(数据范围扩大),自动转换(隐式转换);窄化基本类型转换(数据范围缩小),强制转换;只是数值类型的转换，没有bool
+2. 一元数字的提升
+    1. 条件:数组的索引,数组的长度;一元运算符+;一元运算符-;按位取反~;位移&gt;&gt;,&gt;&gt;等
+    2. 结果:自动将byte,short,char,转成int
+3. 二元数字的提升
+    1. 条件:使用运算符(加减乘除,)
+    2. 结果:拓宽其中一个或者几个范围</code></pre><h3 id="4-4-字面量赋值"><a href="#4-4-字面量赋值" class="headerlink" title="4.4 字面量赋值"></a>4.4 字面量赋值</h3><pre><code>⚠️：单纯的根据字面量是不知道是什么具体类型的
 byte a = 10；
 int a = 10</code></pre><h2 id="5，运算符"><a href="#5，运算符" class="headerlink" title="5，运算符"></a>5，运算符</h2><pre><code>&gt;&gt;有符号右移:用符号位补齐
 &gt;&gt;&gt;无符号右移:用0补齐
@@ -480,7 +484,7 @@ int a = 10</code></pre><h2 id="5，运算符"><a href="#5，运算符" class="he
     1. 不限长度的java字符和数字，且以java字符开头
     2. 不包括关键字和字面量
     3. 
-2，java字母：
+2，java字母：官方定义Character.isJavaIdentifierStart返回为true,就是
 3，java数字：0~9</code></pre><h2 id="8-变量"><a href="#8-变量" class="headerlink" title="8, 变量"></a>8, 变量</h2><pre><code>1,局部变量使用前必须要初始化,没有默认值
 2,非局部变量(成员变量,类变量),自动设置了初始值
 3,变量的初始值:</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8771.jpg" alt></p>
@@ -728,7 +732,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，基本结构"><span class="nav-number">1.</span> <span class="nav-text">1，基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-入口函数"><span class="nav-number">2.</span> <span class="nav-text">2,入口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-命名规范"><span class="nav-number">3.</span> <span class="nav-text">3,命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，代码格式及注释"><span class="nav-number">4.</span> <span class="nav-text">4，代码格式及注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数据类型"><span class="nav-number">5.</span> <span class="nav-text">5,数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-基本类型primitive-type"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 基本类型primitive type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-引用类型reference-type"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 引用类型reference type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-数据类型转换"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 数据类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">5.4.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-字面量赋值"><span class="nav-number">5.5.</span> <span class="nav-text">4.4 字面量赋值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，运算符"><span class="nav-number">6.</span> <span class="nav-text">5，运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6，关键字"><span class="nav-number">7.</span> <span class="nav-text">6，关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7，标识符"><span class="nav-number">8.</span> <span class="nav-text">7，标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-变量"><span class="nav-number">9.</span> <span class="nav-text">8, 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-修饰符"><span class="nav-number">10.</span> <span class="nav-text">9,修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1访问修饰符"><span class="nav-number">10.1.</span> <span class="nav-text">9.1访问修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2非访问修饰符"><span class="nav-number">10.2.</span> <span class="nav-text">9.2非访问修饰符</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，基本结构"><span class="nav-number">1.</span> <span class="nav-text">1，基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-入口函数"><span class="nav-number">2.</span> <span class="nav-text">2,入口函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-命名规范"><span class="nav-number">3.</span> <span class="nav-text">3,命名规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，代码格式及注释"><span class="nav-number">4.</span> <span class="nav-text">4，代码格式及注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数据类型"><span class="nav-number">5.</span> <span class="nav-text">5,数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-基本类型primitive-type"><span class="nav-number">5.1.</span> <span class="nav-text">4.1 基本类型primitive type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-引用类型reference-type"><span class="nav-number">5.2.</span> <span class="nav-text">4.2 引用类型reference type</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-数据类型转换"><span class="nav-number">5.3.</span> <span class="nav-text">4.3 数据类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-字面量赋值"><span class="nav-number">5.4.</span> <span class="nav-text">4.4 字面量赋值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，运算符"><span class="nav-number">6.</span> <span class="nav-text">5，运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6，关键字"><span class="nav-number">7.</span> <span class="nav-text">6，关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7，标识符"><span class="nav-number">8.</span> <span class="nav-text">7，标识符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-变量"><span class="nav-number">9.</span> <span class="nav-text">8, 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-修饰符"><span class="nav-number">10.</span> <span class="nav-text">9,修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#9-1访问修饰符"><span class="nav-number">10.1.</span> <span class="nav-text">9.1访问修饰符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-2非访问修饰符"><span class="nav-number">10.2.</span> <span class="nav-text">9.2非访问修饰符</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -762,7 +766,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.6k</span>
+    <span title="Site words total count">50.7k</span>
   
 </div>
 

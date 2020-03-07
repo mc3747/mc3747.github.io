@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8733.png">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8730.jpg">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8731.jpg">
-<meta property="og:updated_time" content="2019-12-01T12:15:23.159Z">
+<meta property="og:updated_time" content="2020-03-07T15:25:29.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="12_java2-工程搭建">
 <meta name="twitter:description" content="1，java工程中相关概念1.1 JDK，JRE，JVMJDK：Java Development Kit，java开发工具包，提供各种工具 JRE：Java Runtime Enviroment，java运行环境 JVM：Java Virtual Machine，Java虚拟机1.2 JDK，JRE，JVM的运行关系图 1.3，JDK，JRE，JVM的包含关系图 ###2.2，JDK和tomcat">
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  605
+                  903
                 </span>
               
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -485,7 +485,22 @@ JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，J
 <li><p>修改工作空间的编码格式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8731.jpg" alt></p>
 </li>
 </ol>
-
+<h2 id="4-java中的包-package"><a href="#4-java中的包-package" class="headerlink" title="4, java中的包(package)"></a>4, java中的包(package)</h2><h3 id="4-1-本质和作用"><a href="#4-1-本质和作用" class="headerlink" title="4.1 本质和作用"></a>4.1 本质和作用</h3><pre><code>1. 本质是文件夹
+2. 不同的类进行分类
+3. 解决命名冲突</code></pre><h3 id="4-2-命名建议"><a href="#4-2-命名建议" class="headerlink" title="4.2 命名建议"></a>4.2 命名建议</h3><pre><code>1. 保证唯一性,为公司域名的反向,如com.baidu.
+2. 全部小写
+3. 如果有某些不满足的特殊字符,用添加_来解决</code></pre><h3 id="4-3-使用"><a href="#4-3-使用" class="headerlink" title="4.3 使用"></a>4.3 使用</h3><pre><code>1. 类的第一句,使用package声明
+2. src目录下的default包,表示是默认,没有文件夹,也不用写package</code></pre><h2 id="5-如何使用一个类"><a href="#5-如何使用一个类" class="headerlink" title="5, 如何使用一个类"></a>5, 如何使用一个类</h2><pre><code>1. 直接使用类的全名(包名 + 文件名 + 类名):com.baidu.mc.model.Dog dog = new com.baidu.mc.model.Dog dog();
+2. 使用import导入文件:import com.baidu.mc.model,只可以引用文件中的某个类
+3. 使用import导入目录*:
+    1. import com.baidu.mc.model.*(文件.*,即包括该文件中的所有类)
+    2. 和import com.baidu.mc.*(文件夹.*,即包括该文件中的默认的类,类名跟文件名一致)
+4. 静态导入:
+    1. 格式:import static com.baidu.mc.model.*
+    2. 可以省略类名来访问静态成员(成员变量,方法,嵌套类)
+5. 默认导入的两种类
+    1. import java.lang.*
+    2. import该源文件所在包的.*</code></pre>
       
     </div>
     
@@ -721,7 +736,7 @@ JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，J
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，java工程中相关概念"><span class="nav-number">1.</span> <span class="nav-text">1，java工程中相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-JDK，JRE，JVM"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 JDK，JRE，JVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-JDK，JRE，JVM的运行关系图"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 JDK，JRE，JVM的运行关系图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3，JDK，JRE，JVM的包含关系图"><span class="nav-number">1.3.</span> <span class="nav-text">1.3，JDK，JRE，JVM的包含关系图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，java工程的组成"><span class="nav-number">2.</span> <span class="nav-text">2，java工程的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，eclipse基本设置"><span class="nav-number">3.</span> <span class="nav-text">3，eclipse基本设置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，java工程中相关概念"><span class="nav-number">1.</span> <span class="nav-text">1，java工程中相关概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-JDK，JRE，JVM"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 JDK，JRE，JVM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-JDK，JRE，JVM的运行关系图"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 JDK，JRE，JVM的运行关系图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3，JDK，JRE，JVM的包含关系图"><span class="nav-number">1.3.</span> <span class="nav-text">1.3，JDK，JRE，JVM的包含关系图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，java工程的组成"><span class="nav-number">2.</span> <span class="nav-text">2，java工程的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，eclipse基本设置"><span class="nav-number">3.</span> <span class="nav-text">3，eclipse基本设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-java中的包-package"><span class="nav-number">4.</span> <span class="nav-text">4, java中的包(package)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-本质和作用"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 本质和作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-命名建议"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 命名建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-使用"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-如何使用一个类"><span class="nav-number">5.</span> <span class="nav-text">5, 如何使用一个类</span></a></li></ol></div>
             
 
           </div>
@@ -755,7 +770,7 @@ JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，J
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.7k</span>
+    <span title="Site words total count">52k</span>
   
 </div>
 

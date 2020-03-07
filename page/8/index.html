@@ -988,7 +988,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  766
+                  1.8k
                 </span>
               
 
@@ -1004,7 +1004,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  7
                 </span>
               
             </div>
@@ -1035,34 +1035,112 @@
 3. 初始化：使用new创建对象时，会调用构造方法初始化对象。</code></pre><h2 id="3，new关键字的作用"><a href="#3，new关键字的作用" class="headerlink" title="3，new关键字的作用"></a>3，new关键字的作用</h2><pre><code>1. 为对象分配内存空间。
 2. 引起对象构造方法的调用。
 3. 为对象返回一个引用。</code></pre><h2 id="4，类中的变量"><a href="#4，类中的变量" class="headerlink" title="4，类中的变量"></a>4，类中的变量</h2><ol>
-<li>局部变量</li>
+<li>局部变量:在栈空间</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在方法、构造方法、语句块中定义的变量。其声明和初始化在方法中实现，在方法结束后自动销毁</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol start="2">
-<li>成员变量</li>
+<li>成员变量:在堆空间</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外。变量在创建对象时实例化。成员变量可被类中的方法、构造方法以及特定类的语句块访问</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li>类变量<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外，但必须要有 static 来声明变量类型。静态成员属于整个类，可通过对象名或类名来调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</li>
+<li>类变量</li>
 </ol>
-<h2 id="5，构造方法"><a href="#5，构造方法" class="headerlink" title="5，构造方法"></a>5，构造方法</h2><h3 id="5-1-隐式声明构造方法"><a href="#5-1-隐式声明构造方法" class="headerlink" title="5.1. 隐式声明构造方法"></a>5.1. 隐式声明构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个没有显式声明构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">    <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(); <span class="comment">// People() 是People类的默认构造函数，它什么也不干</span></span><br><span class="line">xiaoMing.getAge();<span class="comment">//打印年龄</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外，但必须要有 static 来声明变量类型。静态成员属于整个类，可通过对象名或类名来调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>###5.2 显示声明构造方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个带显式构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">        <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+ age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 显式声明一个带参数的构造函数，用于初始化年龄</span></span><br><span class="line">    <span class="function">Public <span class="title">People</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = a; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(<span class="number">20</span>); <span class="comment">// 使用带参数的构造函数来实例化对象</span></span><br><span class="line">xiaoMing.getAge(); <span class="comment">// 打印出来的年龄变为20</span></span><br></pre></td></tr></table></figure>
+<h2 id="5，构造方法"><a href="#5，构造方法" class="headerlink" title="5，构造方法"></a>5，构造方法</h2><h3 id="5-1-构造方法的格式"><a href="#5-1-构造方法的格式" class="headerlink" title="5.1 构造方法的格式"></a>5.1 构造方法的格式</h3><pre><code>1. 方法名和类名一样
+2. 没有返回值
+3. 可以重载
+4. 子类必须先调用父类的构造方法
+5. 子类没有显示调用父类的构造方法 -&gt;编译器会自动调用无参的构造方法 -&gt; 若父类没有无参的构造方法则会报错
+6. </code></pre><h3 id="5-2-隐式声明构造方法-默认的"><a href="#5-2-隐式声明构造方法-默认的" class="headerlink" title="5.2. 隐式声明构造方法:(默认的)"></a>5.2. 隐式声明构造方法:(默认的)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个没有显式声明构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">    <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(); <span class="comment">// People() 是People类的默认构造函数，它什么也不干</span></span><br><span class="line">xiaoMing.getAge();<span class="comment">//打印年龄</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="6-方法"><a href="#6-方法" class="headerlink" title="6,方法"></a>6,方法</h2><h3 id="6-1方法的种类"><a href="#6-1方法的种类" class="headerlink" title="6.1方法的种类"></a>6.1方法的种类</h3><pre><code>1，构造方法（方法名和类名一致）
-2，普通方法</code></pre><h3 id="6-2方法的注意项"><a href="#6-2方法的注意项" class="headerlink" title="6.2方法的注意项"></a>6.2方法的注意项</h3><pre><code>1，方法的重载：
+<p>###5.3 显示声明构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个带显式构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">        <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+ age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 显式声明一个带参数的构造函数，用于初始化年龄</span></span><br><span class="line">    <span class="function">Public <span class="title">People</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = a; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(<span class="number">20</span>); <span class="comment">// 使用带参数的构造函数来实例化对象</span></span><br><span class="line">xiaoMing.getAge(); <span class="comment">// 打印出来的年龄变为20</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-方法"><a href="#6-方法" class="headerlink" title="6,方法"></a>6,方法</h2><h3 id="6-1-方法的种类"><a href="#6-1-方法的种类" class="headerlink" title="6.1 方法的种类"></a>6.1 方法的种类</h3><pre><code>1，构造方法（方法名和类名一致）
+2，普通方法</code></pre><h3 id="6-2-方法的注意项"><a href="#6-2-方法的注意项" class="headerlink" title="6.2 方法的注意项"></a>6.2 方法的注意项</h3><pre><code>1，方法的重载：
     必须拥有不同的参数列表
 2，可变参数：
     以下2种表示方法
     void function(String... args);
     void function(String [] args);
 3，finalize() 方法：
-    在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象</code></pre><h2 id="7，继承"><a href="#7，继承" class="headerlink" title="7，继承"></a>7，继承</h2><p>重写和重载<br>返回值<br>super关键字，调用父类的构造方法（只能在自己构造方法里边调用）<br>父类先初始化，然后子类（硬性要求）<br>注解：<br>@override<br>@SuppressWarnings</p>
+    在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象</code></pre><h2 id="7-this关键字"><a href="#7-this关键字" class="headerlink" title="7,this关键字"></a>7,this关键字</h2><h3 id="7-1-this作用"><a href="#7-1-this作用" class="headerlink" title="7.1. this作用:"></a>7.1. this作用:</h3><pre><code>1. 访问当前类中的成员变量,普通方法,构造方法
+2. 只能在构造方法(普通方法中不行🚫)中,使用this调用其他的构造方法
+3. 构造方法调用构造方法,this语句要放在第一句</code></pre><h3 id="7-2-本质"><a href="#7-2-本质" class="headerlink" title="7.2. 本质"></a>7.2. 本质</h3><pre><code>隐藏的,位置最为靠前的一个参数    </code></pre><h2 id="8-super关键字"><a href="#8-super关键字" class="headerlink" title="8 super关键字"></a>8 super关键字</h2><pre><code>1. 访问父类的成员变量
+2. 调用父类的方法(包括构造方法)
+3. </code></pre><h2 id="9，继承-Inheritance"><a href="#9，继承-Inheritance" class="headerlink" title="9，继承(Inheritance)"></a>9，继承(Inheritance)</h2><pre><code>1. 重载和重写
+    1. 方法签名(method signature):方法名 和 参数类型
+    2. 重载(overload):方法名相同,方法签名不同(要么参数个数,要么参数类型不同)
+    3. 重写(override):方法签名相同,子类重写父类
+2. 结构:extends
+3. 基类: java.lang.Object
+4. 成员变量:名称可以相同(通过this和super调用,不推荐)
+5. 方法的重写
+    1. 子类的实例方法签名和父类一样,才叫方法的重写
+    2. 子类的类方法签名(静态)和父类一样,不叫方法重写
+    3. 子类override的方法权限必须 &gt;= 父类
+    4. 子类override的返回值范围 &lt;= 父类</code></pre><h2 id="10-访问控制"><a href="#10-访问控制" class="headerlink" title="10 访问控制"></a>10 访问控制</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8772.jpg" alt></p>
+<pre><code>1. 4个访问权限
+    1. public
+    2. protected
+    3. 无修饰
+    4. private:仅自己类中可见
+2. 访问权限修饰的类型
+    1. 成员变量
+    2. 方法
+    3. 嵌套类
+3. 注意
+    1. 只有public和无修饰,可以用在顶层类(top-level Class)
+    2. 均不可以修饰局部类,局部变量
+    3. 顶层类可以多个,public修饰的顶层类,必须和类名一样</code></pre><h2 id="11-注解和注释："><a href="#11-注解和注释：" class="headerlink" title="11 注解和注释："></a>11 注解和注释：</h2><pre><code>1. 注释Comment
+2. 注解Annotation
+    1. 编译器特性
+    2. @Override:告诉这个是重写后的方法
+    3. @SupperessWarnings(&quot;unused&quot;):删除警告
+    4. @Deprecated:表示内容过期,不推荐使用</code></pre><h2 id="12-封装"><a href="#12-封装" class="headerlink" title="12 封装"></a>12 封装</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8773.jpg" alt></p>
+<pre><code>1. 成员变量private化
+2. 提供public的getter和setter方法</code></pre><h2 id="13-static"><a href="#13-static" class="headerlink" title="13 static"></a>13 static</h2><pre><code>1. 成员变量
+    1. 未被static修饰 -&gt;实例变量
+        1. 每个实例内部都有一份内存
+        2. 只能实例访问,不能类访问
+    2. 被static修饰 -&gt;静态变量(类变量)
+        1. 只占用一份固定内存(存储在方法区)
+        2. 可以通过类访问(推荐),也可以用实例访问(不推荐)
+    3. 同一个类中,不能有同名的实例变量和类变量
+2. 方法
+    1. 未被static修饰 -&gt;实例方法
+        1. 外部只能通过实例访问,不可以通过类访问
+        2. 内部可以使用this
+        3. 内部可以直接访问实例变量,实例方法
+        4. 内部可以直接访问类变量,类方法
+    2. 被static修饰 -&gt; 静态方法(类方法)
+        1. 外部可以通过实例和类访问
+        2. 内部不可以使用this
+        3. 内部可以直接访问实例变量,实例方法
+        4. 内部不可以直接访问类变量,类方法
+    3. 同一个类中,不能有相同签名的实例方法和类方法
+3. 静态导入
+    1. 格式:import static com.baidu.mc.model.*
+    2. 作用:
+        1. 可以省略类名来访问静态成员(成员变量,方法,嵌套类)
+        2. 消除重复的类名,提高可读性
+        3. 防止过度地静态导入,以至于分不清是哪个类中定义
+    3. 案例:import static java.lang.Math.PI</code></pre><h2 id="14-成员变量的初始化"><a href="#14-成员变量的初始化" class="headerlink" title="14 成员变量的初始化"></a>14 成员变量的初始化</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8774.jpg" alt></p>
+<pre><code> 1. 编译器自动初始化默认值
+ 2. 手动给示例变量初始化
+    1. 声明中
+    2. 在构造方法中
+    3. 在初始化块中(每创建一个示例,都有一个初始化块,都放在构造方法的第一行)
+1. 手动给静态类变量初始化
+    1. 声明中
+    2. 在构造方法中
+    3. 在静态初始化块中(当第一个类初始化时,会执行静态初始化块;)</code></pre><h2 id="15-单例模式"><a href="#15-单例模式" class="headerlink" title="15 单例模式"></a>15 单例模式</h2><ol>
+<li>恶汉式</li>
+<li>懒汉式</li>
+</ol>
 
           
         
@@ -2662,7 +2740,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><h2 id="5
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">50.7k</span>
+    <span title="Site words total count">52k</span>
   
 </div>
 

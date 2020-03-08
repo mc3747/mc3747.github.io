@@ -818,7 +818,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/16/52_java5-内存分析/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/16/52_java5-类的相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -837,7 +837,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/16/52_java5-内存分析/" itemprop="url">52_java5-内存分析</a></h1>
+                <a class="post-title-link" href="/2019/12/16/52_java5-类的相关/" itemprop="url">52_java5-类的相关</a></h1>
         
 
         <div class="post-meta">
@@ -890,8 +890,8 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/12/16/52_java5-内存分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/52_java5-内存分析/" itemprop="commentCount"></span>
+                <a href="/2019/12/16/52_java5-类的相关/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/52_java5-类的相关/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -899,7 +899,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
 
           
           
-             <span id="/2019/12/16/52_java5-内存分析/" class="leancloud_visitors" data-flag-title="52_java5-内存分析">
+             <span id="/2019/12/16/52_java5-类的相关/" class="leancloud_visitors" data-flag-title="52_java5-类的相关">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -924,7 +924,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1.5k
                 </span>
               
 
@@ -940,7 +940,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  6
                 </span>
               
             </div>
@@ -963,7 +963,78 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
       
         
           
-            
+            <h2 id="1-嵌套类-Nested-Class"><a href="#1-嵌套类-Nested-Class" class="headerlink" title="1 嵌套类:Nested Class"></a>1 嵌套类:Nested Class</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8775.jpg" alt></p>
+<pre><code>1. 外部类:Outer Class
+2. 顶级类:Top-level Class
+3. 内部类:Inner Class
+    1. 非静态嵌套类
+        1. 注意点
+            1. 没有static修饰
+            2. 与外部类的实例相关联,必须先有外部实例,再有内部实例
+            3. 不能定义任何static成员(编译时常量除外)
+            4. 内部类可以访问外部类中的所有成员变量和方法(即使private修饰)
+            5. 外部类可以访问内部类的所有成员变量和方法(即使private修饰)
+        2. 使用方式
+            1. 外部实例.new 内部类名()
+    2. 静态嵌套类
+        1. 注意点:
+            1. 有static修饰
+            2. 行为上是一个顶级类,只是代码写在了其他类中
+            3. 静态嵌套类有一些特殊权限,可以直接访问外部类中的成员(即使为private)
+    3. 总结
+        1. 嵌套类的优点
+            1. 封装更好;
+            2. 程序包简化
+            3. 增强可读性和维护性
+        2. 使用场景
+            1. 如果类A经常访问类C的非公共的实例成员(即A的实例依赖于C的实例),可以设计成非静态嵌套类
+            2. 如果不依赖,设计成静态嵌套类</code></pre><h2 id="2-局部类-Local-Class"><a href="#2-局部类-Local-Class" class="headerlink" title="2 局部类:Local Class"></a>2 局部类:Local Class</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8776.jpg" alt></p>
+<pre><code>1. 定义:在代码块中定义的类(可以是方法,各种语句等)
+2. 注意点
+    1. 不能定义任何static成员(编译时的常量除外)
+    2. 只能访问代码块内的final,或者有效final变量(只赋值过一次)
+    3. 保持嵌套类的特性</code></pre><h2 id="3-抽象类-Abstract-Class"><a href="#3-抽象类-Abstract-Class" class="headerlink" title="3 抽象类:Abstract Class"></a>3 抽象类:Abstract Class</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>,抽象类</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"><span class="comment">//	面积</span></span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">double</span> area;</span><br><span class="line"><span class="comment">//	周长</span></span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">double</span> girth;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> area;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getGirth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> girth;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		calculate();</span><br><span class="line">		System.out.println(<span class="string">"面积:"</span> + area + <span class="string">"✅"</span> + <span class="string">"周长:"</span> + girth);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">2</span>,子类Rectangle</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"><span class="comment">//	构造方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">double</span> width, <span class="keyword">double</span> height)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.width = width;</span><br><span class="line">		<span class="keyword">this</span>.height = height;</span><br><span class="line">	&#125;;</span><br><span class="line"><span class="comment">//	长和宽变量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> width;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> height;</span><br><span class="line"><span class="comment">//  重写父类的抽象方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		area = width * height;</span><br><span class="line">		girth = (width + height) * <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span>,子类Circle</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"><span class="comment">//	构造方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Circle</span><span class="params">(<span class="keyword">double</span> radius)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.radius = radius;</span><br><span class="line">	&#125;;</span><br><span class="line"><span class="comment">//	半径变量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> radius;</span><br><span class="line"><span class="comment">//  重写父类的抽象方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">double</span> half = Math.PI * radius;</span><br><span class="line">		area = half * radius;</span><br><span class="line">		girth = half * <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">4</span>,外部调用</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">studyDay5</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Rectangle rectangle = <span class="keyword">new</span> Rectangle(<span class="number">5</span>, <span class="number">8</span>);</span><br><span class="line">		rectangle.show();</span><br><span class="line"></span><br><span class="line">		Circle circle = <span class="keyword">new</span> Circle(<span class="number">10</span>);</span><br><span class="line">		circle.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">打印结果:</span><br><span class="line">面积:<span class="number">40.0</span>✅周长:<span class="number">26.0</span></span><br><span class="line">面积:<span class="number">314.1592653589793</span>✅周长:<span class="number">62.83185307179586</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>1. 抽象方法:Abstract Method
+    1. 被abstract修饰的实例方法(不是类方法)
+    2. 只有声明,没有实现
+    3. 不能是private权限
+    4. 只能定义在抽象类和接口中
+2. 抽象类:Abstract Class
+    1. 被abstract修饰的类
+    2. 不能被实例化(但可以有构造方法)
+    3. 子类必须实现父类的抽象方法(除非子类也是抽象方法)
+    4. 本质也是一个类,可以像非抽象类那样定义常量,变量,嵌套,初始化块等,即不一定非得都是抽象方法</code></pre><h2 id="4-接口-Interface"><a href="#4-接口-Interface" class="headerlink" title="4 接口:Interface"></a>4 接口:Interface</h2><h3 id="4-1-接口使用"><a href="#4-1-接口使用" class="headerlink" title="4.1 接口使用"></a>4.1 接口使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Flyanimal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现接口的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ant</span> <span class="keyword">implements</span> <span class="title">Flyanimal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"昆虫 can  fly"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现接口的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span> <span class="keyword">implements</span> <span class="title">Flyanimal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"鸟类 can  fly"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyDay6</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Ant ant = <span class="keyword">new</span> Ant();</span><br><span class="line">		ant.fly();</span><br><span class="line"></span><br><span class="line">		Bird bird = <span class="keyword">new</span> Bird();</span><br><span class="line">		bird.fly();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">结果:</span><br><span class="line">Ant can  fly</span><br><span class="line">Bird can  fly</span><br></pre></td></tr></table></figure>
+
+<pre><code>1. 定义:一系列方法声明的集合
+2. 注意点
+    1. 可以定义抽象方法,常量,嵌套类型;java8以后可以定义默认方法,静态方法
+    2. 抽象方法可以省略abstract
+    3. 常量可以省略static final
+    4. 不能自定义构造方法,不能定义初始化块,静态初始化块,不能实例化
+3. 一个类可以通过implements实现一个或者多个接口
+    1. 必须实现所有接口定义的抽象方法,除非自己也是一个抽象类;
+    2. implements必须写在extends后边
+4. 接口的升级:增加新的抽象方法,以前实现的类都得改动
+    1. 默认方法:Default Method
+    2. 静态方法:Static Method</code></pre><h3 id="4-2-默认方法"><a href="#4-2-默认方法" class="headerlink" title="4.2 默认方法"></a>4.2 默认方法</h3><pre><code>1. default只能修饰实例方法
+2. 父类定义的非抽象方法和接口的默认方法相同时,调用父类的方法
+3. 接口定义的默认方法,和接口定义的方法相同时,要求子类实现此默认方法
+4. </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Eatable✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接口的实现类Dog</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接口的实现类Cat</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">implements</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		Eatable.<span class="keyword">super</span>.eat(name);</span><br><span class="line">		System.out.println(<span class="string">"cat eat✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyDay6_3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Dog dog = <span class="keyword">new</span> Dog();</span><br><span class="line">		dog.eat(<span class="string">"bone"</span>);</span><br><span class="line">		Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">		cat.eat(<span class="string">"fish"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">结果:</span><br><span class="line">Eatable✅bone</span><br><span class="line">Eatable✅fish</span><br><span class="line">cat eat✅fish</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="4-3-静态方法"><a href="#4-3-静态方法" class="headerlink" title="4.3. 静态方法"></a>4.3. 静态方法</h3><pre><code>1. 只能通过接口名称调用
+2. 不能够被继承,只能各自实现
+3. </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口定义静态方法1</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Eating</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Eating✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//接口定义静态方法2</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Sleeping</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Sleeping✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//接口定义静态方法3</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Dogs</span> <span class="keyword">extends</span> <span class="title">Eating</span>, <span class="title">Sleeping</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Dog✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实际使用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyDay6_4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Dogs.eat(<span class="string">"1"</span>);</span><br><span class="line">		Eating.eat(<span class="string">"2"</span>);</span><br><span class="line">		Sleeping.eat(<span class="string">"3"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">结果:</span><br><span class="line">Dog✅<span class="number">1</span></span><br><span class="line">Eating✅<span class="number">2</span></span><br><span class="line">Sleeping✅<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-3-抽象类和接口的选择"><a href="#4-3-抽象类和接口的选择" class="headerlink" title="4.3 抽象类和接口的选择"></a>4.3 抽象类和接口的选择</h3><pre><code>1. 选择抽象类
+    1. 紧密相关的类之间共享代码
+    2. 需要除了public之外的访问权限
+    3. 需要定义示例变量,非final的静态变量
+2. 选择接口
+    1. 不相关的类实现相同的方法
+    2. 定义行了,不关心是谁实现了行为
+    3. 想实现类型的多重继承</code></pre>
           
         
       
@@ -2713,7 +2784,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52k</span>
+    <span title="Site words total count">53.7k</span>
   
 </div>
 

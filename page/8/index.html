@@ -988,7 +988,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  2k
                 </span>
               
 
@@ -1077,7 +1077,9 @@
     3. 重写(override):方法签名相同,子类重写父类
 2. 结构:extends
 3. 基类: java.lang.Object
-4. 成员变量:名称可以相同(通过this和super调用,不推荐)
+4. 成员变量:
+    1. 名称可以相同(通过this和super调用,不推荐)
+    2. 继承后,子类包含父类的所有成员变量(包括private修饰的,可以用set和get方法访问)
 5. 方法的重写
     1. 子类的实例方法签名和父类一样,才叫方法的重写
     2. 子类的类方法签名(静态)和父类一样,不叫方法重写
@@ -1137,11 +1139,17 @@
 1. 手动给静态类变量初始化
     1. 声明中
     2. 在构造方法中
-    3. 在静态初始化块中(当第一个类初始化时,会执行静态初始化块;)</code></pre><h2 id="15-单例模式"><a href="#15-单例模式" class="headerlink" title="15 单例模式"></a>15 单例模式</h2><ol>
-<li>恶汉式</li>
-<li>懒汉式</li>
-</ol>
+    3. 在静态初始化块中(当第一个类初始化时,会执行静态初始化块;)</code></pre><h2 id="15-单例模式"><a href="#15-单例模式" class="headerlink" title="15 单例模式"></a>15 单例模式</h2><pre><code>1. 恶汉式(建议)</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1,饿汉式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Rocket &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1,私有的静态示例变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Rocket instance = <span class="keyword">new</span> Rocket();</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 2,构造方法私有化   </span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Rocket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  3,公共的静态方法,返回唯一的实例   </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Rocket <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 外部使用</span></span><br><span class="line">Rocket r1 = Rocket.getInstance();</span><br></pre></td></tr></table></figure>
 
+<pre><code>1. 懒汉式(有线程问题,不建议)</code></pre><h2 id="16-final"><a href="#16-final" class="headerlink" title="16 final"></a>16 final</h2><pre><code>1. 修饰子类:不能被子类化,不能被继承
+2. 修饰变量:只能进行一次赋值
+3. 修饰方法:不能被重写
+4. </code></pre><h2 id="17-常量constant"><a href="#17-常量constant" class="headerlink" title="17 常量constant"></a>17 常量constant</h2><pre><code>1. 通常使用static和final配合
+2. 只能修饰基本类型和字符串类型
+3. 在编译时就能确定值,也叫编译时常量(类似于C语言的宏)
+4. 案例:
+    1. public static final double PI = 3.1415926;
+    2. private static final int NOT_FOUND = -404;</code></pre>
           
         
       
@@ -2740,7 +2748,7 @@ swift:&lt;https://github.com/baozoudiudiu/CWSwiftPrint&gt;</code></pre><h2 id="5
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52k</span>
+    <span title="Site words total count">53.7k</span>
   
 </div>
 

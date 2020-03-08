@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8772.jpg">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8773.jpg">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8774.jpg">
-<meta property="og:updated_time" content="2020-03-07T15:42:56.246Z">
+<meta property="og:updated_time" content="2020-03-08T07:54:39.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21_java4-面向对象">
 <meta name="twitter:description" content="1，类1，包括变量和方法 2，通过构造函数生成对象2，对象123456789101112131415161718192021public class Test &amp;#123;	public static void main(String[] args) &amp;#123;//类		class Dog&amp;#123;			//变量和方法			int dogAge;			String dogColor;			vo">
@@ -388,7 +388,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.8k
+                  2k
                 </span>
               
 
@@ -475,7 +475,9 @@
     3. 重写(override):方法签名相同,子类重写父类
 2. 结构:extends
 3. 基类: java.lang.Object
-4. 成员变量:名称可以相同(通过this和super调用,不推荐)
+4. 成员变量:
+    1. 名称可以相同(通过this和super调用,不推荐)
+    2. 继承后,子类包含父类的所有成员变量(包括private修饰的,可以用set和get方法访问)
 5. 方法的重写
     1. 子类的实例方法签名和父类一样,才叫方法的重写
     2. 子类的类方法签名(静态)和父类一样,不叫方法重写
@@ -535,11 +537,17 @@
 1. 手动给静态类变量初始化
     1. 声明中
     2. 在构造方法中
-    3. 在静态初始化块中(当第一个类初始化时,会执行静态初始化块;)</code></pre><h2 id="15-单例模式"><a href="#15-单例模式" class="headerlink" title="15 单例模式"></a>15 单例模式</h2><ol>
-<li>恶汉式</li>
-<li>懒汉式</li>
-</ol>
+    3. 在静态初始化块中(当第一个类初始化时,会执行静态初始化块;)</code></pre><h2 id="15-单例模式"><a href="#15-单例模式" class="headerlink" title="15 单例模式"></a>15 单例模式</h2><pre><code>1. 恶汉式(建议)</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1,饿汉式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Rocket &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1,私有的静态示例变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Rocket instance = <span class="keyword">new</span> Rocket();</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 2,构造方法私有化   </span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Rocket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  3,公共的静态方法,返回唯一的实例   </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Rocket <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 外部使用</span></span><br><span class="line">Rocket r1 = Rocket.getInstance();</span><br></pre></td></tr></table></figure>
 
+<pre><code>1. 懒汉式(有线程问题,不建议)</code></pre><h2 id="16-final"><a href="#16-final" class="headerlink" title="16 final"></a>16 final</h2><pre><code>1. 修饰子类:不能被子类化,不能被继承
+2. 修饰变量:只能进行一次赋值
+3. 修饰方法:不能被重写
+4. </code></pre><h2 id="17-常量constant"><a href="#17-常量constant" class="headerlink" title="17 常量constant"></a>17 常量constant</h2><pre><code>1. 通常使用static和final配合
+2. 只能修饰基本类型和字符串类型
+3. 在编译时就能确定值,也叫编译时常量(类似于C语言的宏)
+4. 案例:
+    1. public static final double PI = 3.1415926;
+    2. private static final int NOT_FOUND = -404;</code></pre>
       
     </div>
     
@@ -775,7 +783,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，类"><span class="nav-number">1.</span> <span class="nav-text">1，类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，对象"><span class="nav-number">2.</span> <span class="nav-text">2，对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，new关键字的作用"><span class="nav-number">3.</span> <span class="nav-text">3，new关键字的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，类中的变量"><span class="nav-number">4.</span> <span class="nav-text">4，类中的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，构造方法"><span class="nav-number">5.</span> <span class="nav-text">5，构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-构造方法的格式"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 构造方法的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-隐式声明构造方法-默认的"><span class="nav-number">5.2.</span> <span class="nav-text">5.2. 隐式声明构造方法:(默认的)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-方法"><span class="nav-number">6.</span> <span class="nav-text">6,方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-方法的种类"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 方法的种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-方法的注意项"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 方法的注意项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-this关键字"><span class="nav-number">7.</span> <span class="nav-text">7,this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-this作用"><span class="nav-number">7.1.</span> <span class="nav-text">7.1. this作用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-本质"><span class="nav-number">7.2.</span> <span class="nav-text">7.2. 本质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-super关键字"><span class="nav-number">8.</span> <span class="nav-text">8 super关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9，继承-Inheritance"><span class="nav-number">9.</span> <span class="nav-text">9，继承(Inheritance)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-访问控制"><span class="nav-number">10.</span> <span class="nav-text">10 访问控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-注解和注释："><span class="nav-number">11.</span> <span class="nav-text">11 注解和注释：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-封装"><span class="nav-number">12.</span> <span class="nav-text">12 封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-static"><span class="nav-number">13.</span> <span class="nav-text">13 static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-成员变量的初始化"><span class="nav-number">14.</span> <span class="nav-text">14 成员变量的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-单例模式"><span class="nav-number">15.</span> <span class="nav-text">15 单例模式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，类"><span class="nav-number">1.</span> <span class="nav-text">1，类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，对象"><span class="nav-number">2.</span> <span class="nav-text">2，对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，new关键字的作用"><span class="nav-number">3.</span> <span class="nav-text">3，new关键字的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，类中的变量"><span class="nav-number">4.</span> <span class="nav-text">4，类中的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，构造方法"><span class="nav-number">5.</span> <span class="nav-text">5，构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-构造方法的格式"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 构造方法的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-隐式声明构造方法-默认的"><span class="nav-number">5.2.</span> <span class="nav-text">5.2. 隐式声明构造方法:(默认的)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-方法"><span class="nav-number">6.</span> <span class="nav-text">6,方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-方法的种类"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 方法的种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-方法的注意项"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 方法的注意项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-this关键字"><span class="nav-number">7.</span> <span class="nav-text">7,this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-this作用"><span class="nav-number">7.1.</span> <span class="nav-text">7.1. this作用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-本质"><span class="nav-number">7.2.</span> <span class="nav-text">7.2. 本质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-super关键字"><span class="nav-number">8.</span> <span class="nav-text">8 super关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9，继承-Inheritance"><span class="nav-number">9.</span> <span class="nav-text">9，继承(Inheritance)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-访问控制"><span class="nav-number">10.</span> <span class="nav-text">10 访问控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-注解和注释："><span class="nav-number">11.</span> <span class="nav-text">11 注解和注释：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-封装"><span class="nav-number">12.</span> <span class="nav-text">12 封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-static"><span class="nav-number">13.</span> <span class="nav-text">13 static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-成员变量的初始化"><span class="nav-number">14.</span> <span class="nav-text">14 成员变量的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-单例模式"><span class="nav-number">15.</span> <span class="nav-text">15 单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-final"><span class="nav-number">16.</span> <span class="nav-text">16 final</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-常量constant"><span class="nav-number">17.</span> <span class="nav-text">17 常量constant</span></a></li></ol></div>
             
 
           </div>
@@ -809,7 +817,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">52k</span>
+    <span title="Site words total count">53.7k</span>
   
 </div>
 

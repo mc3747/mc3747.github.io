@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8727.png">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8728.png">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8729.png">
-<meta property="og:updated_time" content="2019-11-18T07:17:33.116Z">
+<meta property="og:updated_time" content="2020-03-09T08:18:48.938Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="17_编译原理和LLVM">
 <meta name="twitter:description" content="参考文章1 参考文章2 1，编译原理 基本原理：源程序→编译器 →目标机器代码程序  基本过程：  1，词法分析：将代码拆分成一个个token 2，语法分析：把词法分析的结果转换成AST(abstract syntax tree, 抽象语法树) 3，语义分析：类型分析和检查；类型转换 4，中间代码生成：简单的记号系统，类似于伪代码 5，中间代码优化：对程序的控制流和数据流的分析中进行优化 6，目标">
@@ -459,7 +459,7 @@
 3，如果需要支持一种新的硬件设备，那么只需要实现一个新的后端
 4，优化阶段是一个通用的阶段，它针对的是统一的LLVM IR，不论是支持新的编程语言，还是支持新的硬件设备，都不需要对优化阶段做修改，相比之下，GCC的前端和后端没分得太开，前端后端耦合在了一起。所以GCC为了支持一门新的语言，或者为了支持一个新的目标平台，就 变得特别困难
 5，LLVM现在被作为实现各种静态和运行时编译语言的通用基础结构(GCC家族、Java、.NET、Python、Ruby、Scheme、Haskell、D等)</code></pre><h2 id="3，CLang"><a href="#3，CLang" class="headerlink" title="3，CLang"></a>3，CLang</h2><h3 id="3-1-基本定义"><a href="#3-1-基本定义" class="headerlink" title="3.1 基本定义"></a>3.1 基本定义</h3><p>LLVM项目的一个子项目，基于LLVM架构的C/C++/Objective-C编译器前端</p>
-<h3 id="3-2-Clang比GCC优点"><a href="#3-2-Clang比GCC优点" class="headerlink" title="3.2 Clang比GCC优点"></a>3.2 Clang比GCC优点</h3><p>编译速度快:在某些平台上，Clang的编译速度显著的快过GCC(Debug模式下编译OC速度比GGC快3倍)<br>占用内存小:Clang生成的AST所占用的内存是GCC的五分之一左右<br>模块化设计:Clang采用基于库的模块化设计，易于 IDE 集成及其他用途的重用<br>诊断信息可读性强:在编译过程中，Clang 创建并保留了大量详细的元数据 (metadata)，有利于调试和错误报告<br>设计清晰简单，容易理解，易于扩展增强</p>
+<h3 id="3-2-Clang比GCC优点"><a href="#3-2-Clang比GCC优点" class="headerlink" title="3.2 Clang比GCC优点"></a>3.2 Clang比GCC优点</h3><p>编译速度快:在某些平台上，Clang的编译速度显著的快过GCC(Debug模式下编译OC速度比GCC快3倍)<br>占用内存小:Clang生成的AST所占用的内存是GCC的五分之一左右<br>模块化设计:Clang采用基于库的模块化设计，易于 IDE 集成及其他用途的重用<br>诊断信息可读性强:在编译过程中，Clang 创建并保留了大量详细的元数据 (metadata)，有利于调试和错误报告<br>设计清晰简单，容易理解，易于扩展增强</p>
 <h3 id="3-3-Clang与LLVM关系"><a href="#3-3-Clang与LLVM关系" class="headerlink" title="3.3 Clang与LLVM关系"></a>3.3 Clang与LLVM关系</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8729.png" alt></p>
 
       
@@ -585,7 +585,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">94</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -731,7 +731,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">53.7k</span>
+    <span title="Site words total count">54.5k</span>
   
 </div>
 

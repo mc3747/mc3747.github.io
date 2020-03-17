@@ -8,8 +8,50 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Mon, 02 Mar 2020 03:49:50 GMT</pubDate>
+    <pubDate>Tue, 17 Mar 2020 07:12:44 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>96_iOS19_打包安装ipa的方式总结</title>
+      <link>https://github.com/2020/03/17/96_iOS19_%E6%89%93%E5%8C%85%E5%AE%89%E8%A3%85ipa%E7%9A%84%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/</link>
+      <guid>https://github.com/2020/03/17/96_iOS19_%E6%89%93%E5%8C%85%E5%AE%89%E8%A3%85ipa%E7%9A%84%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/</guid>
+      <pubDate>Tue, 17 Mar 2020 02:34:05 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2020/03/17/96_iOS19_%E6%89%93%E5%8C%85%E5%AE%89%E8%A3%85ipa%E7%9A%84%E6%96%B9%E5%BC%8F%E6%80%BB%E7%BB%93/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>95_iOS18-苹果证书相关</title>
+      <link>https://github.com/2020/03/07/95_iOS18-%E8%8B%B9%E6%9E%9C%E8%AF%81%E4%B9%A6%E7%9B%B8%E5%85%B3/</link>
+      <guid>https://github.com/2020/03/07/95_iOS18-%E8%8B%B9%E6%9E%9C%E8%AF%81%E4%B9%A6%E7%9B%B8%E5%85%B3/</guid>
+      <pubDate>Sat, 07 Mar 2020 02:34:05 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/2020/03/07/95_iOS18-%E8%8B%B9%E6%9E%9C%E8%AF%81%E4%B9%A6%E7%9B%B8%E5%85%B3/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>94_工具9_MacVim的使用</title>
@@ -323,32 +365,6 @@
       
       
       <comments>https://github.com/2020/01/05/77_%E8%AE%BE%E8%AE%A15-%E5%9B%BE%E7%89%87/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>76_设计4-图标</title>
-      <link>https://github.com/2020/01/05/76_%E8%AE%BE%E8%AE%A14-%E5%9B%BE%E6%A0%87/</link>
-      <guid>https://github.com/2020/01/05/76_%E8%AE%BE%E8%AE%A14-%E5%9B%BE%E6%A0%87/</guid>
-      <pubDate>Sun, 05 Jan 2020 14:58:28 GMT</pubDate>
-      <description>
-      
-      </description>
-      
-      
-      <comments>https://github.com/2020/01/05/76_%E8%AE%BE%E8%AE%A14-%E5%9B%BE%E6%A0%87/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>75_设计3-字体</title>
-      <link>https://github.com/2020/01/05/75_%E8%AE%BE%E8%AE%A13-%E5%AD%97%E4%BD%93/</link>
-      <guid>https://github.com/2020/01/05/75_%E8%AE%BE%E8%AE%A13-%E5%AD%97%E4%BD%93/</guid>
-      <pubDate>Sun, 05 Jan 2020 14:55:11 GMT</pubDate>
-      <description>
-      
-      </description>
-      
-      
-      <comments>https://github.com/2020/01/05/75_%E8%AE%BE%E8%AE%A13-%E5%AD%97%E4%BD%93/#disqus_thread</comments>
     </item>
     
   </channel>

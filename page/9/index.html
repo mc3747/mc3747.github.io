@@ -280,6 +280,234 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/23/17_编译原理和LLVM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/23/17_编译原理和LLVM/" itemprop="url">17_编译原理和LLVM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T15:34:37+08:00">
+                2019-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/23/17_编译原理和LLVM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/23/17_编译原理和LLVM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/23/17_编译原理和LLVM/" class="leancloud_visitors" data-flag-title="17_编译原理和LLVM">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  872
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cnblogs.com/rufi/archive/2011/09/03/2164110.html" target="_blank" rel="noopener">参考文章1</a></p>
+<p><a href="https://www.jianshu.com/p/1367dad95445" target="_blank" rel="noopener">参考文章2</a></p>
+<h2 id="1，编译原理"><a href="#1，编译原理" class="headerlink" title="1，编译原理"></a>1，编译原理</h2><ol>
+<li><p>基本原理：源程序→编译器 →目标机器代码程序</p>
+</li>
+<li><p>基本过程：<br> <img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8726.png" alt></p>
+<pre><code>1，词法分析：将代码拆分成一个个token
+2，语法分析：把词法分析的结果转换成AST(abstract syntax tree, 抽象语法树)
+3，语义分析：类型分析和检查；类型转换
+4，中间代码生成：简单的记号系统，类似于伪代码
+5，中间代码优化：对程序的控制流和数据流的分析中进行优化
+6，目标代码生成：汇编代码或者可执行的代码
+7，符号表管理
+8，出错处理</code></pre></li>
+<li><p>基本架构<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8727.png" alt></p>
+<pre><code>1，中间代码是虚拟机的机器语言，虚拟机目前主要有四种：
+    1，CLR用于.Net平台，
+    2，JVM用于Java语言，这两个是基于栈的虚拟机。
+    3，Parrot用于脚本语言，比如Perl,Python,Ruby等；
+    4，LLVM用于C、C++等语言，这两个是基于寄存器的虚拟机。
+    备注：在性能上比较而言，基于寄存器的虚拟机优于基于栈的虚拟机。
+2，CPU的体系架构，目前主要有三种：x86/x64, ARM, MIPS（嵌入式系统）。</code></pre></li>
+<li><p>架构示例<br> LLVM<br> GCC</p>
+</li>
+</ol>
+<h2 id="2，LLVM"><a href="#2，LLVM" class="headerlink" title="2，LLVM"></a>2，LLVM</h2><h3 id="2-1-基本介绍"><a href="#2-1-基本介绍" class="headerlink" title="2.1 基本介绍"></a>2.1 基本介绍</h3><pre><code>1. Low Level Virtual Machine(低级虚拟机)的缩写简称，官方描述如下The name &quot;LLVM&quot; itself is not an acronym; it is the full name of the project. “LLVM”这个名称本身不是首字母缩略词; 它是项目的全名
+2. 创始人:Chris Lattner，亦是Swift之父
+3. 美国计算机协会 (ACM) 将其2012 年软件系统奖项颁给了LLVM，之前曾经获得此奖项的软件和技术包括:Java、Apache、 Mosaic、the World Wide Web、Smalltalk、UNIX、Eclipse等等</code></pre><h3 id="2-2-基本构成"><a href="#2-2-基本构成" class="headerlink" title="2.2 基本构成"></a>2.2 基本构成</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8728.png" alt></p>
+<h3 id="2-3-组成特点"><a href="#2-3-组成特点" class="headerlink" title="2.3 组成特点"></a>2.3 组成特点</h3><pre><code>1，不同的前端后端使用统一的中间代码LLVM Intermediate Representation (LLVM IR)
+2，如果需要支持一种新的编程语言，那么只需要实现一个新的前端
+3，如果需要支持一种新的硬件设备，那么只需要实现一个新的后端
+4，优化阶段是一个通用的阶段，它针对的是统一的LLVM IR，不论是支持新的编程语言，还是支持新的硬件设备，都不需要对优化阶段做修改，相比之下，GCC的前端和后端没分得太开，前端后端耦合在了一起。所以GCC为了支持一门新的语言，或者为了支持一个新的目标平台，就 变得特别困难
+5，LLVM现在被作为实现各种静态和运行时编译语言的通用基础结构(GCC家族、Java、.NET、Python、Ruby、Scheme、Haskell、D等)</code></pre><h2 id="3，CLang"><a href="#3，CLang" class="headerlink" title="3，CLang"></a>3，CLang</h2><h3 id="3-1-基本定义"><a href="#3-1-基本定义" class="headerlink" title="3.1 基本定义"></a>3.1 基本定义</h3><p>LLVM项目的一个子项目，基于LLVM架构的C/C++/Objective-C编译器前端</p>
+<h3 id="3-2-Clang比GCC优点"><a href="#3-2-Clang比GCC优点" class="headerlink" title="3.2 Clang比GCC优点"></a>3.2 Clang比GCC优点</h3><p>编译速度快:在某些平台上，Clang的编译速度显著的快过GCC(Debug模式下编译OC速度比GCC快3倍)<br>占用内存小:Clang生成的AST所占用的内存是GCC的五分之一左右<br>模块化设计:Clang采用基于库的模块化设计，易于 IDE 集成及其他用途的重用<br>诊断信息可读性强:在编译过程中，Clang 创建并保留了大量详细的元数据 (metadata)，有利于调试和错误报告<br>设计清晰简单，容易理解，易于扩展增强</p>
+<h3 id="3-3-Clang与LLVM关系"><a href="#3-3-Clang与LLVM关系" class="headerlink" title="3.3 Clang与LLVM关系"></a>3.3 Clang与LLVM关系</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8729.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/23/16_iOS4-xcode中workspace:project:scheme:target:product等/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2427,270 +2655,6 @@ MJExtension</code></pre></li>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/14/07_微信小程序1-注册-搭建环境/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/14/07_微信小程序1-注册-搭建环境/" itemprop="url">07_微信小程序1-注册-搭建环境</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-14T17:33:03+08:00">
-                2019-10-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/14/07_微信小程序1-注册-搭建环境/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/14/07_微信小程序1-注册-搭建环境/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/14/07_微信小程序1-注册-搭建环境/" class="leancloud_visitors" data-flag-title="07_微信小程序1-注册-搭建环境">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  297
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，常用的网站"><a href="#1，常用的网站" class="headerlink" title="1，常用的网站"></a>1，常用的网站</h2><ol>
-<li><p>注册</p>
-<ol>
-<li>邮箱注册小程序账号： <a href="https://mp.weixin.qq.com/wxopen/waregister?action=step1" target="_blank" rel="noopener">https://mp.weixin.qq.com/wxopen/waregister?action=step1</a></li>
-<li>注册小程序，注册完毕会有一个appID</li>
-<li>注册参考：<a href="https://developers.weixin.qq.com/miniprogram/introduction/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/introduction/</a></li>
-</ol>
-</li>
-<li><p>相关参考文档和工具</p>
-<ol>
-<li>小程序开发文档：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/</a></li>
-<li>小程序开发指南：<a href="https://developers.weixin.qq.com/ebook?action=get_post_info&amp;docid=0008aeea9a8978ab0086a685851c0a" target="_blank" rel="noopener">https://developers.weixin.qq.com/ebook?action=get_post_info&amp;docid=0008aeea9a8978ab0086a685851c0a</a></li>
-<li>小程序开发工具：<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></li>
-<li>小程序开发官方demo：<a href="https://github.com/wechat-miniprogram/miniprogram-demo">https://github.com/wechat-miniprogram/miniprogram-demo</a></li>
-</ol>
-</li>
-<li><p>UI组件库</p>
-</li>
-<li><p>开源的资源参考 </p>
-</li>
-<li><p>新建小程序</p>
-<ol>
-<li>打开微信小程序工具</li>
-<li>利用注册的appID新建一个项目.</li>
-</ol>
-</li>
-<li><p>小程序目录结构</p>
-</li>
-<li><p>小程序的调试技巧</p>
-</li>
-<li><p>小程序的运行环境</p>
- <table>
- <tr>
-     <td bgcolor="#FF8248">运行环境</td>
-     <td bgcolor="#FF8248">逻辑层</td>
-     <td bgcolor="#FF8248">渲染层</td>
- </tr>
- <tr>
-     <td bgcolor="#23A0BF">iOS</td>
-     <td bgcolor="#23A0BF">JavaScript Core</td>
-     <td bgcolor="#23A0BF">WKWebView</td>
- </tr>
- <tr>
-     <td bgcolor="#23A0BF">Android</td>
-     <td bgcolor="#23A0BF">V8</td>
-     <td bgcolor="#23A0BF">Chrome定制内核</td>
- </tr>
- <tr>
-     <td bgcolor="#23A0BF">微信开发者工具</td>
-     <td bgcolor="#23A0BF">NWJS</td>
-     <td bgcolor="#23A0BF">Chrome WebView</td>
- </tr>
- </table></li>
-<li><p>小程序的入口</p>
-<ol>
-<li>微信内搜索</li>
-<li>扫码</li>
-<li>聊天中分享</li>
-<li>公众号中分享</li>
-<li>暂时无法分享到朋友圈</li>
-</ol>
-</li>
-<li><p>小程序的特点（对比APP）</p>
-<ol>
-<li>无需安装和卸载（大小限制2M），占用内存小</li>
-<li>周期小，成本低，跨平台</li>
-<li>上线审核时间短</li>
-<li>体验不如APP</li>
-</ol>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2743,7 +2707,7 @@ MJExtension</code></pre></li>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2873,7 +2837,7 @@ MJExtension</code></pre></li>
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">54.5k</span>
+    <span title="Site words total count">54.8k</span>
   
 </div>
 

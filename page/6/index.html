@@ -280,6 +280,213 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/05/47_react1-资源文件的引入/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/05/47_react1-资源文件的引入/" itemprop="url">47_react1-资源文件的引入</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-05T20:47:10+08:00">
+                2019-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/05/47_react1-资源文件的引入/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/05/47_react1-资源文件的引入/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/05/47_react1-资源文件的引入/" class="leancloud_visitors" data-flag-title="47_react1-资源文件的引入">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  807
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，图片资源"><a href="#1，图片资源" class="headerlink" title="1，图片资源"></a>1，图片资源</h2><h3 id="1-1-png格式"><a href="#1-1-png格式" class="headerlink" title="1.1 png格式"></a>1.1 png格式</h3><p>png格式和svg格式均可以采用的方法：import logo from ‘./logo.png’</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> logo <span class="keyword">from</span> <span class="string">'./logo.png'</span>; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Header</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#123;logo&#125;</span> <span class="attr">alt</span>=<span class="string">"Logo"</span> /&gt;</span>;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br><span class="line"><span class="xml">export default Header;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.Logo</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(./logo.png);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-svg格式"><a href="#1-2-svg格式" class="headerlink" title="1.2 svg格式"></a>1.2 svg格式</h3><p>1.只有svg格式采用的方法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ReactComponent <span class="keyword">as</span> Logo &#125; <span class="keyword">from</span> <span class="string">'./logo.svg'</span>;</span><br><span class="line"><span class="keyword">const</span> App = <span class="function"><span class="params">()</span> =&gt;</span> (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;Logo /&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">);</span></span><br></pre></td></tr></table></figure>
+
+
+<p>2.双击svg文件，打开导入,类似</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg class=&quot;icon&quot; width=&quot;200px&quot; height=&quot;200.00px&quot; viewBox=&quot;0 0 1024 1024&quot; version=&quot;1.1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;&lt;path d=&quot;M0 0m102.4 0l819.2 0q102.4 0 102.4 102.4l0 819.2q0 102.4-102.4 102.4l-819.2 0q-102.4 0-102.4-102.4l0-819.2q0-102.4 102.4-102.4Z&quot; fill=&quot;#F3F2AE&quot; /&gt;&lt;path d=&quot;M174.08 0h40.96v112.64h-40.96z&quot; fill=&quot;#AEE7F3&quot; /&gt;&lt;path d=&quot;M378.88 0h40.96v112.64h-40.96z&quot; fill=&quot;#AEE7F3&quot; /&gt;&lt;path d=&quot;M583.68 0h40.96v112.64h-40.96z&quot; fill=&quot;#AEE7F3&quot; /&gt;&lt;path d=&quot;M798.72 0h40.96v112.64h-40.96z&quot; fill=&quot;#AEE7F3&quot; /&gt;&lt;path d=&quot;M0 307.2h1024v10.24H0z&quot; fill=&quot;#ECDF90&quot; /&gt;&lt;path d=&quot;M0 481.28h1024v10.24H0z&quot; fill=&quot;#ECDF90&quot; /&gt;&lt;path d=&quot;M0 655.36h1024v10.24H0z&quot; fill=&quot;#ECDF90&quot; /&gt;&lt;path d=&quot;M0 829.44h1024v10.24H0z&quot; fill=&quot;#ECDF90&quot; /&gt;&lt;path d=&quot;M163.84 194.56h10.24v829.44h-10.24z&quot; fill=&quot;#D79D6E&quot; /&gt;&lt;path d=&quot;M215.04 194.56h10.24v829.44h-10.24z&quot; fill=&quot;#D79D6E&quot; /&gt;&lt;path d=&quot;M194.59072 81.92a61.44 61.44 0 1 1-61.44 61.44 61.44 61.44 0 0 1 61.44-61.44z m204.8 0a61.44 61.44 0 1 1-61.44 61.44 61.44 61.44 0 0 1 61.44-61.44z m204.8 0a61.44 61.44 0 1 1-61.44 61.44 61.44 61.44 0 0 1 61.44-61.44z m215.04 0a61.44 61.44 0 1 1-61.44 61.44 61.44 61.44 0 0 1 61.44-61.44z&quot; fill=&quot;#AEE7F3&quot; /&gt;&lt;path d=&quot;M879.55456 273.26464l35.39968 26.79808a51.13856 51.13856 0 0 1 9.71776 72.15104l-18.05312 23.35744a52.34688 52.34688 0 0 1-72.87808 9.6256l-35.39968-26.79808a51.11808 51.11808 0 0 1-9.71776-72.15104l18.04288-23.36768a52.35712 52.35712 0 0 1 72.88832-9.61536z&quot; fill=&quot;#D1785B&quot; /&gt;&lt;path d=&quot;M797.6448 294.56384l117.99552 89.33376-397.056 513.95584-118.00576-89.33376z&quot; fill=&quot;#EBC24C&quot; /&gt;&lt;path d=&quot;M880.24064 357.09952l35.39968 26.79808-397.056 513.95584-35.39968-26.80832z&quot; fill=&quot;#E5AD4C&quot; /&gt;&lt;path d=&quot;M797.6448 294.56384l35.39968 26.79808-397.07648 513.95584-35.39968-26.79808z&quot; fill=&quot;#E5AD4C&quot; /&gt;&lt;path d=&quot;M369.33632 969.99424l31.24224-161.47456 118.00576 89.33376z&quot; fill=&quot;#F1DEB3&quot; /&gt;&lt;path d=&quot;M368.67072 972.8l31.90784-164.28032 35.39968 26.79808z&quot; fill=&quot;#E9CE96&quot; /&gt;&lt;path d=&quot;M369.33632 969.99424l149.248-72.1408-34.816-26.37824z&quot; fill=&quot;#E9CE96&quot; /&gt;&lt;path d=&quot;M406.40512 843.33568l-1.31072-40.66304 41.29792 31.27296z&quot; fill=&quot;#E5AD4C&quot; /&gt;&lt;path d=&quot;M483.072 901.40672l-1.31072-40.66304 41.29792 31.26272z&quot; fill=&quot;#E5AD4C&quot; /&gt;&lt;path d=&quot;M441.52832 876.544l-1.024-47.104 47.19616 35.72736z&quot; fill=&quot;#EBC24C&quot; /&gt;&lt;path d=&quot;M371.01568 967.33184l7.43424-44.12416 29.696 29.41952z&quot; fill=&quot;#706562&quot; /&gt;&lt;/svg&gt; */&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>3.利用第三方框架：react-svg<br>    1，svg文件夹，必须放在public文件夹中<br>    2，引用方便：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import &#123; ReactSVG &#125; from &apos;react-svg&apos;</span><br><span class="line">	</span><br><span class="line">&lt;ReactSVG src=&quot;svg.svg&quot; /&gt;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/04/46_前端工程化8-create-react-app/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3043,209 +3250,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/01/37_java1-java简介/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/01/37_java1-java简介/" itemprop="url">37_java1-java简介</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-01T19:24:45+08:00">
-                2019-12-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/01/37_java1-java简介/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/01/37_java1-java简介/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/12/01/37_java1-java简介/" class="leancloud_visitors" data-flag-title="37_java1-java简介">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  206
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，发展历史"><a href="#1，发展历史" class="headerlink" title="1，发展历史"></a>1，发展历史</h2><pre><code>1. 由SUN公司的James Gosling等人发明，最初命名Oak（橡树）
-2. SUN全称(Stanford University Network)
-3. SUN在2009年被Oracle以74亿美金收购</code></pre><h2 id="2，java分类"><a href="#2，java分类" class="headerlink" title="2，java分类"></a>2，java分类</h2><pre><code>JavaSE（J2SE）（Java2 Platform Standard Edition，java平台标准版）
-JavaME(J2ME)  (Java 2 Platform Micro Edition，java平台微型版)。
-JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code></pre><h2 id="3，版本情况"><a href="#3，版本情况" class="headerlink" title="3，版本情况"></a>3，版本情况</h2><pre><code>java版本 = java SE 版本 = JDK的版本
-最多的是java 8 </code></pre><h2 id="4，跨平台原理"><a href="#4，跨平台原理" class="headerlink" title="4，跨平台原理"></a>4，跨平台原理</h2><h3 id="4-1-C-C-跨平台原理"><a href="#4-1-C-C-跨平台原理" class="headerlink" title="4.1 C/C++跨平台原理"></a>4.1 C/C++跨平台原理</h3><pre><code>生成相应平台的可执行文件</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8737.jpg" alt></p>
-<h3 id="4-1-Java跨平台原理"><a href="#4-1-Java跨平台原理" class="headerlink" title="4.1 Java跨平台原理"></a>4.1 Java跨平台原理</h3><pre><code>生成跟平台无关的字节码文件</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8738.jpg" alt></p>
-<h2 id="5，java优势"><a href="#5，java优势" class="headerlink" title="5，java优势"></a>5，java优势</h2><pre><code>1. 跨平台（不用担心编译器）
-2. 垃圾回收机制（不用手动管理内存，排除内存泄露和循环引用）
-3. 生态圈繁荣，</code></pre><h2 id="6-java参考学习"><a href="#6-java参考学习" class="headerlink" title="6,java参考学习"></a>6,java参考学习</h2><p><a href="https://www.java.com/zh_CN/download/help/" target="_blank" rel="noopener">1，java官网</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3298,7 +3302,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">96</span>
+                  <span class="site-state-item-count">97</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3428,7 +3432,7 @@ JavaEE(J2EE)  (Java 2 Platform,Enterprise Edition，java平台企业版)</code><
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">54.5k</span>
+    <span title="Site words total count">54.8k</span>
   
 </div>
 

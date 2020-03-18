@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,">
+
+
+
+
+
+  <link rel="alternate" href="/rss2.xml" title="小新的个人博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1，类1，包括变量和方法 2，通过构造函数生成对象2，对象123456789101112131415161718192021public class Test &amp;#123;	public static void main(String[] args) &amp;#123;//类		class Dog&amp;#123;			//变量和方法			int dogAge;			String dogColor;			vo">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="21_java4_面向对象">
+<meta property="og:url" content="https://github.com/2019/10/24/21_java4_面向对象/index.html">
+<meta property="og:site_name" content="小新的个人博客">
+<meta property="og:description" content="1，类1，包括变量和方法 2，通过构造函数生成对象2，对象123456789101112131415161718192021public class Test &amp;#123;	public static void main(String[] args) &amp;#123;//类		class Dog&amp;#123;			//变量和方法			int dogAge;			String dogColor;			vo">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8772.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8773.jpg">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8774.jpg">
+<meta property="og:updated_time" content="2020-03-17T23:58:37.047Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="21_java4_面向对象">
+<meta name="twitter:description" content="1，类1，包括变量和方法 2，通过构造函数生成对象2，对象123456789101112131415161718192021public class Test &amp;#123;	public static void main(String[] args) &amp;#123;//类		class Dog&amp;#123;			//变量和方法			int dogAge;			String dogColor;			vo">
+<meta name="twitter:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8772.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/2019/10/24/21_java4_面向对象/">
+
+
+
+
+
+  <title>21_java4_面向对象 | 小新的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小新的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">积极-乐观-有趣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/21_java4_面向对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">21_java4_面向对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T16:42:24+08:00">
+                2019-10-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/24/21_java4_面向对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/21_java4_面向对象/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/24/21_java4_面向对象/" class="leancloud_visitors" data-flag-title="21_java4_面向对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1，类"><a href="#1，类" class="headerlink" title="1，类"></a>1，类</h2><pre><code>1，包括变量和方法
+2，通过构造函数生成对象</code></pre><h2 id="2，对象"><a href="#2，对象" class="headerlink" title="2，对象"></a>2，对象</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">//类</span></span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">Dog</span></span>&#123;</span><br><span class="line">			<span class="comment">//变量和方法</span></span><br><span class="line">			<span class="keyword">int</span> dogAge;</span><br><span class="line">			String dogColor;</span><br><span class="line">			<span class="function"><span class="keyword">void</span> <span class="title">barking</span><span class="params">()</span></span>&#123;</span><br><span class="line">				System.out.printf(<span class="string">"我有%d岁,我是%s色"</span>,dogAge,dogColor);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//构造函数</span></span><br><span class="line">		 	<span class="function"><span class="keyword">public</span> <span class="title">Dog</span><span class="params">(<span class="keyword">int</span> age,String color)</span></span>&#123;</span><br><span class="line">			dogAge = age;</span><br><span class="line">			dogColor = color;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"><span class="comment">//类的初始化	</span></span><br><span class="line">		Dog dog = <span class="keyword">new</span> Dog(<span class="number">5</span>,<span class="string">"red"</span>);</span><br><span class="line">		dog.barking();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code>1. 声明：声明一个对象，包括对象名称和对象类型。
+2. 实例化：使用关键字new来创建一个对象。
+3. 初始化：使用new创建对象时，会调用构造方法初始化对象。</code></pre><h2 id="3，new关键字的作用"><a href="#3，new关键字的作用" class="headerlink" title="3，new关键字的作用"></a>3，new关键字的作用</h2><pre><code>1. 为对象分配内存空间。
+2. 引起对象构造方法的调用。
+3. 为对象返回一个引用。</code></pre><h2 id="4，类中的变量"><a href="#4，类中的变量" class="headerlink" title="4，类中的变量"></a>4，类中的变量</h2><ol>
+<li>局部变量:在栈空间</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在方法、构造方法、语句块中定义的变量。其声明和初始化在方法中实现，在方法结束后自动销毁</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="keyword">int</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 其他代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>成员变量:在堆空间</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外。变量在创建对象时实例化。成员变量可被类中的方法、构造方法以及特定类的语句块访问</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>类变量</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义在类中，方法体之外，但必须要有 static 来声明变量类型。静态成员属于整个类，可通过对象名或类名来调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span>  <span class="title">ClassName</span></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> printNumber（）&#123;</span><br><span class="line">        <span class="comment">// 其他代码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5，构造方法"><a href="#5，构造方法" class="headerlink" title="5，构造方法"></a>5，构造方法</h2><h3 id="5-1-构造方法的格式"><a href="#5-1-构造方法的格式" class="headerlink" title="5.1 构造方法的格式"></a>5.1 构造方法的格式</h3><pre><code>1. 方法名和类名一样
+2. 没有返回值
+3. 可以重载
+4. 子类必须先调用父类的构造方法
+5. 子类没有显示调用父类的构造方法 -&gt;编译器会自动调用无参的构造方法 -&gt; 若父类没有无参的构造方法则会报错
+6. </code></pre><h3 id="5-2-隐式声明构造方法-默认的"><a href="#5-2-隐式声明构造方法-默认的" class="headerlink" title="5.2. 隐式声明构造方法:(默认的)"></a>5.2. 隐式声明构造方法:(默认的)</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个没有显式声明构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">    <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(); <span class="comment">// People() 是People类的默认构造函数，它什么也不干</span></span><br><span class="line">xiaoMing.getAge();<span class="comment">//打印年龄</span></span><br></pre></td></tr></table></figure>
+
+<p>###5.3 显示声明构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//一个带显式构造函数的类</span></span><br><span class="line">Public <span class="class"><span class="keyword">class</span> <span class="title">People</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> age = <span class="number">23</span>;</span><br><span class="line">        <span class="function">Public <span class="keyword">void</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.print(<span class="string">"the age is "</span>+ age);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 显式声明一个带参数的构造函数，用于初始化年龄</span></span><br><span class="line">    <span class="function">Public <span class="title">People</span><span class="params">(<span class="keyword">int</span> a)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = a; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//用这个类来实例化一个对象</span></span><br><span class="line">People xiaoMing = <span class="keyword">new</span> People(<span class="number">20</span>); <span class="comment">// 使用带参数的构造函数来实例化对象</span></span><br><span class="line">xiaoMing.getAge(); <span class="comment">// 打印出来的年龄变为20</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="6-方法"><a href="#6-方法" class="headerlink" title="6,方法"></a>6,方法</h2><h3 id="6-1-方法的种类"><a href="#6-1-方法的种类" class="headerlink" title="6.1 方法的种类"></a>6.1 方法的种类</h3><pre><code>1，构造方法（方法名和类名一致）
+2，普通方法</code></pre><h3 id="6-2-方法的注意项"><a href="#6-2-方法的注意项" class="headerlink" title="6.2 方法的注意项"></a>6.2 方法的注意项</h3><pre><code>1，方法的重载：
+    必须拥有不同的参数列表
+2，可变参数：
+    以下2种表示方法
+    void function(String... args);
+    void function(String [] args);
+3，finalize() 方法：
+    在对象被垃圾收集器析构(回收)之前调用，这个方法叫做 finalize( )，它用来清除回收对象</code></pre><h2 id="7-this关键字"><a href="#7-this关键字" class="headerlink" title="7,this关键字"></a>7,this关键字</h2><h3 id="7-1-this作用"><a href="#7-1-this作用" class="headerlink" title="7.1. this作用:"></a>7.1. this作用:</h3><pre><code>1. 访问当前类中的成员变量,普通方法,构造方法
+2. 只能在构造方法(普通方法中不行🚫)中,使用this调用其他的构造方法
+3. 构造方法调用构造方法,this语句要放在第一句</code></pre><h3 id="7-2-本质"><a href="#7-2-本质" class="headerlink" title="7.2. 本质"></a>7.2. 本质</h3><pre><code>隐藏的,位置最为靠前的一个参数    </code></pre><h2 id="8-super关键字"><a href="#8-super关键字" class="headerlink" title="8 super关键字"></a>8 super关键字</h2><pre><code>1. 访问父类的成员变量
+2. 调用父类的方法(包括构造方法)
+3. </code></pre><h2 id="9，继承-Inheritance"><a href="#9，继承-Inheritance" class="headerlink" title="9，继承(Inheritance)"></a>9，继承(Inheritance)</h2><pre><code>1. 重载和重写
+    1. 方法签名(method signature):方法名 和 参数类型
+    2. 重载(overload):方法名相同,方法签名不同(要么参数个数,要么参数类型不同)
+    3. 重写(override):方法签名相同,子类重写父类
+2. 结构:extends
+3. 基类: java.lang.Object
+4. 成员变量:
+    1. 名称可以相同(通过this和super调用,不推荐)
+    2. 继承后,子类包含父类的所有成员变量(包括private修饰的,可以用set和get方法访问)
+5. 方法的重写
+    1. 子类的实例方法签名和父类一样,才叫方法的重写
+    2. 子类的类方法签名(静态)和父类一样,不叫方法重写
+    3. 子类override的方法权限必须 &gt;= 父类
+    4. 子类override的返回值范围 &lt;= 父类</code></pre><h2 id="10-访问控制"><a href="#10-访问控制" class="headerlink" title="10 访问控制"></a>10 访问控制</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8772.jpg" alt></p>
+<pre><code>1. 4个访问权限
+    1. public
+    2. protected
+    3. 无修饰
+    4. private:仅自己类中可见
+2. 访问权限修饰的类型
+    1. 成员变量
+    2. 方法
+    3. 嵌套类
+3. 注意
+    1. 只有public和无修饰,可以用在顶层类(top-level Class)
+    2. 均不可以修饰局部类,局部变量
+    3. 顶层类可以多个,public修饰的顶层类,必须和类名一样</code></pre><h2 id="11-注解和注释："><a href="#11-注解和注释：" class="headerlink" title="11 注解和注释："></a>11 注解和注释：</h2><pre><code>1. 注释Comment
+2. 注解Annotation
+    1. 编译器特性
+    2. @Override:告诉这个是重写后的方法
+    3. @SupperessWarnings(&quot;unused&quot;):删除警告
+    4. @Deprecated:表示内容过期,不推荐使用</code></pre><h2 id="12-封装"><a href="#12-封装" class="headerlink" title="12 封装"></a>12 封装</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8773.jpg" alt></p>
+<pre><code>1. 成员变量private化
+2. 提供public的getter和setter方法</code></pre><h2 id="13-static"><a href="#13-static" class="headerlink" title="13 static"></a>13 static</h2><pre><code>1. 成员变量
+    1. 未被static修饰 -&gt;实例变量
+        1. 每个实例内部都有一份内存
+        2. 只能实例访问,不能类访问
+    2. 被static修饰 -&gt;静态变量(类变量)
+        1. 只占用一份固定内存(存储在方法区)
+        2. 可以通过类访问(推荐),也可以用实例访问(不推荐)
+    3. 同一个类中,不能有同名的实例变量和类变量
+2. 方法
+    1. 未被static修饰 -&gt;实例方法
+        1. 外部只能通过实例访问,不可以通过类访问
+        2. 内部可以使用this
+        3. 内部可以直接访问实例变量,实例方法
+        4. 内部可以直接访问类变量,类方法
+    2. 被static修饰 -&gt; 静态方法(类方法)
+        1. 外部可以通过实例和类访问
+        2. 内部不可以使用this
+        3. 内部可以直接访问实例变量,实例方法
+        4. 内部不可以直接访问类变量,类方法
+    3. 同一个类中,不能有相同签名的实例方法和类方法
+3. 静态导入
+    1. 格式:import static com.baidu.mc.model.*
+    2. 作用:
+        1. 可以省略类名来访问静态成员(成员变量,方法,嵌套类)
+        2. 消除重复的类名,提高可读性
+        3. 防止过度地静态导入,以至于分不清是哪个类中定义
+    3. 案例:import static java.lang.Math.PI</code></pre><h2 id="14-成员变量的初始化"><a href="#14-成员变量的初始化" class="headerlink" title="14 成员变量的初始化"></a>14 成员变量的初始化</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8774.jpg" alt></p>
+<pre><code> 1. 编译器自动初始化默认值
+ 2. 手动给示例变量初始化
+    1. 声明中
+    2. 在构造方法中
+    3. 在初始化块中(每创建一个示例,都有一个初始化块,都放在构造方法的第一行)
+1. 手动给静态类变量初始化
+    1. 声明中
+    2. 在构造方法中
+    3. 在静态初始化块中(当第一个类初始化时,会执行静态初始化块;)</code></pre><h2 id="15-单例模式"><a href="#15-单例模式" class="headerlink" title="15 单例模式"></a>15 单例模式</h2><pre><code>1. 恶汉式(建议)</code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1,饿汉式</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Rocket &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1,私有的静态示例变量</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Rocket instance = <span class="keyword">new</span> Rocket();</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 2,构造方法私有化   </span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Rocket</span><span class="params">()</span></span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//  3,公共的静态方法,返回唯一的实例   </span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Rocket <span class="title">getInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> instance;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 外部使用</span></span><br><span class="line">Rocket r1 = Rocket.getInstance();</span><br></pre></td></tr></table></figure>
+
+<pre><code>1. 懒汉式(有线程问题,不建议)</code></pre><h2 id="16-final"><a href="#16-final" class="headerlink" title="16 final"></a>16 final</h2><pre><code>1. 修饰子类:不能被子类化,不能被继承
+2. 修饰变量:只能进行一次赋值
+3. 修饰方法:不能被重写
+4. </code></pre><h2 id="17-常量constant"><a href="#17-常量constant" class="headerlink" title="17 常量constant"></a>17 常量constant</h2><pre><code>1. 通常使用static和final配合
+2. 只能修饰基本类型和字符串类型
+3. 在编译时就能确定值,也叫编译时常量(类似于C语言的宏)
+4. 案例:
+    1. public static final double PI = 3.1415926;
+    2. private static final int NOT_FOUND = -404;</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/24/20_java3_基础语法/" rel="next" title="20_java3_基础语法">
+                <i class="fa fa-chevron-left"></i> 20_java3_基础语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/25/22_iOS6_静态库和动态库/" rel="prev" title="22_iOS6_静态库和动态库">
+                22_iOS6_静态库和动态库 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="horse">
+            
+              <p class="site-author-name" itemprop="name">horse</p>
+              <p class="site-description motion-element" itemprop="description">做难事必有所得</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yourname" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc3747@126.com" target="_blank" title="网易邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope-square"></i>网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc37473747@google.com" target="_blank" title="Google邮箱">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tel:18589052901" target="_blank" title="联系电话">
+                      
+                        <i class="fa fa-fw fa-phone"></i>联系电话</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                作品链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="csdn地址()" target="_blank">csdn地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="豆瓣地址()" target="_blank">豆瓣地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="在线简历地址()" target="_blank">在线简历地址()</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，类"><span class="nav-number">1.</span> <span class="nav-text">1，类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，对象"><span class="nav-number">2.</span> <span class="nav-text">2，对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，new关键字的作用"><span class="nav-number">3.</span> <span class="nav-text">3，new关键字的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，类中的变量"><span class="nav-number">4.</span> <span class="nav-text">4，类中的变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，构造方法"><span class="nav-number">5.</span> <span class="nav-text">5，构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-构造方法的格式"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 构造方法的格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-隐式声明构造方法-默认的"><span class="nav-number">5.2.</span> <span class="nav-text">5.2. 隐式声明构造方法:(默认的)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-方法"><span class="nav-number">6.</span> <span class="nav-text">6,方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-方法的种类"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 方法的种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-方法的注意项"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 方法的注意项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-this关键字"><span class="nav-number">7.</span> <span class="nav-text">7,this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-this作用"><span class="nav-number">7.1.</span> <span class="nav-text">7.1. this作用:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-本质"><span class="nav-number">7.2.</span> <span class="nav-text">7.2. 本质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-super关键字"><span class="nav-number">8.</span> <span class="nav-text">8 super关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9，继承-Inheritance"><span class="nav-number">9.</span> <span class="nav-text">9，继承(Inheritance)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-访问控制"><span class="nav-number">10.</span> <span class="nav-text">10 访问控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-注解和注释："><span class="nav-number">11.</span> <span class="nav-text">11 注解和注释：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-封装"><span class="nav-number">12.</span> <span class="nav-text">12 封装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-static"><span class="nav-number">13.</span> <span class="nav-text">13 static</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-成员变量的初始化"><span class="nav-number">14.</span> <span class="nav-text">14 成员变量的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-单例模式"><span class="nav-number">15.</span> <span class="nav-text">15 单例模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-final"><span class="nav-number">16.</span> <span class="nav-text">16 final</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-常量constant"><span class="nav-number">17.</span> <span class="nav-text">17 常量constant</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">horse</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">55.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI',
+        appKey: 'OtX3yrmzOhO0oJgt7V2bS3fU',
+        placeholder: '🙋欢迎举手发言🙋‍♂️',
+        avatar:'http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI", "OtX3yrmzOhO0oJgt7V2bS3fU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -280,6 +280,887 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2020/02/10/92_iOS17_tableView总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/10/92_iOS17_tableView总结/" itemprop="url">92_iOS17_tableView总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-10T10:34:05+08:00">
+                2020-02-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/10/92_iOS17_tableView总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/10/92_iOS17_tableView总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/02/10/92_iOS17_tableView总结/" class="leancloud_visitors" data-flag-title="92_iOS17_tableView总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  512
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-tableView样式"><a href="#1-tableView样式" class="headerlink" title="1,tableView样式"></a>1,tableView样式</h2><pre><code>1,UITableViewStylePlain,          // plain:initWithFrame默认为plain
+2,UITableViewStyleGrouped,        // sections :分组效果
+3,UITableViewStyleInsetGrouped</code></pre><h2 id="2-tableViewCell样式"><a href="#2-tableViewCell样式" class="headerlink" title="2,tableViewCell样式"></a>2,tableViewCell样式</h2><pre><code> // 系统自带cell的四个常用属性
+//    imageView：显示在左边的一张图片logo；
+//    textLabel：主要文字，黑色字体显示；
+//    detailTextLabel：详细说明文字，字体较小；
+//    accessaryView：附件视图，可以使用自定义View，也可以使用系统自带的一些标准按钮。</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8770.png" alt></p>
+<h2 id="3-注意小技能"><a href="#3-注意小技能" class="headerlink" title="3,注意小技能"></a>3,注意小技能</h2><h3 id="3-1-tableView顶部预留一小段空白"><a href="#3-1-tableView顶部预留一小段空白" class="headerlink" title="3.1,tableView顶部预留一小段空白"></a>3.1,tableView顶部预留一小段空白</h3><pre><code>    if (@available(iOS 11.0, *)){
+    self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+} else {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+}</code></pre><h3 id="3-2-tableView的顶部视图和底部视图-会跟随滚动-不悬停-直接设置frame"><a href="#3-2-tableView的顶部视图和底部视图-会跟随滚动-不悬停-直接设置frame" class="headerlink" title="3.2,tableView的顶部视图和底部视图,会跟随滚动,不悬停(直接设置frame)"></a>3.2,tableView的顶部视图和底部视图,会跟随滚动,不悬停(直接设置frame)</h3><pre><code>UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 100)];
+header.backgroundColor = [UIColor greenColor];
+_tableView.tableHeaderView = header;</code></pre><h3 id="3-3-tableView的section的顶部和底部视图-会跟随滚动-会悬停-代理方法中设置"><a href="#3-3-tableView的section的顶部和底部视图-会跟随滚动-会悬停-代理方法中设置" class="headerlink" title="3.3 tableView的section的顶部和底部视图,会跟随滚动,会悬停(代理方法中设置)"></a>3.3 tableView的section的顶部和底部视图,会跟随滚动,会悬停(代理方法中设置)</h3><pre><code>- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+return 200.f;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *header = [[UIView alloc] init];
+         header.backgroundColor = [UIColor blueColor];
+    return header;
+}</code></pre><h3 id="3-4-显示分割线"><a href="#3-4-显示分割线" class="headerlink" title="3.4 显示分割线"></a>3.4 显示分割线</h3><pre><code>self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+self.tableView.separatorColor = [UIColor redColor];</code></pre><h3 id="3-5-显示默认右侧小箭头"><a href="#3-5-显示默认右侧小箭头" class="headerlink" title="3.5 显示默认右侧小箭头"></a>3.5 显示默认右侧小箭头</h3><pre><code>- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+......
+ cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+ }</code></pre><h3 id="3-6-调整默认右侧小箭头"><a href="#3-6-调整默认右侧小箭头" class="headerlink" title="3.6 调整默认右侧小箭头"></a>3.6 调整默认右侧小箭头</h3><pre><code>方法1,在子类cell的layoutSubviews中设置
+    - (void)layoutSubviews
+    {
+    [super layoutSubviews];
+
+    CGRect adjustedFrame = self.accessoryView.frame;
+    adjustedFrame.origin.x += 10.0f;
+    self.accessoryView.frame = adjustedFrame;
+    }
+方法2,直接重定义一下accessoryView
+    cell.accessoryView = ({UIImageView * imgV = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@&quot;image.png&quot;]];
+                CGRect frame = imgV.frame;
+                frame.size.width = frame.size.width + kRightOffset;
+                imgV.frame = frame;
+                [imgV setContentMode:UIViewContentModeLeft];
+                imgV; });</code></pre><h3 id="3-7-点击阴影效果"><a href="#3-7-点击阴影效果" class="headerlink" title="3.7 点击阴影效果"></a>3.7 点击阴影效果</h3><pre><code>- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+[tableView deselectRowAtIndexPath:indexPath animated:YES];</code></pre><p>}</p>
+<h2 id="4-cell的重用标记"><a href="#4-cell的重用标记" class="headerlink" title="4,cell的重用标记"></a>4,cell的重用标记</h2><h3 id="4-1-不注册的方法"><a href="#4-1-不注册的方法" class="headerlink" title="4.1 不注册的方法"></a>4.1 不注册的方法</h3><pre><code>UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@&quot;cellID&quot;];
+if (cell == nil) {
+cell =[ [UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@&quot;cellID&quot;]]; }
+return cell;</code></pre><h3 id="4-2-注册的方法"><a href="#4-2-注册的方法" class="headerlink" title="4.2 注册的方法"></a>4.2 注册的方法</h3><pre><code>1,如果注册nib文件,需要在tableView ViewDidLoad的时候registerNib
+[tableView registerNib:[UINib nibWithNibName:@&quot;CustomCell(cell类名)&quot; bundle:nil] forCellReuseIdentifier:kCellIdentify];
+
+2,如果注册纯代码,在tableView ViewDidLoad的时候
+[tableView registerClass:[CustomCell(cell类名) class] forCellReuseIdentifier:kCellIdentify];
+
+3,在cellForRowAtIndexPath里就不需要对cell是否为空进行判断
+[CustomCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIdentify forIndexPath:indexPath];</code></pre><h2 id="5-等高和非等高"><a href="#5-等高和非等高" class="headerlink" title="5,等高和非等高"></a>5,等高和非等高</h2><h2 id="6-特殊效果"><a href="#6-特殊效果" class="headerlink" title="6,特殊效果"></a>6,特殊效果</h2><h2 id="7-优雅写法"><a href="#7-优雅写法" class="headerlink" title="7,优雅写法"></a>7,优雅写法</h2><pre><code>基类
+block封装</code></pre><h2 id="8-性能优化"><a href="#8-性能优化" class="headerlink" title="8,性能优化"></a>8,性能优化</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2020/02/07/91_工具8_代码片段的搜集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/07/91_工具8_代码片段的搜集/" itemprop="url">91_工具8_代码片段的搜集</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-07T17:04:57+08:00">
+                2020-02-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/07/91_工具8_代码片段的搜集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/07/91_工具8_代码片段的搜集/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/02/07/91_工具8_代码片段的搜集/" class="leancloud_visitors" data-flag-title="91_工具8_代码片段的搜集">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  53
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，github的gist"><a href="#1，github的gist" class="headerlink" title="1，github的gist"></a>1，github的gist</h2><pre><code>1. 访问不了就翻墙
+2. 修改host文件（终端修改；或者直接修改）
+3. </code></pre><h2 id="2，配合gist的工具"><a href="#2，配合gist的工具" class="headerlink" title="2，配合gist的工具"></a>2，配合gist的工具</h2><pre><code>1. snippetslab
+2. lepton
+3. </code></pre><h2 id="3，网友借鉴的"><a href="#3，网友借鉴的" class="headerlink" title="3，网友借鉴的"></a>3，网友借鉴的</h2><p><a href="http://snippets.barretlee.com/#!/snippets/htaccess/custom-error-pages/" target="_blank" rel="noopener">http://snippets.barretlee.com/#!/snippets/htaccess/custom-error-pages/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/17/90_方法论6_程序员干货营方法论/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/17/90_方法论6_程序员干货营方法论/" itemprop="url">90_方法论6_程序员干货营方法论</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-17T15:55:06+08:00">
+                2020-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/17/90_方法论6_程序员干货营方法论/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/17/90_方法论6_程序员干货营方法论/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/01/17/90_方法论6_程序员干货营方法论/" class="leancloud_visitors" data-flag-title="90_方法论6_程序员干货营方法论">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  745
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，怎样快速学习新技术"><a href="#1，怎样快速学习新技术" class="headerlink" title="1，怎样快速学习新技术"></a>1，怎样快速学习新技术</h2><pre><code>第一步: 通读一遍官方API文档，有个整体了解，找demo实战练习，写todo list，3天左右；
+第二步: 找到对应的实战视频，花一周时间左右；
+第三步: 技术变现：公司推广使用新技术。先在无关紧要的项目上试试水。
+第四步: 大神之路阅读github代码，出教程</code></pre><h2 id="2，怎样提高代码质量"><a href="#2，怎样提高代码质量" class="headerlink" title="2，怎样提高代码质量"></a>2，怎样提高代码质量</h2><pre><code>前提：被老员工嘲笑；bug多；code的review中    被白眼
+方法1：阅读《代码大全》，《code clean》代码整洁之道
+方法2：以测试为驱动进行开发，它有两点好处：
+        - 让代码简洁可用
+        - 提高代码质量
+            从而提高效率。长期来看，就能建立起信任背书
+方法3：用匠人精神重构代码</code></pre><h2 id="3，自己适合学习什么语言"><a href="#3，自己适合学习什么语言" class="headerlink" title="3，自己适合学习什么语言"></a>3，自己适合学习什么语言</h2><pre><code>1. 先解决温饱,再考虑兴趣
+2. 自我感觉的难易程度和兴趣,用多学少专的模式 来试探自己的兴趣
+3. 薪资的高低
+4. 发展前景    :现在（林迪效应），卡位将来（VR，人工智能，区块链等）</code></pre><h2 id="4，前端三大框架的对比"><a href="#4，前端三大框架的对比" class="headerlink" title="4，前端三大框架的对比"></a>4，前端三大框架的对比</h2><pre><code>编程范式：
+1，angular（谷歌），作用域，
+    谷歌推出的是flutter（dart语言）
+2，react（Facebook），万物皆组件，Fiber，Hooks（class转function）
+    JSX解析
+3，vue（阿里，尤雨溪），初学者
+    weex
+总结：学习道路：html -&gt; js -&gt; nodejs -&gt; typescript -&gt; vue</code></pre><h2 id="5，程序员快速提升自己的技能"><a href="#5，程序员快速提升自己的技能" class="headerlink" title="5，程序员快速提升自己的技能"></a>5，程序员快速提升自己的技能</h2><h3 id="5-1-基础"><a href="#5-1-基础" class="headerlink" title="5.1 基础"></a>5.1 基础</h3><h3 id="5-2-提升"><a href="#5-2-提升" class="headerlink" title="5.2 提升"></a>5.2 提升</h3><pre><code>1.阅读github上的优秀开源代码
+    从最早的版本开始阅读，一层一层地阅读到最新版本，弄明白每次版本迭代的动机
+2.造自己的轮子
+    1）写小的组件
+    2）写框架
+    可从简单的UI、CSS框架开始写，再模仿vue、react写简版的框架来锻炼自己的能力
+    ps：可参考书籍《javaScript框架设计》
+3.学习设计模式
+    1）从书籍中学习不同的设计模式，有个大概的了解和区分
+    2）在别人的代码中找出并看懂设计模式
+    3）有意且刻意地在自己的练习项目中使用设计模式
+    4）尝试在工作项目中使用设计模式
+    5）在工作中重构代码，并使用设计模式</code></pre><h3 id="5-3-时间管理"><a href="#5-3-时间管理" class="headerlink" title="5.3 时间管理"></a>5.3 时间管理</h3><h2 id="6，工程"><a href="#6，工程" class="headerlink" title="6，工程"></a>6，工程</h2><pre><code>1，版本管理
+    每天提交
+    多分支
+    权限分配
+2，持续集成
+    服务器持续集成
+3，文档
+    程序设计文档
+    接口文档
+    数据结构文档
+    使用说明文档</code></pre><h2 id="7，程序的陋习"><a href="#7，程序的陋习" class="headerlink" title="7，程序的陋习"></a>7，程序的陋习</h2><pre><code>1，命名
+2，注释
+3，代码整洁之道
+    方法只有一个功能
+    空行的使用
+    代码注释掉了后，没有删掉
+    无用的代码没有删掉
+4，异常的处理
+    入参的检验
+    环境的处理（手机型号，权限，有无网络，弱网络，空间是否满了）
+    初始化的变量
+    日志</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/17/89_iOS16_KVO总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/17/89_iOS16_KVO总结/" itemprop="url">89_iOS16_KVO总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-17T11:01:08+08:00">
+                2020-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/01/17/89_iOS16_KVO总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/17/89_iOS16_KVO总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2020/01/17/89_iOS16_KVO总结/" class="leancloud_visitors" data-flag-title="89_iOS16_KVO总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/17/88_iOS15_KVC总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1541,828 +2422,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/07/82_web14_js编写规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/07/82_web14_js编写规范/" itemprop="url">82_web14_js编写规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-07T11:20:22+08:00">
-                2020-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/07/82_web14_js编写规范/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/07/82_web14_js编写规范/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/07/82_web14_js编写规范/" class="leancloud_visitors" data-flag-title="82_web14_js编写规范">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/07/81_web13_js学习方法论/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/07/81_web13_js学习方法论/" itemprop="url">81_web13_js学习方法论</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-07T11:19:26+08:00">
-                2020-01-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/07/81_web13_js学习方法论/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/07/81_web13_js学习方法论/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/07/81_web13_js学习方法论/" class="leancloud_visitors" data-flag-title="81_web13_js学习方法论">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/06/79_web11_css单位-字体-颜色-布局/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/06/79_web11_css单位-字体-颜色-布局/" itemprop="url">79_web11_css单位-字体-颜色-布局</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T11:39:08+08:00">
-                2020-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/06/79_web11_css单位-字体-颜色-布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/06/79_web11_css单位-字体-颜色-布局/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/06/79_web11_css单位-字体-颜色-布局/" class="leancloud_visitors" data-flag-title="79_web11_css单位-字体-颜色-布局">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  848
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，长度"><a href="#1，长度" class="headerlink" title="1，长度"></a>1，长度</h2><pre><code>绝对长度
-    in，英寸（1in = 96px = 2.54cm）
-    cm，厘米
-    mm，毫米
-    pt，points（1pt = 1/72英寸，也叫磅）
-    pc，Picas（1pt = 1/6in）
-
-相对长度
-    px，Pixels像素
-    em，元素的字体高度
-    ex，x-height，字母x的高度
-    %，百分比，均基于父元素的
-    ch，字符0的宽度
-    rem，根元素（html）的font-size
-    vw，viewpoint width，视窗宽度，1vw=视窗宽度的1%
-    vh，viewpoint height，视窗高度，1vh=视窗高度的1%        vmin，vw和vh中较小的那个
-    vmax，vw和vh中较大的那个
-
-em注意点
-    基于当前元素的(如果没设置就是继承其父元素的)font-size
-    em默认值，即1em = 16px
-    em单位具有级联关系
-    例子：span标签的结果就是font-size: 24px
-    &lt;div style=&quot;font-size: 12px;&quot;&gt;
-        &lt;span style=&quot;font-size: 2em&quot;&gt;em单位&lt;/span&gt;
-    &lt;/div&gt;</code></pre><h2 id="2，字体"><a href="#2，字体" class="headerlink" title="2，字体"></a>2，字体</h2><p>在线字体工具：<a href="https://www.w3cschool.cn/tools/index?name=csscreate" target="_blank" rel="noopener">https://www.w3cschool.cn/tools/index?name=csscreate</a><br>    字体（font-family）：css5种通用字体<br>        Serif 字体（末端拥有额外的装饰）<br>        Sans-serif 字体（末端没有额外的装饰）<br>        Monospace 字体（所有的等宽字符具有相同的宽度）<br>        Cursive 字体<br>        Fantasy 字体<br>    加粗（font-weight）：normal（400），bold（700），900等<br>    大小（ font-size）<br>    文字样式（font-style）：normal ，italic（斜体），oblique<br>    字体后备机制：<br>        例如p{font-family:”Times New Roman”, Times, serif}<br>        font-family属性是多种字体的名称，作为一个”应变”制度，以确保浏览器/操作系统之间的最大兼容性</p>
-<h2 id="3，颜色"><a href="#3，颜色" class="headerlink" title="3，颜色"></a>3，颜色</h2><pre><code>1，16进制：#ff0000
-2，rgb：
-    数字：RGB（0,0,255
-    百分比：RGB（0％，0％，100％）
-3，rgba
-    Alpha参数是一个介于0.0（完全透明）和1.0（完全不透明）之间的参数
-4，HSL
-    HSL（色调，饱和度，明度）
-5，HSLA
-6，预定义颜色名称
-    147个颜色=17的标准颜色+130个其他颜色，例如Black，Blue等</code></pre><h2 id="4-布局"><a href="#4-布局" class="headerlink" title="4,布局"></a>4,布局</h2><pre><code>1，布局属性
-2，浮动：
-    float（left，right，none，inherit）
-    clear（left，right，both，none，inherit），是否清除浮动元素
-3，定位
-    position : static | relative | absolute | fixed
-    static : 元素框正常生成
-    relative : 元素框偏移某个距离
-    absolute : 元素框从文档流完全删除，并相对于其包含块定。包含块可能是文档中的另一个元素或初始包含块。</code></pre><p>fixed : 类似 absolute，不过其包含块是视窗本身。<br>    1，flow布局（流动布局）：网页默认布局<br>        块级元素都会在所处的最近父级容器元素内自上而下按顺序垂直顺延分布<br>        内联元素都会在所处的最近父级容器元素内从左到右水平分布显示<br>    2，    float布局（浮动布局）：让该元素摆脱当前文档流，成为浮动元素<br>    3，    Layer布局<br>        绝对定位(position: absolute)<br>            相对于其最接近的一个具有定位属性的父包含块进行绝对定位<br>        相对定位(position: relative)<br>            相对定位与绝对定位最大的区别在于，前者没有脱离当前文档流而后者已经脱离了当前文档流<br>        固定定位(position: fixed)<br>            它的相对移动的坐标是视图（屏幕内的网页窗口）本身。由于视图本身是固定的，它不会随浏览器窗口的滚动条滚动而变化，除非你在屏幕中移动浏览器窗口的屏幕位置，或改变浏览器窗口的显示大小</p>
-<pre><code>混合使用布局</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2020/01/06/80_web12_css编写规范/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/06/80_web12_css编写规范/" itemprop="url">80_web12_css编写规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-06T08:50:49+08:00">
-                2020-01-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/01/06/80_web12_css编写规范/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/01/06/80_web12_css编写规范/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2020/01/06/80_web12_css编写规范/" class="leancloud_visitors" data-flag-title="80_web12_css编写规范">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2410,7 +2474,7 @@ em注意点
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2432,7 +2496,7 @@ em注意点
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2540,7 +2604,7 @@ em注意点
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">55.2k</span>
+    <span title="Site words total count">55.9k</span>
   
 </div>
 

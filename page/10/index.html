@@ -280,6 +280,1020 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/20/12_java2_工程搭建/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/20/12_java2_工程搭建/" itemprop="url">12_java2_工程搭建</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T17:25:27+08:00">
+                2019-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/后端/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/20/12_java2_工程搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/20/12_java2_工程搭建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/20/12_java2_工程搭建/" class="leancloud_visitors" data-flag-title="12_java2_工程搭建">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  903
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，java工程中相关概念"><a href="#1，java工程中相关概念" class="headerlink" title="1，java工程中相关概念"></a>1，java工程中相关概念</h2><h3 id="1-1-JDK，JRE，JVM"><a href="#1-1-JDK，JRE，JVM" class="headerlink" title="1.1 JDK，JRE，JVM"></a>1.1 JDK，JRE，JVM</h3><pre><code>JDK：Java Development Kit，java开发工具包，提供各种工具
+JRE：Java Runtime Enviroment，java运行环境
+JVM：Java Virtual Machine，Java虚拟机</code></pre><h3 id="1-2-JDK，JRE，JVM的运行关系图"><a href="#1-2-JDK，JRE，JVM的运行关系图" class="headerlink" title="1.2 JDK，JRE，JVM的运行关系图"></a>1.2 JDK，JRE，JVM的运行关系图</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8739.jpg" alt></p>
+<h3 id="1-3，JDK，JRE，JVM的包含关系图"><a href="#1-3，JDK，JRE，JVM的包含关系图" class="headerlink" title="1.3，JDK，JRE，JVM的包含关系图"></a>1.3，JDK，JRE，JVM的包含关系图</h3><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8733.png" alt></p>
+<p>###2.2，JDK和tomcat之间的关系<br>    tomcat v7.0——-support——–&gt;Java EE 5 and 6<br>    tomcat v8.0——-support——–&gt;Java EE 5,6 and 7<br>    tomcat v8.5——-support——–&gt;Java EE 5,6 and 7<br>    tomcat v9.0——-support——–&gt;Java EE 5,6,7 and 8<br>    （Tomcat版本要比jdk高）</p>
+<h2 id="2，java工程的组成"><a href="#2，java工程的组成" class="headerlink" title="2，java工程的组成"></a>2，java工程的组成</h2><table>
+<tr>
+<td bgcolor="#FF8248">
+1,JDK
+</td>
+</tr>
+</table>
+    1,(Java Development Kit)又称J2SDK(Java2 Software Development Kit)，是Java开发工具包，它提供了Java的开发环境(提供了编译器javac等工具，用于将java文件编译为class文件)和运行环境(提供了JVM和Runtime辅助包，用于解析class文件使其得到运行)。
+    如果你下载并安装了JDK，那么你不仅可以开发Java程序，也同时拥有了运行Java程序的平台。JDK是整个Java的核心，包括了Java运行环境(JRE)，一堆Java工具tools.jar和Java标准类库 (rt.jar)
+
+<pre><code>2，查看JDK的安装目录（所有版本和安装目录）：
+命令行：/usr/libexec/java_home -V
+
+3，查看JDK的版本
+命令行：java -version</code></pre><table>
+<tr>
+<td bgcolor="#FF8248">
+2,JRE
+</td>
+</tr>
+</table>
+    1,JRE(Java Runtime Enviroment)是Java的运行环境。面向Java程序的使用者，而不是开发者。如果你仅下载并安装了JRE，那么你的系统只能运行Java程序。
+    JRE是运行Java程序所必须环境的集合，包含JVM标准实现及 Java核心类库。它包括Java虚拟机、Java平台核心类和支持文件。它不包含开发工具(编译器、调试器等)。
+
+<pre><code>2,查看JRE的版本
+命令行：/Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -version</code></pre><table>
+<tr>
+<td bgcolor="#FF8248">
+3,JVM
+</td>
+</tr>
+</table>
+    1，JVM是Java Virtual Machine（Java虚拟机）的缩写
+    2，通过在实际的计算机上仿真模拟各种计算机功能来实现
+    3，查看jvm的版本：/usr/libexec/java_home -V
+
+<table>
+<tr>
+<td bgcolor="#FF8248">
+4,tomcat
+</td>
+</tr>
+</table>
+    1,Tomcat：是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用服务器
+    2,查看tomcat版本
+        进入到tomcat安装目录，bin文件夹 
+        命令行：sh version.sh
+
+<h2 id="3，eclipse基本设置"><a href="#3，eclipse基本设置" class="headerlink" title="3，eclipse基本设置"></a>3，eclipse基本设置</h2><ol>
+<li><p>修改智能提示<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8730.jpg" alt></p>
+<pre><code>提示添加.abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</code></pre></li>
+<li><p>修改工作空间的编码格式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8731.jpg" alt></p>
+</li>
+</ol>
+<h2 id="4-java中的包-package"><a href="#4-java中的包-package" class="headerlink" title="4, java中的包(package)"></a>4, java中的包(package)</h2><h3 id="4-1-本质和作用"><a href="#4-1-本质和作用" class="headerlink" title="4.1 本质和作用"></a>4.1 本质和作用</h3><pre><code>1. 本质是文件夹
+2. 不同的类进行分类
+3. 解决命名冲突</code></pre><h3 id="4-2-命名建议"><a href="#4-2-命名建议" class="headerlink" title="4.2 命名建议"></a>4.2 命名建议</h3><pre><code>1. 保证唯一性,为公司域名的反向,如com.baidu.
+2. 全部小写
+3. 如果有某些不满足的特殊字符,用添加_来解决</code></pre><h3 id="4-3-使用"><a href="#4-3-使用" class="headerlink" title="4.3 使用"></a>4.3 使用</h3><pre><code>1. 类的第一句,使用package声明
+2. src目录下的default包,表示是默认,没有文件夹,也不用写package</code></pre><h2 id="5-如何使用一个类"><a href="#5-如何使用一个类" class="headerlink" title="5, 如何使用一个类"></a>5, 如何使用一个类</h2><pre><code>1. 直接使用类的全名(包名 + 文件名 + 类名):com.baidu.mc.model.Dog dog = new com.baidu.mc.model.Dog dog();
+2. 使用import导入文件:import com.baidu.mc.model,只可以引用文件中的某个类
+3. 使用import导入目录*:
+    1. import com.baidu.mc.model.*(文件.*,即包括该文件中的所有类)
+    2. 和import com.baidu.mc.*(文件夹.*,即包括该文件中的默认的类,类名跟文件名一致)
+4. 静态导入:
+    1. 格式:import static com.baidu.mc.model.*
+    2. 可以省略类名来访问静态成员(成员变量,方法,嵌套类)
+5. 默认导入的两种类
+    1. import java.lang.*
+    2. import该源文件所在包的.*</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/20/11_web1_flex布局/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/20/11_web1_flex布局/" itemprop="url">11_web1_flex布局</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T10:53:12+08:00">
+                2019-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/20/11_web1_flex布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/20/11_web1_flex布局/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/20/11_web1_flex布局/" class="leancloud_visitors" data-flag-title="11_web1_flex布局">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  558
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，官方文档"><a href="#1，官方文档" class="headerlink" title="1，官方文档"></a>1，官方文档</h2><pre><code>&lt;https://www.w3.org/TR/css-flexbox-1/&gt;
+&lt;https://www.w3.org/TR/css-align-3/&gt;</code></pre><h2 id="2，flex布局整体设置"><a href="#2，flex布局整体设置" class="headerlink" title="2，flex布局整体设置"></a>2，flex布局整体设置</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1. 设置display为flex</span><br><span class="line"></span><br><span class="line">2. 设置父容器flex container</span><br><span class="line">	1. flex-flow是flex-direction || flex-wrap的简写</span><br><span class="line">	2. flex-direction设置主轴（main axis）的方向</span><br><span class="line">	3. flex-wrap设置是否能换行</span><br><span class="line">	4. justify-content设置flex items在main axis上的对齐方式</span><br><span class="line">	5. align-items设置flex items在cross axis上的对齐方式（一般是针对单行）</span><br><span class="line">	6. align-content设置flex items在cross axis上的对齐方式（一般是针对多行）</span><br><span class="line">	</span><br><span class="line">3. 设置子容器flex items</span><br><span class="line">	1. flex是flex-grow flex-shrink? || flex-basis的简写</span><br><span class="line">	2. flex-grow决定了flex items在main axis方向上如何扩展</span><br><span class="line">	3. flex-shrink决定了flex items在main axis方向上如何收缩</span><br><span class="line">	4. flex-basis设置flex items在main axis方向上的base size</span><br><span class="line">	5. order设置flex items的排布顺序</span><br><span class="line">	6. align-self允许flex items覆盖flex container设置的align-items</span><br></pre></td></tr></table></figure>
+
+<h2 id="3，flex-container设置"><a href="#3，flex-container设置" class="headerlink" title="3，flex container设置"></a>3，flex container设置</h2><p>1.flex-direction：主轴main axis方向</p>
+<pre><code>row：横向
+row-reverse
+column：纵向
+column-reverse</code></pre><p>2.justify-content：主轴对齐方式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8710.jpg" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8711.jpg" alt></p>
+<pre><code>flex-start：和main start对齐
+flex-end：和main end对齐
+center：居中
+space-between：和main start，main end对齐，中间相等
+space-evenly：flex items之间，flex items和main start，main end之间的距离相等
+space-evenly：flex items之间距离相等，flex items和main start，main end之间的距离为flex items之间距离的一半</code></pre><ol start="3">
+<li><p>align-items：交叉轴cross axis上的对齐方式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8712.jpg" alt></p>
+<pre><code>stretch：当flex items在cross axis方向size 为auto，会自动填充父容器flex container
+flex-start：和cross start对齐
+flex-end：和cross end对齐
+center：居中
+baseline：与基线对齐</code></pre></li>
+<li><p>flex-wrap：父容器是否换行</p>
+<p> nowrap：单行<br> wrap：多行<br> wrap-reverse：多行，交叉轴的cross start和cross end相反</p>
+</li>
+<li><p>flex-flow是：flex-direction || flex-wrap的简写</p>
+</li>
+<li><p>align-content：多行时，交叉轴cross axis的对齐方式<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8713.jpg" alt></p>
+<pre><code>stretch：默认值
+flex-start：和cross start对齐
+flex-end：和cross end对齐
+center：居中</code></pre><h2 id="4，flex-items设置"><a href="#4，flex-items设置" class="headerlink" title="4，flex items设置"></a>4，flex items设置</h2></li>
+<li><p>order：flex items的排布顺序</p>
+</li>
+<li><p>align-self：遵从父容器的align-items的设置</p>
+</li>
+<li><p>flex-grow：如何扩大</p>
+</li>
+<li><p>flex-shrink：如何收缩</p>
+</li>
+<li><p>flex-basis：主轴main axis上的base size大小</p>
+</li>
+<li><p>flex 是flex-grow flex-shrink？ || flex-basis的简写</p>
+</li>
+</ol>
+<h2 id="5，决定flex-item-最终base-size的因素优先级"><a href="#5，决定flex-item-最终base-size的因素优先级" class="headerlink" title="5，决定flex item 最终base size的因素优先级"></a>5，决定flex item 最终base size的因素优先级</h2><ol>
+<li>max-width\max-height\min-width\min-height </li>
+<li>flex-basis</li>
+<li>width\height</li>
+<li>内容本身的 size</li>
+</ol>
+<h2 id="6，常用案例"><a href="#6，常用案例" class="headerlink" title="6，常用案例"></a>6，常用案例</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/20/10_工具1_各种IDE的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/20/10_工具1_各种IDE的使用/" itemprop="url">10_工具1_各种IDE的使用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-20T09:22:52+08:00">
+                2019-10-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/20/10_工具1_各种IDE的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/20/10_工具1_各种IDE的使用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/20/10_工具1_各种IDE的使用/" class="leancloud_visitors" data-flag-title="10_工具1_各种IDE的使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  713
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>⚠️以下软件都是针对mac版</p>
+</blockquote>
+<h2 id="1-VSCode"><a href="#1-VSCode" class="headerlink" title="1, VSCode"></a>1, VSCode</h2><p><a href="https://www.cnblogs.com/summit7ca/p/6944215.html" target="_blank" rel="noopener">参考文章</a></p>
+<p>###1.1，快捷键：<br>    返回上一级：control + ‘-’</p>
+<p>###1.2，在js文件中设置emmet智能提示<br>    1，找到vscode的 setting.json文件<br>        方法1：设置界面 -》在搜索栏里搜索setting.json<br>        方法2：设置界面 -》右上角一个‘{}’图标，可以切换setting.json</p>
+<pre><code>2，设置&quot;emmet.includeLanguages&quot;: {
+  &quot;javascript&quot;: &quot;html&quot;}
+
+  3,常用的简写：输入后按tab
+      1. 元素：div 👉 &lt;div&gt; &lt;/div&gt;
+      2. 文本：div{这是一段文本} 👉 &lt;div&gt;这是一段文本&lt;/div&gt;
+      3. 属性：
+          div.test  👉 &lt;div class=&quot;test&quot;&gt;&lt;/div&gt;
+        div#pageId 👉 &lt;div id=&quot;pageId&quot;&gt;&lt;/div&gt;
+      4. 分组和嵌套
+          子级:&gt;；
+          同级:+；
+          父级:^
+          div&gt;(ul&gt;li+span)&gt;a 👉
+            &lt;div&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                    &lt;span&gt;&lt;/span&gt;
+                &lt;/ul&gt;
+                &lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+            &lt;/div&gt;
+      5. 乘法
+        div * 3 👉
+            &lt;div&gt;&lt;/div&gt;
+                &lt;div&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;/div&gt;
+      6. 自动计数
+        ul&gt;li.item${item number:$}*3 👉
+        &lt;ul&gt;
+        &lt;li class=&quot;item1&quot;&gt;item number:1&lt;/li&gt;
+        &lt;li class=&quot;item2&quot;&gt;item number:2&lt;/li&gt;
+        &lt;li class=&quot;item3&quot;&gt;item number:3&lt;/li&gt;
+        &lt;/ul&gt;
+      7. </code></pre><p>###1.3，更改tab的空格数<br>1.<img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8749.jpg" alt><br>2.<img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8750.jpg" alt><br>3.<img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8751.jpg" alt></p>
+<h2 id="2-Eclipse"><a href="#2-Eclipse" class="headerlink" title="2, Eclipse"></a>2, Eclipse</h2><pre><code>1. 删除整行：Command+d</code></pre><h2 id="3-Android-Studio"><a href="#3-Android-Studio" class="headerlink" title="3, Android Studio"></a>3, Android Studio</h2><pre><code>1，全局搜索文字：editor-》find-》find in path（快捷键shift + cmd + F）
+2，使用自带的控件，例如View：
+    方法1：引用android.view.View
+    方法2：鼠标单击红色的view，然后option + enter，就自动在头部引入import android.widget.View;了</code></pre><h2 id="4，Xcode"><a href="#4，Xcode" class="headerlink" title="4，Xcode"></a>4，Xcode</h2><pre><code>1，代码对齐：全局选择cmd + A，然后ctr + i</code></pre><h2 id="5-excel软件"><a href="#5-excel软件" class="headerlink" title="5,excel软件"></a>5,excel软件</h2><pre><code>1. 单元格内换行：option + enter
+2. 整行或者整列移动：黑十字，shift拖动
+3. 宽高设置：选择行，或者列，或者全部，拖动黑十字设置</code></pre><h2 id="6-Sublime"><a href="#6-Sublime" class="headerlink" title="6,Sublime"></a>6,Sublime</h2><pre><code>1. 下载安装.dmg
+
+2. 安装package control
+    1. 点击“preferences-&gt;Browse Packages…”。
+    2. 往上一级,找到文件夹目录 Installed Packages
+    3. 科学上网去下载一个文件(名称为Package Control.sublime-package):https://packagecontrol.io/installation ,或者网上有人分享
+    4. 将下载的文件放在Installed Packages文件夹中
+    5. 进入preferences-&gt;会多出一个Package Control选项
+
+3. package control下载插件时报错,
+    1,报错:package-control ;There are no packages available for installation
+    2,进入目录:preference -&gt; package setting -&gt; package control -&gt; settings user
+    3,添加一组json:
+    &quot;channels&quot;:
+[
+    &quot;https://github.com/JavenZ/channel_v3/raw/master/channel_v3.json&quot;
+],用国内的地址https://attachments-cdn.shimo.im/OykO0AIRnX0aeB4d/channel_v3.json更好
+
+4. sublime更新后,可能下载不了package
+    1. 可能会报错,打开View -&gt; show Console,查看底部打印
+    2.     preference -&gt; setting,左侧为默认,右侧为自定义,注释掉&quot;0_package_control_loader&quot;即可</code></pre><pre><code>{
+"ignored_packages":
+[
+    "0_package_control_loader",
+    "Vintage"
+]
+    }</code></pre>
+<pre><code>4. 常安装的插件
+    shift + command + P:调出下载的插件界面
+    实时渲染界面,调不出浏览器,本地显示图片会卡</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/17/09_iOS2_空值过滤/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/10/17/09_iOS2_空值过滤/" itemprop="url">09_iOS2_空值过滤</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T10:56:09+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/10/17/09_iOS2_空值过滤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/17/09_iOS2_空值过滤/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/10/17/09_iOS2_空值过滤/" class="leancloud_visitors" data-flag-title="09_iOS2_空值过滤">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  582
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，数据传输的过程"><a href="#1，数据传输的过程" class="headerlink" title="1，数据传输的过程"></a>1，数据传输的过程</h2><table><tr>
+<td bgcolor="orange">json层:后台返回的json数据</td>
+<td bgcolor="yellow">🔜</td>
+<td bgcolor="green">字典层:本地序列化解析json数据</td>
+<td bgcolor="yellow">🔜</td>
+<td bgcolor="B6EEDE">模型层:字典转成模型</td>
+<td bgcolor="yellow">🔜</td>
+<td bgcolor="EEB6E8">应用层:直接使用模型</td>
+</tr>
+
+</table>
+
+<h2 id="2，出现空值的几个环节"><a href="#2，出现空值的几个环节" class="headerlink" title="2，出现空值的几个环节"></a>2，出现空值的几个环节</h2><ol>
+<li><p>本地新建<br>未赋值的变量为（null）<br>字段和数组的value不能为nil，只能是NSNull</p>
+</li>
+<li><p>服务器返回</p>
+<pre><code>1,没有返回值object，直接使用会崩
+2,没有返回值object的某个字段key1
+    返回（null），不会崩溃
+3,返回值的某个字段未赋值
+    数据库中为null，解析成&lt;null&gt;
+    不是String，不是nil，会引起崩溃
+4,返回值的某个字段赋值为null,与未赋值类似</code></pre></li>
+</ol>
+<h2 id="3，采取的安全方法"><a href="#3，采取的安全方法" class="headerlink" title="3，采取的安全方法"></a>3，采取的安全方法</h2><ol>
+<li>安全的集合数据：空值都转成空字符串<br> 应用在字典层</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">id</span>)noEmptyWithObject:(<span class="keyword">id</span>)object&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="built_in">NSString</span> *nullStr = <span class="string">@""</span>;</span><br><span class="line">    <span class="comment">//数据处理</span></span><br><span class="line">    <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="built_in">NSMutableArray</span> *array = [(<span class="built_in">NSArray</span> *)object mutableCopy];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index&lt;array.count; index++) &#123;</span><br><span class="line">            <span class="comment">//遍历后每个数据</span></span><br><span class="line">            <span class="keyword">id</span> arrayObject = array[index] ;</span><br><span class="line">            <span class="comment">//返回数据</span></span><br><span class="line">            <span class="keyword">id</span> useObject = [<span class="keyword">self</span> noEmptyWithObject:arrayObject];</span><br><span class="line">            <span class="comment">//存档</span></span><br><span class="line">            [array setObject:useObject atIndexedSubscript:index];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="built_in">NSMutableDictionary</span> *mutableDic = [(<span class="built_in">NSDictionary</span> *)object mutableCopy];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> key <span class="keyword">in</span> mutableDic.allKeys) &#123;</span><br><span class="line">            <span class="comment">//遍历后每个数据</span></span><br><span class="line">            <span class="keyword">id</span> value = mutableDic[key];</span><br><span class="line">            <span class="comment">//返回数据</span></span><br><span class="line">            <span class="keyword">id</span> useObject = [<span class="keyword">self</span> noEmptyWithObject:value];</span><br><span class="line">            <span class="comment">//存档</span></span><br><span class="line">            [mutableDic setObject:useObject forKey:key];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> mutableDic;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isEqual:[<span class="built_in">NSNull</span> null]]||object == <span class="literal">nil</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> nullStr;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>第三方库 NullSafe:将NSNull转成nil<br> 应用在字典层<br> 参考链接：<a href="https://github.com/nicklockwood/NullSafe">https://github.com/nicklockwood/NullSafe</a></li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>，创建一个方法缓存，这个缓存会缓存项目中类的所有类名。</span><br><span class="line"><span class="number">2</span>，遍历缓存，寻找是否已经有可以执行此方法的类。</span><br><span class="line"><span class="number">3</span>，如果有的话，返回这个 <span class="built_in">NSMethodSignature</span> 。</span><br><span class="line"><span class="number">4</span>，如果没有的话，返回 <span class="literal">nil</span> , 接下来会走 forwardInvocation:方法。</span><br><span class="line">[invocation invokeWithTarget:<span class="literal">nil</span>]; 将消息转发给 <span class="literal">nil</span>。</span><br><span class="line"></span><br><span class="line">	- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)selector</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//look up method signature</span></span><br><span class="line">    <span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">super</span> methodSignatureForSelector:selector];</span><br><span class="line">    <span class="keyword">if</span> (!signature)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (Class someClass <span class="keyword">in</span> @[</span><br><span class="line">            [<span class="built_in">NSMutableArray</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSMutableDictionary</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSMutableString</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSNumber</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSDate</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSData</span> <span class="keyword">class</span>]</span><br><span class="line">        ])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">@try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> ([someClass instancesRespondToSelector:selector])</span><br><span class="line">                &#123;</span><br><span class="line">                    signature = [someClass instanceMethodSignatureForSelector:selector];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">@catch</span> (__unused <span class="built_in">NSException</span> *unused) &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> signature;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation</span><br><span class="line">&#123;</span><br><span class="line">    invocation.target = <span class="literal">nil</span>;</span><br><span class="line">    [invocation invoke];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li><p>第三方json解析<br> 1，应用在json层<br> 2，解析方法</p>
+<pre><code>除了原生的NSJSONSerialization外
+TouchJson
+SBJson 
+JSONKit </code></pre></li>
+<li><p>字典转模型<br> 1，应用在模型层<br> 2，字典转模型，会用单独的一篇来讲，<br> 3，字典转模型方法</p>
+<pre><code>YYModel
+MJExtension</code></pre></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/17/08_iOS1_空值盘点和判断/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1909,522 +2923,11 @@ content: 在RSS文件中是否包含内容 ,有3个值 true/false默认不填为
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/09/30/02_hexo搭建个人博客-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/30/02_hexo搭建个人博客-2/" itemprop="url">02_hexo搭建个人博客-2</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T14:26:31+08:00">
-                2019-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/30/02_hexo搭建个人博客-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/30/02_hexo搭建个人博客-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/09/30/02_hexo搭建个人博客-2/" class="leancloud_visitors" data-flag-title="02_hexo搭建个人博客-2">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  421
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，修改主题"><a href="#1，修改主题" class="headerlink" title="1，修改主题"></a>1，修改主题</h2><ul>
-<li>寻找自己喜欢的主题：<a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></li>
-<li>进入配置blog的目录（选用的next主题）：<br>  <code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></li>
-<li>打开_config.yml文件，将“theme”改成“next”</li>
-</ul>
-<h2 id="2，验证主题"><a href="#2，验证主题" class="headerlink" title="2，验证主题"></a>2，验证主题</h2><ul>
-<li>启动本地调试模式：hexo s –debug</li>
-<li>访问网站：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></li>
-<li><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%874.png" alt></li>
-</ul>
-<h2 id="3，本地图片未显示"><a href="#3，本地图片未显示" class="headerlink" title="3，本地图片未显示"></a>3，本地图片未显示</h2><ul>
-<li>方案1<ul>
-<li>新建_post文件夹平行的文件夹images，里面放图片</li>
-<li>设置属性：post_asset_folder设置成 false不变</li>
-<li>相对路径引用图片</li>
-<li>结果时有时无</li>
-</ul>
-</li>
-<li>方案2<ul>
-<li>安装插件：cd /d 你的hexo根目录<br>npm install <a href="https://github.com/7ym0n/hexo-asset-image">https://github.com/7ym0n/hexo-asset-image</a> –save</li>
-<li>设置属性：post_asset_folder设置成 true</li>
-<li>运行hexo n “你的博文名字”生成md博文时，/source/_posts目录下会生成一个与md同名的文件夹，将图片放人该文件夹</li>
-<li>使用! <a href="你的博文名字/图片名称"></a>插入图片即可</li>
-<li>结果时有时无</li>
-</ul>
-</li>
-<li>方案3<ul>
-<li>使用图床：<a href="https://upload.cc" target="_blank" rel="noopener">https://upload.cc</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="4，添加个人头像"><a href="#4，添加个人头像" class="headerlink" title="4，添加个人头像"></a>4，添加个人头像</h2><ul>
-<li>进入文件夹路径themes/next/source/images</li>
-<li>添加一张图片avatar.jpg</li>
-<li>进入路径themes/next/_config.yml,设置avatar属性:<ul>
-<li><code>avatar: /images/avatar.jpg</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="5，添加分类"><a href="#5，添加分类" class="headerlink" title="5，添加分类"></a>5，添加分类</h2><ul>
-<li>1，进入blog主文件夹目录，输入 <code>$ hexo new page categories</code></li>
-<li>2, 生成categories文件夹，里面的index.md,添加type属性如下<ul>
-<li><table><tr><td bgcolor="#C1E2E9">
-title: 文章分类  
-date: 2019-10-09 17:11:48  
-type: "categories"
-</td></tr>
-</table></li>
-</ul>
-</li>
-<li>3，给文章添加“categories”属性，添加categories属性<ul>
-<li><table><tr><td bgcolor="#C1E2E9">
-title: hexo搭建个人博客1  
-date: 2019-09-30 14:26:12  
-categories: 
-  — 工程相关
-</td></tr>
-</table>
-
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="6，添加标签"><a href="#6，添加标签" class="headerlink" title="6，添加标签"></a>6，添加标签</h2><ul>
-<li>与添加分类基本一致</li>
-<li>新建命令为：<code>hexo new page tags</code></li>
-<li>index.md中新增type： <code>type: &quot;tags&quot;</code></li>
-<li>文章中新增：<code>tags:- jQuery</code></li>
-<li>不同点：一篇文章可以拥有多个tag，但是分类只能嵌套</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/09/30/01_hexo搭建个人博客-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/30/01_hexo搭建个人博客-1/" itemprop="url">01_hexo搭建个人博客-1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-30T14:26:12+08:00">
-                2019-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/09/30/01_hexo搭建个人博客-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/30/01_hexo搭建个人博客-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/09/30/01_hexo搭建个人博客-1/" class="leancloud_visitors" data-flag-title="01_hexo搭建个人博客-1">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  297
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>hexo配置的参考文档：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
-<h2 id="1，检查安装环境"><a href="#1，检查安装环境" class="headerlink" title="1，检查安装环境"></a>1，检查安装环境</h2><ul>
-<li><p>检查node.js版本<br><code>node -v</code></p>
-</li>
-<li><p>检查git版本<br><code>git --version</code></p>
-</li>
-<li><p>如果未安装请参考 [git]: <a href="https://sourceforge.net/projects/git-osx-installer/" target="_blank" rel="noopener">https://sourceforge.net/projects/git-osx-installer/</a></p>
-</li>
-</ul>
-<h2 id="2，安装hexo"><a href="#2，安装hexo" class="headerlink" title="2，安装hexo"></a>2，安装hexo</h2><p><code>npm install -g hexo-cli</code></p>
-<h2 id="3，初始化建立博客框架"><a href="#3，初始化建立博客框架" class="headerlink" title="3，初始化建立博客框架"></a>3，初始化建立博客框架</h2><ul>
-<li><p>在你的家目录下创建一个blog文件夹<br><code>mkdir blog</code></p>
-</li>
-<li><p>进入目录<br><code>cd blog</code></p>
-</li>
-<li><p>初始化目录<br><code>hexo init</code></p>
-</li>
-<li><p>开启本地服务<br><code>hexo s</code> </p>
-</li>
-<li><p>本地浏览器验证：<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%871.png" alt></p>
-<h2 id="4，关联github仓库"><a href="#4，关联github仓库" class="headerlink" title="4，关联github仓库"></a>4，关联github仓库</h2></li>
-<li><p>新建仓库</p>
-<ul>
-<li>⚠️：仓库名一定要与用户名一致，后跟.github.io</li>
-<li><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%872.jpg" alt></li>
-</ul>
-</li>
-<li><p>配置_config.yml文件</p>
-<ul>
-<li><p>本地blog的路径下，找到_config.yml并打开</p>
-</li>
-<li><p>滚动到最底部,修改如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">	type: git  </span><br><span class="line">	repo: https://github.com/mc3747/mc3747.github.io.git  </span><br><span class="line">	branch: master</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="5，新建目录文件"><a href="#5，新建目录文件" class="headerlink" title="5，新建目录文件"></a>5，新建目录文件</h2><ul>
-<li>新建文件:<code>hexo new &quot;hexo搭建个人博客-1&quot;</code></li>
-<li>在source–_post处生成</li>
-<li><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%873.jpg" alt></li>
-</ul>
-<h2 id="6，生成页面，提交代码"><a href="#6，生成页面，提交代码" class="headerlink" title="6，生成页面，提交代码"></a>6，生成页面，提交代码</h2><ul>
-<li><p>生成静态页面:<code>hexo g</code></p>
-</li>
-<li><p>提交远程代码:<code>hexo d</code></p>
-</li>
-<li><p>生成并提交代码合成:<code>hexo g -d</code></p>
-</li>
-<li><p>假如报错，提示无法链接到gi或找不到git，运行：<br><code>npm install hexo-deployer-git --save</code></p>
-</li>
-<li><p>远程验证：<a href="https://mc3747.github.io和本地运行的界面http://localhost:4000一致即可" target="_blank" rel="noopener">https://mc3747.github.io和本地运行的界面http://localhost:4000一致即可</a></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span>
+    <a class="extend prev" rel="prev" href="/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2472,7 +2975,7 @@ categories:
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">98</span>
+                  <span class="site-state-item-count">102</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2494,7 +2997,7 @@ categories:
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2602,7 +3105,7 @@ categories:
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">55.2k</span>
+    <span title="Site words total count">55.9k</span>
   
 </div>
 

@@ -1815,7 +1815,7 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  298
+                  526
                 </span>
               
 
@@ -1831,7 +1831,7 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -1856,18 +1856,44 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
           
             <h2 id="1-开发者账号"><a href="#1-开发者账号" class="headerlink" title="1. 开发者账号"></a>1. 开发者账号</h2><pre><code>1. 个人($99,可以发布APP Store,申请资料少)
 2. 公司($99,可以发布APP Store,申请资料多)
-3. 企业($299,不可以发布APP Store,申请资料多)</code></pre><h2 id="2-证书"><a href="#2-证书" class="headerlink" title="2. 证书"></a>2. 证书</h2><pre><code>1. 本地证书
+3. 企业($299,不可以发布APP Store,申请资料多)</code></pre><h2 id="2-标识符-Identifiers"><a href="#2-标识符-Identifiers" class="headerlink" title="2. 标识符:Identifiers"></a>2. 标识符:Identifiers</h2><pre><code>1. Explicit App ID ：唯一的App ID，用于唯一标识一个应用程序
+2. Wildcard App ID：含有通配符的App ID，用于标识一组应程序
+3. 1个bundle ID &lt;-&gt; 一个证书 &lt;-&gt;一个配置文件</code></pre><h2 id="3-证书-Certificates"><a href="#3-证书-Certificates" class="headerlink" title="3. 证书:Certificates"></a>3. 证书:Certificates</h2><pre><code>1. 本地证书
 2. 开发者证书-development
 3. 发布者证书-production
-4. 推送证书-push</code></pre><h2 id="3-配置文件-provision-profile-也叫pp文件"><a href="#3-配置文件-provision-profile-也叫pp文件" class="headerlink" title="3. 配置文件(provision profile,也叫pp文件)"></a>3. 配置文件(provision profile,也叫pp文件)</h2><pre><code>1. 开发:development
+4. 推送证书-push</code></pre><h2 id="4-配置文件-provision-profile-也叫pp文件"><a href="#4-配置文件-provision-profile-也叫pp文件" class="headerlink" title="4. 配置文件(provision profile,也叫pp文件)"></a>4. 配置文件(provision profile,也叫pp文件)</h2><pre><code>1. 开发:development
 2. 发布:ad hoc
-3. 发布:app store</code></pre><h2 id="4-p12证书"><a href="#4-p12证书" class="headerlink" title="4. p12证书"></a>4. p12证书</h2><pre><code>1. 进入钥匙串-&gt;展开某个证书-&gt;两者选中右键导出
+3. 发布:app store</code></pre><h2 id="5-p12证书"><a href="#5-p12证书" class="headerlink" title="5. p12证书"></a>5. p12证书</h2><pre><code>1. 进入钥匙串-&gt;展开某个证书-&gt;右键导出,默认为p12(或者两者选中右键导出)
 2. 自己设置一个密码
 3. 作用:
     1. 一般是账号里的每个证书,对应一台电脑(除非有原始证书的ca文件)
-    2. 最多只能建立3个开发证书,3个发布证书,超过就要生成p12证书</code></pre><h2 id="5-技巧"><a href="#5-技巧" class="headerlink" title="5.技巧"></a>5.技巧</h2><pre><code>1. 给其他开发者p12文件和描述文件就可以了,p12文件让电脑就有开发的证明,描述文件让xcode识别合法性
+    2. 最多只能建立3个开发证书,3个发布证书,超过就要生成p12证书</code></pre><h2 id="6-设备-Devices"><a href="#6-设备-Devices" class="headerlink" title="6. 设备 Devices"></a>6. 设备 Devices</h2><h2 id="7-技巧"><a href="#7-技巧" class="headerlink" title="7.技巧"></a>7.技巧</h2><pre><code>1. 给其他开发者p12文件和描述文件就可以了,p12文件让电脑就有开发的证明,描述文件让xcode识别合法性
 2. 通过svn将p12文件,和描述文件共享,及时更新
-3. 已经用旧的证书打包好的ipa,如果删掉打包此ipa的证书,那么该版本的ipa将用不了,谨记⚠️</code></pre>
+3. 已经用旧的证书打包好的ipa,如果删掉打包此ipa的证书,那么该版本的ipa将用不了,谨记⚠️</code></pre><h2 id="6-问题"><a href="#6-问题" class="headerlink" title="6. 问题"></a>6. 问题</h2><ol>
+<li>生成证书请求文件(CSR),新建证书时需要<ol>
+<li>新建CSR证书</li>
+<li>填上名称地址后-&gt;存储到本地</li>
+<li>钥匙串会多一对公钥和私钥</li>
+<li>一个CSR文件可以去新建各种证书(开发的,发布的)<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8777.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8778.png" alt></li>
+</ol>
+</li>
+<li>根据CSR证书,新建各种证书<ol>
+<li>入iOS Dev Cneter，点击”Certificate” - “All”，点击右上角”+”</li>
+<li>配置各种证书</li>
+<li>选择CSR证书</li>
+<li></li>
+</ol>
+</li>
+<li>证书过期了怎么办<ol>
+<li>直接在证书里边修改</li>
+<li>再下载生成,安装本地</li>
+<li>导出p12给别人</li>
+</ol>
+</li>
+<li>根据证书新建配置文件</li>
+<li>新建p12文件</li>
+</ol>
+
           
         
       
@@ -2512,7 +2538,7 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">55.9k</span>
+    <span title="Site words total count">56.1k</span>
   
 </div>
 

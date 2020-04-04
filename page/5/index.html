@@ -280,6 +280,237 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/27/64_web4_浏览器的渲染引擎/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/27/64_web4_浏览器的渲染引擎/" itemprop="url">64_web4_浏览器的渲染引擎</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-27T09:16:50+08:00">
+                2019-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/27/64_web4_浏览器的渲染引擎/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/27/64_web4_浏览器的渲染引擎/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/27/64_web4_浏览器的渲染引擎/" class="leancloud_visitors" data-flag-title="64_web4_浏览器的渲染引擎">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  733
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-浏览器的核心："><a href="#1-浏览器的核心：" class="headerlink" title="1,浏览器的核心："></a>1,浏览器的核心：</h2><pre><code>1，渲染引擎
+2，JavaScript引擎（又称 JavaScript解释器）</code></pre><h2 id="2-渲染引擎的主要作用"><a href="#2-渲染引擎的主要作用" class="headerlink" title="2,渲染引擎的主要作用"></a>2,渲染引擎的主要作用</h2><pre><code>将网页代码渲染为用户视觉可以感知的平面文档</code></pre><h2 id="3-不同浏览器的渲染引擎"><a href="#3-不同浏览器的渲染引擎" class="headerlink" title="3,不同浏览器的渲染引擎"></a>3,不同浏览器的渲染引擎</h2><pre><code>Firefox：Gecko 引擎
+Safari：WebKit 引擎
+Chrome：Blink 引擎
+IE: Trident 引擎
+Edge: EdgeHTML 引擎    </code></pre><h2 id="4，渲染引擎的四个阶段。"><a href="#4，渲染引擎的四个阶段。" class="headerlink" title="4，渲染引擎的四个阶段。"></a>4，渲染引擎的四个阶段。</h2><pre><code>1，解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。
+2，对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。
+3，布局：计算出渲染树的布局（layout），也叫做节点信息的重流Reflow。
+4，绘制：将渲染树绘制到屏幕（Painting），也称作节点信息的重绘Repaint。    </code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8759.png" alt></p>
+<div style="background-color:#EEF4EC;border-left:5px #5DB24C solid">
+    <font color="#110B13" size="2.5" face="黑体">
+    &nbsp&nbsp♻️&nbsp&nbsp：以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了
+    </font>
+</div>
+
+<h2 id="5，重流和重绘"><a href="#5，重流和重绘" class="headerlink" title="5，重流和重绘"></a>5，重流和重绘</h2><pre><code>1，布局和绘制：
+    渲染树转换为网页布局，称为“布局流”（flow）；
+    布局显示到页面的这个过程，称为“绘制”（paint）。
+    它们都具有阻塞效应，并且会耗费很多时间和计算资源
+
+2，重流和重绘：
+    页面生成以后，脚本操作和样式表操作，都会触发“重流”（reflow）和“重绘”（repaint）
+    重流就是页面元素发生几何变更（例如位置变更），牵连其它元素发生几何变化，导致页面所有元素执行一次重新排版。
+    重绘就是页面元素发生样式变更（例如颜色变更），但不影响其它元素发生几何变化，使页面执行一次重新绘图。</code></pre><div style="background-color:#F9F0D8;border-left:5px #F8D43E solid">
+    <font color="#060F27" size="2.5" face="黑体">
+        &nbsp&nbsp⚠️&nbsp&nbsp 1，重流必然导致重绘，重绘不一定需要重流：<br>
+        &nbsp&nbsp⚠️&nbsp&nbsp    2，重排会消耗更多性能，重绘则消耗小部分性能，所以我们优化页面，要尽量减少重排<br>
+        &nbsp&nbsp⚠️&nbsp&nbsp 3，浏览器会智能判断，将重流和重绘只限制到相关的子树上面，最小化所耗费的代价，而不会全局重新生成网页
+    </font>
+</div>        
+
+<h2 id="6，重流和重绘的优化技巧"><a href="#6，重流和重绘的优化技巧" class="headerlink" title="6，重流和重绘的优化技巧"></a>6，重流和重绘的优化技巧</h2><pre><code>1，读取 DOM 或者写入 DOM，尽量写在一起，不要混杂。不要读取一个 DOM 节点，然后立刻写入，接着再读取一个 DOM 节点。
+2，缓存 DOM 信息。
+3，不要一项一项地改变样式，而是使用 CSS class 一次性改变样式。
+4，使用documentFragment操作 DOM
+5，动画使用absolute定位或fixed定位，这样可以减少对其他元素的影响。
+6，只在必要时才显示隐藏元素。
+7，使用window.requestAnimationFrame()，因为它可以把代码推迟到下一次重流时执行，而不是立即要求页面重流。
+8，使用虚拟 DOM（virtual DOM）库</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/25/63_web3_dom总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2338,229 +2569,6 @@ self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/16/54_iOS8_UIView要点介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/16/54_iOS8_UIView要点介绍/" itemprop="url">54_iOS8_UIView要点介绍</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T17:37:39+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/16/54_iOS8_UIView要点介绍/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/16/54_iOS8_UIView要点介绍/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/12/16/54_iOS8_UIView要点介绍/" class="leancloud_visitors" data-flag-title="54_iOS8_UIView要点介绍">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  986
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，初始化"><a href="#1，初始化" class="headerlink" title="1，初始化"></a>1，初始化</h2><pre><code>1，涉及方法：init，initWithFrame，initWithCoder
-2. 在initWithFrame中调用，外部使用init或initWithFrame均可以正常执行
-3. initWithCoder、awakeFromNib是从xib、storyboard中创建时会调用
-4.     当使用一个controller控制多个nib文件时，awakeFromNib方法会被多次调用。因此，当不使用awakeFromNib方法来完成nib对象的初始化时，需要注意此方法的多次调用对其他nib文件造成的影响
-5. 统一初始化方法如下：</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder &#123;</span><br><span class="line"><span class="keyword">self</span> = [superinitWithCoder:aDecoder];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">self</span>) &#123;</span><br><span class="line">[<span class="keyword">self</span> commonInit];</span><br><span class="line">&#125;</span><br><span class="line">returnself;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame &#123;</span><br><span class="line"><span class="keyword">self</span> = [superinitWithFrame:frame];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">self</span>) &#123;</span><br><span class="line">[<span class="keyword">self</span> commonInit];</span><br><span class="line">&#125;</span><br><span class="line">returnself;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)commonInit &#123;</span><br><span class="line"><span class="comment">// 统一初始化代码</span></span><br><span class="line">&#125;</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">## 2，重绘：</span></span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>，涉及方法：drawRect方法</span><br><span class="line">	<span class="number">2</span>，drawRect调用是在Controller-&gt;loadView,Controller-&gt;viewDidLoad 两方法之后调用的</span><br><span class="line">	<span class="number">3</span>，该方法在调用sizeThatFits后被调用，所以可以先调用sizeToFit计算出size。然后系统自动调用drawRect:方法。(sizeToFit会自动调用sizeThatFits方法)</span><br><span class="line">	<span class="number">4</span>， 若使用<span class="built_in">UIView</span>绘图，只能在drawRect:方法中获取相应的contextRef并绘图。如果在其他方法中获取将获取到一个invalidate 的ref并且不能用于画图。drawRect：方法不能手动显示调用，必须通过调用setNeedsDisplay 或 者 setNeedsDisplayInRect，让系统自动调该方法。</span><br><span class="line">	<span class="number">5</span>，若使用calayer绘图，只能在drawInContext: 中（类似于drawRect）绘制，或者在delegate中的相应方法绘制。同样也是调用setNeedDisplay等间接调用以上方法。</span><br><span class="line">	<span class="number">6</span>，若要实时画图，不能使用gestureRecognizer，只能使用touchbegan等方法来调用setNeedsDisplay实时刷新屏幕</span><br><span class="line">	<span class="number">7</span>，随意使用drawRect可能引入内存暴增的问题</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"><span class="meta">## 3，布局</span></span><br><span class="line"><span class="meta">### 3.1 触发布局的情形：</span></span><br><span class="line">	</span><br><span class="line">	<span class="number">1</span>、init初始化不会触发layoutSubviews，addSubview会触发layoutSubviews。</span><br><span class="line">	<span class="number">2</span>、设置view的Frame会触发layoutSubviews，当然前提是frame的值设置前后发生了变化。</span><br><span class="line">	<span class="number">3</span>、滚动一个<span class="built_in">UIScrollView</span>会触发layoutSubviews。</span><br><span class="line">	<span class="number">4</span>、旋转Screen会触发父<span class="built_in">UIView</span>上的layoutSubviews事件。</span><br><span class="line">	<span class="number">5</span>、改变一个<span class="built_in">UIView</span>大小的时候也会触发父<span class="built_in">UIView</span>上的layoutSubviews事件。</span><br><span class="line">	<span class="number">6</span>、直接调用setNeedsLayout\ layoutIfNeeded</span><br><span class="line">	</span><br><span class="line"><span class="meta">### 3.2 刷新子布局调用的方法</span></span><br><span class="line">	<span class="number">1</span>，frame布局</span><br><span class="line">		setNeedsLayout ，layoutIfNeeded</span><br><span class="line">	<span class="number">2</span>，约束布局</span><br><span class="line">		updateConstraintsIfNeeded</span><br><span class="line">		updateConstraints</span><br><span class="line">		- (<span class="built_in">BOOL</span>)needsUpdateConstraints</span><br><span class="line">		- (<span class="keyword">void</span>)setNeedsUpdateConstraints</span><br><span class="line"></span><br><span class="line"><span class="meta">## 4，适应</span></span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>，涉及方法：- (<span class="built_in">CGSize</span>)sizeThatFits:(<span class="built_in">CGSize</span>)size;和- (<span class="keyword">void</span>)sizeToFit;</span><br><span class="line">	<span class="number">2</span>，sizeToFit 自动调用 sizeThatFits 方法，不能在子类中重写 sizeToFit，可以重写sizeThatFits;</span><br><span class="line">	<span class="number">3</span>，sizeThatFits传入的参数是receiver当前的size，返回一个适合的size;</span><br><span class="line">	<span class="number">4</span>，sizeThatFits和sizeToFit可以被手动直接调用：例如[testLabel sizeToFit];<span class="comment">//会计算出最优的 size 而且会改变自己的size</span></span><br><span class="line">	[testLabel sizeThatFits:<span class="built_in">CGSizeMake</span>(<span class="number">20</span>, <span class="number">20</span>)];<span class="comment">//会计算出最优的 size 但是不会改变 自己的 size</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">## 5，添加动画</span></span><br><span class="line"><span class="meta">### 5.1，frame动画</span></span><br><span class="line">```objectiveC</span><br><span class="line">	-（<span class="keyword">void</span>）layoutSubviews&#123;</span><br><span class="line">  <span class="built_in">CGRect</span> frame = _bgView.frame;</span><br><span class="line">    frame.origin.y += keyboardHeight + bgHeight;</span><br><span class="line">    _bgView.frame = frame;</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span>f animations:^&#123;</span><br><span class="line">        <span class="built_in">CGRect</span> frame = _bgView.frame;</span><br><span class="line">        frame.origin.y -=  (keyboardHeight + bgHeight);</span><br><span class="line">        _bgView.frame = frame;</span><br><span class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-2，约束动画"><a href="#5-2，约束动画" class="headerlink" title="5.2，约束动画"></a>5.2，约束动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.leftConstr.constant = <span class="number">200</span>;</span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.5</span> animations:^&#123;</span><br><span class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</span><br><span class="line">    &#125; completion:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="6，自定义view的方法"><a href="#6，自定义view的方法" class="headerlink" title="6，自定义view的方法"></a>6，自定义view的方法</h2><pre><code>1，初始化兼容，重写initWithFrame，initWithCoder
-2，调整布局用layout相关；
-3，重绘内容用drawRect相关；
-4，调整内容用fit相关；</code></pre><h2 id="7，自定义view的加载方式"><a href="#7，自定义view的加载方式" class="headerlink" title="7，自定义view的加载方式"></a>7，自定义view的加载方式</h2><h3 id="7-1，纯代码加载"><a href="#7-1，纯代码加载" class="headerlink" title="7.1，纯代码加载"></a>7.1，纯代码加载</h3><pre><code>✳️内部设置：
-    1，初始化：initWithFrame
-    2，布局：
-        方法1：layoutSubviews（frame布局），
-        方法2：不用layoutSubviews（autoLayou布局，translatesAutoresizingMaskIntoConstraints 属性设为 NO），
-        方法3：不用layoutSubviews（使用masory布局）
-    3，适应：sizeThatFits
-
-✳️外部调用：
-init的初始化方法</code></pre><h3 id="7-2，xib或者storyboard加载"><a href="#7-2，xib或者storyboard加载" class="headerlink" title="7.2，xib或者storyboard加载"></a>7.2，xib或者storyboard加载</h3><pre><code>✳️内部设置：
-initWithcoder：只要是从storyboard/xib中加载就会调用这个方法；这个方法一般是初始化的操作
-awakeFromNib：storyboard/xib中加载完毕的时候调用，想做一些在xib加载完毕的操作，就在这个方法中操作（建议在这个方法中写初始化代码）
-
-✳️外部调用：
-方式一：通过mainBundel loadNibNamed:加载
-    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@&quot;xib文件名&quot; owner:nil options:nil]`
-方式二：通过`UINib`    `nibWithNibName`加载
-    UINib *nib = [UINib nibWithNibName:@&quot;xib文件名&quot; bundle:nil];
-    NSArray *views = [nib instantiateWithOwner:nil options:nil];</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2613,7 +2621,7 @@ awakeFromNib：storyboard/xib中加载完毕的时候调用，想做一些在xib
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">103</span>
+                  <span class="site-state-item-count">104</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2743,7 +2751,7 @@ awakeFromNib：storyboard/xib中加载完毕的时候调用，想做一些在xib
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">56.5k</span>
+    <span title="Site words total count">56.7k</span>
   
 </div>
 

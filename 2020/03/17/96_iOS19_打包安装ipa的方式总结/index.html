@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1. 连线安装2. 生成ipa文件的方式2.1. 方法1:product -&amp;gt; archive(其中选中设备Generic iOS Devices)1. Step1:生成xcproject文件；（文件路径：~/Library/Developer/Xcode/Archives） 2. Step2:更改后缀成ipa，形成文件夹,进入文件夹找到.app文件； 3. Step3: 新建“Payloa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-17T07:12:44.501Z">
+<meta property="og:updated_time" content="2020-04-02T07:31:17.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="96_iOS19_打包安装ipa的方式总结">
 <meta name="twitter:description" content="1. 连线安装2. 生成ipa文件的方式2.1. 方法1:product -&amp;gt; archive(其中选中设备Generic iOS Devices)1. Step1:生成xcproject文件；（文件路径：~/Library/Developer/Xcode/Archives） 2. Step2:更改后缀成ipa，形成文件夹,进入文件夹找到.app文件； 3. Step3: 新建“Payloa">
@@ -435,7 +435,7 @@
         xcodebuild archive -workspace TestAutoPacking.xcworkspace -scheme TestAutoPacking -archivePath /dandy/xmeAutoArchive/TestAutoPacking.xcarchive
 
     4. 导出ipa包
-        xcodebuild -exportArchive -archivePath /archive文件路径/archive文件名称.xcarchive -exportOptionsPlist /ExportOptions文件路径/ExportOptions.plist -exportPath /ipa导出的文件路径/</code></pre><h3 id="2-3-方法3-使用脚本生成ipa文件"><a href="#2-3-方法3-使用脚本生成ipa文件" class="headerlink" title="2.3 方法3:使用脚本生成ipa文件"></a>2.3 方法3:使用脚本生成ipa文件</h3><h3 id="2-4-方法4-利用jenkens工具生成ipa文件"><a href="#2-4-方法4-利用jenkens工具生成ipa文件" class="headerlink" title="2.4 方法4:利用jenkens工具生成ipa文件"></a>2.4 方法4:利用jenkens工具生成ipa文件</h3><h3 id="2-5-方法5-利用fastlane工具生成ipa文件"><a href="#2-5-方法5-利用fastlane工具生成ipa文件" class="headerlink" title="2.5 方法5:利用fastlane工具生成ipa文件"></a>2.5 方法5:利用fastlane工具生成ipa文件</h3><h2 id="3-生成的ipa文件怎么安装到手机"><a href="#3-生成的ipa文件怎么安装到手机" class="headerlink" title="3 生成的ipa文件怎么安装到手机"></a>3 生成的ipa文件怎么安装到手机</h2><h3 id="3-1-方法1-百度网盘"><a href="#3-1-方法1-百度网盘" class="headerlink" title="3.1 方法1:百度网盘"></a>3.1 方法1:百度网盘</h3><pre><code>用户下载得到.ipa文件(例如放大百度网盘等),通过itools,或者Apple Configurator安装到手机</code></pre><h3 id="3-2-方法2-服务器链接"><a href="#3-2-方法2-服务器链接" class="headerlink" title="3.2 方法2:服务器链接"></a>3.2 方法2:服务器链接</h3><pre><code>将.ipa文件上传到本地服务器,或者云服务器,再去访问</code></pre><h3 id="3-3-方法3-上传ipa到第三方平台"><a href="#3-3-方法3-上传ipa到第三方平台" class="headerlink" title="3.3 方法3:上传ipa到第三方平台"></a>3.3 方法3:上传ipa到第三方平台</h3><pre><code>1,蒲公英
+        xcodebuild -exportArchive -archivePath /archive文件路径/archive文件名称.xcarchive -exportOptionsPlist /ExportOptions文件路径/ExportOptions.plist -exportPath /ipa导出的文件路径/</code></pre><h3 id="2-3-方法3-使用脚本生成ipa文件"><a href="#2-3-方法3-使用脚本生成ipa文件" class="headerlink" title="2.3 方法3:使用脚本生成ipa文件"></a>2.3 方法3:使用脚本生成ipa文件</h3><h3 id="2-4-方法4-利用jenkens工具生成ipa文件"><a href="#2-4-方法4-利用jenkens工具生成ipa文件" class="headerlink" title="2.4 方法4:利用jenkens工具生成ipa文件"></a>2.4 方法4:利用jenkens工具生成ipa文件</h3><h3 id="2-5-方法5-利用fastlane工具生成ipa文件"><a href="#2-5-方法5-利用fastlane工具生成ipa文件" class="headerlink" title="2.5 方法5:利用fastlane工具生成ipa文件"></a>2.5 方法5:利用fastlane工具生成ipa文件</h3><h2 id="3-生成的ipa文件怎么安装到手机"><a href="#3-生成的ipa文件怎么安装到手机" class="headerlink" title="3 生成的ipa文件怎么安装到手机"></a>3 生成的ipa文件怎么安装到手机</h2><h3 id="3-1-方法1-百度网盘"><a href="#3-1-方法1-百度网盘" class="headerlink" title="3.1 方法1:百度网盘"></a>3.1 方法1:百度网盘</h3><pre><code>用户下载得到.ipa文件(例如放到百度网盘等),通过itools,或者Apple Configurator安装到手机</code></pre><h3 id="3-2-方法2-服务器链接"><a href="#3-2-方法2-服务器链接" class="headerlink" title="3.2 方法2:服务器链接"></a>3.2 方法2:服务器链接</h3><pre><code>将.ipa文件上传到本地服务器,或者云服务器,再去访问</code></pre><h3 id="3-3-方法3-上传ipa到第三方平台"><a href="#3-3-方法3-上传ipa到第三方平台" class="headerlink" title="3.3 方法3:上传ipa到第三方平台"></a>3.3 方法3:上传ipa到第三方平台</h3><pre><code>1,蒲公英
 2,58分发
 3,fir.im</code></pre>
       
@@ -561,7 +561,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">103</span>
+                  <span class="site-state-item-count">104</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -707,7 +707,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">56.5k</span>
+    <span title="Site words total count">56.7k</span>
   
 </div>
 

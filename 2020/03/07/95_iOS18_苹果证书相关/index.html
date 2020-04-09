@@ -106,8 +106,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8777.png">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8778.png">
-<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8780.jpg">
-<meta property="og:updated_time" content="2020-04-08T11:56:56.941Z">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8780.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8781.jpg">
+<meta property="og:updated_time" content="2020-04-09T03:11:11.882Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="95_iOS18_苹果证书相关">
 <meta name="twitter:description" content="1. 开发者账号1. 个人($99,可以发布APP Store,申请资料少) 2. 公司($99,可以发布APP Store,申请资料多) 3. 企业($299,不可以发布APP Store,申请资料多)2. 标识符:Identifiers1. Explicit App ID ：唯一的App ID，用于唯一标识一个应用程序 2. Wildcard App ID：含有通配符的App ID，用于标识一">
@@ -388,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  554
+                  651
                 </span>
               
 
@@ -441,33 +442,42 @@
     2. 最多只能建立3个开发证书,3个发布证书,超过就要生成p12证书</code></pre><h2 id="6-设备-Devices"><a href="#6-设备-Devices" class="headerlink" title="6. 设备 Devices"></a>6. 设备 Devices</h2><h2 id="7-技巧"><a href="#7-技巧" class="headerlink" title="7.技巧"></a>7.技巧</h2><pre><code>1. 给其他开发者p12文件和描述文件就可以了,p12文件让电脑就有开发的证明,描述文件让xcode识别合法性
 2. 通过svn将p12文件,和描述文件共享,及时更新
 3. 已经用旧的证书打包好的ipa,如果删掉打包此ipa的证书,那么该版本的ipa将用不了,谨记⚠️</code></pre><h2 id="6-问题"><a href="#6-问题" class="headerlink" title="6. 问题"></a>6. 问题</h2><ol>
-<li>生成证书请求文件(CSR),新建证书时需要<ol>
+<li><p>生成证书请求文件(CSR),新建证书时需要</p>
+<ol>
 <li>新建CSR证书</li>
 <li>填上名称地址后-&gt;存储到本地</li>
 <li>钥匙串会多一对公钥和私钥</li>
 <li>一个CSR文件可以去新建各种证书(开发的,发布的)<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8777.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8778.png" alt></li>
 </ol>
 </li>
-<li>根据CSR证书,新建各种证书<ol>
+<li><p>问题1:根据CSR证书,新建各种证书</p>
+<ol>
 <li>入iOS Dev Cneter，点击”Certificate” - “All”，点击右上角”+”</li>
 <li>配置各种证书</li>
 <li>选择CSR证书</li>
 <li></li>
 </ol>
 </li>
-<li>证书过期了怎么办<ol>
+<li><p>问题2:证书过期了怎么办</p>
+<ol>
 <li>直接在证书里边修改</li>
 <li>再下载生成,安装本地</li>
 <li>导出p12给别人</li>
 </ol>
 </li>
-<li>根据证书新建配置文件<ol>
+<li><p>问题3:根据证书新建配置文件</p>
+<ol>
 <li>配置文件要选择对应的证书</li>
 <li>一定要选择</li>
 </ol>
 </li>
-<li>新建p12文件</li>
-<li>xcode中配置不同环境的证书<br> <img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8780.jpg" alt></li>
+<li><p>问题4:新建p12文件</p>
+</li>
+<li><p>问题5:证书不信任,需要重新配置本地csr文件,然后新建证书<br> <img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8780.png" alt></p>
+</li>
+<li><p>xcode中配置不同环境的证书<br> 报错类似:<code>xxx is automatically signed for development, but a conflicting code signing identity iPhone Distribution has been manually specified. Set the code signing identity value to &quot;iPhone Developer&quot; in the build settings editor, or switch to manual signing in the project editor</code><br> 解决:设置sign code(一定要配置正确)</p>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8781.jpg" alt></p>
+</li>
 </ol>
 
       
@@ -739,7 +749,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">56.7k</span>
+    <span title="Site words total count">56.8k</span>
   
 </div>
 

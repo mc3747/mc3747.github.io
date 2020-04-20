@@ -280,6 +280,216 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/27/28_接口3_接口文档/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/27/28_接口3_接口文档/" itemprop="url">28_接口3_接口文档</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-27T17:56:01+08:00">
+                2019-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/27/28_接口3_接口文档/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/27/28_接口3_接口文档/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/27/28_接口3_接口文档/" class="leancloud_visitors" data-flag-title="28_接口3_接口文档">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  243
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-不用word编写的原因"><a href="#1-不用word编写的原因" class="headerlink" title="1. 不用word编写的原因:"></a>1. 不用word编写的原因:</h2><pre><code>字符编码
+排版，格式
+体积大</code></pre><h2 id="2-预期想做的接口管理目标"><a href="#2-预期想做的接口管理目标" class="headerlink" title="2. 预期想做的接口管理目标"></a>2. 预期想做的接口管理目标</h2><pre><code>1. 在线文档
+2. 涵盖app，web，微信文档，可视化逻辑
+3. 灵活配置
+4. 文档内容
+    界面简洁
+    导航方便：字母搜索，业务搜索
+    导入方便
+    生成html的导航，和gitbook装订本
+5. 接口测试</code></pre><h2 id="3-可用的第三方"><a href="#3-可用的第三方" class="headerlink" title="3. 可用的第三方"></a>3. 可用的第三方</h2><pre><code>1,gitbook
+2,showDoc
+3,postman
+4,阿里的rap
+5,api doc✅
+6,YApi :github开源
+7,文档生成器markdown +生成html http://docs.9aipay.com/index.html</code></pre><h2 id="4-可行的方案一-后台服务器-前端展示"><a href="#4-可行的方案一-后台服务器-前端展示" class="headerlink" title="4. 可行的方案一:后台服务器 + 前端展示"></a>4. 可行的方案一:后台服务器 + 前端展示</h2><p>1，静态用户展示<br>    1,纯原生<br>    2,bootstarp方案<br>    3,antD<br>    4,其他：github搜索Dashboard<br>2，后台动态crud：<br>    参考react写的后台系统：<a href="https://github.com/yezihaohao/react-admin">https://github.com/yezihaohao/react-admin</a><br>    leanCould云上数据存储<br>3，模拟接口数据<br>4，接入移动办公系统</p>
+<h2 id="5-可行的方案一-云服务器-前端展示"><a href="#5-可行的方案一-云服务器-前端展示" class="headerlink" title="5. 可行的方案一:云服务器 + 前端展示"></a>5. 可行的方案一:云服务器 + 前端展示</h2><pre><code>阿里云的oss存储数据</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/27/27_接口2_测试和抓包软件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2295,201 +2505,6 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/19_工具3_我用“阿里云”来搞事情/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/24/19_工具3_我用“阿里云”来搞事情/" itemprop="url">19_工具3_我用“阿里云”来搞事情</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T11:25:05+08:00">
-                2019-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/24/19_工具3_我用“阿里云”来搞事情/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/19_工具3_我用“阿里云”来搞事情/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/24/19_工具3_我用“阿里云”来搞事情/" class="leancloud_visitors" data-flag-title="19_工具3_我用“阿里云”来搞事情">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  59
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，搭配PicGo构建图床"><a href="#1，搭配PicGo构建图床" class="headerlink" title="1，搭配PicGo构建图床"></a>1，搭配PicGo构建图床</h2><p>参考：<a href="https://www.cnblogs.com/progor/p/9850514.html" target="_blank" rel="noopener">参考文章1</a></p>
-<h2 id="2，申请域名"><a href="#2，申请域名" class="headerlink" title="2，申请域名"></a>2，申请域名</h2><h2 id="3，测试调用API"><a href="#3，测试调用API" class="headerlink" title="3，测试调用API"></a>3，测试调用API</h2><pre><code>api市场：https://market.aliyun.com/products/56956004?spm=5176.730006-56956004-57126001-cmapi011151.102.1.35083685k7cGvq
-postman模拟：https://help.aliyun.com/document_detail/93641.html?spm=a2c4g.11186623.6.573.50145d77Is8e00</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2542,7 +2557,7 @@ postman模拟：https://help.aliyun.com/document_detail/93641.html?spm=a2c4g.111
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-count">109</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2672,7 +2687,7 @@ postman模拟：https://help.aliyun.com/document_detail/93641.html?spm=a2c4g.111
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">63.6k</span>
+    <span title="Site words total count">63.7k</span>
   
 </div>
 

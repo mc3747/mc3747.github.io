@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="1. 基本控件1. 背景图片     1. 使用view的background-image属性         1. src不能使用本地绝对路径和相对路径         2. 可以使用网络图片         3. 可以将图片转成base64来使用     2. 使用image标签         1. 为单标签         2. 可以使用相对路径,绝对路径,网络路径 2. 按钮     1">
+<meta name="description" content="1. 基本控件1.1 背景图片1. 使用view的background-image属性     1. src不能使用本地绝对路径和相对路径     2. 可以使用网络图片     3. 可以将图片转成base64来使用 2. 使用image标签     1. 为单标签     2. 可以使用相对路径,绝对路径,网络路径1.2 按钮3. 使用button标签,一般在表达中使用,属于重量型 4. 使用">
 <meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="109_微信小程序2_基本注意事项">
 <meta property="og:url" content="https://github.com/2020/04/20/109_微信小程序2_基本注意事项/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="1. 基本控件1. 背景图片     1. 使用view的background-image属性         1. src不能使用本地绝对路径和相对路径         2. 可以使用网络图片         3. 可以将图片转成base64来使用     2. 使用image标签         1. 为单标签         2. 可以使用相对路径,绝对路径,网络路径 2. 按钮     1">
+<meta property="og:description" content="1. 基本控件1.1 背景图片1. 使用view的background-image属性     1. src不能使用本地绝对路径和相对路径     2. 可以使用网络图片     3. 可以将图片转成base64来使用 2. 使用image标签     1. 为单标签     2. 可以使用相对路径,绝对路径,网络路径1.2 按钮3. 使用button标签,一般在表达中使用,属于重量型 4. 使用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-20T13:58:55.034Z">
+<meta property="og:updated_time" content="2020-04-24T01:24:50.177Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="109_微信小程序2_基本注意事项">
-<meta name="twitter:description" content="1. 基本控件1. 背景图片     1. 使用view的background-image属性         1. src不能使用本地绝对路径和相对路径         2. 可以使用网络图片         3. 可以将图片转成base64来使用     2. 使用image标签         1. 为单标签         2. 可以使用相对路径,绝对路径,网络路径 2. 按钮     1">
+<meta name="twitter:description" content="1. 基本控件1.1 背景图片1. 使用view的background-image属性     1. src不能使用本地绝对路径和相对路径     2. 可以使用网络图片     3. 可以将图片转成base64来使用 2. 使用image标签     1. 为单标签     2. 可以使用相对路径,绝对路径,网络路径1.2 按钮3. 使用button标签,一般在表达中使用,属于重量型 4. 使用">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  125
+                  728
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -421,17 +421,43 @@
       
 
       
-        <h2 id="1-基本控件"><a href="#1-基本控件" class="headerlink" title="1. 基本控件"></a>1. 基本控件</h2><pre><code>1. 背景图片
-    1. 使用view的background-image属性
-        1. src不能使用本地绝对路径和相对路径
-        2. 可以使用网络图片
-        3. 可以将图片转成base64来使用
-    2. 使用image标签
-        1. 为单标签
-        2. 可以使用相对路径,绝对路径,网络路径
-2. 按钮
-    1. 使用button标签,一般在表达中使用,属于重量型
-    2. 使用普通view标签的事件绑定,bindtap=&quot;方法名&quot;</code></pre>
+        <h2 id="1-基本控件"><a href="#1-基本控件" class="headerlink" title="1. 基本控件"></a>1. 基本控件</h2><h3 id="1-1-背景图片"><a href="#1-1-背景图片" class="headerlink" title="1.1 背景图片"></a>1.1 背景图片</h3><pre><code>1. 使用view的background-image属性
+    1. src不能使用本地绝对路径和相对路径
+    2. 可以使用网络图片
+    3. 可以将图片转成base64来使用
+2. 使用image标签
+    1. 为单标签
+    2. 可以使用相对路径,绝对路径,网络路径</code></pre><h3 id="1-2-按钮"><a href="#1-2-按钮" class="headerlink" title="1.2 按钮"></a>1.2 按钮</h3><pre><code>3. 使用button标签,一般在表达中使用,属于重量型
+4. 使用普通view标签的事件绑定,bindtap=&quot;方法名&quot;
+5. 按钮点击响应同一事件的区分
+    1. 方法1:传入js文件中的数组,使用默认的item和index区分
+    2. 方法2:直接使用js文件中传入的字段来区分
+    3. 方法3:传入数组数据:&lt;view wx:for=&quot;{{ [88, 77, 55, 44, 33] }}&quot;&gt;
+    4. 最后在响应方法begin: function(evt) 中区分evt.currentTarget.dataset.index</code></pre><h3 id="1-3-循环"><a href="#1-3-循环" class="headerlink" title="1.3 循环"></a>1.3 循环</h3><pre><code>1. 循环绑定数组
+2. 循环指定元素的名称
+3. 循环指定下标的变量名称:</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>_指定默认的数组(index,item)</span><br><span class="line">&lt;view wx:<span class="keyword">for</span>=<span class="string">"&#123;&#123;array&#125;&#125;"</span>&gt;</span><br><span class="line">  &#123;&#123;index&#125;&#125;: &#123;&#123;item.message&#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">2_自定义下标和元素</span></span><br><span class="line"><span class="regexp">&lt;view wx:for="&#123;&#123;array&#125;&#125;" wx:for-index="idx" wx:for-item="itemName"&gt;</span></span><br><span class="line"><span class="regexp">  &#123;&#123;idx&#125;&#125;: &#123;&#123;itemName.message&#125;&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>view&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-4-数据绑定"><a href="#1-4-数据绑定" class="headerlink" title="1.4 数据绑定"></a>1.4 数据绑定</h3><pre><code>1. mustache语法
+2. 双大括号引用</code></pre><h3 id="1-5-隐藏元素"><a href="#1-5-隐藏元素" class="headerlink" title="1.5 隐藏元素"></a>1.5 隐藏元素</h3><pre><code>1. 方法1:visibulity属性设置为hidden(占位,隐藏)
+2. 方法2:display属性设置为none(不占位,但渲染,尺寸为0)
+3. 方法3:微信中的条件渲染
+    1. 使用if:&lt;view wx:if=&quot;{{condition}}&quot;&gt; True &lt;/view&gt;
+    2. 使用if--else:&lt;view wx:if=&quot;{{length > 5}}&quot;&gt; 1 &lt;/view&gt;
+        &lt;view wx:elif=&quot;{{length > 2}}&quot;&gt; 2 &lt;/view&gt;
+        &lt;view wx:else&gt; 3 &lt;/view&gt;</code></pre><h3 id="1-6-字体单位"><a href="#1-6-字体单位" class="headerlink" title="1.6 字体单位"></a>1.6 字体单位</h3><pre><code>1. px:像素
+2. em:（font size of the element）相对于父元素的值
+3. rem:（font size of the root element）根元素的字体
+4. %：相对单位，每个子元素透过「百分比」乘以父元素的px值
+5. 任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px
+6. smaller：约为父层的80%; larger：约为父层的120%
+7. 微信小程序中:rpx（responsive pixel)
+    1. 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素</code></pre><h3 id="1-7-固定底部文字"><a href="#1-7-固定底部文字" class="headerlink" title="1.7 固定底部文字"></a>1.7 固定底部文字</h3><pre><code>1. 方案1:使用绝对布局
+    1. 子绝父相,相对的是整个屏幕,如果距离太大,可能会跟上部数据重合
+2. 方案2:直接相对上部元素
+    1. 使用margin-top,会跟随上部元素,不会固定在最底部
+3. 方案3:使用浮动
+4. 方案4:flex布局,使用两端对齐(推荐)</code></pre>
       
     </div>
     
@@ -663,7 +689,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本控件"><span class="nav-number">1.</span> <span class="nav-text">1. 基本控件</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基本控件"><span class="nav-number">1.</span> <span class="nav-text">1. 基本控件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-背景图片"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 背景图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-按钮"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-循环"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-数据绑定"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 数据绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-隐藏元素"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 隐藏元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-字体单位"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 字体单位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-固定底部文字"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 固定底部文字</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -697,7 +723,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">63.7k</span>
+    <span title="Site words total count">64.4k</span>
   
 </div>
 

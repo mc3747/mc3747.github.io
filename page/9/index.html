@@ -280,6 +280,218 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/28/30_算法3_链表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/28/30_算法3_链表/" itemprop="url">30_算法3_链表</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-28T14:51:11+08:00">
+                2019-11-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/28/30_算法3_链表/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/28/30_算法3_链表/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/28/30_算法3_链表/" class="leancloud_visitors" data-flag-title="30_算法3_链表">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  327
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，定义"><a href="#1，定义" class="headerlink" title="1，定义"></a>1，定义</h2><p>不需要连续的内存空间</p>
+<h2 id="2，分类"><a href="#2，分类" class="headerlink" title="2，分类"></a>2，分类</h2><h3 id="2-1，单链表"><a href="#2-1，单链表" class="headerlink" title="2.1，单链表"></a>2.1，单链表</h3><pre><code>node：头结点，结点，尾结点（next指针指向null）
+data：存储数据
+next：后继指针（指向下一个数据的data）</code></pre><p>优点：链表的插入和删除数据的复杂度O(1),<br>数组的插入和删除数据的复杂度O(n),</p>
+<p>缺点：随机访问元素的复杂度为O(n)，<br>数组随机访问元素的复杂度为O(1),</p>
+<h3 id="2-2，循环链表"><a href="#2-2，循环链表" class="headerlink" title="2.2，循环链表"></a>2.2，循环链表</h3><pre><code>特殊的单链表，尾结点的next指针指向头结点
+例子：约瑟夫问题</code></pre><h3 id="2-3，双向链表"><a href="#2-3，双向链表" class="headerlink" title="2.3，双向链表"></a>2.3，双向链表</h3><pre><code>node：
+data：
+next：后继指针（指向后一数据的prev指针）
+prev：前驱指针（指向前一数据的next指针）
+删除：
+    1，值等于给定值的结点：查找O（n），删除O（1）
+    2，给定指针指向的结点：单链表O（n），双向链表O（1）
+    例子：java中的LinkedHashMap</code></pre><h3 id="2-4，双向循环链表"><a href="#2-4，双向循环链表" class="headerlink" title="2.4，双向循环链表"></a>2.4，双向循环链表</h3><h2 id="3，思想"><a href="#3，思想" class="headerlink" title="3，思想"></a>3，思想</h2><pre><code>时间换空间：手机或者单片机上的程序
+空间换时间：缓存技术</code></pre><h2 id="4，数组和链表的对比："><a href="#4，数组和链表的对比：" class="headerlink" title="4，数组和链表的对比："></a>4，数组和链表的对比：</h2><pre><code>1，时间复杂度
+2，数组：适合缓存
+3，链表：动态扩容</code></pre><h2 id="5，应用"><a href="#5，应用" class="headerlink" title="5，应用"></a>5，应用</h2><pre><code>数组对CPU缓存友好
+快慢指针实现：
+LRU淘汰算法：
+回文字符串的访问</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/11/27/28_接口3_接口文档/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2239,272 +2451,6 @@ java本身会报错</code></pre><h2 id="6，数组从0开始"><a href="#6，数�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/10/24/20_java3_基础语法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/10/24/20_java3_基础语法/" itemprop="url">20_java3_基础语法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T15:06:39+08:00">
-                2019-10-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/10/24/20_java3_基础语法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/10/24/20_java3_基础语法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/10/24/20_java3_基础语法/" class="leancloud_visitors" data-flag-title="20_java3_基础语法">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.6k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，基本结构"><a href="#1，基本结构" class="headerlink" title="1，基本结构"></a>1，基本结构</h2><ol>
-<li><p>一个完整的Java。源程序应该包括下列部分：</p>
-<pre><code>1，package语句，该部分至多只有一句，必须放在源程序的第一句。
- 2，import语句，该部分可以有若干import语句或者没有，必须放在所有的类定义之前。
- 3，public classDefinition，公共类定义部分，至多只有一个公共类的定义，
-4，⚠️Java语言规定该Java源程序的文件名必须与该公共类名完全一致。
- 5，classDefinition，类定义部分，可以有0个或者多个类定义。
-6，interfaceDefinition，接口定义部分，可以有0个或者多个接口定义。</code></pre></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> javawork.helloworld;</span><br><span class="line"><span class="comment">/*把编译生成的所有．class文件放到包javawork.helloworld中*/</span></span><br><span class="line"><span class="keyword">import</span> java awt.*;</span><br><span class="line"><span class="comment">//告诉编译器本程序中用到系统的AWT包</span></span><br><span class="line"><span class="keyword">import</span> javawork.newcentury;</span><br><span class="line"><span class="comment">/*告诉编译器本程序中用到用户自定义的包javawork.newcentury*/</span></span><br><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldApp</span></span>&#123;...｝</span><br><span class="line"><span class="comment">/*公共类HelloWorldApp的定义，名字与文件名相同*/</span> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TheFirstClass</span>｛...｝</span>;</span><br><span class="line"><span class="comment">//第一个普通类TheFirstClass的定义 </span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">TheFirstInterface</span></span>&#123;......&#125;</span><br><span class="line"><span class="comment">/*定义一个接口TheFirstInterface*/</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-入口函数"><a href="#2-入口函数" class="headerlink" title="2,入口函数"></a>2,入口函数</h2><blockquote>
-<p>public static void main(String[] args)<br>这是 Java 程序的入口地址，Java 虚拟机运行程序的时候首先找的就是 main 方法。跟 C 语言里面的 main() 函数的作用是一样的。只有有 main() 方法的 Java 程序才能够被 Java 虚拟机运行，可理解为规定的格式。</p>
-</blockquote>
-<pre><code>1,public：表示的这个程序的访问权限，表示的是任何的场合可以被引用，这样 Java 虚拟机就可以找到 main() 方法,从而来运行 javac 程序。
- 2,static： 表明方法是静态的，不依赖类的对象的，是属于类的，在类加载的时候 main() 方法也随着加载到内存中去。
- 3,void:main()：方法是不需要返回值的。
- 4,main：约定俗成，规定的。
- 5,String[] args：从控制台接收参数。</code></pre><h2 id="3-命名规范"><a href="#3-命名规范" class="headerlink" title="3,命名规范"></a>3,命名规范</h2><pre><code>1. 项目名：大驼峰
-2. 包名全部小写
-3. 类名：大驼峰。如：public class MyFirstClass{}
-4. 变量名、方法名：小驼峰。如：
-    int index=0;
-    public void toString(){}
-5. 常量名全部大写
-    A,如：public static final String GAME_COLOR=&quot;RED&quot;;
-6. 所有命名规则必须遵循以下规则：
-    1)、名称只能由字母、数字、下划线、$符号组成
-     2)、不能以数字开头
-     3)、名称不能使用JAVA中的关键字。
-     4)、坚决不允许出现中文及拼音命名。</code></pre><h2 id="4，代码格式及注释"><a href="#4，代码格式及注释" class="headerlink" title="4，代码格式及注释"></a>4，代码格式及注释</h2><pre><code>1. 代码格式：右键 -》source -》format
-2. 注释
-    1，单行：//
-    2，多行:/*
-    3，文档:/**敲完后,直接enter
-3. syso是打印的简写</code></pre><h2 id="5-数据类型"><a href="#5-数据类型" class="headerlink" title="5,数据类型"></a>5,数据类型</h2><h3 id="4-1-基本类型primitive-type"><a href="#4-1-基本类型primitive-type" class="headerlink" title="4.1 基本类型primitive type"></a>4.1 基本类型primitive type</h3><pre><code>boolean   布尔型   1个字节 8bit（8位）
-byte     字节类型   1个字节
-char     字符类型   2个字节
-short     短整型     2个字节
-int          整型        4个字节
-float      浮点型（单精度）4个字节
-long      长整型      8个字节
-double   双精度类型  8个字节
-
-if条件：
-    c语言是非真及假
-    java必须要是bool类型</code></pre><h3 id="4-2-引用类型reference-type"><a href="#4-2-引用类型reference-type" class="headerlink" title="4.2 引用类型reference type"></a>4.2 引用类型reference type</h3><pre><code>1，对对象的引用，即存储的值是对象的地址
-2，String是引用类型</code></pre><h3 id="4-3-数据类型转换"><a href="#4-3-数据类型转换" class="headerlink" title="4.3 数据类型转换"></a>4.3 数据类型转换</h3><pre><code>1. 拓宽基本数据转换(数据范围扩大),自动转换(隐式转换);窄化基本类型转换(数据范围缩小),强制转换;只是数值类型的转换，没有bool
-2. 一元数字的提升
-    1. 条件:数组的索引,数组的长度;一元运算符+;一元运算符-;按位取反~;位移&gt;&gt;,&gt;&gt;等
-    2. 结果:自动将byte,short,char,转成int
-3. 二元数字的提升
-    1. 条件:使用运算符(加减乘除,)
-    2. 结果:拓宽其中一个或者几个范围</code></pre><h3 id="4-4-字面量赋值"><a href="#4-4-字面量赋值" class="headerlink" title="4.4 字面量赋值"></a>4.4 字面量赋值</h3><pre><code>⚠️：单纯的根据字面量是不知道是什么具体类型的
-byte a = 10；
-int a = 10</code></pre><h2 id="5，运算符"><a href="#5，运算符" class="headerlink" title="5，运算符"></a>5，运算符</h2><pre><code>&gt;&gt;有符号右移:用符号位补齐
-&gt;&gt;&gt;无符号右移:用0补齐
-位运算：&amp;和|，对比&amp;&amp;和||，功能一样，就是少了短路功能(&amp;&amp;一旦左边是0,直接结果是0,||一旦左边是true,直接返回true)</code></pre><h2 id="6，关键字"><a href="#6，关键字" class="headerlink" title="6，关键字"></a>6，关键字</h2><pre><code>true，false，null不是关键字，是字面量</code></pre><h2 id="7，标识符"><a href="#7，标识符" class="headerlink" title="7，标识符"></a>7，标识符</h2><pre><code>1，标识符定义：
-    1. 不限长度的java字符和数字，且以java字符开头
-    2. 不包括关键字和字面量
-    3. 
-2，java字母：官方定义Character.isJavaIdentifierStart返回为true,就是
-3，java数字：0~9</code></pre><h2 id="8-变量"><a href="#8-变量" class="headerlink" title="8, 变量"></a>8, 变量</h2><pre><code>1,局部变量使用前必须要初始化,没有默认值
-2,非局部变量(成员变量,类变量),自动设置了初始值
-3,变量的初始值:</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8771.jpg" alt></p>
-<h2 id="9-修饰符"><a href="#9-修饰符" class="headerlink" title="9,修饰符"></a>9,修饰符</h2><h3 id="9-1访问修饰符"><a href="#9-1访问修饰符" class="headerlink" title="9.1访问修饰符"></a>9.1访问修饰符</h3><pre><code>default (即默认，什么也不写）: 在同一包内可见，不使用任何修饰符。使用对象：类、接口、变量、方法。
-private : 在同一类内可见。使用对象：变量、方法。 注意：不能修饰类（外部类）
-public : 对所有类可见。使用对象：类、接口、变量、方法
-protected : 对同一包内的类和所有子类可见。使用对象：变量、方法。 注意：不能修饰类（外部类）。</code></pre><h3 id="9-2非访问修饰符"><a href="#9-2非访问修饰符" class="headerlink" title="9.2非访问修饰符"></a>9.2非访问修饰符</h3><pre><code>static 修饰符，用来修饰类方法和类变量。
-final 修饰符，用来修饰类、方法和变量，final 修饰的类不能够被继承，修饰的方法不能被继承类重新定义，修饰的变量为常量，是不可修改的。
-abstract 修饰符，用来创建抽象类和抽象方法。
-synchronized 修饰符：声明的方法同一时间只能被一个线程访问。修饰符可以应用于四个访问修饰符。
-transient 修饰符：序列化的对象包含被 transient 修饰的实例变量时，java 虚拟机(JVM)跳过该特定的变量。该修饰符包含在定义变量的语句中，用来预处理类和变量的数据类型
-volatile 修饰符：修饰的成员变量在每次被线程访问时，都强制从共享内存中重新读取该成员变量的值。而且，当成员变量发生变化时，会强制线程将变化值回写到共享内存。这样在任何时刻，两个不同的线程总是看到某个成员变量的同一个值。</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2557,7 +2503,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">110</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2687,7 +2633,7 @@ volatile 修饰符：修饰的成员变量在每次被线程访问时，都强�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">64.4k</span>
+    <span title="Site words total count">64.5k</span>
   
 </div>
 

@@ -280,6 +280,219 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/12/50_android1_mac配置android环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/12/50_android1_mac配置android环境/" itemprop="url">50_android1_mac配置android环境</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-12T16:53:02+08:00">
+                2019-12-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/android/" itemprop="url" rel="index">
+                    <span itemprop="name">android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/12/50_android1_mac配置android环境/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/12/50_android1_mac配置android环境/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/12/12/50_android1_mac配置android环境/" class="leancloud_visitors" data-flag-title="50_android1_mac配置android环境">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  379
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，清理旧的android-studio"><a href="#1，清理旧的android-studio" class="headerlink" title="1，清理旧的android studio"></a>1，清理旧的android studio</h2><pre><code>参考网上教程，要彻底删除</code></pre><h2 id="2，-android-studio下载"><a href="#2，-android-studio下载" class="headerlink" title="2， android studio下载"></a>2， android studio下载</h2><pre><code>http://developer.android.com/intl/zh-cn/sdk/index.html</code></pre><h2 id="3，免安装android-SDK的方法"><a href="#3，免安装android-SDK的方法" class="headerlink" title="3，免安装android SDK的方法"></a>3，免安装android SDK的方法</h2><pre><code>下载android studio的dmg文件后
+intall的type选择custom自定义，而不是standard，继续后可以勾选所有要安装的JDK</code></pre><h2 id="4，安装adb"><a href="#4，安装adb" class="headerlink" title="4，安装adb"></a>4，安装adb</h2><pre><code>1，对于bash终端：
+    1.  cd ~/ :进入用户目录,⚠️一定要是用户目录，否则没法用全局;
+    2. 输入:touch .bash_profile,如果当前没有这个文件,则会默认创建;
+    3. 输入:open .bash_profile,如果是第一次创建,则默认为空白的文件;
+    4. 编辑如下三句即可，若之前有变量，在后面添加（第一个sdk目录，可以在android stuio中的preference -》appearance&amp;behavior -》system setting -》Android SDK中查看）
+        export ANDROID_HOME=/Users/xxx/Library/Android/sdk
+        export PATH=${PATH}:${ANDROID_HOME}/tools
+        export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+    5. 修改完保存，然后执行：source .bash_profile 即可使改动生效
+
+2，对于zsh终端
+    1. 同理， cd ~/ :进入用户目录
+    2. 找到.zshrc文件
+    3. 在“# User configuration” 位置加入 “source ~/.bash_profile”
+    4. 执行source.zshrc</code></pre><h2 id="5，安装apk"><a href="#5，安装apk" class="headerlink" title="5，安装apk"></a>5，安装apk</h2><h3 id="5-1-利用adb安装"><a href="#5-1-利用adb安装" class="headerlink" title="5.1 利用adb安装"></a>5.1 利用adb安装</h3><pre><code>1. 生成apk：android studio -》Build -》Build APKS
+2. 找到apk：app -》build -》outputs -》apk
+3. 打开手机USB调试开发者选项，之后输入：adb devices ,在list下面有设备即可
+4. 终端执行命令adb install apk的路径</code></pre><h3 id="5-2-利用android文件传输来安装"><a href="#5-2-利用android文件传输来安装" class="headerlink" title="5.2 利用android文件传输来安装"></a>5.2 利用android文件传输来安装</h3><pre><code>1. 打开android文件传输,显示文件
+2. 进入download文件夹,将apk拖入
+3. 进入手机的文件管理,找到apk打开即可</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/11/49_react2_js模块的引入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3095,212 +3308,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/2019/12/02/40_数据库1_navicat连接本地MySql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/02/40_数据库1_navicat连接本地MySql/" itemprop="url">40_数据库1_navicat连接本地MySql</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-02T17:11:19+08:00">
-                2019-12-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/02/40_数据库1_navicat连接本地MySql/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/02/40_数据库1_navicat连接本地MySql/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/2019/12/02/40_数据库1_navicat连接本地MySql/" class="leancloud_visitors" data-flag-title="40_数据库1_navicat连接本地MySql">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  156
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，下载安装mysql"><a href="#1，下载安装mysql" class="headerlink" title="1，下载安装mysql"></a>1，下载安装mysql</h2><pre><code>1，进入官网下载：https://dev.mysql.com/
-2，安装的时候，有一个提示框，显示临时密码
-3，安装完毕会在系统偏好设置中，显示标志
-4，下载目录：/usr/local/mysql/bin/mysqladmin
-5，设置新密码：
-    bogon:~ chenchen$ /usr/local/mysql/bin/mysqladmin -u root -p password
-    Enter password: 输入刚才弹出的临时密码
-    New password: 新密码
-    Confirm new password: 确认新密码    </code></pre><h2 id="2，下载安装navicat"><a href="#2，下载安装navicat" class="headerlink" title="2，下载安装navicat"></a>2，下载安装navicat</h2><h2 id="3，navicat关联本地mysql"><a href="#3，navicat关联本地mysql" class="headerlink" title="3，navicat关联本地mysql"></a>3，navicat关联本地mysql</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8747.jpg" alt></p>
-<pre><code>1. 打开navicat，新建mysql
-2. 键入设置的mysql密码</code></pre><h2 id="4，操作数据库"><a href="#4，操作数据库" class="headerlink" title="4，操作数据库"></a>4，操作数据库</h2><pre><code>1. 创建数据库
-2. 创建表
-3. 添加主键和字段
-4. </code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3353,7 +3360,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">109</span>
+                  <span class="site-state-item-count">110</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3483,7 +3490,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">64.4k</span>
+    <span title="Site words total count">64.5k</span>
   
 </div>
 

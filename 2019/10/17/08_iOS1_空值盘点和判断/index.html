@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mc3747/mc3747.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mc3747/mc3747.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mc3747/mc3747.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/mc3747/mc3747.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/mc3747/mc3747.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/mc3747/mc3747.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/mc3747/mc3747.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="iOS,">
+
+
+
+
+
+  <link rel="alternate" href="/mc3747/mc3747.github.io/rss2.xml" title="小新的个人博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1，空值类型 nil  是给一个对象赋值为空，即是对象的空指针.  id 类型的对象,以及用@interface 声明的 ObjC 对象3 示例： 12Class Class1 = Nil;Clsss Class2 = [NSURL class];    Nil  是给一个类赋值为空，即是类的空指针  示例 12Class Class1 = Nil;Clsss Class2 = [NSURL cl">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="08_iOS1_空值盘点和判断">
+<meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/index.html">
+<meta property="og:site_name" content="小新的个人博客">
+<meta property="og:description" content="1，空值类型 nil  是给一个对象赋值为空，即是对象的空指针.  id 类型的对象,以及用@interface 声明的 ObjC 对象3 示例： 12Class Class1 = Nil;Clsss Class2 = [NSURL class];    Nil  是给一个类赋值为空，即是类的空指针  示例 12Class Class1 = Nil;Clsss Class2 = [NSURL cl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-17T23:58:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="08_iOS1_空值盘点和判断">
+<meta name="twitter:description" content="1，空值类型 nil  是给一个对象赋值为空，即是对象的空指针.  id 类型的对象,以及用@interface 声明的 ObjC 对象3 示例： 12Class Class1 = Nil;Clsss Class2 = [NSURL class];    Nil  是给一个类赋值为空，即是类的空指针  示例 12Class Class1 = Nil;Clsss Class2 = [NSURL cl">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mc3747/mc3747.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mc3747/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/">
+
+
+
+
+
+  <title>08_iOS1_空值盘点和判断 | 小新的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mc3747/mc3747.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小新的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">积极-乐观-有趣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/mc3747/mc3747.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/mc3747/mc3747.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/mc3747/mc3747.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/mc3747/mc3747.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/mc3747/mc3747.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">08_iOS1_空值盘点和判断</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T09:32:00+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/" class="leancloud_visitors" data-flag-title="08_iOS1_空值盘点和判断">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  951
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1，空值类型"><a href="#1，空值类型" class="headerlink" title="1，空值类型"></a>1，空值类型</h2><ol>
+<li><p>nil</p>
+<ol>
+<li><p>是给一个对象赋值为空，即是对象的空指针.</p>
+</li>
+<li><p>id 类型的对象,以及用@interface 声明的 ObjC 对象<br>3 示例：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class Class1 = Nil;</span><br><span class="line">Clsss Class2 = [<span class="built_in">NSURL</span> <span class="keyword">class</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>Nil</p>
+<ol>
+<li><p>是给一个类赋值为空，即是类的空指针</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class Class1 = Nil;</span><br><span class="line">Clsss Class2 = [<span class="built_in">NSURL</span> <span class="keyword">class</span>];</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>Null</p>
+<ol>
+<li><p>是给C语言指针赋空值，即非对象类型的空指针 </p>
+</li>
+<li><p>示例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>   *intA    = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">char</span> *charC     = <span class="literal">NULL</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">structStr</span> = <span class="title">NULL</span>;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li><p>NSNull</p>
+<ol>
+<li><p>NSNull有 + (NSNull *)null; 单例方法</p>
+</li>
+<li><p>多用于集合(NSArray,NSDictionary)中值为空的对象</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1，因为 nil 被用来作为集合结束的标志，所以 nil 不能存储在 Foundation 集合里。</span></span><br><span class="line"><span class="built_in">NSArray</span> *array = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"one"</span>, <span class="string">@"two"</span>, <span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2，错误的使用,会引起崩溃</span></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">[dict setObject:<span class="literal">nil</span> forKey:<span class="string">@"someKey"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3，正确的使用</span></span><br><span class="line"> <span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line"> [dict setObject:[<span class="built_in">NSNull</span> null] forKey:<span class="string">@"someKey"</span>];</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="2，空值报错"><a href="#2，空值报错" class="headerlink" title="2，空值报错"></a>2，空值报错</h2><ol>
+<li>“(null)”报错:<ol>
+<li>未初始化值报错，类似于js的undefined类型</li>
+<li>过滤方法：使用if(result == nil)来判断</li>
+</ol>
+</li>
+<li>“&lt; null &gt;”报错<ol>
+<li>后台键值对里的空值</li>
+<li>过滤方法：使用if([result isEqual:[NSNull null]])来判断</li>
+</ol>
+</li>
+</ol>
+<h2 id="3，空值判断"><a href="#3，空值判断" class="headerlink" title="3，空值判断"></a>3，空值判断</h2><ol>
+<li>判断是否是空对象</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  1,判断对象是否为空</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)judgeObjectNil:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  1.空对象指针nil</span></span><br><span class="line">    <span class="comment">//  2.空类指针Nil</span></span><br><span class="line">    <span class="comment">//  3.空对象[NSNull null]&lt;非nil&gt; - 不会造成容器崩溃</span></span><br><span class="line">    <span class="comment">//  4.空基本数据类型NULL</span></span><br><span class="line">    <span class="keyword">if</span> ([object isEqual:[<span class="built_in">NSNull</span> null]] || <span class="literal">nil</span> == object || Nil == object || <span class="literal">NULL</span> == object) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">//  5.空类[NSNull class]</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSNull</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// 6,空字符串</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]] &amp;&amp; FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>).length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">// 7，服务器返回的特殊空字符</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"(null)"</span>] || [FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"&lt;null&gt;"</span>]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>判断对象是否为非空字符串</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  2，判断对象是否为非空字符串</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)judgeStringNil:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">        <span class="comment">//  1,是否为空对象</span></span><br><span class="line">    <span class="keyword">if</span>([<span class="keyword">self</span> judgeObjectNil:object])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  2,是否为空字符串</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]] &amp;&amp; FMT_STR(<span class="string">@"%@"</span>, object).length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  3,过滤掉空格字符</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]] &amp;&amp; [[object stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> whitespaceCharacterSet]] length]&lt;=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  4,服务器返回的特殊空字符</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"(null)"</span>] || [FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"&lt;null&gt;"</span>]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>判断对象是否为非空数组</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  3，判断对象是否为非空数组</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)judgeArrayNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">    <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSArray */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*NSArray的元素是否大于0个 */</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(([object isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &amp;&amp; ((<span class="built_in">NSArray</span> *)object).count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">              </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>判断对象是否为非空字典</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  4，判断对象是否为非空字典</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeDicNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSDictionary */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*NSDictionary的元素是否大于0个 */</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]] &amp;&amp; [((<span class="built_in">NSDictionary</span> *)object) count] &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>判断对象是否为空的NSNumber</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  5,判断对象是否为空的NSNumber</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeNSNumberNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">        <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSNumber */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*NSNumber的元素是否为0 */</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]] &amp;&amp; [((<span class="built_in">NSNumber</span> *)object) isEqualToNumber:@<span class="number">0</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>判断对象是否为空的NSValue</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  6,判断对象是否为空的NSValue</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeNSValueNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">        <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSValue */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSValue</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>判断对象是否为空的NSData</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  7,判断对象是否为空的NSData</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeNSDataNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">        <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSValue */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSData</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/mc3747/mc3747.github.io/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mc3747/mc3747.github.io/2019/10/14/07_微信小程序1_注册-搭建环境/" rel="next" title="07_微信小程序1_注册-搭建环境">
+                <i class="fa fa-chevron-left"></i> 07_微信小程序1_注册-搭建环境
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mc3747/mc3747.github.io/2019/10/17/09_iOS2_空值过滤/" rel="prev" title="09_iOS2_空值过滤">
+                09_iOS2_空值过滤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/mc3747/mc3747.github.io/images/avatar.jpg" alt="horse">
+            
+              <p class="site-author-name" itemprop="name">horse</p>
+              <p class="site-description motion-element" itemprop="description">做难事必有所得</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/mc3747/mc3747.github.io/archives">
+              
+                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/mc3747/mc3747.github.io/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/mc3747/mc3747.github.io/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/mc3747/mc3747.github.io/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mc3747" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc3747@126.com" target="_blank" title="网易邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope-square"></i>网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc37473747@google.com" target="_blank" title="Google邮箱">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tel:18589052901" target="_blank" title="联系电话">
+                      
+                        <i class="fa fa-fw fa-phone"></i>联系电话</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                作品链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="csdn地址()" target="_blank">csdn地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="豆瓣地址()" target="_blank">豆瓣地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="在线简历地址()" target="_blank">在线简历地址()</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，空值类型"><span class="nav-number">1.</span> <span class="nav-text">1，空值类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，空值报错"><span class="nav-number">2.</span> <span class="nav-text">2，空值报错</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，空值判断"><span class="nav-number">3.</span> <span class="nav-text">3，空值判断</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">horse</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">67.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/mc3747/mc3747.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747/mc3747.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747/mc3747.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747/mc3747.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747/mc3747.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747/mc3747.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/mc3747/mc3747.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mc3747/mc3747.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mc3747/mc3747.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mc3747/mc3747.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/mc3747/mc3747.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/mc3747/mc3747.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/mc3747/mc3747.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI',
+        appKey: 'OtX3yrmzOhO0oJgt7V2bS3fU',
+        placeholder: '🙋欢迎举手发言🙋‍♂️',
+        avatar:'http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI", "OtX3yrmzOhO0oJgt7V2bS3fU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

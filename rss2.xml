@@ -6,7 +6,7 @@
     <title>小新的个人博客</title>
     <link>https://github.com/mc3747/mc3747.github.io/</link>
     
-    <atom:link href="/mc3747/mc3747.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="/mc3747.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
     <pubDate>Wed, 20 May 2020 14:35:47 GMT</pubDate>

@@ -280,6 +280,261 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/16/55_iOS9_程序启动原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/12/16/55_iOS9_程序启动原理/" itemprop="url">55_iOS9_程序启动原理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T18:05:15+08:00">
+                2019-12-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/12/16/55_iOS9_程序启动原理/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/16/55_iOS9_程序启动原理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/12/16/55_iOS9_程序启动原理/" class="leancloud_visitors" data-flag-title="55_iOS9_程序启动原理">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  727
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，程序执行的顺序"><a href="#1，程序执行的顺序" class="headerlink" title="1，程序执行的顺序"></a>1，程序执行的顺序</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8748.png" alt></p>
+<pre><code>1，程序入口
+    进入main函数，设置AppDelegate称为函数的代理
+
+2，程序完成加载
+    [AppDelegate application:didFinishLaunchingWithOptions:]
+
+3，创建window窗口
+
+4，程序被激活
+    [AppDelegate applicationDidBecomeActive:]
+
+5，当点击command+H时(针对模拟器,手机是当点击home键)
+    1，程序取消激活状态
+        [AppDelegate applicationWillResignActive:];
+        ⚠️该方法在电话，短信，锁屏，以及点击home键时都会进入
+    2，程序进入后台
+        [AppDelegate applicationDidEnterBackground:];
+
+6，点击进入工程
+    1，程序进入前台
+        [AppDelegate applicationWillEnterForeground:]
+    2，程序被激活
+        [AppDelegate applicationDidBecomeActive:];</code></pre><h2 id="2，入口函数的执行"><a href="#2，入口函数的执行" class="headerlink" title="2，入口函数的执行"></a>2，入口函数的执行</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> * argv[]) &#123;  </span><br><span class="line">      <span class="keyword">@autoreleasepool</span> &#123;  </span><br><span class="line">          <span class="keyword">return</span> <span class="built_in">UIApplicationMain</span>(argc, argv, <span class="literal">nil</span>, <span class="built_in">NSStringFromClass</span>([AppDelegate <span class="keyword">class</span>]));    </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="built_in">UIApplicationMain</span>(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[], <span class="built_in">NSString</span> *principalClassName, <span class="built_in">NSString</span> *delegateClassName);</span><br></pre></td></tr></table></figure>
+
+
+<pre><code> principalClassName (主要类名) 和 ** delegateClassName (委托类名)**。
+(1) 如果principalClassName是nil，那么它的值将从Info.plist去获取，如果Info.plist没有，则默认为UIApplication。principalClass这个类除了管理整个程序的生命周期之外什么都不做，它只负责监听事件然后交给delegateClass去做。
+(2) delegateClass 将在工程新建时实例化一个对象。NSStringFromClass([AppDelegate class])</code></pre><h2 id="3，-AppDelegate类实现文件"><a href="#3，-AppDelegate类实现文件" class="headerlink" title="3， AppDelegate类实现文件"></a>3， AppDelegate类实现文件</h2><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"> - (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--- %s ---"</span>,__func__);<span class="comment">//__func__打印方法名</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"--- %s ---"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)applicationDidEnterBackground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"--- %s ---"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">   <span class="built_in">NSLog</span>(<span class="string">@"--- %s ---"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)applicationDidBecomeActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"--- %s ---"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)applicationDidReceiveMemoryWarning:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"--- %s ---"</span>,__func__);</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)applicationWillTerminate:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"--- %s ---"</span>,__func__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-启动程序执行顺序"><a href="#3-1-启动程序执行顺序" class="headerlink" title="3.1 启动程序执行顺序"></a>3.1 启动程序执行顺序</h3><pre><code>--- -[AppDelegate application:didFinishLaunchingWithOptions:] ---
+--- -[AppDelegate applicationDidBecomeActive:] ---</code></pre><h3 id="3-2-进入后台执行顺序"><a href="#3-2-进入后台执行顺序" class="headerlink" title="3.2 进入后台执行顺序"></a>3.2 进入后台执行顺序</h3><pre><code>--- -[AppDelegate applicationWillResignActive:] ---
+--- -[AppDelegate applicationDidEnterBackground:] ---</code></pre><h3 id="3-3-重新进入前台执行顺序"><a href="#3-3-重新进入前台执行顺序" class="headerlink" title="3.3 重新进入前台执行顺序"></a>3.3 重新进入前台执行顺序</h3><pre><code>--- -[AppDelegate applicationWillEnterForeground:] ---
+--- -[AppDelegate applicationDidBecomeActive:] ---</code></pre><h3 id="3-4-内存警告"><a href="#3-4-内存警告" class="headerlink" title="3.4 内存警告"></a>3.4 内存警告</h3><pre><code>--- -[AppDelegate applicationDidReceiveMemoryWarning:] ---</code></pre><h2 id="4，-AppDelegate类实现文件说明"><a href="#4，-AppDelegate类实现文件说明" class="headerlink" title="4， AppDelegate类实现文件说明"></a>4， AppDelegate类实现文件说明</h2><pre><code>1.application:didFinishLaunchingWithOptions:
+    程序首次已经完成启动时执行，一般在这个函数里创建window对象，将程序内容通过window呈现给用户。
+
+2，applicationWillResignActive(非活动)
+    程序将要失去Active状态时调用，比如有电话进来或者按下Home键，之后程序        进入后台状态，对应的applicationWillEnterForeground(即将进入前台)方法。
+    该函数里面主要执行操作:
+    a . 暂停正在执行的任务
+    b. 禁止计时器
+    c. 减少OpenGL ES帧率
+    d. 若为游戏应暂停游戏
+
+3.applicationDidEnterBackground(已经进入后台)
+    对应applicationDidBecomeActive(已经变成前台)
+
+    该方法用来:
+    a. 释放共享资源
+    b. 保存用户数据(写到硬盘)
+    c. 作废计时器
+    d. 保存足够的程序状态以便下次修复;
+
+4，applicationWillEnterForeground(即将进入前台)
+  程序即将进入前台时调用，对应applicationWillResignActive(即将进入后台)，
+这个方法用来: 撤销applicationWillResignActive中做的改变。
+
+5，applicationDidBecomeActive(已经进入前台)
+程序已经变为Active(前台)时调用。对应applicationDidEnterBackground(已经进入后台)。
+注意: 若程序之前在后台，在此方法内刷新用户界面
+
+6，applicationWillTerminate
+程序即将退出时调用。记得保存数据，如applicationDidEnterBackground方法一样。</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/16/54_iOS8_UIView要点介绍/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2423,200 +2678,6 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/04/45_前端工程化7_DvaJS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2019/12/04/45_前端工程化7_DvaJS/" itemprop="url">45_前端工程化7_DvaJS</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-04T16:31:53+08:00">
-                2019-12-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2019/12/04/45_前端工程化7_DvaJS/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/04/45_前端工程化7_DvaJS/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2019/12/04/45_前端工程化7_DvaJS/" class="leancloud_visitors" data-flag-title="45_前端工程化7_DvaJS">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  5
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>网址：<a href="https://dvajs.com" target="_blank" rel="noopener">https://dvajs.com</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2669,7 +2730,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-count">115</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2799,7 +2860,7 @@ intall的type选择custom自定义，而不是standard，继续后可以勾选�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.3k</span>
+    <span title="Site words total count">67.7k</span>
   
 </div>
 

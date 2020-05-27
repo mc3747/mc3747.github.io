@@ -104,10 +104,13 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1,参考网站https://reactnative.cn2,环境搭建1,Node     1. 查看node版本:node -v     2. 安装node:brew install node     3. 更新node:brew upgrade node     4. 保证node在指定的版本(一般要最新版)  2,Watchman     1_查看watchman:watchman -v">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-11T07:23:30.641Z">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8790.png">
+<meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8791.jpg">
+<meta property="og:updated_time" content="2020-05-27T06:58:36.179Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="112_RN1_ReactNative的基础">
 <meta name="twitter:description" content="1,参考网站https://reactnative.cn2,环境搭建1,Node     1. 查看node版本:node -v     2. 安装node:brew install node     3. 更新node:brew upgrade node     4. 保证node在指定的版本(一般要最新版)  2,Watchman     1_查看watchman:watchman -v">
+<meta name="twitter:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8790.png">
 
 
 
@@ -384,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  290
+                  720
                 </span>
               
 
@@ -400,7 +403,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -463,7 +466,46 @@
 5_bug跟踪:
     Bugsnag
     APP Center(微软)
-    Sentry</code></pre>
+    Sentry</code></pre><h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5,运行"></a>5,运行</h2><pre><code>1,模拟器运行iOS:
+    方法1:终端命令react-native run-ios
+    方法2:直接打开iOS文件夹,运行.xcworkspace
+2,真机运行:
+    1_xcode选中真机,配置证书
+    2_</code></pre><h2 id="5-常见故障"><a href="#5-常见故障" class="headerlink" title="5,常见故障"></a>5,常见故障</h2><pre><code>1_更新pod时候报错:configure: error: C compiler cannot create executables;See `config.log&apos; for more details
+  解决:输入:sudo xcode-select --switch /Applications/Xcode.app
+2_真机运行时报错:Can&apos;t find the &apos;node&apos; binary to build the React Native bundle.
+解决:终端:which node找打node的路径,赋值到以下目录</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8790.png" alt></p>
+<pre><code> 3_不识别命令:react-native
+    1_安装sudo npm install -g react-native-cli
+    2_找到rn的安装路径:which react-native  
+    3_全局配置:
+        export RN=/usr/local/bin/react-native
+        export PATH=$RN:$PATH
+
+4_模拟器没有问题,真机调试报错
+    进入iOS项目,在APPDelegate里sourceURLForBridge方法中设置,如下图</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8791.jpg" alt></p>
+<pre><code>5_怎样安装第三方插件
+    npm install react-navigation --save
+
+6_rn安装报错
+    报错类型:npm ERR! cb() never called! 
+        npm ERR! This is an error with npm itself. Please report this error at: 
+        npm ERR! &lt;https://npm.community&gt;
+    解决方式:
+        npm config rm proxy
+        npm config rm https-proxy
+7_安装了npm install --save react-navigation后报错&quot;Unable to resolve module `react-native-gesture-handler` from `node_modules/@&quot;
+    解决方式:安装触摸方式(需要执行以下方法,多增加3个库)
+    npm install --save react-native-gesture-handler react-native-reanimated react-native-screens
+    react-native link react-native-reanimated
+    react-native link react-native-gesture-handler
+8_安装完仍然报错:Unable to resolve module ‘react-native-swiper’ from ‘Users/Demo/app/home/Home.js’:Module ‘react-native-swiper’...
+根据提示:删除node_modules文件夹,重新安装 yarn install
+9_报错:Invariant Violation: Native module cannot be null
+解决:需要更新原生的pod
+10_使用导航报错,需要额外安装库
+    解决: npm install react-native-safe-area-context -save
+         npm install @react-native-community/masked-view -save</code></pre>
       
     </div>
     
@@ -587,7 +629,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">114</span>
+                  <span class="site-state-item-count">115</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -699,7 +741,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-参考网站"><span class="nav-number">1.</span> <span class="nav-text">1,参考网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-环境搭建"><span class="nav-number">2.</span> <span class="nav-text">2,环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实际案例"><span class="nav-number">3.</span> <span class="nav-text">3,实际案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-示例-helloworld"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 示例:helloworld</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-官方Demo-电影列表"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 官方Demo:电影列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-集成到现有原生的应用"><span class="nav-number">3.3.</span> <span class="nav-text">3.2 集成到现有原生的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-开发工具"><span class="nav-number">4.</span> <span class="nav-text">4,开发工具</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-参考网站"><span class="nav-number">1.</span> <span class="nav-text">1,参考网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-环境搭建"><span class="nav-number">2.</span> <span class="nav-text">2,环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实际案例"><span class="nav-number">3.</span> <span class="nav-text">3,实际案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-示例-helloworld"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 示例:helloworld</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-官方Demo-电影列表"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 官方Demo:电影列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-集成到现有原生的应用"><span class="nav-number">3.3.</span> <span class="nav-text">3.2 集成到现有原生的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-开发工具"><span class="nav-number">4.</span> <span class="nav-text">4,开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行"><span class="nav-number">5.</span> <span class="nav-text">5,运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常见故障"><span class="nav-number">6.</span> <span class="nav-text">5,常见故障</span></a></li></ol></div>
             
 
           </div>
@@ -733,7 +775,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.3k</span>
+    <span title="Site words total count">67.7k</span>
   
 </div>
 

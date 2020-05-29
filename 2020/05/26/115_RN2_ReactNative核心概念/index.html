@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="1_components 组件2_JSX语法3_props 属性4_state 状态">
+<meta name="description" content="1_components 组件2_JSX语法3_props 属性4_state 状态5_样式的写法1_页内样式,行内样式 2_页内样式,可以使用全局的变量来公用     const styles = StyleSheet.create({       box: {         width: mywd, //直接使用变量         height: myht, //         alig">
 <meta name="keywords" content="RN">
 <meta property="og:type" content="article">
 <meta property="og:title" content="115_RN2_ReactNative核心概念">
 <meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/26/115_RN2_ReactNative核心概念/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="1_components 组件2_JSX语法3_props 属性4_state 状态">
+<meta property="og:description" content="1_components 组件2_JSX语法3_props 属性4_state 状态5_样式的写法1_页内样式,行内样式 2_页内样式,可以使用全局的变量来公用     const styles = StyleSheet.create({       box: {         width: mywd, //直接使用变量         height: myht, //         alig">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-27T02:08:11.289Z">
+<meta property="og:updated_time" content="2020-05-29T08:10:39.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="115_RN2_ReactNative核心概念">
-<meta name="twitter:description" content="1_components 组件2_JSX语法3_props 属性4_state 状态">
+<meta name="twitter:description" content="1_components 组件2_JSX语法3_props 属性4_state 状态5_样式的写法1_页内样式,行内样式 2_页内样式,可以使用全局的变量来公用     const styles = StyleSheet.create({       box: {         width: mywd, //直接使用变量         height: myht, //         alig">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  11
+                  125
                 </span>
               
 
@@ -421,7 +421,20 @@
       
 
       
-        <h2 id="1-components-组件"><a href="#1-components-组件" class="headerlink" title="1_components 组件"></a>1_components 组件</h2><h2 id="2-JSX语法"><a href="#2-JSX语法" class="headerlink" title="2_JSX语法"></a>2_JSX语法</h2><h2 id="3-props-属性"><a href="#3-props-属性" class="headerlink" title="3_props 属性"></a>3_props 属性</h2><h2 id="4-state-状态"><a href="#4-state-状态" class="headerlink" title="4_state 状态"></a>4_state 状态</h2>
+        <h2 id="1-components-组件"><a href="#1-components-组件" class="headerlink" title="1_components 组件"></a>1_components 组件</h2><h2 id="2-JSX语法"><a href="#2-JSX语法" class="headerlink" title="2_JSX语法"></a>2_JSX语法</h2><h2 id="3-props-属性"><a href="#3-props-属性" class="headerlink" title="3_props 属性"></a>3_props 属性</h2><h2 id="4-state-状态"><a href="#4-state-状态" class="headerlink" title="4_state 状态"></a>4_state 状态</h2><h2 id="5-样式的写法"><a href="#5-样式的写法" class="headerlink" title="5_样式的写法"></a>5_样式的写法</h2><pre><code>1_页内样式,行内样式
+2_页内样式,可以使用全局的变量来公用
+    const styles = StyleSheet.create({
+      box: {
+        width: mywd, //直接使用变量
+        height: myht, //
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+        backgroundColor: &apos;pink&apos;,
+      },
+    });
+3_组合使用时,使用数组,例如:
+    style={[styles.base,{width:this.state.width, height:this.state.width*this.state.aspectRatio}]}</code></pre><p>##6_页面的跳转<br>    1_在export default主调render函数中,<br>    2_提前写const { navigation } = this.props;<br>    3_写方法:onPress = {()=&gt;{<br>            navigation.navigate(‘Page4’);<br>          }}</p>
+
       
     </div>
     
@@ -460,6 +473,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mc3747.github.io/2020/05/29/116_web17_js基本数据和函数/" rel="prev" title="116_web17_js基本数据和函数">
+                116_web17_js基本数据和函数 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -541,7 +558,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">115</span>
+                  <span class="site-state-item-count">117</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -653,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-components-组件"><span class="nav-number">1.</span> <span class="nav-text">1_components 组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-JSX语法"><span class="nav-number">2.</span> <span class="nav-text">2_JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-props-属性"><span class="nav-number">3.</span> <span class="nav-text">3_props 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-state-状态"><span class="nav-number">4.</span> <span class="nav-text">4_state 状态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-components-组件"><span class="nav-number">1.</span> <span class="nav-text">1_components 组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-JSX语法"><span class="nav-number">2.</span> <span class="nav-text">2_JSX语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-props-属性"><span class="nav-number">3.</span> <span class="nav-text">3_props 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-state-状态"><span class="nav-number">4.</span> <span class="nav-text">4_state 状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-样式的写法"><span class="nav-number">5.</span> <span class="nav-text">5_样式的写法</span></a></li></ol></div>
             
 
           </div>
@@ -687,7 +704,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.7k</span>
+    <span title="Site words total count">68.7k</span>
   
 </div>
 

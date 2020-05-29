@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8790.png">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8791.jpg">
-<meta property="og:updated_time" content="2020-05-27T06:58:36.179Z">
+<meta property="og:updated_time" content="2020-05-28T08:06:01.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="112_RN1_ReactNative的基础">
 <meta name="twitter:description" content="1,参考网站https://reactnative.cn2,环境搭建1,Node     1. 查看node版本:node -v     2. 安装node:brew install node     3. 更新node:brew upgrade node     4. 保证node在指定的版本(一般要最新版)  2,Watchman     1_查看watchman:watchman -v">
@@ -387,7 +387,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  720
+                  777
                 </span>
               
 
@@ -466,12 +466,16 @@
 5_bug跟踪:
     Bugsnag
     APP Center(微软)
-    Sentry</code></pre><h2 id="5-运行"><a href="#5-运行" class="headerlink" title="5,运行"></a>5,运行</h2><pre><code>1,模拟器运行iOS:
+    Sentry</code></pre><h2 id="5-运行调试"><a href="#5-运行调试" class="headerlink" title="5,运行调试"></a>5,运行调试</h2><pre><code>1,模拟器运行iOS:
     方法1:终端命令react-native run-ios
     方法2:直接打开iOS文件夹,运行.xcworkspace
 2,真机运行:
     1_xcode选中真机,配置证书
-    2_</code></pre><h2 id="5-常见故障"><a href="#5-常见故障" class="headerlink" title="5,常见故障"></a>5,常见故障</h2><pre><code>1_更新pod时候报错:configure: error: C compiler cannot create executables;See `config.log&apos; for more details
+    2_
+3,打印日志
+    1_警告:console.warn(&apos;&apos;) 
+    2_报错:console.error(&apos;叭叭叭&apos;)
+    3_console.log在界面上没有打印,要想有打印,需要安装插件,具体参考:https://blog.csdn.net/u012852597/article/details/87861025</code></pre><h2 id="5-常见故障"><a href="#5-常见故障" class="headerlink" title="5,常见故障"></a>5,常见故障</h2><pre><code>1_更新pod时候报错:configure: error: C compiler cannot create executables;See `config.log&apos; for more details
   解决:输入:sudo xcode-select --switch /Applications/Xcode.app
 2_真机运行时报错:Can&apos;t find the &apos;node&apos; binary to build the React Native bundle.
 解决:终端:which node找打node的路径,赋值到以下目录</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8790.png" alt></p>
@@ -629,7 +633,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">115</span>
+                  <span class="site-state-item-count">117</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -741,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-参考网站"><span class="nav-number">1.</span> <span class="nav-text">1,参考网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-环境搭建"><span class="nav-number">2.</span> <span class="nav-text">2,环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实际案例"><span class="nav-number">3.</span> <span class="nav-text">3,实际案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-示例-helloworld"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 示例:helloworld</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-官方Demo-电影列表"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 官方Demo:电影列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-集成到现有原生的应用"><span class="nav-number">3.3.</span> <span class="nav-text">3.2 集成到现有原生的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-开发工具"><span class="nav-number">4.</span> <span class="nav-text">4,开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行"><span class="nav-number">5.</span> <span class="nav-text">5,运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常见故障"><span class="nav-number">6.</span> <span class="nav-text">5,常见故障</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-参考网站"><span class="nav-number">1.</span> <span class="nav-text">1,参考网站</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-环境搭建"><span class="nav-number">2.</span> <span class="nav-text">2,环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实际案例"><span class="nav-number">3.</span> <span class="nav-text">3,实际案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-示例-helloworld"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 示例:helloworld</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-官方Demo-电影列表"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 官方Demo:电影列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-集成到现有原生的应用"><span class="nav-number">3.3.</span> <span class="nav-text">3.2 集成到现有原生的应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-开发工具"><span class="nav-number">4.</span> <span class="nav-text">4,开发工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-运行调试"><span class="nav-number">5.</span> <span class="nav-text">5,运行调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-常见故障"><span class="nav-number">6.</span> <span class="nav-text">5,常见故障</span></a></li></ol></div>
             
 
           </div>
@@ -775,7 +779,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">67.7k</span>
+    <span title="Site words total count">68.7k</span>
   
 </div>
 

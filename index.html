@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  316
                 </span>
               
 
@@ -425,7 +425,49 @@
       
         
           
-            
+            <p>##1_对象的基本组成<br>    let me = {<br>            name : ‘pingan’,<br>            eat: function(){<br>                console.log(‘eat eat eat!!!’);<br>            }<br>        }<br>    1_属性<br>        1_获取属性的方法1-&gt;点表示法:me.name = “leo”;   // me =&gt; {name: “leo”}<br>        2_获取属性的方法1-&gt;点括号表示法:me[“name”] = “leo”;// me =&gt; {name: “leo”}<br>    2_方法<br>        me.eat();</p>
+<p>##2_创建对象的方法<br>    1，基本写法:new Object的方式<br>        var obj1 = new Object();<br>        obj1.name = ‘wendingding’;<br>        obj1.age = 18;</p>
+<pre><code>2，字面量的方式创建对象
+    var obj2 = {name:&quot;wendingding&quot;,age:18};
+
+3，内置构造函数创建对象
+    1_有以下类型:
+        String
+        Number
+        Boolean
+        Date
+        Array
+        Function
+        Object
+        RegExp
+    2_示例
+        var s1 = &apos;abc&apos;;//s1是字符串
+        var obj3 = new String(&apos;abc&apos;);//obj3是字符串对象
+
+4，封装工厂函数创建对象
+    function createBookNew (name,price) {
+        var book = new Object();
+        book.name = name;
+        book.price = price;
+        return book;//一定要加上return
+    }
+    var book3 = createBookNew(&quot;悟空传&quot;,&quot;28.00&quot;);
+
+5，定义构造函数创建对象
+    //1_构造方法
+    function CreateBook (name,price,author,press) {
+        this.name = name;
+        this.price = price;
+        this.author = author;
+        this.press = press;
+        this.read = function () {
+            console.log(&quot;我的书名为:&quot;+this.name+&quot;,作者为&quot;+this.author+&quot;....&quot;);
+        };
+    }
+    //2_创建对象
+    var bookObj = new CreateBook(&quot;声名狼藉者的的生活&quot;,&quot;42.00&quot;,&quot;福柯&quot;,&quot;北京大学出版社&quot;);
+    //3_对象调用方法
+    bookObj.read();</code></pre>
           
         
       
@@ -2659,7 +2701,7 @@ where
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">68.7k</span>
+    <span title="Site words total count">69.1k</span>
   
 </div>
 

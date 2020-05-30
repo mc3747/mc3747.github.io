@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="##1_常量和变量    1,let,var,const        ES6及以后let和var变量作用域不一样    2,变量声明提升:        将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。        ES5及以前采用,ES6及以后没有    3,函数声明提升        函数声明有3种方式        1,函数声明            f">
+<meta name="description" content="1_常量和变量1,let,var,const     ES6及以后let和var变量作用域不一样 2,变量声明提升:     将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。     ES5及以前采用,ES6及以后没有 3,函数声明提升     函数声明有3种方式     1,函数声明         f();   // &amp;apos;hi leo&amp;apos;">
 <meta name="keywords" content="web基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="116_web17_js基本数据和函数">
 <meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/29/116_web17_js基本数据和函数/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="##1_常量和变量    1,let,var,const        ES6及以后let和var变量作用域不一样    2,变量声明提升:        将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。        ES5及以前采用,ES6及以后没有    3,函数声明提升        函数声明有3种方式        1,函数声明            f">
+<meta property="og:description" content="1_常量和变量1,let,var,const     ES6及以后let和var变量作用域不一样 2,变量声明提升:     将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。     ES5及以前采用,ES6及以后没有 3,函数声明提升     函数声明有3种方式     1,函数声明         f();   // &amp;apos;hi leo&amp;apos;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-29T15:53:00.338Z">
+<meta property="og:updated_time" content="2020-05-30T15:47:44.504Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="116_web17_js基本数据和函数">
-<meta name="twitter:description" content="##1_常量和变量    1,let,var,const        ES6及以后let和var变量作用域不一样    2,变量声明提升:        将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。        ES5及以前采用,ES6及以后没有    3,函数声明提升        函数声明有3种方式        1,函数声明            f">
+<meta name="twitter:description" content="1_常量和变量1,let,var,const     ES6及以后let和var变量作用域不一样 2,变量声明提升:     将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。     ES5及以前采用,ES6及以后没有 3,函数声明提升     函数声明有3种方式     1,函数声明         f();   // &amp;apos;hi leo&amp;apos;">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  844
+                  870
                 </span>
               
 
@@ -421,16 +421,102 @@
       
 
       
-        <p>##1_常量和变量<br>    1,let,var,const<br>        ES6及以后let和var变量作用域不一样<br>    2,变量声明提升:<br>        将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。<br>        ES5及以前采用,ES6及以后没有<br>    3,函数声明提升<br>        函数声明有3种方式<br>        1,函数声明<br>            f();   // ‘hi leo’<br>            function f(){<br>                console.log(‘hi leo’);<br>            };<br>        2,函数表达式声明<br>            f();   // 报错<br>            var f = function(){<br>                console.log(‘hi leo’);<br>            };<br>        3,函数对象声明<br>            f();   // 报错<br>            var f = new Function(){<br>                console.log(‘hi leo’);<br>            };</p>
-<p>##2_数据类型<br>    1_六种原型数据类型：<br>        1.Boolean : 布尔值，true和false;<br>        2.null : 对大小写敏感（即null/Null/NULL完全不同）;<br>        3.undefined : 空类型，变量未定义时候的值；<br>        4.Number : 数值类型，如100;<br>        5.String : 字符串类型，如’hi pingan’;<br>        6.Symbol（ES6新增） : 表示一种唯一且不可变的数据;<br>    2_引用数据类型<br>        1.狭义的对象Object<br>        2.数组<br>        3.函数</p>
-<p>##3_字面量<br>    1.数组字面量:let a = [‘hi’,’leo’];<br>    2.布尔字面量:let a = true;<br>    3.浮点数字面量:let a = 0.5(正常表示;带e指数表示)<br>    4.整数字面量:let a = 5(不同进制表示)<br>    5.对象字面量:let a ={1:8} (键值对表)<br>        1_点语法取值<br>        2_中括号取值<br>    6.正则字面量:let a = /ab+c/(两个斜杠)<br>    7.字符串字面量<br>        1_单引号:’aa’<br>        2_双引号:”aa”<br>        3_模板自变量<code>hello${a}</code></p>
-<p>##4_函数</p>
-<p>###4.1 定义<br>    1，函数声明<br>        function f(){<br>                console.log(‘hi leo’);<br>            };<br>    2，函数表达式(函数字面量)<br>         var f = function(){<br>                console.log(‘hi leo’);<br>            };<br>    3，使用Function构造函数创建<br>          var f = new Function(){<br>                console.log(‘hi leo’);<br>            };</p>
-<p>###4.2 调用方式<br>    1, 普通函数调用模式<br>        f(5,6)<br>    2, 对象方法调用模式<br>        var o1 = {<br>            name: “文顶顶”,<br>            showName: function() {<br>                console.log(‘对象方法调用：’ +this.name);<br>            }<br>        };<br>        o1.showName();<br>    3, 构造函数调用模式<br>        function Person() {<br>            console.log(‘构造函数调用：’ +this);<br>        }<br>        new Person();<br>    4, 上下文的调用模式<br>        //函数定义<br>        function f4(a, b) {<br>            console.log(a, b, a + b);<br>            console.log(this); //使用上下文模式调用时，this被绑定给o对象<br>            console.log(this.name); //wendingding<br>         }<br>        //创建对象<br>        var o2 = {<br>            name: “wendingding”<br>        };<br>        //函数上下文调用<br>        f4.apply(o2, [1, 2]);//f4中的this指向o2<br>        f4.call(o2, 3, 4);//f4中的this指向o2<br>        f4(1,2);//f4中的this指向全局的window</p>
-<p>###4.3 默认属性<br>    1，this<br>    2，arguments：参数数组<br>    3，length参数个数<br>    4，name函数名称</p>
-<p>###4.4 默认方法<br>    1，toString：返回函数整体字符串<br>    2，apply<br>    3，call</p>
-<p>###4.5 特殊参数<br>    1_默认参数<br>        function f(a, b = 1){<br>            return a * b;<br>        }<br>    2_不确定参数<br>        function f (a, …b){<br>            console.log(a, b);<br>        }<br>        f(1,2,3,4); // a =&gt; 1 ,b =&gt; [2, 3, 4]</p>
-<p>###4.6 箭头函数<br>    1_写法<br>        // 1_没参数<br>            let f = () =&gt; 1;<br>            等同于let f = function (){return 1};<br>        // 2_有1个参数:<br>            let f = v =&gt; v;<br>            等同于let f = function (v){return v};<br>        // 3_有多个参数<br>            let f = (v, i) =&gt; {return v + i};<br>            等同于let f = function (v, i){return v + i};<br>    2_注意点<br>        1_箭头函数内的this总是指向定义时所在的对象，而不是调用时。<br>        2_箭头函数不能当做构造函数，即不能用new命令，否则报错。<br>        3_箭头函数不存在arguments对象，即不能使用，可以使用rest参数代替。<br>        3_箭头函数不能使用yield命令，即不能用作Generator函数。</p>
+        <h2 id="1-常量和变量"><a href="#1-常量和变量" class="headerlink" title="1_常量和变量"></a>1_常量和变量</h2><pre><code>1,let,var,const
+    ES6及以后let和var变量作用域不一样
+2,变量声明提升:
+    将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。
+    ES5及以前采用,ES6及以后没有
+3,函数声明提升
+    函数声明有3种方式
+    1,函数声明
+        f();   // &apos;hi leo&apos;
+        function f(){
+            console.log(&apos;hi leo&apos;);
+        };
+    2,函数表达式声明
+        f();   // 报错
+        var f = function(){
+            console.log(&apos;hi leo&apos;);
+        };
+    3,函数对象声明
+        f();   // 报错
+        var f = new Function(){
+            console.log(&apos;hi leo&apos;);
+        };</code></pre><h2 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2_数据类型"></a>2_数据类型</h2><pre><code>1_六种原型数据类型：
+    1.Boolean : 布尔值，true和false;
+    2.null : 对大小写敏感（即null/Null/NULL完全不同）;
+    3.undefined : 空类型，变量未定义时候的值；
+    4.Number : 数值类型，如100;
+    5.String : 字符串类型，如&apos;hi pingan&apos;;
+    6.Symbol（ES6新增） : 表示一种唯一且不可变的数据;
+2_引用数据类型
+    1.狭义的对象Object
+    2.数组
+    3.函数</code></pre><h2 id="3-字面量"><a href="#3-字面量" class="headerlink" title="3_字面量"></a>3_字面量</h2><pre><code>1.数组字面量:let a = [&apos;hi&apos;,&apos;leo&apos;];
+2.布尔字面量:let a = true;
+3.浮点数字面量:let a = 0.5(正常表示;带e指数表示)
+4.整数字面量:let a = 5(不同进制表示)
+5.对象字面量:let a ={1:8} (键值对表)
+    1_点语法取值
+    2_中括号取值
+6.正则字面量:let a = /ab+c/(两个斜杠)
+7.字符串字面量
+    1_单引号:&apos;aa&apos;
+    2_双引号:&quot;aa&quot;
+    3_模板自变量`hello${a}`</code></pre><h2 id="4-函数"><a href="#4-函数" class="headerlink" title="4_函数"></a>4_函数</h2><h3 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h3><pre><code>1，函数声明
+    function f(){
+            console.log(&apos;hi leo&apos;);
+        };
+2，函数表达式(函数字面量)
+     var f = function(){
+            console.log(&apos;hi leo&apos;);
+        };
+3，使用Function构造函数创建
+      var f = new Function(){
+            console.log(&apos;hi leo&apos;);
+        };</code></pre><h3 id="4-2-调用方式"><a href="#4-2-调用方式" class="headerlink" title="4.2 调用方式"></a>4.2 调用方式</h3><pre><code>1, 普通函数调用模式
+    f(5,6)
+2, 对象方法调用模式
+    var o1 = {
+        name: &quot;文顶顶&quot;,
+        showName: function() {
+            console.log(&apos;对象方法调用：&apos; +this.name); 
+        }
+    };
+    o1.showName();
+3, 构造函数调用模式
+    function Person() {
+        console.log(&apos;构造函数调用：&apos; +this);
+    }
+    new Person();
+4, 上下文的调用模式
+    //函数定义
+    function f4(a, b) {
+        console.log(a, b, a + b);
+        console.log(this); //使用上下文模式调用时，this被绑定给o对象
+        console.log(this.name); //wendingding
+     }
+    //创建对象
+    var o2 = {
+        name: &quot;wendingding&quot;
+    };
+    //函数上下文调用
+    f4.apply(o2, [1, 2]);//f4中的this指向o2
+    f4.call(o2, 3, 4);//f4中的this指向o2
+    f4(1,2);//f4中的this指向全局的window</code></pre><h3 id="4-3-默认属性"><a href="#4-3-默认属性" class="headerlink" title="4.3 默认属性"></a>4.3 默认属性</h3><pre><code>1，this
+2，arguments：参数数组
+3，length参数个数
+4，name函数名称</code></pre><h3 id="4-4-默认方法"><a href="#4-4-默认方法" class="headerlink" title="4.4 默认方法"></a>4.4 默认方法</h3><pre><code>1，toString：返回函数整体字符串
+2，apply
+3，call</code></pre><h3 id="4-5-特殊参数"><a href="#4-5-特殊参数" class="headerlink" title="4.5 特殊参数"></a>4.5 特殊参数</h3><pre><code>1_默认参数
+    function f(a, b = 1){
+        return a * b;
+    }
+2_不确定参数
+    function f (a, ...b){
+        console.log(a, b);
+    }
+    f(1,2,3,4); // a =&gt; 1 ,b =&gt; [2, 3, 4]</code></pre><p>###4.6 箭头函数<br>    1_写法<br>        // 1_没参数<br>            let f = () =&gt; 1;<br>            等同于let f = function (){return 1};<br>        // 2_有1个参数:<br>            let f = v =&gt; v;<br>            等同于let f = function (v){return v};<br>        // 3_有多个参数<br>            let f = (v, i) =&gt; {return v + i};<br>            等同于let f = function (v, i){return v + i};<br>    2_注意点<br>        1_箭头函数内的this总是指向定义时所在的对象，而不是调用时。<br>        2_箭头函数不能当做构造函数，即不能用new命令，否则报错。<br>        3_箭头函数不存在arguments对象，即不能使用，可以使用rest参数代替。<br>        3_箭头函数不能使用yield命令，即不能用作Generator函数。</p>
 
       
     </div>
@@ -528,8 +614,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -649,6 +744,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-常量和变量"><span class="nav-number">1.</span> <span class="nav-text">1_常量和变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数据类型"><span class="nav-number">2.</span> <span class="nav-text">2_数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-字面量"><span class="nav-number">3.</span> <span class="nav-text">3_字面量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-函数"><span class="nav-number">4.</span> <span class="nav-text">4_函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-定义"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-调用方式"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 调用方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-默认属性"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 默认属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-默认方法"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 默认方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-特殊参数"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 特殊参数</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -676,7 +787,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">69.8k</span>
+    <span title="Site words total count">69.9k</span>
   
 </div>
 

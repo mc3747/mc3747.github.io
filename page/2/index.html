@@ -280,6 +280,1408 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/11/113_swift1_swift基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/11/113_swift1_swift基础/" itemprop="url">113_swift1_swift基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-11T19:34:05+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/11/113_swift1_swift基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/11/113_swift1_swift基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/11/113_swift1_swift基础/" class="leancloud_visitors" data-flag-title="113_swift1_swift基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  835
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-参考网站"><a href="#1-参考网站" class="headerlink" title="1.参考网站"></a>1.参考网站</h2><pre><code>1_github上完全开源:
+2_swift官网介绍:https://swift.org
+3_苹果开发者:https://developer.apple.com/swift/resources/
+4_swiftGG翻译:https://swiftgg.gitbook.io/swift/</code></pre><h2 id="2-helloworld"><a href="#2-helloworld" class="headerlink" title="2.helloworld"></a>2.helloworld</h2><pre><code>1_没有main函数, 
+2_不用写分号(同一行要写)
+3_字符串拼接&quot;hello world \(a)&quot;</code></pre><h2 id="3-playground工具的使用"><a href="#3-playground工具的使用" class="headerlink" title="3,playground工具的使用"></a>3,playground工具的使用</h2><pre><code>1_快捷键
+cmd + shift + enter:运行整个playground
+shift + enter:运行到指定的鼠标点击的地方
+2_playgroundSupport预览视图
+3_注释:
+    1,支持MarkUp语法
+    2,内置界面跳转:
+        //: [下一页](@next)
+        //: [上一页](@previous)</code></pre><h2 id="4-常用概念"><a href="#4-常用概念" class="headerlink" title="4,常用概念"></a>4,常用概念</h2><pre><code>常量:
+    1_let修饰
+    2_只能被赋值一次
+    3_不用在编译时,确定其值
+变量
+    1_var
+标识符
+关键字
+数据类型
+字面量
+    e代表10,p代表2
+类型转换</code></pre><h2 id="5-语句"><a href="#5-语句" class="headerlink" title="5,语句"></a>5,语句</h2><pre><code>1,if...else
+    1_if后的小括号可以省略
+    2_if后边只能跟bool类型
+2,repeat...while
+    相当于C语言的do...while
+3,去掉了++,--运算符
+4,for循环
+    1_取消三段式
+    2_闭区间运算符 for i in 0...3
+        默认是let
+        不使用i,可以用_代替
+    3_半开区间 for i in 0..&lt;5
+    4_单侧区间
+        let names = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;] 
+        for name in names[2...]
+        for name in names[...2]
+        for name in names[..&lt;2]
+    5_for in使用的区间运算符只能是Int,
+ 5,switch
+    1_case,default后不能写大括号
+    2_break可以不写
+    3_添加关键字fallthrough,实现贯穿效果
+    4_case,default
+    5_也支持Character和String类型
+
+区间运算符
+    带间隔:stride函数
+元组tuple
+    与结构体类型
+    网络请求错误码
+区间匹配和元组匹配
+值绑定
+where
+    case后边(起判断作用)
+    for循环后边(起过滤作用)
+标签语句
+泛型</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><pre><code>1_基本调用
+2_形参是let
+3_空返回值
+4_隐式返回
+5_多返回值:使用返回元组
+6_函数的文档注释
+7_参数标签:
+    方便理解;
+    _:省略参数标签
+8_默认参数
+    c++的默认参数,必须从右往左;
+    swift没有,因为有参数标签
+9_可变参数func sum(_numbers:Int...)-&gt;{}
+    最多只能一个可变参数
+    紧跟可变参数后边的参数标签不能省略
+    案例:print函数
+10_输入输出参数:
+    inout修饰函数参数,外部用&amp;变量来
+    inout参数没有默认值
+    inout参数不能是可变参数
+    inout参数只能接受被多次赋值的参数,常数和字面量不行,变量或者数组元素等可以
+11_函数重载(overload)
+    函数名称相同
+    参数个数 || 参数类型 || 参数标签 不相同
+    重载和返回值类型无关
+    有函数默认值时,重载不报错,有歧义(C++会报错),不
+12_函数重写:涉及继承
+13_内联函数(inline)
+    将函数调用,展开成函数体
+    开启了编译器优化,自动将某些函数进行内联
+        1_简单函数进行优化,复杂函数不会进行内联
+        2_递归调用不会进行内联
+        3_动态绑定
+    编译器自动优化,不能用inline来强加
+14_函数类型
+    函数类型没有参数标签:(Int,Int) -&gt;(Int)
+    作为函数参数
+    作为函数返回值(返回值为函数的函数,叫高阶函数)
+
+15_typealias给类型起别名
+    给函数起别名
+
+16_嵌套函数(Nested)</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/" itemprop="url">112_RN1_ReactNative的基础</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-11T09:33:03+08:00">
+                2020-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/混合开发/" itemprop="url" rel="index">
+                    <span itemprop="name">混合开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/" class="leancloud_visitors" data-flag-title="112_RN1_ReactNative的基础">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  777
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-参考网站"><a href="#1-参考网站" class="headerlink" title="1,参考网站"></a>1,参考网站</h2><pre><code>https://reactnative.cn</code></pre><h2 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2,环境搭建"></a>2,环境搭建</h2><pre><code>1,Node
+    1. 查看node版本:node -v
+    2. 安装node:brew install node
+    3. 更新node:brew upgrade node
+    4. 保证node在指定的版本(一般要最新版)
+
+2,Watchman
+    1_查看watchman:watchman -v 
+    2_安装watchman:brew install watchman
+
+3,yarn
+    1_yarn是Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载
+    2_安装yarn:npm install -g yarn
+    3_查看yarn版本:yarn -v
+
+4,Xcode和CocoaPods
+
+5,使用npx代替npm镜像
+        # 使用nrm工具切换淘宝源
+        npx nrm use taobao
+
+        # 如果之后需要切换回官方源可使用
+        npx nrm use npm
+
+6,CocoaPods的镜像
+    https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/</code></pre><h2 id="3-实际案例"><a href="#3-实际案例" class="headerlink" title="3,实际案例"></a>3,实际案例</h2><h3 id="3-1-示例-helloworld"><a href="#3-1-示例-helloworld" class="headerlink" title="3.1 示例:helloworld"></a>3.1 示例:helloworld</h3><pre><code>1_初始化
+    npx react-native init AwesomeProject
+2_编译运行
+    yarn ios
+    或者 yarn react-native run-ios
+3_真机运行
+    参考:&lt;https://reactnative.cn/docs/running-on-device&gt;</code></pre><h3 id="3-2-官方Demo-电影列表"><a href="#3-2-官方Demo-电影列表" class="headerlink" title="3.2 官方Demo:电影列表"></a>3.2 官方Demo:电影列表</h3><h3 id="3-2-集成到现有原生的应用"><a href="#3-2-集成到现有原生的应用" class="headerlink" title="3.2 集成到现有原生的应用"></a>3.2 集成到现有原生的应用</h3><pre><code>https://reactnative.cn/docs/integration-with-existing-apps</code></pre><h2 id="4-开发工具"><a href="#4-开发工具" class="headerlink" title="4,开发工具"></a>4,开发工具</h2><pre><code>1_VS Code
+2_Ignite:
+    整合了 Redux 以及一些常见 UI 组件的脚手架
+3_Yoga:
+    基于Flexbox的跨平台布局引擎
+4_热更新:
+    APP Center(微软)
+    Pushy
+5_bug跟踪:
+    Bugsnag
+    APP Center(微软)
+    Sentry</code></pre><h2 id="5-运行调试"><a href="#5-运行调试" class="headerlink" title="5,运行调试"></a>5,运行调试</h2><pre><code>1,模拟器运行iOS:
+    方法1:终端命令react-native run-ios
+    方法2:直接打开iOS文件夹,运行.xcworkspace
+2,真机运行:
+    1_xcode选中真机,配置证书
+    2_
+3,打印日志
+    1_警告:console.warn(&apos;&apos;) 
+    2_报错:console.error(&apos;叭叭叭&apos;)
+    3_console.log在界面上没有打印,要想有打印,需要安装插件,具体参考:https://blog.csdn.net/u012852597/article/details/87861025</code></pre><h2 id="5-常见故障"><a href="#5-常见故障" class="headerlink" title="5,常见故障"></a>5,常见故障</h2><pre><code>1_更新pod时候报错:configure: error: C compiler cannot create executables;See `config.log&apos; for more details
+  解决:输入:sudo xcode-select --switch /Applications/Xcode.app
+2_真机运行时报错:Can&apos;t find the &apos;node&apos; binary to build the React Native bundle.
+解决:终端:which node找打node的路径,赋值到以下目录</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8790.png" alt></p>
+<pre><code> 3_不识别命令:react-native
+    1_安装sudo npm install -g react-native-cli
+    2_找到rn的安装路径:which react-native  
+    3_全局配置:
+        export RN=/usr/local/bin/react-native
+        export PATH=$RN:$PATH
+
+4_模拟器没有问题,真机调试报错
+    进入iOS项目,在APPDelegate里sourceURLForBridge方法中设置,如下图</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8791.jpg" alt></p>
+<pre><code>5_怎样安装第三方插件
+    npm install react-navigation --save
+
+6_rn安装报错
+    报错类型:npm ERR! cb() never called! 
+        npm ERR! This is an error with npm itself. Please report this error at: 
+        npm ERR! &lt;https://npm.community&gt;
+    解决方式:
+        npm config rm proxy
+        npm config rm https-proxy
+7_安装了npm install --save react-navigation后报错&quot;Unable to resolve module `react-native-gesture-handler` from `node_modules/@&quot;
+    解决方式:安装触摸方式(需要执行以下方法,多增加3个库)
+    npm install --save react-native-gesture-handler react-native-reanimated react-native-screens
+    react-native link react-native-reanimated
+    react-native link react-native-gesture-handler
+8_安装完仍然报错:Unable to resolve module ‘react-native-swiper’ from ‘Users/Demo/app/home/Home.js’:Module ‘react-native-swiper’...
+根据提示:删除node_modules文件夹,重新安装 yarn install
+9_报错:Invariant Violation: Native module cannot be null
+解决:需要更新原生的pod
+10_使用导航报错,需要额外安装库
+    解决: npm install react-native-safe-area-context -save
+         npm install @react-native-community/masked-view -save</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="url">111_iOS24_查找工程目录的引用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T08:34:05+08:00">
+                2020-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" class="leancloud_visitors" data-flag-title="111_iOS24_查找工程目录的引用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  663
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-热修复问题方法"><a href="#1-热修复问题方法" class="headerlink" title="1,热修复问题方法"></a>1,热修复问题方法</h2><pre><code>1_问题:苹果审核报错:dlopen（），dlsym（），responsesToSelector :, performSelector :, method_exchangeImplementations（）和运行远程脚本
+2_方法1,检查含有这些方法的地方,终端输入 grep -r dlopen . 
+3_方法2:将方法名导入到TXT文件中,再一个个查找,命令 nm -n xxx.a &gt;&gt; xxx.txt
+4_方法3:使用脚本来执行,输入工程路径,执行sh xx.sh</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">        #!/bin/sh</span><br><span class="line">echo &quot;请输入需要检测的工程路径&quot;</span><br><span class="line">read path</span><br><span class="line">if [ $&#123;#path&#125; = 0 ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;请在.sh文件后面添加路径&quot;</span><br><span class="line">        exit</span><br><span class="line">    fi</span><br><span class="line">cd $path</span><br><span class="line">echo &quot;当前路径为`pwd`&quot; </span><br><span class="line">#搜索目录下面的.a文件</span><br><span class="line">for i in `find . -name *.a`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    i_=$&#123;i_%.a&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br><span class="line">#搜索目录下面的framework</span><br><span class="line">for i in `find *.framework/ */*.framework/  -size +100k`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-私有api的方法"><a href="#2-私有api的方法" class="headerlink" title="2,私有api的方法"></a>2,私有api的方法</h2><ol>
+<li>进入工程更目录</li>
+<li>输入命令: find . | grep -v .svn | grep “.a” | grep -v “.app” | xargs grep 【私有API】</li>
+<li>输入命令:grep -lr “【私有API】” * | grep -v .svn | grep -v .md</li>
+<li>查看提示引用了私有api的地方</li>
+</ol>
+<h2 id="3-使用UIWebview"><a href="#3-使用UIWebview" class="headerlink" title="3,使用UIWebview"></a>3,使用UIWebview</h2><h3 id="3-1-grep方法-全局查询"><a href="#3-1-grep方法-全局查询" class="headerlink" title="3.1 grep方法,全局查询"></a>3.1 grep方法,全局查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r &quot;UIWebView&quot; .</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-只查询-framework-a-文件"><a href="#3-2-只查询-framework-a-文件" class="headerlink" title="3.2 只查询 .framework .a 文件"></a>3.2 只查询 .framework .a 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-查询-framework-a-h-m-swift文件"><a href="#3-3-查询-framework-a-h-m-swift文件" class="headerlink" title="3.3 查询 .framework .a .h .m .swift文件"></a>3.3 查询 .framework .a .h .m .swift文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  -o -name &quot;*.h&quot;  -o -name &quot;*.m&quot; -o -name &quot;*.swift&quot; \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a &amp; .h. m .swift&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/04/27/110_网络2_实践模拟/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/" itemprop="url">110_网络2_实践模拟</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-27T10:27:09+08:00">
+                2020-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/" class="leancloud_visitors" data-flag-title="110_网络2_实践模拟">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  15
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="web端模拟"><a href="#web端模拟" class="headerlink" title="web端模拟"></a>web端模拟</h2><h2 id="移动端模拟"><a href="#移动端模拟" class="headerlink" title="移动端模拟"></a>移动端模拟</h2><h2 id="接口测试工具"><a href="#接口测试工具" class="headerlink" title="接口测试工具"></a>接口测试工具</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/04/20/109_微信小程序2_基本注意事项/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/04/20/109_微信小程序2_基本注意事项/" itemprop="url">109_微信小程序2_基本注意事项</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-20T17:33:03+08:00">
+                2020-04-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/04/20/109_微信小程序2_基本注意事项/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/04/20/109_微信小程序2_基本注意事项/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/04/20/109_微信小程序2_基本注意事项/" class="leancloud_visitors" data-flag-title="109_微信小程序2_基本注意事项">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  765
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-基本控件"><a href="#1-基本控件" class="headerlink" title="1. 基本控件"></a>1. 基本控件</h2><h3 id="1-1-背景图片"><a href="#1-1-背景图片" class="headerlink" title="1.1 背景图片"></a>1.1 背景图片</h3><pre><code>1. 使用view的background-image属性
+    1. src不能使用本地绝对路径和相对路径
+    2. 可以使用网络图片
+    3. 可以将图片转成base64来使用
+2. 使用image标签
+    1. 为单标签
+    2. 可以使用相对路径,绝对路径,网络路径</code></pre><h3 id="1-2-按钮"><a href="#1-2-按钮" class="headerlink" title="1.2 按钮"></a>1.2 按钮</h3><pre><code>3. 使用button标签,一般在表达中使用,属于重量型
+4. 使用普通view标签的事件绑定,bindtap=&quot;方法名&quot;
+5. 按钮点击响应同一事件的区分
+    1. 方法1:传入js文件中的数组,使用默认的item和index区分
+    2. 方法2:直接使用js文件中传入的字段来区分
+    3. 方法3:传入数组数据:&lt;view wx:for=&quot;{{ [88, 77, 55, 44, 33] }}&quot;&gt;
+    4. 最后在响应方法begin: function(evt) 中区分evt.currentTarget.dataset.index</code></pre><h3 id="1-3-循环"><a href="#1-3-循环" class="headerlink" title="1.3 循环"></a>1.3 循环</h3><pre><code>1. 循环绑定数组
+2. 循环指定元素的名称
+3. 循环指定下标的变量名称:</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>_指定默认的数组:元素默认item,下标默认index</span><br><span class="line">&lt;view wx:<span class="keyword">for</span>=<span class="string">"&#123;&#123;array&#125;&#125;"</span>&gt;</span><br><span class="line">  &#123;&#123;index&#125;&#125;: &#123;&#123;item.message&#125;&#125;</span><br><span class="line">&lt;<span class="regexp">/view&gt;</span></span><br><span class="line"><span class="regexp">2_自定义下标和元素:例如下列元素自定义为itemName,元素下标自定义为idx</span></span><br><span class="line"><span class="regexp">&lt;view wx:for="&#123;&#123;array&#125;&#125;" wx:for-index="idx" wx:for-item="itemName"&gt;</span></span><br><span class="line"><span class="regexp">  &#123;&#123;idx&#125;&#125;: &#123;&#123;itemName.message&#125;&#125;</span></span><br><span class="line"><span class="regexp">&lt;/</span>view&gt;</span><br><span class="line"><span class="number">3</span>_创造节点块:block wx:<span class="keyword">for</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="1-4-数据绑定"><a href="#1-4-数据绑定" class="headerlink" title="1.4 数据绑定"></a>1.4 数据绑定</h3><pre><code>1. mustache语法
+2. 双大括号引用</code></pre><h3 id="1-5-隐藏元素"><a href="#1-5-隐藏元素" class="headerlink" title="1.5 隐藏元素"></a>1.5 隐藏元素</h3><pre><code>1. 方法1:visibulity属性设置为hidden(占位,隐藏)
+2. 方法2:display属性设置为none(不占位,但渲染,尺寸为0)
+3. 方法3:微信中的条件渲染
+    1. 使用if:&lt;view wx:if=&quot;{{condition}}&quot;&gt; True &lt;/view&gt;
+    2. 使用if--else:&lt;view wx:if=&quot;{{length > 5}}&quot;&gt; 1 &lt;/view&gt;
+        &lt;view wx:elif=&quot;{{length > 2}}&quot;&gt; 2 &lt;/view&gt;
+        &lt;view wx:else&gt; 3 &lt;/view&gt;</code></pre><h3 id="1-6-字体单位"><a href="#1-6-字体单位" class="headerlink" title="1.6 字体单位"></a>1.6 字体单位</h3><pre><code>1. px:像素
+2. em:（font size of the element）相对于父元素的值
+3. rem:（font size of the root element）根元素的字体
+4. %：相对单位，每个子元素透过「百分比」乘以父元素的px值
+5. 任意浏览器的默认字体高都是16px。所有未经调整的浏览器都符合: 1em=16px
+6. smaller：约为父层的80%; larger：约为父层的120%
+7. 微信小程序中:rpx（responsive pixel)
+    1. 可以根据屏幕宽度进行自适应。规定屏幕宽为750rpx。如在 iPhone6 上，屏幕宽度为375px，共有750个物理像素，则750rpx = 375px = 750物理像素，1rpx = 0.5px = 1物理像素</code></pre><h3 id="1-7-固定底部文字"><a href="#1-7-固定底部文字" class="headerlink" title="1.7 固定底部文字"></a>1.7 固定底部文字</h3><pre><code>1. 方案1:使用绝对布局
+    1. 子绝父相,相对的是整个屏幕,如果距离太大,可能会跟上部数据重合
+2. 方案2:直接相对上部元素
+    1. 使用margin-top,会跟随上部元素,不会固定在最底部
+3. 方案3:使用浮动
+4. 方案4:flex布局,使用两端对齐(推荐)</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/04/14/107_工具12_安装windows系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/04/14/107_工具12_安装windows系统/" itemprop="url">107_工具12_安装windows系统</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-14T11:48:28+08:00">
+                2020-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/04/14/107_工具12_安装windows系统/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/04/14/107_工具12_安装windows系统/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/04/14/107_工具12_安装windows系统/" class="leancloud_visitors" data-flag-title="107_工具12_安装windows系统">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  119
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-方法1-一键安装"><a href="#1-方法1-一键安装" class="headerlink" title="1. 方法1:一键安装"></a>1. 方法1:一键安装</h2><h2 id="2-方法2-ghost安装"><a href="#2-方法2-ghost安装" class="headerlink" title="2. 方法2:ghost安装"></a>2. 方法2:ghost安装</h2><pre><code>General Hardware Oriented Software Transfer的缩写译为“面向通用型硬件系统传送器</code></pre><h2 id="3-方法3-PE安装"><a href="#3-方法3-PE安装" class="headerlink" title="3. 方法3:PE安装"></a>3. 方法3:PE安装</h2><pre><code>Windows Preinstallation Environment，即Microsoft Windows 预安装环境
+1. 备份电脑
+2. U盘制作系统(老毛桃,大白菜)
+3. 网上下载系统放入U盘
+4. 设置启动方式(进入dos系统)
+5. 启动盘选择,磁盘分区,开始安装
+6. 安装完毕,改回启动选项</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/04/14/108_网络1_基本概念/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1272,1247 +2674,11 @@ Date: Mon,15Jun201509:06:46GMT(响应的时间) Server: apache (服务器类型)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/26/103_工具10_git使用技巧/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/03/26/103_工具10_git使用技巧/" itemprop="url">103_工具10_git使用技巧</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-26T11:48:28+08:00">
-                2020-03-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/03/26/103_工具10_git使用技巧/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/26/103_工具10_git使用技巧/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/03/26/103_工具10_git使用技巧/" class="leancloud_visitors" data-flag-title="103_工具10_git使用技巧">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  365
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-git使用终端提交代码"><a href="#1-git使用终端提交代码" class="headerlink" title="1.git使用终端提交代码"></a>1.git使用终端提交代码</h2><pre><code>1,git status:查看当前状态
-2,git add .文件名(不写文件名,只有一个点):提交到暂存区
-3,git commit -m&quot;需要的提交注释&quot;
-4,git pull origin master :拉取远程代码,查看是否有冲突
-5,git push origin master:推送到远程</code></pre><h2 id="2-git使用工具提交代码"><a href="#2-git使用工具提交代码" class="headerlink" title="2.git使用工具提交代码"></a>2.git使用工具提交代码</h2><pre><code>1. sourceTree
-2. Tower
-3. Github Desk</code></pre><h2 id="3-提交时-DS-Store和-xcuserstate文件冲突"><a href="#3-提交时-DS-Store和-xcuserstate文件冲突" class="headerlink" title="3.提交时.DS_Store和.xcuserstate文件冲突"></a>3.提交时.DS_Store和.xcuserstate文件冲突</h2><pre><code>1.1 一个仓库的解决办法:
-    1. 删除本地的.DS_Store文件:find . -name &apos;*.DS_Store&apos; -type f -delete
-    2. 删除本地的.xcuserstate文件:find . -name &apos;*.xcuserstate&apos; -type f -delete
-    3. 新建一个.gitignore文件,里边的内容为两行:*.DS_Store和*.xcuserstate
-
-1.2 全局的结局解决办法
-    1.找到全局的gitconfig文件:目录~/.gitconfig,
-    2.在同目录下,新建一个~/.gitignore_global文件,文件内容和.gitignore文件一样
-    3..gitconfig引入.gitignore_global文件:
-        方法1:直接在文件里边改:excludesfile = /Users/reon/.gitignore_global **
-        方法2:直接使用命令行:git config --global core.excludesfile/Users/reon/.gitignore_global命令来实现</code></pre><h2 id="4-github小方格不变绿的结局"><a href="#4-github小方格不变绿的结局" class="headerlink" title="4.github小方格不变绿的结局"></a>4.github小方格不变绿的结局</h2><pre><code>*     一般是本机git全局的邮箱和github上关联的邮箱不一致
-        1_查看github中关联的邮箱:个人页-&gt;setting-&gt;email
-        2_查看本地的全局git中的邮箱:进入含有git的仓库,使用命令git log查看
-        3_更正全局git关联的邮箱:git config --global user.email 邮箱号
-        4_查看全局邮箱:git config user.email</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/20/102_加密相关3_签名/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/03/20/102_加密相关3_签名/" itemprop="url">102_加密相关3_签名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-20T14:34:05+08:00">
-                2020-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/03/20/102_加密相关3_签名/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/20/102_加密相关3_签名/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/03/20/102_加密相关3_签名/" class="leancloud_visitors" data-flag-title="102_加密相关3_签名">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  10
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>数字签名（Digital Signature）</p>
-<p>签名相关</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/20/101_加密相关2_加密/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/03/20/101_加密相关2_加密/" itemprop="url">101_加密相关2_加密</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-20T13:34:05+08:00">
-                2020-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/03/20/101_加密相关2_加密/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/20/101_加密相关2_加密/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/03/20/101_加密相关2_加密/" class="leancloud_visitors" data-flag-title="101_加密相关2_加密">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  117
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-生成公钥和私钥"><a href="#1-生成公钥和私钥" class="headerlink" title="1 生成公钥和私钥"></a>1 生成公钥和私钥</h2><p>1,公钥（public key），另一个称为私钥（private key）的生成<br>2,windows环境下,下载安装OPENSSL工具（ <a href="http://www.openssl.org/related/binaries.html）" target="_blank" rel="noopener">http://www.openssl.org/related/binaries.html）</a><br>3,MAC OS自带了OpenSSL,直接在命令行里使用OPENSSL就可以<br>应用:<br>    github配置本地的ssh<br>    https</p>
-<h2 id="2-加密的方法"><a href="#2-加密的方法" class="headerlink" title="2 加密的方法"></a>2 加密的方法</h2><h3 id="2-1-散列（Hash）"><a href="#2-1-散列（Hash）" class="headerlink" title="2.1 散列（Hash）"></a>2.1 散列（Hash）</h3><pre><code>MD5
-SHA
-HMAC-MD5
-HMAC-SHA1</code></pre><h3 id="2-2-对称加密（Symmetric-Cryptography）"><a href="#2-2-对称加密（Symmetric-Cryptography）" class="headerlink" title="2.2 对称加密（Symmetric Cryptography）"></a>2.2 对称加密（Symmetric Cryptography）</h3><pre><code>DES，AES，Blowfish</code></pre><h3 id="2-3-非对称加密（Asymmetric-Cryptography）"><a href="#2-3-非对称加密（Asymmetric-Cryptography）" class="headerlink" title="2.3 非对称加密（Asymmetric Cryptography）"></a>2.3 非对称加密（Asymmetric Cryptography）</h3><pre><code>RSA
-https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果的正确性" class="headerlink" title="3 验证结果的正确性"></a>3 验证结果的正确性</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/20/100_加密相关1_编码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/03/20/100_加密相关1_编码/" itemprop="url">100_加密相关1_编码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-20T10:34:05+08:00">
-                2020-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/03/20/100_加密相关1_编码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/20/100_加密相关1_编码/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/03/20/100_加密相关1_编码/" class="leancloud_visitors" data-flag-title="100_加密相关1_编码">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  300
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，ASCII码"><a href="#1，ASCII码" class="headerlink" title="1，ASCII码"></a>1，ASCII码</h2><pre><code>1,American Standard Code for Information Interchange
-2,ASCII码：1个字节;整型：至少2个字节
-3,在网页中使用应在数字串前后分别加上“&amp;#”和“;”，例如数字0的ASCII编码是48，则在网页中使用的格式应为“&amp;#48;”。符号&apos;#&apos;的ASCII编码是35,则在网页中使用的格式应为“&amp;#35;”
-4,转换工具地址：https://www.qqxiuzi.cn/bianma/ascii.htm</code></pre><h2 id="2，Unicode："><a href="#2，Unicode：" class="headerlink" title="2，Unicode："></a>2，Unicode：</h2><pre><code>1,只是一个符号集，包含所有的符号
-2,以&apos;\u&apos;开头跟4位
-3,例如字符&apos;马&apos;的Unicode编码&apos;\u9a6c&apos;</code></pre><h2 id="3，UTF-8"><a href="#3，UTF-8" class="headerlink" title="3，UTF-8"></a>3，UTF-8</h2><pre><code>1,UTF-8 是 Unicode 的实现方式之一
-2,存储的内容,字节可变
-3,以&amp;#开头的后接十进制数字，以&amp;#x开头的后接十六进制数字
-4,例如字符&apos;马&apos;的UTF-8编码为&apos;&amp;#x9A6C;&apos;</code></pre><h2 id="4，url编码："><a href="#4，url编码：" class="headerlink" title="4，url编码："></a>4，url编码：</h2><pre><code>1,就是一个字符ascii码的十六进制。不过稍微有些变动，需要在前面加上“%”
-2,例如字符&apos;马&apos;的UTF-8编码为&apos;%u9A6C&apos;</code></pre><h2 id="5，base64"><a href="#5，base64" class="headerlink" title="5，base64"></a>5，base64</h2><pre><code>1,用64个字符来表示任意二进制数据的方法
-2,例如字符&apos;马&apos;的base64编码为&apos;6ams&apos;</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/20/99_iOS22_mac和iOS开发效率备忘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/03/20/99_iOS22_mac和iOS开发效率备忘/" itemprop="url">99_iOS22_mac和iOS开发效率备忘</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-20T08:34:05+08:00">
-                2020-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/03/20/99_iOS22_mac和iOS开发效率备忘/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/20/99_iOS22_mac和iOS开发效率备忘/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/03/20/99_iOS22_mac和iOS开发效率备忘/" class="leancloud_visitors" data-flag-title="99_iOS22_mac和iOS开发效率备忘">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  203
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-xcode相关"><a href="#1-xcode相关" class="headerlink" title="1_xcode相关"></a>1_xcode相关</h2><h3 id="1-1-DerivedData-编译项目所产生的缓存目录"><a href="#1-1-DerivedData-编译项目所产生的缓存目录" class="headerlink" title="1.1_DerivedData:编译项目所产生的缓存目录"></a>1.1_DerivedData:编译项目所产生的缓存目录</h3><p><code>/Users/xxxx/Library/Developer/Xcode/DerivedData</code></p>
-<h3 id="1-2-DeviceSupport-当前运行的-Xcode-版本所支持真机调试的系统版本"><a href="#1-2-DeviceSupport-当前运行的-Xcode-版本所支持真机调试的系统版本" class="headerlink" title="1.2_DeviceSupport:当前运行的 Xcode 版本所支持真机调试的系统版本"></a>1.2_DeviceSupport:当前运行的 Xcode 版本所支持真机调试的系统版本</h3><p><code>/Users/xxxx/Library/Developer/Xcode/iOS DeviceSupport</code></p>
-<h3 id="1-3-Archives-打包所在目录"><a href="#1-3-Archives-打包所在目录" class="headerlink" title="1.3_Archives: 打包所在目录"></a>1.3_Archives: 打包所在目录</h3><p><code>/Users/xxxx/Library/Developer/Xcode/Archives</code></p>
-<h3 id="1-4-xcode所有的配置文件"><a href="#1-4-xcode所有的配置文件" class="headerlink" title="1.4_xcode所有的配置文件"></a>1.4_xcode所有的配置文件</h3><p><code>~/Library/MobileDevice/Provisioning\ Profiles/</code></p>
-<h2 id="2-mac电脑相关"><a href="#2-mac电脑相关" class="headerlink" title="2_mac电脑相关"></a>2_mac电脑相关</h2><h3 id="2-1-mac电脑launch每排的个数"><a href="#2-1-mac电脑launch每排的个数" class="headerlink" title="2.1_mac电脑launch每排的个数"></a>2.1_mac电脑launch每排的个数</h3><pre><code>终端输入:defaults write com.apple.dock springboard-columns -int 8
-再重启：killall Dock  </code></pre><h3 id="2-2-launch中图标的个数："><a href="#2-2-launch中图标的个数：" class="headerlink" title="2.2_launch中图标的个数："></a>2.2_launch中图标的个数：</h3><pre><code>终端输入:defaults write com.apple.dock springboard-columns -int 8
-再重启：killall Dock  </code></pre><h3 id="2-3-快捷键相关"><a href="#2-3-快捷键相关" class="headerlink" title="2.3_快捷键相关"></a>2.3_快捷键相关</h3><pre><code>1,command + m:最小化应用窗口
-2,command + tab :底部应用间切换
-3,切换屏幕:
-    control + 上下左右</code></pre><h3 id="2-4-软件解禁"><a href="#2-4-软件解禁" class="headerlink" title="2.4_软件解禁"></a>2.4_软件解禁</h3><pre><code>方法1:
-    解禁：sudo spctl --master-disable
-    恢复：sudo spctl --master-enable
-方法2:
-    sudo xattr -d com.apple.quarantine /Applications/xxxx.app</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/18/98_iOS21_沙盒,内存,缓存,持久化知识汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/03/18/98_iOS21_沙盒,内存,缓存,持久化知识汇总/" itemprop="url">98_iOS21_沙盒,内存,缓存,持久化知识汇总</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-18T08:34:05+08:00">
-                2020-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/03/18/98_iOS21_沙盒,内存,缓存,持久化知识汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/18/98_iOS21_沙盒,内存,缓存,持久化知识汇总/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/03/18/98_iOS21_沙盒,内存,缓存,持久化知识汇总/" class="leancloud_visitors" data-flag-title="98_iOS21_沙盒,内存,缓存,持久化知识汇总">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  388
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-获取模拟器沙盒目录方法"><a href="#1-获取模拟器沙盒目录方法" class="headerlink" title="1 获取模拟器沙盒目录方法:"></a>1 获取模拟器沙盒目录方法:</h2><ol>
-<li>方法1:利用代码获取,不能死记:<code>NSString *sandboxPath = NSHomeDirectory();</code><pre><code>结果是`沙盒路径：/Users/gjfax/Library/Developer/CoreSimulator/Devices/BD8363C8-7783-4C7F-8A2E-BF1CED48BE92/data/Containers/Data/Application/4A23970F-ADF4-470F-A93F-F82A2A6F11C2`</code></pre><ol>
-<li>方法2:软件获取:</li>
-<li>parrot软件</li>
-<li>SimPholders软件</li>
-</ol>
-</li>
-</ol>
-<h2 id="2-获取真机沙盒目录方法"><a href="#2-获取真机沙盒目录方法" class="headerlink" title="2 获取真机沙盒目录方法"></a>2 获取真机沙盒目录方法</h2><ol>
-<li><p>方法1:进入xcode -&gt; window -&gt;Device and Simulators -&gt;选中app -&gt;点击右下角齿轮 -&gt;DownLoad Container到本地的.xcappdata文件 -&gt;显示包内容<br>mac的app沙盒目录</p>
-</li>
-<li><p>方法2:真机查看软件</p>
-<ol>
-<li>itools,只能查看部分</li>
-<li>iMazing2</li>
-</ol>
-</li>
-<li><p>方法3:代码中嵌入</p>
-<ol>
-<li>AirSandbox:<code>https://github.com/music4kid/AirSandbox</code></li>
-<li>SandBoxPreviewTool:<code>https://github.com/wjyx1lalala/SandBoxPreviewTool</code></li>
-</ol>
-</li>
-</ol>
-<h2 id="3-沙盒目录-3个文件夹"><a href="#3-沙盒目录-3个文件夹" class="headerlink" title="3 沙盒目录:3个文件夹"></a>3 沙盒目录:3个文件夹</h2><pre><code>1,Documents：苹果建议将程序中建立的或在程序中浏览到的文件数据保存在该目录下，iTunes备份和恢复的时候会包括此目录
-2,Library：存储程序的默认设置或其它状态信息；
-         2.1 Library/Caches：存放缓存文件，iTunes不会备份此目录，此目录下文件不会在应用退出删除.
-         2.2 Library/preferences: 存放的是 user default 存储的信息，iTunes会备份此目录， 应用程序重新启动不会丢弃数据，我们使用 NSUserDefaults写的设置数据都会保存到该目录下的一个plist文件中，这就是所谓的写到plist中！
-3,tmp：提供一个即时创建临时文件的地方， iTunes不会备份此目录</code></pre><h2 id="4-数据持久化1-磁盘缓存"><a href="#4-数据持久化1-磁盘缓存" class="headerlink" title="4 数据持久化1-磁盘缓存"></a>4 数据持久化1-磁盘缓存</h2><h2 id="5-数据持久化2-内存缓存"><a href="#5-数据持久化2-内存缓存" class="headerlink" title="5 数据持久化2-内存缓存"></a>5 数据持久化2-内存缓存</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mc3747.github.io/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mc3747.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/12/">12</a><a class="extend next" rel="next" href="/mc3747.github.io/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/mc3747.github.io/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mc3747.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/13/">13</a><a class="extend next" rel="next" href="/mc3747.github.io/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2560,7 +2726,7 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2690,7 +2856,7 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">69.1k</span>
+    <span title="Site words total count">69.8k</span>
   
 </div>
 

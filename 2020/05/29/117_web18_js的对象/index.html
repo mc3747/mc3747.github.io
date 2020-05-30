@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="##1_对象的基本组成    let me = {            name : ‘pingan’,            eat: function(){                console.log(‘eat eat eat!!!’);            }        }    1_属性        1_获取属性的方法1-&amp;gt;点表示法:me.name = “leo”">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-29T16:10:52.122Z">
+<meta property="og:updated_time" content="2020-05-30T15:21:28.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="117_web18_js的对象">
 <meta name="twitter:description" content="##1_对象的基本组成    let me = {            name : ‘pingan’,            eat: function(){                console.log(‘eat eat eat!!!’);            }        }    1_属性        1_获取属性的方法1-&amp;gt;点表示法:me.name = “leo”">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  316
+                  1.1k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -422,11 +422,34 @@
 
       
         <p>##1_对象的基本组成<br>    let me = {<br>            name : ‘pingan’,<br>            eat: function(){<br>                console.log(‘eat eat eat!!!’);<br>            }<br>        }<br>    1_属性<br>        1_获取属性的方法1-&gt;点表示法:me.name = “leo”;   // me =&gt; {name: “leo”}<br>        2_获取属性的方法1-&gt;点括号表示法:me[“name”] = “leo”;// me =&gt; {name: “leo”}<br>    2_方法<br>        me.eat();</p>
-<p>##2_创建对象的方法<br>    1，基本写法:new Object的方式<br>        var obj1 = new Object();<br>        obj1.name = ‘wendingding’;<br>        obj1.age = 18;</p>
+<p>##2_属性的操作<br>    1_获取对象的所有属性方法:<br>        1 for…in 循环(对象及原型链中所有可枚举的属性)<br>            let obj = {a:1, b:2, c:3};<br>                for (let i in obj) {<br>                  console.log(“obj.” + i + “ = “ + obj[i]);<br>                }<br>        2 Object.keys(o) (对象中所有属性名称的数组(不包括原型链))<br>            let obj = {a:1, b:2, c:3};<br>            let arr = Object.keys(obj);<br>        3 Object.getOwnPropertyNames(o):它包含了对象 o 所有拥有的属性（无论是否可枚举）的名称<br>        let obj = {a:1, b:2, c:3};<br>        let arr = Object.getOwnPropertyNames(obj);</p>
+<pre><code>2_删除属性:delete,
+  继承自父类的属性不能删除,
+  Object.defineProperty定义的属性不能删除
+  使用: delete obj4.a;
+
+3_判断属性是否存在
+  1.in方法：自己和继承的都包含
+      console.log(&apos;toString&apos; in obj4);
+  2.hasOwnProperty方法：只包括自己的属性
+      console.log(obj4.hasOwnProperty(&apos;toString&apos;));</code></pre><p>##3_属性的简洁表示<br>    1.普通对象<br>        let b = { a };<br>        // 等同于let b = { a : a };<br>     2.函数中返回对象<br>        function f(a, b){<br>             return {a, b};<br>        }<br>        // 等同于<br>        function f (a, b){<br>            return {a:a ,b:b};<br>        }<br>      3.对象中的函数属性<br>        let a = {<br>                fun () {<br>                    return ‘leo’;<br>                }<br>            }<br>        // 等同于<br>        let a = {<br>                fun : function(){<br>                    return ‘leo’;<br>                }<br>            }</p>
+<p>##4_对象的浅拷贝和深拷贝<br>    1_深拷贝:值拷贝<br>    2_浅拷贝:对象拷贝(地址拷贝)<br>    3_直接赋值是浅拷贝<br>        var obj1 = {<br>        name: ‘shen’<br>        }<br>        var obj2 = obj1<br>        obj2.name = ‘shenzhiyong’<br>    4_实现对象深拷贝的方法<br>        1.使用json方法:只适应普通对象,属性中有函数就不行了。<br>            var obj1 = {<br>                name: ‘shen’<br>            }<br>            var obj2 = JSON.parse(JSON.stringify(obj1))<br>            obj2.name = ‘shenzhiyong’<br>        2.以下只适用没有嵌套的对象<br>            1_es6解析结构 「…」<br>                var obj1 = {<br>                    name: ‘shen’,<br>                    show: function (argument) {<br>                        console.log(1)<br>                    }<br>                }<br>                var obj2 = { …obj1 }<br>                obj2.name = ‘shenzhiyong’<br>                console.log(‘obj1:’, obj1)  // obj {name: “szy”, show: ƒ}<br>                console.log(‘obj2:’, obj2)   // obj2 {name: “shenzhiyong”,show:ƒ}<br>            2_Object.assign()<br>                    var obj1 = {<br>                    name: ‘shen’,<br>                    show: function (argument) {<br>                        console.log(1)<br>                    }<br>                }<br>                var obj2 = Object.assign(obj1)<br>                obj2.name = ‘shenzhiyong’<br>                console.log(‘obj1:’, obj1)  // obj {name: “szy”, show: ƒ}<br>                console.log(‘obj2:’, obj2)   // obj2 {name: “shenzhiyong”,show:ƒ}<br>            3_数组中的slice() &amp; concat()<br>                var arr1 = [1,2,3]<br>                var arr2 = arr1.slice()  // 方法一<br>                // var arr2 = arr1.concat()  //方法二<br>                arr2.push(4)<br>                console.log(‘arr1:’, arr1)  // arr1: [1, 2, 3]<br>                console.log(‘arr2:’, arr2)  // arr1: [1, 2, 3, 4]</p>
+<pre><code>3.终极解决办法手写递归方法
+
+4.使用第三方库:jQuery.extend 和 lodash等</code></pre><p>##5_判断两个对象是否相等<br>       1, ==:表示值相等<br>       2, ===:表示严格值相等<br>       3, Object.is(a,b):表示a,b是否指向同一个指针对象<br>            var a = {<br>              id:1<br>            };<br>            var b = a;<br>            console.log(Object.is(a,b));   //true<br>        4,Object.is(a,b):不能判断没有拷贝关系的对象<br>            var a = {<br>              id:1<br>            };<br>            var b = {<br>              id:1<br>            }<br>            console.log(Object.is(a,b));   //false<br>        5,终极解决办法:<br>            只要两个对象的名和键值都相同。那么两个对象的内容就相同<br>            封装通用方法</p>
+<p>##6_创建对象的方法<br>    1，基本写法:new Object的方式<br>        var obj1 = new Object();<br>        obj1.name = ‘wendingding’;<br>        obj1.age = 18;</p>
 <pre><code>2，字面量的方式创建对象
     var obj2 = {name:&quot;wendingding&quot;,age:18};
 
-3，内置构造函数创建对象
+3,字符串转对象:eval函数创建对象:大括号外部包一层小括号
+     let demo = eval(&quot;({foo:2})&quot;)
+    console.log(demo.foo)
+
+4,json转对象:JSON.parse
+    var obj = JSON.parse(&apos;{&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:14}&apos;);
+    console.log(obj.name)
+
+5，内置构造函数创建对象
     1_有以下类型:
         String
         Number
@@ -440,7 +463,7 @@
         var s1 = &apos;abc&apos;;//s1是字符串
         var obj3 = new String(&apos;abc&apos;);//obj3是字符串对象
 
-4，封装工厂函数创建对象
+6，封装工厂函数创建对象
     function createBookNew (name,price) {
         var book = new Object();
         book.name = name;
@@ -502,6 +525,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mc3747.github.io/2020/05/30/118_web19_js的字符串/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -574,7 +601,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">117</span>
+                  <span class="site-state-item-count">123</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -704,7 +731,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">69.1k</span>
+    <span title="Site words total count">69.8k</span>
   
 </div>
 

@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mc3747.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mc3747.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mc3747.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/mc3747.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/mc3747.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/mc3747.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/mc3747.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="web基础,">
+
+
+
+
+
+  <link rel="alternate" href="/mc3747.github.io/rss2.xml" title="小新的个人博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1.原型链继承1234567891011121314151617181920212223function Person()&amp;#123;        this.name = &apos;xiaopao&apos;;        this.colors = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];    &amp;#125;    Person.prototype.getName = function()&amp;#123">
+<meta name="keywords" content="web基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="125_web26_js的继承">
+<meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/31/125_web26_js的继承/index.html">
+<meta property="og:site_name" content="小新的个人博客">
+<meta property="og:description" content="1.原型链继承1234567891011121314151617181920212223function Person()&amp;#123;        this.name = &apos;xiaopao&apos;;        this.colors = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];    &amp;#125;    Person.prototype.getName = function()&amp;#123">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-31T13:26:46.063Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="125_web26_js的继承">
+<meta name="twitter:description" content="1.原型链继承1234567891011121314151617181920212223function Person()&amp;#123;        this.name = &apos;xiaopao&apos;;        this.colors = [&apos;red&apos;, &apos;blue&apos;, &apos;green&apos;];    &amp;#125;    Person.prototype.getName = function()&amp;#123">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mc3747.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mc3747/mc3747.github.io/2020/05/31/125_web26_js的继承/">
+
+
+
+
+
+  <title>125_web26_js的继承 | 小新的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mc3747.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小新的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">积极-乐观-有趣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/mc3747.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/mc3747.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/mc3747.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/mc3747.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/mc3747.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/125_web26_js的继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">125_web26_js的继承</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T13:45:48+08:00">
+                2020-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/31/125_web26_js的继承/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/31/125_web26_js的继承/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/31/125_web26_js的继承/" class="leancloud_visitors" data-flag-title="125_web26_js的继承">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.3k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-原型链继承"><a href="#1-原型链继承" class="headerlink" title="1.原型链继承"></a>1.原型链继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">'xiaopao'</span>;</span><br><span class="line">        <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Child.prototype = <span class="keyword">new</span> Person();</span><br><span class="line">    <span class="keyword">var</span> child1 = <span class="keyword">new</span> Child();</span><br><span class="line">    <span class="keyword">var</span> child2 = <span class="keyword">new</span> Child();</span><br><span class="line">    child1.colors.push(<span class="string">'yellow'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(child1.colors);</span><br><span class="line">    <span class="built_in">console</span>.log(child2.colors);</span><br><span class="line">    </span><br><span class="line">    运行结果:</span><br><span class="line">    [ <span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>, <span class="string">'yellow'</span> ]</span><br><span class="line">    [ <span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>, <span class="string">'yellow'</span> ]</span><br></pre></td></tr></table></figure>
+
+<pre><code>原型继承的实质：A.prototype = new B; A.prototype.constructor = A;
+原型继承的缺点：
+    1. 指向同一个父类实例。一个实例修改了原型属性，另一个实例的原型属性也会被修改！
+    2. 不能向父类构造函数传参</code></pre><h2 id="2-构造函数继承"><a href="#2-构造函数继承" class="headerlink" title="2.构造函数继承"></a>2.构造函数继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">      <span class="comment">// 借用构造函数继承， 向Parent传参</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">          <span class="keyword">this</span>.name = name;</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      Person.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">          Person.call(<span class="keyword">this</span>,name);</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">var</span> child1 = <span class="keyword">new</span> Child(<span class="string">'xiaopao'</span>);</span><br><span class="line">      <span class="keyword">var</span> child2 = <span class="keyword">new</span> Child(<span class="string">'lulu'</span>);</span><br><span class="line">      <span class="built_in">console</span>.log(child1.name); <span class="comment">// xiaopao</span></span><br><span class="line">      <span class="built_in">console</span>.log(child2.name); <span class="comment">// lulu</span></span><br><span class="line">      <span class="built_in">console</span>.log(child1 <span class="keyword">instanceof</span> Person); <span class="comment">// false   不能识别是Person的实例</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>构造函数继承优点：
+        1.避免了引用类型的属性被所有实例共享
+        2.可以在Child中向Parent传参
+构造函数继承缺点：
+        1.只是子类的实例，不是父类的实例
+        2.方法都在构造函数中定义，每次创建实例都会创建一遍方法</code></pre><h2 id="3-组合继承-组合-原型链继承-和-借用构造函数继承"><a href="#3-组合继承-组合-原型链继承-和-借用构造函数继承" class="headerlink" title="3.组合继承(组合 原型链继承 和 借用构造函数继承)"></a>3.组合继承(组合 原型链继承 和 借用构造函数继承)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">  		<span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">	<span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">	Parent.call(<span class="keyword">this</span>,name);<span class="comment">// 第二次调用 Parent()</span></span><br><span class="line">	<span class="keyword">this</span>.age = age;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent(); <span class="comment">// 第一次调用 Parent()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> child1 = <span class="keyword">new</span> Child(<span class="string">'xiaopao'</span>,<span class="number">18</span>);</span><br><span class="line"><span class="keyword">var</span> child2 = <span class="keyword">new</span> Child(<span class="string">'lulu'</span>,<span class="number">19</span>);</span><br><span class="line">child1.getName(); <span class="comment">// xiaopao</span></span><br><span class="line">child2.getName(); <span class="comment">// lulu</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.age); <span class="comment">// 18</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.age); <span class="comment">// 19</span></span><br><span class="line">child1.colors.push(<span class="string">'yellow'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(child1.colors);  <span class="comment">// ["red", "blue", "green", "yellow"]</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.colors); <span class="comment">// ["red", "blue", "green"]</span></span><br><span class="line"><span class="built_in">console</span>.log(child1 <span class="keyword">instanceof</span> Child); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(child1 <span class="keyword">instanceof</span> Parent); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>组合继承 优点：融合原型链继承和构造函数的优点，是JavaScript中最常用的继承模式
+组合继承缺点：调用了两次父类构造函数,耗内存
+            （组合继承最大的问题是无论什么情况下，都会调用两次超类型构造函数：一次是在创建子类型原型的时候，另一次是在子类型构造函数内部）</code></pre><h2 id="4-原型式继承"><a href="#4-原型式继承" class="headerlink" title="4.原型式继承"></a>4.原型式继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">		<span class="comment">// 原型式继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreateObj</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">			<span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">			F.prototype = o;</span><br><span class="line">			<span class="built_in">console</span>.log(o.__proto__ === <span class="built_in">Object</span>.prototype);</span><br><span class="line">			<span class="built_in">console</span>.log(F.prototype.constructor === <span class="built_in">Object</span>); <span class="comment">// true</span></span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">var</span> person = &#123;</span><br><span class="line">			name: <span class="string">'xiaopao'</span>,</span><br><span class="line">			friend: [<span class="string">'daisy'</span>,<span class="string">'kelly'</span>]</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">var</span> person1 = CreateObj(person);</span><br><span class="line">		<span class="keyword">var</span> person2 = CreateObj(person);</span><br><span class="line"></span><br><span class="line">		person1.name = <span class="string">'person1'</span>;</span><br><span class="line">		 <span class="built_in">console</span>.log(person2.name); <span class="comment">// xiaopao</span></span><br><span class="line">		person1.friend.push(<span class="string">'taylor'</span>);</span><br><span class="line">		 <span class="built_in">console</span>.log(person2.friend); <span class="comment">// ["daisy", "kelly", "taylor"]</span></span><br><span class="line">		 <span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: "xiaopao", friend: Array(3)&#125;</span></span><br><span class="line">		person1.friend = [<span class="string">'lulu'</span>];</span><br><span class="line">		 <span class="built_in">console</span>.log(person1.friend); <span class="comment">// ["lulu"]</span></span><br><span class="line">		 <span class="built_in">console</span>.log(person.friend); <span class="comment">//  ["daisy", "kelly", "taylor"]</span></span><br><span class="line">		<span class="comment">// 注意： 这里修改了person1.name的值，person2.name的值并未改变，并不是因为person1和person2有独立的name值，而是person1.name='person1'是给person1添加了name值，并非修改了原型上的name值</span></span><br><span class="line">		<span class="comment">// 因为我们找对象上的属性时，总是先找实例上对象，没有找到的话再去原型对象上的属性。实例对象和原型对象上如果有同名属性，总是先取实例对象上的值</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>重点：用一个函数包装一个对象，然后返回这个函数的调用，这个函数就变成了个可以随意增添属性的实例或对象。object.create()就是这个原理。
+特点：类似于复制一个对象，用函数来包装。
+缺点：1、所有实例都会继承原型上的属性。 
+     2、无法实现复用。（新实例属性都是后面添加的）</code></pre><h2 id="5-寄生式式继承"><a href="#5-寄生式式继承" class="headerlink" title="5.寄生式式继承"></a>5.寄生式式继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 寄生式继承  可以理解为在原型式继承的基础上增加一些函数或属性</span></span><br><span class="line"><span class="keyword">var</span> ob = &#123;</span><br><span class="line">    name: <span class="string">'xiaopao'</span>,</span><br><span class="line">    friends: [<span class="string">'lulu'</span>,<span class="string">'huahua'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreateObj</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;  <span class="comment">// 创建一个构造函数F</span></span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面CreateObj函数 在ECMAScript5 有了一新的规范写法，Object.create(ob) 效果是一样的 , 看下面代码</span></span><br><span class="line"><span class="keyword">var</span> ob1 = CreateObj(ob);</span><br><span class="line"><span class="keyword">var</span> ob2 = <span class="built_in">Object</span>.create(ob);</span><br><span class="line"><span class="built_in">console</span>.log(ob1.name); <span class="comment">// xiaopao</span></span><br><span class="line"><span class="built_in">console</span>.log(ob2.name); <span class="comment">// xiaopao</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">CreateOb</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> newob = CreateObj(o); <span class="comment">// 创建对象 或者用 var newob = Object.create(ob)</span></span><br><span class="line">    newob.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="comment">// 增强对象</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> newob; <span class="comment">// 指定对象</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p1 = CreateOb(ob);</span><br><span class="line">p1.sayName(); <span class="comment">// xiaopao</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>重点：就是给原型式继承外面套了个壳子。
+优点：没有创建自定义类型，因为只是套了个壳子返回对象（这个），这个函数顺理成章就成了创建的新对象。
+缺点：没用到原型，无法复用。</code></pre><h2 id="6-寄生组合式继承"><a href="#6-寄生组合式继承" class="headerlink" title="6.寄生组合式继承"></a>6.寄生组合式继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 寄生组合式继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.colors = [<span class="string">'red'</span>, <span class="string">'blue'</span>, <span class="string">'green'</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Parent.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">            Parent.call(<span class="keyword">this</span>,name); </span><br><span class="line">            <span class="keyword">this</span>.age = age;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">CreateObj</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">            F.prototype = o;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Child.prototype = new Parent(); // 这里换成下面</span></span><br><span class="line">        <span class="function"><span class="keyword">function</span> <span class="title">prototype</span>(<span class="params">child,parent</span>)</span>&#123;</span><br><span class="line">            <span class="keyword">var</span> prototype = CreateObj(parent.prototype);</span><br><span class="line">            prototype.constructor = child;</span><br><span class="line">            child.prototype = prototype;</span><br><span class="line">        &#125;</span><br><span class="line">        prototype(Child,Parent);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> child1 = <span class="keyword">new</span> Child(<span class="string">'xiaopao'</span>, <span class="number">18</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(child1);</span><br></pre></td></tr></table></figure>
+
+<pre><code>组合：1、函数的原型等于另一个实例。2、在函数中用apply或者call引入另一个构造函数，可传参　
+ 寄生：在函数内返回对象然后调用
+ 优点： 这种方式的高效率体现它只调用了一次Parent构造函数，并且因此避免了再Parent.prototype上面创建不必要的，多余的属性。普遍认为寄生组合式继承是引用类型最理想的继承方式</code></pre><p>　　　　</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/mc3747.github.io/tags/web基础/" rel="tag"># web基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mc3747.github.io/2020/05/31/124_web25_js的原型链/" rel="next" title="124_web25_js的原型链">
+                <i class="fa fa-chevron-left"></i> 124_web25_js的原型链
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mc3747.github.io/2020/05/31/126_web27_js的关键字:this,new,instanceof/" rel="prev" title="125_web27_js的关键字:this,new,instanceof等">
+                125_web27_js的关键字:this,new,instanceof等 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/mc3747.github.io/images/avatar.jpg" alt="horse">
+            
+              <p class="site-author-name" itemprop="name">horse</p>
+              <p class="site-description motion-element" itemprop="description">做难事必有所得</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/mc3747.github.io/archives">
+              
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/mc3747.github.io/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/mc3747.github.io/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/mc3747.github.io/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mc3747" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc3747@126.com" target="_blank" title="网易邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope-square"></i>网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc37473747@google.com" target="_blank" title="Google邮箱">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tel:18589052901" target="_blank" title="联系电话">
+                      
+                        <i class="fa fa-fw fa-phone"></i>联系电话</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                作品链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="csdn地址()" target="_blank">csdn地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="豆瓣地址()" target="_blank">豆瓣地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="在线简历地址()" target="_blank">在线简历地址()</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-原型链继承"><span class="nav-number">1.</span> <span class="nav-text">1.原型链继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-构造函数继承"><span class="nav-number">2.</span> <span class="nav-text">2.构造函数继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-组合继承-组合-原型链继承-和-借用构造函数继承"><span class="nav-number">3.</span> <span class="nav-text">3.组合继承(组合 原型链继承 和 借用构造函数继承)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-原型式继承"><span class="nav-number">4.</span> <span class="nav-text">4.原型式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-寄生式式继承"><span class="nav-number">5.</span> <span class="nav-text">5.寄生式式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-寄生组合式继承"><span class="nav-number">6.</span> <span class="nav-text">6.寄生组合式继承</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">horse</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">72.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/mc3747.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/mc3747.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI',
+        appKey: 'OtX3yrmzOhO0oJgt7V2bS3fU',
+        placeholder: '🙋欢迎举手发言🙋‍♂️',
+        avatar:'http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI", "OtX3yrmzOhO0oJgt7V2bS3fU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -280,6 +280,1570 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/17/09_iOS2_空值过滤/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/10/17/09_iOS2_空值过滤/" itemprop="url">09_iOS2_空值过滤</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T10:56:09+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/10/17/09_iOS2_空值过滤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/17/09_iOS2_空值过滤/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/10/17/09_iOS2_空值过滤/" class="leancloud_visitors" data-flag-title="09_iOS2_空值过滤">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  582
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，数据传输的过程"><a href="#1，数据传输的过程" class="headerlink" title="1，数据传输的过程"></a>1，数据传输的过程</h2><table><tr>
+<td bgcolor="orange">json层:后台返回的json数据</td>
+<td bgcolor="yellow">🔜</td>
+<td bgcolor="green">字典层:本地序列化解析json数据</td>
+<td bgcolor="yellow">🔜</td>
+<td bgcolor="B6EEDE">模型层:字典转成模型</td>
+<td bgcolor="yellow">🔜</td>
+<td bgcolor="EEB6E8">应用层:直接使用模型</td>
+</tr>
+
+</table>
+
+<h2 id="2，出现空值的几个环节"><a href="#2，出现空值的几个环节" class="headerlink" title="2，出现空值的几个环节"></a>2，出现空值的几个环节</h2><ol>
+<li><p>本地新建<br>未赋值的变量为（null）<br>字段和数组的value不能为nil，只能是NSNull</p>
+</li>
+<li><p>服务器返回</p>
+<pre><code>1,没有返回值object，直接使用会崩
+2,没有返回值object的某个字段key1
+    返回（null），不会崩溃
+3,返回值的某个字段未赋值
+    数据库中为null，解析成&lt;null&gt;
+    不是String，不是nil，会引起崩溃
+4,返回值的某个字段赋值为null,与未赋值类似</code></pre></li>
+</ol>
+<h2 id="3，采取的安全方法"><a href="#3，采取的安全方法" class="headerlink" title="3，采取的安全方法"></a>3，采取的安全方法</h2><ol>
+<li>安全的集合数据：空值都转成空字符串<br> 应用在字典层</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">id</span>)noEmptyWithObject:(<span class="keyword">id</span>)object&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="built_in">NSString</span> *nullStr = <span class="string">@""</span>;</span><br><span class="line">    <span class="comment">//数据处理</span></span><br><span class="line">    <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="built_in">NSMutableArray</span> *array = [(<span class="built_in">NSArray</span> *)object mutableCopy];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> index = <span class="number">0</span>; index&lt;array.count; index++) &#123;</span><br><span class="line">            <span class="comment">//遍历后每个数据</span></span><br><span class="line">            <span class="keyword">id</span> arrayObject = array[index] ;</span><br><span class="line">            <span class="comment">//返回数据</span></span><br><span class="line">            <span class="keyword">id</span> useObject = [<span class="keyword">self</span> noEmptyWithObject:arrayObject];</span><br><span class="line">            <span class="comment">//存档</span></span><br><span class="line">            [array setObject:useObject atIndexedSubscript:index];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> array;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="built_in">NSMutableDictionary</span> *mutableDic = [(<span class="built_in">NSDictionary</span> *)object mutableCopy];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> key <span class="keyword">in</span> mutableDic.allKeys) &#123;</span><br><span class="line">            <span class="comment">//遍历后每个数据</span></span><br><span class="line">            <span class="keyword">id</span> value = mutableDic[key];</span><br><span class="line">            <span class="comment">//返回数据</span></span><br><span class="line">            <span class="keyword">id</span> useObject = [<span class="keyword">self</span> noEmptyWithObject:value];</span><br><span class="line">            <span class="comment">//存档</span></span><br><span class="line">            [mutableDic setObject:useObject forKey:key];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> mutableDic;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isEqual:[<span class="built_in">NSNull</span> null]]||object == <span class="literal">nil</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> nullStr;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> object;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>第三方库 NullSafe:将NSNull转成nil<br> 应用在字典层<br> 参考链接：<a href="https://github.com/nicklockwood/NullSafe">https://github.com/nicklockwood/NullSafe</a></li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>，创建一个方法缓存，这个缓存会缓存项目中类的所有类名。</span><br><span class="line"><span class="number">2</span>，遍历缓存，寻找是否已经有可以执行此方法的类。</span><br><span class="line"><span class="number">3</span>，如果有的话，返回这个 <span class="built_in">NSMethodSignature</span> 。</span><br><span class="line"><span class="number">4</span>，如果没有的话，返回 <span class="literal">nil</span> , 接下来会走 forwardInvocation:方法。</span><br><span class="line">[invocation invokeWithTarget:<span class="literal">nil</span>]; 将消息转发给 <span class="literal">nil</span>。</span><br><span class="line"></span><br><span class="line">	- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)selector</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//look up method signature</span></span><br><span class="line">    <span class="built_in">NSMethodSignature</span> *signature = [<span class="keyword">super</span> methodSignatureForSelector:selector];</span><br><span class="line">    <span class="keyword">if</span> (!signature)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (Class someClass <span class="keyword">in</span> @[</span><br><span class="line">            [<span class="built_in">NSMutableArray</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSMutableDictionary</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSMutableString</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSNumber</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSDate</span> <span class="keyword">class</span>],</span><br><span class="line">            [<span class="built_in">NSData</span> <span class="keyword">class</span>]</span><br><span class="line">        ])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">@try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> ([someClass instancesRespondToSelector:selector])</span><br><span class="line">                &#123;</span><br><span class="line">                    signature = [someClass instanceMethodSignatureForSelector:selector];</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">@catch</span> (__unused <span class="built_in">NSException</span> *unused) &#123;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> signature;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)invocation</span><br><span class="line">&#123;</span><br><span class="line">    invocation.target = <span class="literal">nil</span>;</span><br><span class="line">    [invocation invoke];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<ol start="3">
+<li><p>第三方json解析<br> 1，应用在json层<br> 2，解析方法</p>
+<pre><code>除了原生的NSJSONSerialization外
+TouchJson
+SBJson 
+JSONKit </code></pre></li>
+<li><p>字典转模型<br> 1，应用在模型层<br> 2，字典转模型，会用单独的一篇来讲，<br> 3，字典转模型方法</p>
+<pre><code>YYModel
+MJExtension</code></pre></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/" itemprop="url">08_iOS1_空值盘点和判断</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-17T09:32:00+08:00">
+                2019-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/10/17/08_iOS1_空值盘点和判断/" class="leancloud_visitors" data-flag-title="08_iOS1_空值盘点和判断">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  951
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，空值类型"><a href="#1，空值类型" class="headerlink" title="1，空值类型"></a>1，空值类型</h2><ol>
+<li><p>nil</p>
+<ol>
+<li><p>是给一个对象赋值为空，即是对象的空指针.</p>
+</li>
+<li><p>id 类型的对象,以及用@interface 声明的 ObjC 对象<br>3 示例：</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class Class1 = Nil;</span><br><span class="line">Clsss Class2 = [<span class="built_in">NSURL</span> <span class="keyword">class</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>Nil</p>
+<ol>
+<li><p>是给一个类赋值为空，即是类的空指针</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class Class1 = Nil;</span><br><span class="line">Clsss Class2 = [<span class="built_in">NSURL</span> <span class="keyword">class</span>];</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>Null</p>
+<ol>
+<li><p>是给C语言指针赋空值，即非对象类型的空指针 </p>
+</li>
+<li><p>示例</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>   *intA    = <span class="literal">NULL</span>;</span><br><span class="line"><span class="keyword">char</span> *charC     = <span class="literal">NULL</span>;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">structStr</span> = <span class="title">NULL</span>;</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="4">
+<li><p>NSNull</p>
+<ol>
+<li><p>NSNull有 + (NSNull *)null; 单例方法</p>
+</li>
+<li><p>多用于集合(NSArray,NSDictionary)中值为空的对象</p>
+</li>
+<li><p>示例</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1，因为 nil 被用来作为集合结束的标志，所以 nil 不能存储在 Foundation 集合里。</span></span><br><span class="line"><span class="built_in">NSArray</span> *array = [<span class="built_in">NSArray</span> arrayWithObjects:<span class="string">@"one"</span>, <span class="string">@"two"</span>, <span class="literal">nil</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2，错误的使用,会引起崩溃</span></span><br><span class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">[dict setObject:<span class="literal">nil</span> forKey:<span class="string">@"someKey"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 3，正确的使用</span></span><br><span class="line"> <span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line"> [dict setObject:[<span class="built_in">NSNull</span> null] forKey:<span class="string">@"someKey"</span>];</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="2，空值报错"><a href="#2，空值报错" class="headerlink" title="2，空值报错"></a>2，空值报错</h2><ol>
+<li>“(null)”报错:<ol>
+<li>未初始化值报错，类似于js的undefined类型</li>
+<li>过滤方法：使用if(result == nil)来判断</li>
+</ol>
+</li>
+<li>“&lt; null &gt;”报错<ol>
+<li>后台键值对里的空值</li>
+<li>过滤方法：使用if([result isEqual:[NSNull null]])来判断</li>
+</ol>
+</li>
+</ol>
+<h2 id="3，空值判断"><a href="#3，空值判断" class="headerlink" title="3，空值判断"></a>3，空值判断</h2><ol>
+<li>判断是否是空对象</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  1,判断对象是否为空</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)judgeObjectNil:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//  1.空对象指针nil</span></span><br><span class="line">    <span class="comment">//  2.空类指针Nil</span></span><br><span class="line">    <span class="comment">//  3.空对象[NSNull null]&lt;非nil&gt; - 不会造成容器崩溃</span></span><br><span class="line">    <span class="comment">//  4.空基本数据类型NULL</span></span><br><span class="line">    <span class="keyword">if</span> ([object isEqual:[<span class="built_in">NSNull</span> null]] || <span class="literal">nil</span> == object || Nil == object || <span class="literal">NULL</span> == object) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">//  5.空类[NSNull class]</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSNull</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    <span class="comment">// 6,空字符串</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ([<span class="keyword">self</span> isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]] &amp;&amp; FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>).length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">     </span><br><span class="line">    <span class="comment">// 7，服务器返回的特殊空字符</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"(null)"</span>] || [FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"&lt;null&gt;"</span>]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>判断对象是否为非空字符串</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  2，判断对象是否为非空字符串</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)judgeStringNil:(<span class="keyword">id</span>)object &#123;</span><br><span class="line">        <span class="comment">//  1,是否为空对象</span></span><br><span class="line">    <span class="keyword">if</span>([<span class="keyword">self</span> judgeObjectNil:object])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  2,是否为空字符串</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]] &amp;&amp; FMT_STR(<span class="string">@"%@"</span>, object).length &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  3,过滤掉空格字符</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span> ([object isKindOfClass:[<span class="built_in">NSString</span> <span class="keyword">class</span>]] &amp;&amp; [[object stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> whitespaceCharacterSet]] length]&lt;=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//  4,服务器返回的特殊空字符</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"(null)"</span>] || [FMT_STR(<span class="string">@"%@"</span>, <span class="keyword">self</span>) isEqualToString:<span class="string">@"&lt;null&gt;"</span>]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>判断对象是否为非空数组</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  3，判断对象是否为非空数组</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)judgeArrayNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">    <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSArray */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*NSArray的元素是否大于0个 */</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(([object isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &amp;&amp; ((<span class="built_in">NSArray</span> *)object).count &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">              </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>判断对象是否为非空字典</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  4，判断对象是否为非空字典</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeDicNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSDictionary */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*NSDictionary的元素是否大于0个 */</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]] &amp;&amp; [((<span class="built_in">NSDictionary</span> *)object) count] &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>判断对象是否为空的NSNumber</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  5,判断对象是否为空的NSNumber</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeNSNumberNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">        <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSNumber */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*NSNumber的元素是否为0 */</span></span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>([object isKindOfClass:[<span class="built_in">NSNumber</span> <span class="keyword">class</span>]] &amp;&amp; [((<span class="built_in">NSNumber</span> *)object) isEqualToNumber:@<span class="number">0</span>])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>判断对象是否为空的NSValue</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  6,判断对象是否为空的NSValue</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeNSValueNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">        <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSValue */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSValue</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>判断对象是否为空的NSData</li>
+</ol>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark -  7,判断对象是否为空的NSData</span></span><br><span class="line">+(<span class="built_in">BOOL</span>)judgeNSDataNilWithObject:(<span class="keyword">id</span> )object&#123;</span><br><span class="line">        <span class="comment">/*是否为空对象 */</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span> judgeObjectNil:object]) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">/*是否是NSValue */</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span>(![object isKindOfClass:[<span class="built_in">NSData</span> <span class="keyword">class</span>]])&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">        </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/14/07_微信小程序1_注册-搭建环境/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/10/14/07_微信小程序1_注册-搭建环境/" itemprop="url">07_微信小程序1_注册-搭建环境</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-14T17:33:03+08:00">
+                2019-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/10/14/07_微信小程序1_注册-搭建环境/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/14/07_微信小程序1_注册-搭建环境/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/10/14/07_微信小程序1_注册-搭建环境/" class="leancloud_visitors" data-flag-title="07_微信小程序1_注册-搭建环境">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  297
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，常用的网站"><a href="#1，常用的网站" class="headerlink" title="1，常用的网站"></a>1，常用的网站</h2><ol>
+<li><p>注册</p>
+<ol>
+<li>邮箱注册小程序账号： <a href="https://mp.weixin.qq.com/wxopen/waregister?action=step1" target="_blank" rel="noopener">https://mp.weixin.qq.com/wxopen/waregister?action=step1</a></li>
+<li>注册小程序，注册完毕会有一个appID</li>
+<li>注册参考：<a href="https://developers.weixin.qq.com/miniprogram/introduction/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/introduction/</a></li>
+</ol>
+</li>
+<li><p>相关参考文档和工具</p>
+<ol>
+<li>小程序开发文档：<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/framework/</a></li>
+<li>小程序开发指南：<a href="https://developers.weixin.qq.com/ebook?action=get_post_info&amp;docid=0008aeea9a8978ab0086a685851c0a" target="_blank" rel="noopener">https://developers.weixin.qq.com/ebook?action=get_post_info&amp;docid=0008aeea9a8978ab0086a685851c0a</a></li>
+<li>小程序开发工具：<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html" target="_blank" rel="noopener">https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html</a></li>
+<li>小程序开发官方demo：<a href="https://github.com/wechat-miniprogram/miniprogram-demo">https://github.com/wechat-miniprogram/miniprogram-demo</a></li>
+</ol>
+</li>
+<li><p>UI组件库</p>
+</li>
+<li><p>开源的资源参考 </p>
+</li>
+<li><p>新建小程序</p>
+<ol>
+<li>打开微信小程序工具</li>
+<li>利用注册的appID新建一个项目.</li>
+</ol>
+</li>
+<li><p>小程序目录结构</p>
+</li>
+<li><p>小程序的调试技巧</p>
+</li>
+<li><p>小程序的运行环境</p>
+ <table>
+ <tr>
+     <td bgcolor="#FF8248">运行环境</td>
+     <td bgcolor="#FF8248">逻辑层</td>
+     <td bgcolor="#FF8248">渲染层</td>
+ </tr>
+ <tr>
+     <td bgcolor="#23A0BF">iOS</td>
+     <td bgcolor="#23A0BF">JavaScript Core</td>
+     <td bgcolor="#23A0BF">WKWebView</td>
+ </tr>
+ <tr>
+     <td bgcolor="#23A0BF">Android</td>
+     <td bgcolor="#23A0BF">V8</td>
+     <td bgcolor="#23A0BF">Chrome定制内核</td>
+ </tr>
+ <tr>
+     <td bgcolor="#23A0BF">微信开发者工具</td>
+     <td bgcolor="#23A0BF">NWJS</td>
+     <td bgcolor="#23A0BF">Chrome WebView</td>
+ </tr>
+ </table></li>
+<li><p>小程序的入口</p>
+<ol>
+<li>微信内搜索</li>
+<li>扫码</li>
+<li>聊天中分享</li>
+<li>公众号中分享</li>
+<li>暂时无法分享到朋友圈</li>
+</ol>
+</li>
+<li><p>小程序的特点（对比APP）</p>
+<ol>
+<li>无需安装和卸载（大小限制2M），占用内存小</li>
+<li>周期小，成本低，跨平台</li>
+<li>上线审核时间短</li>
+<li>体验不如APP</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/" itemprop="url">06_方法论1_优秀工程师的三大思维方式</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T22:04:13+08:00">
+                2019-10-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/" class="leancloud_visitors" data-flag-title="06_方法论1_优秀工程师的三大思维方式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考文章：<a href="https://media.weibo.cn/article?id=2309404316788128134988" target="_blank" rel="noopener">https://media.weibo.cn/article?id=2309404316788128134988</a></p>
+<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1,背景"></a>1,背景</h2><blockquote>
+<p>在社会分工的背景下，软件行业的工程师群体被划分成了开发、测试、产品等诸多岗位，以协作的方式共同完成价值创造。高度依赖软件的互联网行业正以全新的方式改善着人们的生活，同时在改善的道路上对价值创造的效能提出了更高的要求，而背后是对个体与团队的协作效能有着更高的诉求.</p>
+</blockquote>
+<ol>
+<li>产品工程师因不理解技术的实现原理而提出天马行空、不接地气的需求</li>
+<li>开发工程师对产品工程师所提出的用户体验方面的需求会认为过于吹毛求疵，不清楚自己对于软件质量的责任，而将那些本因自己做好的琐碎工作心安理得地交给测试工程师去做</li>
+<li>测试工程师因为不理解工程效率的内涵而将自己的工作变成了体力活</li>
+</ol>
+<h2 id="2-工程师思维分类"><a href="#2-工程师思维分类" class="headerlink" title="2,工程师思维分类"></a>2,工程师思维分类</h2><p>分解为产品、技术和工程三大思维。每个维度主要关注的内容通过几个关键字去表达<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%875.jpg" alt></p>
+<h2 id="3-产品思维"><a href="#3-产品思维" class="headerlink" title="3,产品思维"></a>3,产品思维</h2><blockquote>
+<p>产品思维的起源是用户（或客户）价值。用户价值是通过技术手段以产品或服务的形态去解决用户的痛点，或带去爽点。毫无疑问，工程师在日常工作中应时刻关注并理清自己的工作与用户（或客户）价值的联系，并且应该通过聚焦于用户价值去安排工作的优先级和分配自己的精力。</p>
+</blockquote>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%876.jpg" alt></p>
+<ol>
+<li><p>当用户价值足够时，产品能否在市场中立足并真正收获收益，首先考验的是产品的用户体验。良好的用户体验一定是站在用户的角度，基于用户心智来塑造概念，由于概念存在理解和解释成本，所以塑造的概念应足够轻、少且易掌握。概念一旦塑造出来则概念间的关系也随之确定，这些关系基本上决定了产品与用户的交互流程。好的产品体现于“易用”二字，其极致在于迎合用户的本能反应并符合各种生活或专业常识。</p>
+</li>
+<li><p>所有产品都存在演进的过程，所创造的用户价值也在被不断地挖掘与探索，那时不同的细化价值需要通过产品特性去区分和表达。特性也是产品差异化的一种体现，特性也间接地确定了软件实现层面的功能模块边界。作为开发工程师，也需要对产品特性有非常透彻的理解，并能将其很好地抽象并转化为软件实现层面的功能模块。特性需要考虑通过售卖license等形式进行开启或关闭去实现售卖，这一点对于2B的产品甚是必要。</p>
+</li>
+<li><p>为了产品更好地演进，需要通过数据闭环的形式去检验创造用户价值的效果，让产品的开发、运营、营销工作做到有的放矢。在产品价值创造的道路上，最害怕的事莫过于只顾低头干做加法，做得多却无人关心收效。而我们通过数据化闭环的形式，不仅能让整个产品大团队聚焦于核心价值，还能帮助团队在探索用户价值的道路上理性地做减法。大多情形下，做减法远难于做加法</p>
+</li>
+</ol>
+<h2 id="4-技术思维"><a href="#4-技术思维" class="headerlink" title="4,技术思维"></a>4,技术思维</h2><blockquote>
+<p>技术思维的源头是需求。需求可以分成市场需求、系统需求、特性需求等不同层次，回答的是技术层面“做什么”的问题。显然，清晰表达的需求以及对需求的精确理解才能确保将事做对。毋容置疑，需求一旦出现偏差所导致的浪费是非常严重的，也正因如此工程师对于需求的质量相当重视。<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%878.jpg" alt></p>
+</blockquote>
+<ol>
+<li><p>需求一旦确立，会基于模块化的思想拆分成多个功能模块去降低实现的局部复杂度，最终将所有功能模块“拼接”在一起去实现整体需求。每个功能模块会安排给一个人或一个团队负责，由于功能模块是需求分解后的产物，容易导致工程师在实现的过程中只看到“树木”而忘记了“森林”。</p>
+</li>
+<li><p>性能是工程师在实现一个功能模块时不得不关注的，特别是当功能模块被运用于高频、时效性敏感、算力有限的场合时性能将尤其被关注。在现实中有时会存在工程师乐于追求性能的极致去体现自己的技术实力，甚至出现过早追求性能而滑入过度设计的误区。</p>
+</li>
+<li><p>毫无疑问，一个正规的团队，对于功能模块的开发工作多会以项目制、多个迭代的方式去完成交付。不少工程师这里会有一个误区，忘记了敏捷思想所倡导的“项目计划的目的是为了适应变化”，而是将“按时交付”当作是天职，各种赶工爬到终点时却毫不意外地看到了“一地鸡毛”的景象。</p>
+</li>
+<li><p>在迈向第四次工业革命的道路上，人工智能、大数据、机器学习，Kubernetes、Istio、Knative、Go、Dart、Flutter等新技术不断冲击着工程师已掌握的技能。快速跟上技术的迭代步伐是每个有追求的工程师不断提升自己专业素养的表现之一。工程师的内心一定不缺乏对新技术的追求，憧憬自己所掌握的技术具有一定的先进性。</p>
+</li>
+</ol>
+<h2 id="5-工程思维"><a href="#5-工程思维" class="headerlink" title="5,工程思维"></a>5,工程思维</h2><blockquote>
+<p>工程思维的起点是流程。流程的背后是科学，以既定的步骤、阶段性的输入/输出去完成价值创造，通过过程控制确保最终结果让人满意。由于流程涉及每一个工程师的工作质量与效率，其含义不只在于定义、工具化、检查等内容，而是应基于工程师的日常工作习惯，将流程与工程师的工作环境无缝整合。“无缝”体现于流程中的概念与工程师群体已建立的专业常识相一致、没有增加毫无价值的负担，根本仍是确保易用性。</p>
+</blockquote>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%877.jpg" alt></p>
+<ol>
+<li><p>机制的含义是通过对所需解决问题的分析，以一种模式去解决同类问题。机制应体现一定的系统性，而非“头痛治头，脚痛治脚”。系统性不是一开始就能被洞察到，可能在演进的过程中逐步发现和完善的，因而需要工程师在工作的过程中不时回顾并付诸实践去落实。对于工程师来说，机制是通过系统性的软件设计去达成的。</p>
+</li>
+<li><p>可以说产品质量直接决定了工程师的工作和生活幸福感。一个质量不可靠的产品一定会给用户和工程师自己带去麻烦，甚至造成无法挽回的经济损失并造成负面的社会影响。对于工程师来说，那势必打乱个体的工作与生活节奏。为了让产品的质量做到可靠，单元测试、静态分析、动态分析等确保工程质量的手段应成为工程师的基本工作内容，通过将这些手段与CI（Continuous Integration）流程进行整合去持续构建起对软件产品的质量信心。</p>
+</li>
+<li><p>在互联网行业，除了软件产品的质量得可靠外，风险可控是另一个不能忽视的内容。而风险可控是建立于系统性机制和质量可靠之上的。对于服务端软件来说愈是如此。风险往往出现于资源使用的极端场景，当从外部涌入的过多事务远超软件产品的处理能力时，需要有一定的机制让整个产品能相对平滑地应对，或是扩充资源、或是限制涌入事务的流量。</p>
+</li>
+<li><p>软件所需的机器成本是比较容易忽视的话题，软件成本不只与软件性能相关，还与软件之间的依赖、技术方案等因素相连。当一个软件需要从公司的内部对外输出时，平时忽视对成本的关注就会暴露出成本问题。比如，为了运行某个软件需要数量庞大的计算资源，所导致的资金开销对于客户来讲很可能是无法接受的。</p>
+</li>
+</ol>
+<h2 id="6-三大思维总结"><a href="#6-三大思维总结" class="headerlink" title="6,三大思维总结"></a>6,三大思维总结</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%879.jpg" alt></p>
+<ul>
+<li><p>了解工程师思维的价值在于，工程师个体需要在工作中逐步建立起产品、技术和工程三大思维，以便用更为全面的视角去看待日常工作中所面临的困境和困惑。当站在单一的思维去看待所面临的问题时可能觉得不合理，但从三大思维层面去审视时所得到结论可能完全相反。从团队协作的角度，只有团队中有更多的个体从多维度去进行思考，才容易发现岗位间衔接的那些无人问津的灰色地带，进而通过补位、助攻去更大程度地发挥团队的效能。</p>
+</li>
+<li><p>显然，不同岗位、不同职责的工程师对于这三大思维的深度要求是不一样的，但从多维度去思考却应是每个工程师都应该具备的素养。</p>
+</li>
+</ul>
+<h2 id="7，开发过程思维的转换"><a href="#7，开发过程思维的转换" class="headerlink" title="7，开发过程思维的转换"></a>7，开发过程思维的转换</h2><pre><code>1. ♻️前端思维
+    页面为中心，后台必须提供数据，前端必须提供设计
+
+2. 🌀系统思维
+    后台核心为主，功能完成为主，
+
+3. ♨️产品思维
+    业务导向，为什么做这个</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/12/05_markdown的用法-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/10/12/05_markdown的用法-2/" itemprop="url">05_markdown的用法-2</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-12T17:34:38+08:00">
+                2019-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/10/12/05_markdown的用法-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/12/05_markdown的用法-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/10/12/05_markdown的用法-2/" class="leancloud_visitors" data-flag-title="05_markdown的用法-2">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  368
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-字体，字号和颜色"><a href="#1-字体，字号和颜色" class="headerlink" title="1,字体，字号和颜色"></a>1,字体，字号和颜色</h2><pre><code>1，markdown只有粗体和斜体的语法
+2，可以借助font标签来实现：
+&lt;font face=&quot;黑体&quot;&gt;我是黑体字&lt;/font&gt;
+&lt;font size=5&gt;我是尺寸&lt;/font&gt;
+&lt;font color=red&gt;我是红色&lt;/font&gt;</code></pre><p><font color="red">我是红色</font> </p>
+<h2 id="2，背景颜色"><a href="#2，背景颜色" class="headerlink" title="2，背景颜色"></a>2，背景颜色</h2><pre><code>1，借助table标签的td单元格设置
+2，⚠️：html的标签
+        ul 和li标签 （无序列表）
+        ol 和li标签 （有序列表）    
+        table，tr（table的行便签），td（table的每一个单元格）
+3，&lt;table&gt;&lt;tr&gt;&lt;td bgcolor=yellow&gt;背景色yellow&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</code></pre><table><tr border="1px #CA0C16 solid"><td bgcolor="yellow">背景色yellow</td></tr></table>
+
+<h2 id="3，图片大小，百分比及居中"><a href="#3，图片大小，百分比及居中" class="headerlink" title="3，图片大小，百分比及居中"></a>3，图片大小，百分比及居中</h2><pre><code>1，图片大小：&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;251&quot; height=&quot;350&quot; &gt;
+2，图片百分比：&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;
+3，图片居中：&lt;div align=center&gt;&lt;img src=&quot;http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg&quot; width=&quot;50%&quot; height=&quot;50%&quot;&gt;&lt;/div&gt;</code></pre><div align="center"><img src="http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg" width="30%" height="30%"></div>
+
+<h2 id="4，背景区块颜色"><a href="#4，背景区块颜色" class="headerlink" title="4，背景区块颜色"></a>4，背景区块颜色</h2><blockquote>
+<p>wo</p>
+<blockquote>
+<p>ow</p>
+</blockquote>
+</blockquote>
+<h2 id="5，代码区块背景颜色"><a href="#5，代码区块背景颜色" class="headerlink" title="5，代码区块背景颜色"></a>5，代码区块背景颜色</h2><pre><code>在next主题中修改，详见博客配置3</code></pre><h2 id="6，代码区块高亮，添加行号"><a href="#6，代码区块高亮，添加行号" class="headerlink" title="6，代码区块高亮，添加行号"></a>6，代码区块高亮，添加行号</h2><pre><code>代码引用采用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```Python</span><br><span class="line">#!/usr/bin/env python3</span><br><span class="line">print(&quot;Hello, World!&quot;);</span><br></pre></td></tr></table></figure></code></pre><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">code</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="7，引用html代码"><a href="#7，引用html代码" class="headerlink" title="7，引用html代码"></a>7，引用html代码</h2><div style="background-color:#F9F0D8;border-left:5px #F8D43E solid">
+    <font color="#060F27" size="2.5" face="黑体">
+        &nbsp&nbsp⚠️&nbsp&nbsp我是黑体字
+    </font>
+</div>
+
+<div style="background-color:#EEF4EC;border-left:5px #5DB24C solid">
+    <font color="#110B13" size="2.5" face="黑体">
+        &nbsp&nbsp♻️&nbsp&nbsp我是黑体字
+    </font>
+</div>
+
+<div style="background-color:#E6F3FE;border-left:5px #537CB1 solid">
+    <font color="#190C01" size="2.5" face="黑体">
+        &nbsp&nbsp🌀&nbsp&nbsp我是黑体字
+    </font>
+</div>
+
+<div style="background-color:#ffc1c1;border-left:5px #CB372D solid">
+    <font color="#003E3E" size="2.5" face="黑体">
+        &nbsp&nbsp♨️&nbsp&nbsp我是黑体字
+    </font>
+</div>
+
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/12/04_markdown的用法-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/10/12/04_markdown的用法-1/" itemprop="url">04_markdown的用法-1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-12T10:43:35+08:00">
+                2019-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/工具工程/" itemprop="url" rel="index">
+                    <span itemprop="name">工具工程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/10/12/04_markdown的用法-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/12/04_markdown的用法-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/10/12/04_markdown的用法-1/" class="leancloud_visitors" data-flag-title="04_markdown的用法-1">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  478
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，学习链接"><a href="#1，学习链接" class="headerlink" title="1，学习链接"></a>1，学习链接</h2><ol>
+<li>在线参考：<a href="http://www.markdown.cn" target="_blank" rel="noopener">http://www.markdown.cn</a>  </li>
+<li>菜鸟教程：<a href="https://www.runoob.com/markdown/md-tutorial.html" target="_blank" rel="noopener">https://www.runoob.com/markdown/md-tutorial.html</a></li>
+<li>网友整理：<a href="https://blog.csdn.net/witnessai1/article/details/52551362" target="_blank" rel="noopener">https://blog.csdn.net/witnessai1/article/details/52551362</a></li>
+</ol>
+<h2 id="2，标题"><a href="#2，标题" class="headerlink" title="2，标题"></a>2，标题</h2><ol>
+<li>几个#，就是几级标题</li>
+</ol>
+<h2 id="3，换行"><a href="#3，换行" class="headerlink" title="3，换行"></a>3，换行</h2><ol>
+<li>两个空格</li>
+<li>或者直接回车</li>
+</ol>
+<h2 id="4，字体"><a href="#4，字体" class="headerlink" title="4，字体"></a>4，字体</h2><pre><code>*斜体文本*
+_斜体文本_
+**粗体文本**
+__粗体文本__
+***粗斜体文本***
+___粗斜体文本___</code></pre><h2 id="5，换行分割线"><a href="#5，换行分割线" class="headerlink" title="5，换行分割线"></a>5，换行分割线</h2><pre><code>以下5种均可以生成分割线
+***
+* * *
+*****
+- - -
+----------</code></pre><h2 id="6，删除线"><a href="#6，删除线" class="headerlink" title="6，删除线"></a>6，删除线</h2><pre><code>前后端各加两个波浪线~~</code></pre><h2 id="7，换行"><a href="#7，换行" class="headerlink" title="7，换行"></a>7，换行</h2><pre><code>前后加U标签：&lt;u&gt;&lt;/u&gt;</code></pre><h2 id="8，脚注"><a href="#8，脚注" class="headerlink" title="8，脚注"></a>8，脚注</h2><pre><code>文字后边跟[^要注明的文本]</code></pre><h2 id="9，无序列表"><a href="#9，无序列表" class="headerlink" title="9，无序列表"></a>9，无序列表</h2><pre><code>三种写法：
+*
++
+-</code></pre><h2 id="10，有序列表"><a href="#10，有序列表" class="headerlink" title="10，有序列表"></a>10，有序列表</h2><pre><code>数字后加点：
+1.</code></pre><h2 id="11，链接"><a href="#11，链接" class="headerlink" title="11，链接"></a>11，链接</h2><pre><code>3种写法：
+1，只展示链接地址时，前后加尖括号：&lt;链接地址&gt;
+2，链接文字加链接地址时：[链接名称](链接地址)
+3，使用变量：
+    这个链接用 1 作为网址变量 [baidu][1]
+    [1]: https://www.baidu.com</code></pre><h2 id="12，图片"><a href="#12，图片" class="headerlink" title="12，图片"></a>12，图片</h2><pre><code>3种写法：
+1，![alt 属性文本](图片地址)
+2，![alt 属性文本](图片地址 &quot;可选标题&quot;)
+3，使用变量
+4，使用image标签，改变尺寸</code></pre><p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标"></p>
+<p><img src="http://static.runoob.com/images/runoob-logo.png" alt="RUNOOB 图标" title="RUNOOB"><br>这个链接用 1 作为网址变量 [RUNOOB][1].<br>[1]: <a href="http://static.runoob.com/images/runoob-logo.png" target="_blank" rel="noopener">http://static.runoob.com/images/runoob-logo.png</a></p>
+<img src="http://static.runoob.com/images/runoob-logo.png" width="30%">
+## 13，区块
+    使用尖括号，进行嵌套
+    > 最外层
+    > > 第一层嵌套
+    > > > 第二层嵌套
+## 14，代码
+    四种形式：
+    1，普通前后加`
+    2, 有回车加tab键
+    3，指定语言，前后加```
+    4，借助标签：<pre><code>代码 </code></pre>，但是没有代码高亮显示
+```javascript
+$(document).ready(function () {
+    alert('RUNOOB');
+});
+```    
+<pre><code>
+$(document).ready(function () {
+    alert('RUNOOB');
+});
+</code></pre>
+
+<h2 id="15，表格"><a href="#15，表格" class="headerlink" title="15，表格"></a>15，表格</h2><pre><code>基本格式：
+| 左对齐 | 右对齐 | 居中对齐 |
+| :-----| ----: | :----: |
+| 单元格 | 单元格 | 单元格 |
+| 单元格 | 单元格 | 单元格 |</code></pre><table>
+<thead>
+<tr>
+<th align="left">左对齐</th>
+<th align="right">右对齐</th>
+<th align="center">居中对齐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单元格左对齐</td>
+<td align="right">单元格右对齐</td>
+<td align="center">单元格居中对齐</td>
+</tr>
+<tr>
+<td align="left">单元格 左对齐</td>
+<td align="right">单元格右对齐</td>
+<td align="center">单元格居中对齐</td>
+</tr>
+</tbody></table>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/11/03_hexo搭建个人博客-3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1177,7 +2741,7 @@ categories:
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">129</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1307,7 +2871,7 @@ categories:
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">69.9k</span>
+    <span title="Site words total count">72.7k</span>
   
 </div>
 

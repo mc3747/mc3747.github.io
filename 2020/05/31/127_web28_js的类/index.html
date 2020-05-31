@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/mc3747.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/mc3747.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/mc3747.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/mc3747.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/mc3747.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/mc3747.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/mc3747.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="web基础,">
+
+
+
+
+
+  <link rel="alternate" href="/mc3747.github.io/rss2.xml" title="小新的个人博客" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="1.class的本质1234567891011// ES6写法    class P &amp;#123;        constructor(x, y)&amp;#123;            this.x = x;            this.y = y;        &amp;#125;        toString()&amp;#123;            return &apos;(&apos; + this.x + &apos;,">
+<meta name="keywords" content="web基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="127_web28_js的类">
+<meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/31/127_web28_js的类/index.html">
+<meta property="og:site_name" content="小新的个人博客">
+<meta property="og:description" content="1.class的本质1234567891011// ES6写法    class P &amp;#123;        constructor(x, y)&amp;#123;            this.x = x;            this.y = y;        &amp;#125;        toString()&amp;#123;            return &apos;(&apos; + this.x + &apos;,">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-31T15:14:23.531Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="127_web28_js的类">
+<meta name="twitter:description" content="1.class的本质1234567891011// ES6写法    class P &amp;#123;        constructor(x, y)&amp;#123;            this.x = x;            this.y = y;        &amp;#125;        toString()&amp;#123;            return &apos;(&apos; + this.x + &apos;,">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/mc3747.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/mc3747/mc3747.github.io/2020/05/31/127_web28_js的类/">
+
+
+
+
+
+  <title>127_web28_js的类 | 小新的个人博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/mc3747.github.io/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小新的个人博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">积极-乐观-有趣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/mc3747.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/mc3747.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/mc3747.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/mc3747.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/mc3747.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/127_web28_js的类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">127_web28_js的类</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T19:45:48+08:00">
+                2020-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/31/127_web28_js的类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/31/127_web28_js的类/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/31/127_web28_js的类/" class="leancloud_visitors" data-flag-title="127_web28_js的类">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-class的本质"><a href="#1-class的本质" class="headerlink" title="1.class的本质"></a>1.class的本质</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6写法</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">P</span> </span>&#123;</span><br><span class="line">        <span class="keyword">constructor</span>(x, y)&#123;</span><br><span class="line">            <span class="keyword">this</span>.x = x;</span><br><span class="line">            <span class="keyword">this</span>.y = y;</span><br><span class="line">        &#125;</span><br><span class="line">        toString()&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">')'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="keyword">new</span> P(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5写法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">P</span> (<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    P.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">')'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> P(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<pre><code>1_ES6中的class可以看作只是一个语法糖
+2_ES6的类的所有方法都是定义在prototype属性上，调用类的实例的方法，其实就是调用原型上的方法,上例中a.constructor === P.prototype.constructor; // true
+3_constructor()是类的默认方法，通过new实例化时自动调用执行，一个类必须有constructor()方法，否则一个空的constructor()会默认添加。constructor()方法默认返回实例对象(即this)</code></pre><h2 id="2-实现类的私有方法和私有属性"><a href="#2-实现类的私有方法和私有属性" class="headerlink" title="2.实现类的私有方法和私有属性"></a>2.实现类的私有方法和私有属性</h2><pre><code>1_使用命名区分:变量名前添加_，但是不保险，外面也可以调用到
+    class P {
+            // 公有方法
+            f1 (x) {
+                this._x(x);
+            }
+            // 私有方法
+            _x (x){
+                return this.y = x;
+            }
+        }
+2_将私有方法移除模块，再在类内部调用call方法。
+    class P {
+            f1 (x){
+                f2.call(this, x);
+            }
+        }
+        function f2 (x){
+            return this.y = x;
+        }
+3_使用Symbol为私有方法命名
+    const a1 = Symbol(&apos;a1&apos;);
+    const a2 = Symbol(&apos;a2&apos;);
+    export default class P{
+        // 公有方法
+        f1 (x){
+            this[a1](x);
+        }
+        // 私有方法
+        [a1](x){
+            return this[a2] = x;
+        }
+    }</code></pre><h2 id="3-类的this指向"><a href="#3-类的this指向" class="headerlink" title="3.类的this指向"></a>3.类的this指向</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">P</span></span>&#123;</span><br><span class="line">    leoDo(thing = <span class="string">'any'</span>)&#123;</span><br><span class="line">        <span class="keyword">this</span>.print(<span class="string">`Leo do <span class="subst">$&#123;thing&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    print(text)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(text);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="keyword">new</span> P();</span><br><span class="line">    <span class="keyword">let</span> &#123; leoDo &#125; = a;</span><br><span class="line">    leoDo(); <span class="comment">// TypeError: Cannot read property 'print' of undefined</span></span><br><span class="line">    <span class="comment">// 问题出在 单独使用leoDo时，this指向调用的环境，</span></span><br><span class="line">    <span class="comment">// 但是leoDo中的this是指向P类的实例，所以报错</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>1,类内部方法的this默认指向类的实例，但单独使用该方法可能报错，因为this指向的问题
+2,解决的办法1:在类里面绑定this
+    class P {
+        constructor(){
+            this.name = this.name.bind(this);
+        }
+    }
+3,解决的办法2:使用箭头函数
+    class P{
+        constructor(){
+            this.name = (name = &apos;leo&apos; )=&gt;{
+                this.print(`my name is ${name}`)
+            }
+        }
+    }</code></pre><h2 id="4-类的属性"><a href="#4-类的属性" class="headerlink" title="4.类的属性"></a>4.类的属性</h2><pre><code>1_ES6中明确规定，Class内部只有静态方法没有静态属性
+2_只能通过下面实现
+// 正确写法
+    class P {}
+    P.a1 = 1;
+    P.a1;      // 1
+
+    // 无效写法
+    class P {
+        a1: 2,          // 无效
+        static a1 : 2,  // 无效
+    }
+    P.a1;      // undefined</code></pre><h2 id="5-类的方法"><a href="#5-类的方法" class="headerlink" title="5.类的方法"></a>5.类的方法</h2><pre><code>1_Class的getter和setter方法
+   -&gt;使用get和set关键词对属性设置取值函数和存值函数，拦截属性的存取行为
+    class P {
+            constructor (){ ... }
+            get f (){
+                return &apos;getter&apos;;
+            }
+            set f (val) {
+                console.log(&apos;setter: &apos; + val);
+            }
+        }
+
+        let a = new P();
+        a.f = 100;   // setter : 100
+        a.f;          // getter
+
+    2_Class的generator方法
+        -&gt;只要在方法之前加个(*)即可
+        class P {
+                constructor (...args){
+                    this.args = args;
+                }
+                *[Symbol.iterator](){
+                    for (let arg of this.args){
+                        yield arg;
+                    }
+                }
+            }
+            for (let k of new P(&apos;aa&apos;, &apos;bb&apos;)){
+                console.log(k);
+            }
+            // &apos;aa&apos;
+            // &apos;bb&apos;
+
+        3_Class的静态方法
+            -&gt;由于类相当于实例的原型，所有类中定义的方法都会被实例继承，若不想被继承，只要加上static关键字，只能通过类来调用，即“静态方法”。
+            class P (){
+                    static f1 (){ return &apos;aaa&apos; };
+                }
+                P.f1();    // &apos;aa&apos;
+                let a = new P();
+                a.f1();    // TypeError: a.f1 is not a function
+
+        4_静态方法中的this
+            class P {
+                static f1 (){
+                    this.f2();
+                }
+                static f2 (){
+                    console.log(&apos;aaa&apos;);
+                }
+                f2(){
+                    console.log(&apos;bbb&apos;);
+                }
+            }
+            P.f2();  // &apos;aaa&apos;
+
+        5_静态方法可以被子类继承，或者super对象中调用
+            class P{
+                    static f1(){ return &apos;leo&apos; };
+                }
+                class Q extends P { ... };
+                Q.f1();  // &apos;leo&apos;
+
+                class R extends P {
+                    static f2(){
+                        return super.f1() + &apos;,too&apos;;
+                    }
+                }
+                R.f2();  // &apos;leo , too&apos;</code></pre><h2 id="6-类的继承"><a href="#6-类的继承" class="headerlink" title="6.类的继承"></a>6.类的继承</h2><pre><code>1_基本使用
+    1.使用extends调用;
+    2.子类必须在constructor()调用super()否则报错，并且只有super方法才能调用父类实例，
+    3.父类的静态方法，子类也可以继承到
+    class P { 
+        constructor(x, y){
+            // ...
+        }
+        f1 (){ ... }
+    }
+    class Q extends P {
+        constructor(a, b, c){
+            super(x, y);  // 调用父类 constructor(x, y)
+            this.color = color ;
+        }
+        f2 (){
+            return this.color + &apos; &apos; + super.f1(); 
+            // 调用父类的f1()方法
+        }
+    }
+2_super关键字:既可以当函数使用，还可以当对象使用
+    class P {
+            f (){ return 2 };
+        }
+        class R extends P {
+            constructor (){
+                super();//当函数调用，代表父类的构造函数，但必须执行一次
+                console.log(super.f()); // 当对象调用，指向原型对象，在静态方法中指向父类。
+            }
+        }
+        let a = new R()</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/mc3747.github.io/tags/web基础/" rel="tag"># web基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/mc3747.github.io/2020/05/31/126_web27_js的关键字:this,new,instanceof/" rel="next" title="125_web27_js的关键字:this,new,instanceof等">
+                <i class="fa fa-chevron-left"></i> 125_web27_js的关键字:this,new,instanceof等
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mc3747.github.io/2020/05/31/128_web29_js的模块/" rel="prev" title="128_web29_js的模块">
+                128_web29_js的模块 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/mc3747.github.io/images/avatar.jpg" alt="horse">
+            
+              <p class="site-author-name" itemprop="name">horse</p>
+              <p class="site-description motion-element" itemprop="description">做难事必有所得</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/mc3747.github.io/archives">
+              
+                  <span class="site-state-item-count">129</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/mc3747.github.io/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/mc3747.github.io/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/mc3747.github.io/rss2.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/mc3747" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc3747@126.com" target="_blank" title="网易邮箱">
+                      
+                        <i class="fa fa-fw fa-envelope-square"></i>网易邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:mc37473747@google.com" target="_blank" title="Google邮箱">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google邮箱</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="tel:18589052901" target="_blank" title="联系电话">
+                      
+                        <i class="fa fa-fw fa-phone"></i>联系电话</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                作品链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="csdn地址()" target="_blank">csdn地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="豆瓣地址()" target="_blank">豆瓣地址()</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://example.com/" title="在线简历地址()" target="_blank">在线简历地址()</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-class的本质"><span class="nav-number">1.</span> <span class="nav-text">1.class的本质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-实现类的私有方法和私有属性"><span class="nav-number">2.</span> <span class="nav-text">2.实现类的私有方法和私有属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-类的this指向"><span class="nav-number">3.</span> <span class="nav-text">3.类的this指向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-类的属性"><span class="nav-number">4.</span> <span class="nav-text">4.类的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-类的方法"><span class="nav-number">5.</span> <span class="nav-text">5.类的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-类的继承"><span class="nav-number">6.</span> <span class="nav-text">6.类的继承</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">horse</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">72.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i> 访问人数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/mc3747.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/mc3747.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/mc3747.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/mc3747.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = '';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI',
+        appKey: 'OtX3yrmzOhO0oJgt7V2bS3fU',
+        placeholder: '🙋欢迎举手发言🙋‍♂️',
+        avatar:'http://image.zhangxinxu.com/image/study/s/s256/mm1.jpg',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("wdRbvixWFlLn34TQppv2KQEX-MdYXbMMI", "OtX3yrmzOhO0oJgt7V2bS3fU");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

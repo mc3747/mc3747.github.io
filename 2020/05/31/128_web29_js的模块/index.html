@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1.require和export1.require的使用     1_require加载模块的时候会把这个模块的代码运行一遍     2_如果require命令加载同一个模块时，不会再次执行这个模块，而是取缓存中的值。COMMONJS的模块无论加载多少次，都只会运行一次  2.module.exports和exports的区别     1.单独出现按照下列b.js的格式;同时出现 module.e">
 <meta name="keywords" content="web基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="128_web29_js的模块">
 <meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/31/128_web29_js的模块/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1.require和export1.require的使用     1_require加载模块的时候会把这个模块的代码运行一遍     2_如果require命令加载同一个模块时，不会再次执行这个模块，而是取缓存中的值。COMMONJS的模块无论加载多少次，都只会运行一次  2.module.exports和exports的区别     1.单独出现按照下列b.js的格式;同时出现 module.e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-31T13:37:11.733Z">
+<meta property="og:updated_time" content="2020-06-01T02:02:40.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="128_web29_js的模块">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1.require和export1.require的使用     1_require加载模块的时候会把这个模块的代码运行一遍     2_如果require命令加载同一个模块时，不会再次执行这个模块，而是取缓存中的值。COMMONJS的模块无论加载多少次，都只会运行一次  2.module.exports和exports的区别     1.单独出现按照下列b.js的格式;同时出现 module.e">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  192
                 </span>
               
 
@@ -421,7 +421,15 @@
       
 
       
-        
+        <h2 id="1-require和export"><a href="#1-require和export" class="headerlink" title="1.require和export"></a>1.require和export</h2><pre><code>1.require的使用
+    1_require加载模块的时候会把这个模块的代码运行一遍
+    2_如果require命令加载同一个模块时，不会再次执行这个模块，而是取缓存中的值。COMMONJS的模块无论加载多少次，都只会运行一次
+
+2.module.exports和exports的区别
+    1.单独出现按照下列b.js的格式;同时出现 module.exports高于exports的优先级,会覆盖exports
+    2.示例
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//b.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">        exp1:&apos;a&apos;,</span><br><span class="line">        exp2:5,</span><br><span class="line">        id:&apos;c&apos;</span><br><span class="line">      &#125;;</span><br><span class="line">    </span><br><span class="line">exports.id = &apos;b&apos;;</span><br><span class="line"></span><br><span class="line">//a.js</span><br><span class="line">let b= require(&apos;./b&apos;);</span><br><span class="line">console.log(b.exp1);</span><br><span class="line">console.log(b.exp2);</span><br><span class="line">console.log(b.id);</span><br></pre></td></tr></table></figure></code></pre><h2 id="2-import和export"><a href="#2-import和export" class="headerlink" title="2.import和export"></a>2.import和export</h2><pre><code>1_ES6模块加载的机制
+2_CommonJS模块输出的是一个值的拷贝，而ES6模块输出的是值的引用</code></pre>
       
     </div>
     
@@ -518,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -639,6 +656,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-require和export"><span class="nav-number">1.</span> <span class="nav-text">1.require和export</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-import和export"><span class="nav-number">2.</span> <span class="nav-text">2.import和export</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -666,7 +699,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">72.7k</span>
+    <span title="Site words total count">72.9k</span>
   
 </div>
 

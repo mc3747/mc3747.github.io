@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1.字符串的创建1_字面量     let a = &amp;apos;hello&amp;apos;;  2_字符串创建变量     let a = new String(&amp;apos;hello&amp;apos;); 2.字符串的默认属性1_length属性3.字符串拼接1,加法:&amp;apos;abc&amp;apos; + v1 + &amp;apos;def&amp;apos;; 2,concat方法连接:&amp;apos;a&amp;apos;.co">
 <meta name="keywords" content="web基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="118_web19_js的字符串">
 <meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/30/118_web19_js的字符串/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1.字符串的创建1_字面量     let a = &amp;apos;hello&amp;apos;;  2_字符串创建变量     let a = new String(&amp;apos;hello&amp;apos;); 2.字符串的默认属性1_length属性3.字符串拼接1,加法:&amp;apos;abc&amp;apos; + v1 + &amp;apos;def&amp;apos;; 2,concat方法连接:&amp;apos;a&amp;apos;.co">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-30T15:47:44.454Z">
+<meta property="og:updated_time" content="2020-06-03T08:53:49.745Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="118_web19_js的字符串">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1.字符串的创建1_字面量     let a = &amp;apos;hello&amp;apos;;  2_字符串创建变量     let a = new String(&amp;apos;hello&amp;apos;); 2.字符串的默认属性1_length属性3.字符串拼接1,加法:&amp;apos;abc&amp;apos; + v1 + &amp;apos;def&amp;apos;; 2,concat方法连接:&amp;apos;a&amp;apos;.co">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  835
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -421,7 +421,63 @@
       
 
       
-        
+        <h2 id="1-字符串的创建"><a href="#1-字符串的创建" class="headerlink" title="1.字符串的创建"></a>1.字符串的创建</h2><pre><code>1_字面量
+    let a = &apos;hello&apos;; 
+2_字符串创建变量
+    let a = new String(&apos;hello&apos;); </code></pre><h2 id="2-字符串的默认属性"><a href="#2-字符串的默认属性" class="headerlink" title="2.字符串的默认属性"></a>2.字符串的默认属性</h2><pre><code>1_length属性</code></pre><h2 id="3-字符串拼接"><a href="#3-字符串拼接" class="headerlink" title="3.字符串拼接"></a>3.字符串拼接</h2><pre><code>1,加法:&apos;abc&apos; + v1 + &apos;def&apos;;
+2,concat方法连接:&apos;a&apos;.concat(&apos;a&apos;,&apos;b&apos;),concat后边跟任意个字符串
+3,模板字符串:let a = `abc${v1}def`
+4,重复字符串:repeat() 
+    &apos;ab&apos;.repeat(3);// &apos;ababab&apos;
+5,头部补全: padStart()
+    1_接收2个参数，第一个指定字符串最小长度，第二个用于补全的字符串
+    2_&apos;x&apos;.padStart(5, &apos;ab&apos;);   // &apos;ababx&apos;
+    3_超出最小长度,用空格补全&apos;x&apos;.padStart(4); // &apos;    x&apos;
+6,尾部补全:padEnd()
+    1_接收2个参数，第一个指定字符串最小长度，第二个用于补全的字符串
+    2_&apos;x&apos;.padEnd(5, &apos;ab&apos;);     // &apos;xabab&apos;
+    3_超出最小长度,用空格补全&apos;x&apos;.padEnd(4); // &apos;x    &apos;</code></pre><h2 id="4-字符串是否包含其他字符串"><a href="#4-字符串是否包含其他字符串" class="headerlink" title="4.字符串是否包含其他字符串"></a>4.字符串是否包含其他字符串</h2><pre><code>返回bool
+    1.includes():返回布尔值，表示是否找到参数字符串。
+    2.startsWith():返回布尔值，表示参数字符串是否在原字符串的头部。
+    3.endsWith():返回布尔值，表示参数字符串是否在原字符串的尾部。    
+返回位置
+    4.indexOf()：包含返回首次匹配的位置,不包含返回-1
+    5.search():包含返回首次匹配的位置,不包含返回-1
+正则
+    6.match():可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配
+        var str = &quot;123&quot;
+        var reg = RegExp(/3/);
+        if(str.match(reg)){
+         //包含；
+        }
+    7.test():用于检索字符串中指定的值。返回 true 或 false
+        var str = &quot;123&quot;
+        var reg = RegExp(/3/);
+        console.log(reg.test(str) != -1); // true
+    8.exec():用于检索字符串中的正则表达式的匹配。返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null
+        var str = &quot;123&quot;
+        var reg = RegExp(/3/);
+        if(reg.exec(str)){
+         //包含；
+        }</code></pre><h2 id="4-字符串对象方法"><a href="#4-字符串对象方法" class="headerlink" title="4.字符串对象方法"></a>4.字符串对象方法</h2><pre><code>1.查找指定位置的字符:.string.charAt(3)
+2.查找指定字符串的位置  :2个参数,第一个为查找的字符串,第二个是查找的位置
+   2.1 字符串开头: indexOf
+        1_string.indexOf(&apos;lo&apos;,5)
+        2_返回第一次出现的索引
+        3_没有查到内容，返回-1
+   2.2 字符串结尾: indexOf
+        1_string.indexOf(&apos;lo&apos;,0)
+        2_返回最后一次出现的索引
+        3_没有查到内容，返回-1
+3.分割字符串:split分割(利用指定字符串分割)
+    1.split(separator[,limit])可以接收2个参数：
+        separator：必需，字符串或者正则表达式，作为分割的内容；
+        limit：可选，作为指定返回的数组的最大长度；
+    2.例子:a.split(&quot;&quot;,4);
+4.分割字符串:slice切割(利用指定下标分割)
+    slice([start,end]) 可以接收2个参数：
+        start：要提取的片段的起始下标，若小于零，则从字符串尾部开始算起，如-1表示字符串最后一个字符，-2为倒数第二个字符等等。
+        end：要提取的片段的结束下标，若没有传入，则表示从start到字符串结尾，若为负数则从字符串尾部开始算起。</code></pre>
       
     </div>
     
@@ -518,8 +574,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -639,6 +704,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-字符串的创建"><span class="nav-number">1.</span> <span class="nav-text">1.字符串的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-字符串的默认属性"><span class="nav-number">2.</span> <span class="nav-text">2.字符串的默认属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-字符串拼接"><span class="nav-number">3.</span> <span class="nav-text">3.字符串拼接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-字符串是否包含其他字符串"><span class="nav-number">4.</span> <span class="nav-text">4.字符串是否包含其他字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-字符串对象方法"><span class="nav-number">5.</span> <span class="nav-text">4.字符串对象方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -666,7 +747,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">72.9k</span>
+    <span title="Site words total count">74.8k</span>
   
 </div>
 

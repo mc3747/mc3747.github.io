@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1.数组的创建1_使用Array关键字(可以省略new关键字)    1.1 new Array();         let arr = new Array();          arr[0] = &amp;apos;a&amp;apos;    1.2 new Array(size);         let arr = new Array(2);          arr[0] = &amp;apos;a&amp;apo">
 <meta name="keywords" content="web基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="119_web20_js的数组">
 <meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/30/119_web20_js的数组/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1.数组的创建1_使用Array关键字(可以省略new关键字)    1.1 new Array();         let arr = new Array();          arr[0] = &amp;apos;a&amp;apos;    1.2 new Array(size);         let arr = new Array(2);          arr[0] = &amp;apos;a&amp;apo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-30T15:47:44.521Z">
+<meta property="og:updated_time" content="2020-06-03T10:00:56.119Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="119_web20_js的数组">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1.数组的创建1_使用Array关键字(可以省略new关键字)    1.1 new Array();         let arr = new Array();          arr[0] = &amp;apos;a&amp;apos;    1.2 new Array(size);         let arr = new Array(2);          arr[0] = &amp;apos;a&amp;apo">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1.1k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -421,7 +421,101 @@
       
 
       
-        
+        <h2 id="1-数组的创建"><a href="#1-数组的创建" class="headerlink" title="1.数组的创建"></a>1.数组的创建</h2><pre><code>1_使用Array关键字(可以省略new关键字)
+   1.1 new Array();
+        let arr = new Array(); 
+        arr[0] = &apos;a&apos;
+   1.2 new Array(size);
+        let arr = new Array(2); 
+        arr[0] = &apos;a&apos;
+   1.3 new Array(element0, element1, ..., elementn);
+        let arr = new Array(&apos;2&apos;,&apos;6&apos;); 
+2_使用字面量
+    2.1 定义再赋值
+        let arr = []; 
+        arr[0] = &apos;1&apos; 
+        console.log(arr);  
+    2.2 定义的时候赋值
+        let arr = [&apos;q&apos;,&apos;w&apos;]; </code></pre><h2 id="2-数组的默认属性"><a href="#2-数组的默认属性" class="headerlink" title="2.数组的默认属性"></a>2.数组的默认属性</h2><pre><code>1_constructor    返回对创建此对象的数组函数的引用。
+2_length    设置或返回数组中元素的数目。
+    可通过arr.length = 0来清空数组
+3_prototype    使您有能力向对象添加属性和方法。</code></pre><h2 id="3-数组的遍历"><a href="#3-数组的遍历" class="headerlink" title="3.数组的遍历"></a>3.数组的遍历</h2><pre><code>1_普通for循环
+    for(j = 0; j &lt; arr.length; j++) {} 
+2_优化版for循环
+    for(j = 0,len=arr.length; j &lt; len; j++) {}
+3_for...in循环
+    for(j in arr) {}
+4_for...of循环
+    for(let value of arr) {  });
+5_for...each
+    1_arr.forEach(callback) 接收一个回调方法。
+        callback(val, index, array) : 接收三个参数：
+        val : 当前处理的元素；
+        index : 当前处理的元素的索引；
+        array : 正在处理的数组；
+    2_示例
+        let arr = [&quot;pingan&quot;, &quot;leo&quot;, &quot;robin&quot;];
+        arr.forEach(function(val, i, array){
+                console.log(`第${i}个元素是：${val}；`)
+                console.log(arr)
+        })
+6_map循环
+        let arr = [&quot;pingan&quot;, &quot;leo&quot;, &quot;robin&quot;];
+        arr.map(function(val, i, array){
+                console.log(`第${i}个元素是：${val}；`)
+                console.log(arr)
+        })</code></pre><h2 id="4-数组合并"><a href="#4-数组合并" class="headerlink" title="4,数组合并"></a>4,数组合并</h2><pre><code>语法:arr.concat(a1, a2, ..., an);
+参数:
+    arr：目标数组；
+    a1,a2,...,an：需要合并的元素；</code></pre><h2 id="5-数组元素之间拼接成一个字符串"><a href="#5-数组元素之间拼接成一个字符串" class="headerlink" title="5,数组元素之间拼接成一个字符串"></a>5,数组元素之间拼接成一个字符串</h2><pre><code>语法: arr.join(sep);
+参数:
+    arr：目标数组；
+    sep：连接的分隔符，默认值为“,”；
+示例:
+    let arr = [&quot;pingan&quot;, &quot;leo&quot;, &quot;robin&quot;];
+    arr.join(&quot;,&quot;); // &quot;pingan,leo,robin&quot;</code></pre><h2 id="6-颠倒数组中元素的顺序，改变原数组"><a href="#6-颠倒数组中元素的顺序，改变原数组" class="headerlink" title="6,颠倒数组中元素的顺序，改变原数组"></a>6,颠倒数组中元素的顺序，改变原数组</h2><pre><code>语法:arr.reverse()
+示例:
+    let arr = [1, 2, 3, 4];
+    arr.reverse();  // [4, 3, 2, 1] </code></pre><h2 id="7-对数组排序"><a href="#7-对数组排序" class="headerlink" title="7,对数组排序"></a>7,对数组排序</h2><pre><code>1_sort()
+    如果调用该方法时没有使用参数，将按字母顺序对数组中的元素进行排序
+    比较函数应该具有两个参数 a 和 b，其返回值如下：
+        若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。
+        若 a 等于 b，则返回 0。
+        若 a 大于 b，则返回一个大于 0 的值   
+2_示例
+    let a1 = [1,3,6,9,10];
+    a1.sort(); // [1, 10, 3, 6, 9]
+    a1.sort(function(a,b){
+        return a &gt; b ? 1 : a &lt; b ? -1 : 0;
+    })     // [1, 3, 6, 9, 10]
+3_注意:不破坏原数组的结构</code></pre><h2 id="8-通过索引来切割数组-两个索引之间"><a href="#8-通过索引来切割数组-两个索引之间" class="headerlink" title="8,通过索引来切割数组:两个索引之间"></a>8,通过索引来切割数组:两个索引之间</h2><pre><code>1_语法:slice(start,end)
+    start: 必需，指定起始索引，若负数则从数组最后开始算起，-1为倒数第一位，-2为倒数第二位，以此类推。
+    end： 可选，指定结束索引，若没传则表示到数组结束
+2_示例:
+    let arr = [1, 2, 3, 5, 6];
+    let a2 = arr.slice(2,3);  // [3]
+    console.log(arr) //
+3_注意:不破坏原数组的结构</code></pre><h2 id="9-通过索引来切割数组-起始索引-数量"><a href="#9-通过索引来切割数组-起始索引-数量" class="headerlink" title="9,通过索引来切割数组:起始索引+数量"></a>9,通过索引来切割数组:起始索引+数量</h2><pre><code>1_语法:
+     arr.splice(index, num, a1, a2,...,an);
+    参数：
+        index: 必需，起始位置的索引，若负数则从数组最后开始算起；
+        num：必需，删除的数量，若为0则不删除；
+        a1,a2,...an：可选，为数组添加的元素；
+2_示例
+    let arr = [1, 2, 3, 4];
+    let a = arr.splice(1, 2, &quot;hi&quot;, &quot;leo&quot;);
+    console.log(a)      //[ 2, 3 ]
+    console.log(arr)    //[ 1, &apos;hi&apos;, &apos;leo&apos;, 4 ]
+3_注意:会破坏原数组的结构</code></pre><h2 id="10-操作最后一个元素"><a href="#10-操作最后一个元素" class="headerlink" title="10,操作最后一个元素"></a>10,操作最后一个元素</h2><pre><code>1_pop(): 删除并返回数组最后一个元素，改变原数组。
+2_push(item): 向数组末尾添加一个或多个元素，改变原数组
+3_示例:
+    let arr = [&quot;pingan&quot;, &quot;leo&quot;];
+    let a1 = arr.pop();              // &quot;leo&quot;
+    let a2 = arr.push(&quot;robin&quot;,&quot;hi&quot;); // 3
+4_注意:
+    pop操作符,去掉最后一个元素,返回值为去掉的那个元素
+    push操作符,增加最后一个元素,返回值为新增后的总元素</code></pre><h2 id="11-添加元素"><a href="#11-添加元素" class="headerlink" title="11,添加元素"></a>11,添加元素</h2><pre><code>shift(): 删除并返回数组第一个元素，改变原数组。
+unshift(item): 向数组头部添加一个或多个元素，改变原数组，返回新的数组长度。</code></pre><h2 id="12-搜索元素"><a href="#12-搜索元素" class="headerlink" title="12,搜索元素"></a>12,搜索元素</h2>
       
     </div>
     
@@ -518,8 +612,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -639,6 +742,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数组的创建"><span class="nav-number">1.</span> <span class="nav-text">1.数组的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数组的默认属性"><span class="nav-number">2.</span> <span class="nav-text">2.数组的默认属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数组的遍历"><span class="nav-number">3.</span> <span class="nav-text">3.数组的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数组合并"><span class="nav-number">4.</span> <span class="nav-text">4,数组合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数组元素之间拼接成一个字符串"><span class="nav-number">5.</span> <span class="nav-text">5,数组元素之间拼接成一个字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-颠倒数组中元素的顺序，改变原数组"><span class="nav-number">6.</span> <span class="nav-text">6,颠倒数组中元素的顺序，改变原数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-对数组排序"><span class="nav-number">7.</span> <span class="nav-text">7,对数组排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-通过索引来切割数组-两个索引之间"><span class="nav-number">8.</span> <span class="nav-text">8,通过索引来切割数组:两个索引之间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-通过索引来切割数组-起始索引-数量"><span class="nav-number">9.</span> <span class="nav-text">9,通过索引来切割数组:起始索引+数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-操作最后一个元素"><span class="nav-number">10.</span> <span class="nav-text">10,操作最后一个元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-添加元素"><span class="nav-number">11.</span> <span class="nav-text">11,添加元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-搜索元素"><span class="nav-number">12.</span> <span class="nav-text">12,搜索元素</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -666,7 +785,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">72.9k</span>
+    <span title="Site words total count">74.8k</span>
   
 </div>
 

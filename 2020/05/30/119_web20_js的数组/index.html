@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1.数组的创建1_使用Array关键字(可以省略new关键字)    1.1 new Array();         let arr = new Array();          arr[0] = &amp;apos;a&amp;apos;    1.2 new Array(size);         let arr = new Array(2);          arr[0] = &amp;apos;a&amp;apo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-03T10:00:56.119Z">
+<meta property="og:updated_time" content="2020-06-05T06:41:06.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="119_web20_js的数组">
 <meta name="twitter:description" content="1.数组的创建1_使用Array关键字(可以省略new关键字)    1.1 new Array();         let arr = new Array();          arr[0] = &amp;apos;a&amp;apos;    1.2 new Array(size);         let arr = new Array(2);          arr[0] = &amp;apos;a&amp;apo">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  2.6k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  12
                 </span>
               
             </div>
@@ -436,7 +436,31 @@
         arr[0] = &apos;1&apos; 
         console.log(arr);  
     2.2 定义的时候赋值
-        let arr = [&apos;q&apos;,&apos;w&apos;]; </code></pre><h2 id="2-数组的默认属性"><a href="#2-数组的默认属性" class="headerlink" title="2.数组的默认属性"></a>2.数组的默认属性</h2><pre><code>1_constructor    返回对创建此对象的数组函数的引用。
+        let arr = [&apos;q&apos;,&apos;w&apos;]; 
+3_Array.from()
+    将 类数组对象 和 可遍历的对象，转换成真正的数组
+        // 1_类数组对象
+        let a = {
+            &apos;0&apos;:&apos;a&apos;,
+            &apos;1&apos;:&apos;b&apos;,
+            length:2
+        }
+        let arr = Array.from(a); //[ &apos;a&apos;, &apos;b&apos; ]
+
+        // 2_可遍历的对象
+        let a = Array.from([1,2,3]); //[ 1, 2, 3 ]
+        let b = Array.from({length: 3}); //[ undefined, undefined, undefined ]
+        let c = Array.from([1,2,3]).map(x =&gt; x * x); //[ 1, 4, 9 ]
+        let d = Array.from([1,2,3].map(x =&gt; x * x)); //[ 1, 4, 9 ]
+    4_Array.of()
+        将一组数值，转换成数组;弥补Array方法参数不同导致的差异
+        let arr = new Array(2); //1个参数时，为指定数组长度,结果为[,]
+        let arr = Array.of(2);结果为[2]
+        let arr = Array.of(1,2,3);结果为[1,2,3]
+    5_fill()
+        第二个和第三个参数指定填充的起始位置和结束位置
+       let a = new Array(3).fill(&apos;a&apos;);   // [&apos;a&apos;,&apos;a&apos;,&apos;a&apos;]
+       [1,2,3].fill(&apos;a&apos;,1,2);//  [1, &quot;a&quot;, 3]</code></pre><h2 id="2-数组的默认属性"><a href="#2-数组的默认属性" class="headerlink" title="2.数组的默认属性"></a>2.数组的默认属性</h2><pre><code>1_constructor    返回对创建此对象的数组函数的引用。
 2_length    设置或返回数组中元素的数目。
     可通过arr.length = 0来清空数组
 3_prototype    使您有能力向对象添加属性和方法。</code></pre><h2 id="3-数组的遍历"><a href="#3-数组的遍历" class="headerlink" title="3.数组的遍历"></a>3.数组的遍历</h2><pre><code>1_普通for循环
@@ -464,7 +488,26 @@
         arr.map(function(val, i, array){
                 console.log(`第${i}个元素是：${val}；`)
                 console.log(arr)
-        })</code></pre><h2 id="4-数组合并"><a href="#4-数组合并" class="headerlink" title="4,数组合并"></a>4,数组合并</h2><pre><code>语法:arr.concat(a1, a2, ..., an);
+        })
+7_entries(),keys(),values()遍历
+    1_entries()对键值对遍历
+    for (let e of [&apos;a&apos;, &apos;b&apos;].entries()){
+        console.log(e)
+    }
+    // 0 &apos;a&apos;
+    // 1 &apos;b&apos;
+    2_keys()对键名遍历
+      for (let i of [&apos;a&apos;, &apos;b&apos;].keys()){
+        console.log(i)
+    }
+    // 0
+    // 1
+    3_values()对键值遍历
+    for (let e of [&apos;a&apos;, &apos;b&apos;].values()){
+        console.log(e)
+    }
+    // &apos;a&apos;
+    // &apos;b&apos;</code></pre><h2 id="4-数组合并"><a href="#4-数组合并" class="headerlink" title="4,数组合并"></a>4,数组合并</h2><pre><code>语法:arr.concat(a1, a2, ..., an);
 参数:
     arr：目标数组；
     a1,a2,...,an：需要合并的元素；</code></pre><h2 id="5-数组元素之间拼接成一个字符串"><a href="#5-数组元素之间拼接成一个字符串" class="headerlink" title="5,数组元素之间拼接成一个字符串"></a>5,数组元素之间拼接成一个字符串</h2><pre><code>语法: arr.join(sep);
@@ -488,14 +531,14 @@
     a1.sort(function(a,b){
         return a &gt; b ? 1 : a &lt; b ? -1 : 0;
     })     // [1, 3, 6, 9, 10]
-3_注意:不破坏原数组的结构</code></pre><h2 id="8-通过索引来切割数组-两个索引之间"><a href="#8-通过索引来切割数组-两个索引之间" class="headerlink" title="8,通过索引来切割数组:两个索引之间"></a>8,通过索引来切割数组:两个索引之间</h2><pre><code>1_语法:slice(start,end)
+3_注意:不破坏原数组的结构</code></pre><h2 id="8-通过索引来切割数组-两个索引之间-slice"><a href="#8-通过索引来切割数组-两个索引之间-slice" class="headerlink" title="8,通过索引来切割数组:两个索引之间(slice)"></a>8,通过索引来切割数组:两个索引之间(slice)</h2><pre><code>1_语法:slice(start,end)
     start: 必需，指定起始索引，若负数则从数组最后开始算起，-1为倒数第一位，-2为倒数第二位，以此类推。
     end： 可选，指定结束索引，若没传则表示到数组结束
 2_示例:
     let arr = [1, 2, 3, 5, 6];
     let a2 = arr.slice(2,3);  // [3]
     console.log(arr) //
-3_注意:不破坏原数组的结构</code></pre><h2 id="9-通过索引来切割数组-起始索引-数量"><a href="#9-通过索引来切割数组-起始索引-数量" class="headerlink" title="9,通过索引来切割数组:起始索引+数量"></a>9,通过索引来切割数组:起始索引+数量</h2><pre><code>1_语法:
+3_注意:不破坏原数组的结构</code></pre><h2 id="9-通过索引来切割数组-起始索引-数量-splice"><a href="#9-通过索引来切割数组-起始索引-数量-splice" class="headerlink" title="9,通过索引来切割数组:起始索引+数量(splice)"></a>9,通过索引来切割数组:起始索引+数量(splice)</h2><pre><code>1_语法:
      arr.splice(index, num, a1, a2,...,an);
     参数：
         index: 必需，起始位置的索引，若负数则从数组最后开始算起；
@@ -507,15 +550,145 @@
     console.log(a)      //[ 2, 3 ]
     console.log(arr)    //[ 1, &apos;hi&apos;, &apos;leo&apos;, 4 ]
 3_注意:会破坏原数组的结构</code></pre><h2 id="10-操作最后一个元素"><a href="#10-操作最后一个元素" class="headerlink" title="10,操作最后一个元素"></a>10,操作最后一个元素</h2><pre><code>1_pop(): 删除并返回数组最后一个元素，改变原数组。
-2_push(item): 向数组末尾添加一个或多个元素，改变原数组
+2_push(item): 向数组末尾添加一个或多个元素，改变原数组,返回总个数
 3_示例:
-    let arr = [&quot;pingan&quot;, &quot;leo&quot;];
-    let a1 = arr.pop();              // &quot;leo&quot;
-    let a2 = arr.push(&quot;robin&quot;,&quot;hi&quot;); // 3
+    let arr = [&quot;pingan&quot;, &quot;leo&quot;,&apos;44&apos;];
+    let a1 = arr.pop();              
+    console.log(a1) //44
+    console.log(arr) //[ &apos;pingan&apos;, &apos;leo&apos; ]
+    let a2 = arr.push(&quot;robin&quot;,&quot;hi&quot;); 
+    console.log(a2) //4
+    console.log(arr) //[ &apos;pingan&apos;, &apos;leo&apos;, &apos;robin&apos;, &apos;hi&apos; ]
 4_注意:
     pop操作符,去掉最后一个元素,返回值为去掉的那个元素
-    push操作符,增加最后一个元素,返回值为新增后的总元素</code></pre><h2 id="11-添加元素"><a href="#11-添加元素" class="headerlink" title="11,添加元素"></a>11,添加元素</h2><pre><code>shift(): 删除并返回数组第一个元素，改变原数组。
-unshift(item): 向数组头部添加一个或多个元素，改变原数组，返回新的数组长度。</code></pre><h2 id="12-搜索元素"><a href="#12-搜索元素" class="headerlink" title="12,搜索元素"></a>12,搜索元素</h2>
+    push操作符,增加最后一个元素,返回值为新增后的总元素</code></pre><h2 id="11-添加元素"><a href="#11-添加元素" class="headerlink" title="11,添加元素"></a>11,添加元素</h2><pre><code>1_shift(): 删除并返回数组第一个元素，改变原数组。
+2_unshift(item): 向数组头部添加一个或多个元素，改变原数组，返回新的数组长度。
+3_示例
+    let arr = [&quot;pingan&quot;, &quot;leo&quot;];
+    let a1 = arr.shift();               
+    console.log(a1)  //pingan
+    console.log(arr) //[ &apos;leo&apos; ]
+    let a2 = arr.unshift(&quot;robin&quot;,&quot;hi&quot;); 
+    console.log(a2)  //3
+    console.log(arr) //[ &apos;robin&apos;, &apos;hi&apos;, &apos;leo&apos; ]</code></pre><h2 id="12-搜索满足要求元素的第一个索引"><a href="#12-搜索满足要求元素的第一个索引" class="headerlink" title="12,搜索满足要求元素的第一个索引"></a>12,搜索满足要求元素的第一个索引</h2><pre><code>1_indexOf():返回的是搜索到的第一个元素的索引
+2_lastIndexOf()返回的是搜索到的最后一个元素的索引
+3_indexOf(ele[,start])和lastIndexOf(ele[,start])
+    ele: 需要搜索的元素。
+    start: 开始搜索的索引
+4_示例
+    let arr = [&quot;hh1&quot;, &quot;hh2&quot;, &quot;hh2&quot;, &quot;hh2&quot;, &quot;hh3&quot;, &quot;hh4&quot;];
+    let a1 = arr.indexOf(&quot;hh2&quot;);      
+    let a2 = arr.lastIndexOf(&quot;hh2&quot;);  
+    let a3 = arr.indexOf(&quot;hh2&quot;,2);    
+    console.log(a1) //1
+    console.log(a2) // 3
+    console.log(a3) // 2</code></pre><h2 id="13-搜索满足要求元素的第一个元素和第一个索引-find和-findIndex"><a href="#13-搜索满足要求元素的第一个元素和第一个索引-find和-findIndex" class="headerlink" title="13,搜索满足要求元素的第一个元素和第一个索引(.find和.findIndex)"></a>13,搜索满足要求元素的第一个元素和第一个索引(.find和.findIndex)</h2><pre><code>1_find()方法:用于找出第一个符合条件的数组成员，参数为一个回调函数，所有成员依次执行该回调函数，返回第一个返回值为true的成员，如果没有一个符合则返回undefined
+    参数:回调函数接收三个参数，当前值、当前位置和原数组
+    示例:
+        [1,2,3,4,5].find((value, index, arr) =&gt; {
+           return  value &gt; 3
+        }); //需要写return
+        也可以写:
+        [1,2,3,4,5].find( a =&gt; a &lt; 3 ); //不需要写return
+2_findIndex()方法与find()类似，返回第一个符合条件的数组成员的位置，如果都不符合则返回-1</code></pre><h2 id="14-测试数组的元素"><a href="#14-测试数组的元素" class="headerlink" title="14,测试数组的元素"></a>14,测试数组的元素</h2><pre><code>1_arr.every(callback):测试数组的所有元素是否都通过了指定函数的测试
+    1.callback(val, index, arr) : 需要执行的函数，接收三个参数：
+        val : 正在处理的当前元素;
+        index : 可选，正在处理的当前元素的索引;
+        arr : 可选，正在操作的数组    
+     2.示例
+        let a = [1, &quot;&quot;, &quot;aa&quot;, 13, 6];
+        let res = a.every(function(val, index, arr){
+            return typeof val == &quot;number&quot;;
+        })
+        res;// false   
+2_arr.some(callback):测试数组中的某些元素是否通过由提供的函数实现的测试
+    1.callback(val, index, arr) : 需要执行的函数，接收三个参数：
+        val : 正在处理的当前元素;
+        index : 可选，正在处理的当前元素的索引;
+        arr : 可选，正在操作的数组;
+    2.示例
+        let a = [1, &quot;&quot;, &quot;aa&quot;, 13, 6];
+        let res = a.some(function(val, index, arr){
+            return typeof val == &quot;number&quot;;
+        })
+        res;// true</code></pre><h2 id="15-过滤数组的元素"><a href="#15-过滤数组的元素" class="headerlink" title="15.过滤数组的元素"></a>15.过滤数组的元素</h2><pre><code>arr.filter(callback):将所有在过滤函数中返回 true 的数组元素放进一个新数组中并返回
+1.callback(val, index, arr) : 需要执行的函数，接收三个参数：
+    val : 正在处理的当前元素;
+    index : 可选，正在处理的当前元素的索引;
+    arr : 可选，正在操作的数组;
+2.示例
+    let a = [1, &quot;&quot;, &quot;aa&quot;, 13, 6];
+    let res = a.filter(function(val, index, arr){
+        return typeof val == &quot;number&quot;;
+    })
+    res;//[1, 13, 6]</code></pre><h2 id="16-ES6的拓展运算符"><a href="#16-ES6的拓展运算符" class="headerlink" title="16.ES6的拓展运算符"></a>16.ES6的拓展运算符</h2><pre><code>1_语法:...[],分割数组的元素,类似于函数的rest参数的逆运算
+2_应用
+    1.拓展运算符搭配函数的不定参数
+        function f (a, ...b){
+           console.log(a, b);
+        }
+        f(...[1,2,3,4]);//1 [ 2, 3, 4 ]
+
+    2.替代apply方法
+            示例1:
+        // ES6之前
+            function f(a, b, c){...};
+            var a = [1, 2, 3];
+            f.apply(null, a);
+        // ES6之后
+            function f(a, b, c){...};
+            let a = [1, 2, 3];
+            f(...a);
+
+        示例2:
+         // ES6之前
+            Math.max.apply(null, [3,2,6]);
+        // ES6之后
+            Math.max(...[3,2,6]);
+
+    3.实现数组的深拷贝
+        // 通常情况 浅拷贝
+            let a1 = [1, 2];
+            let a2 = a1; 
+            a2[0] = 3;
+            console.log(a1,a2); // [3,2] [3,2]
+        // 拓展运算符 深拷贝
+            let a11 = [1, 2];
+            let a22 = [...a11];
+            a22[0] = 3;
+            console.log(a11,a22); // [1,2] [3,2]
+
+    4.合并数组:合并后的数组是深拷贝
+        let a1 = [1,2];
+        let a2 = [3];
+        let a3 = [4,5];
+        // ES5 
+        let a4 = a1.concat(a2, a3);
+        // ES6
+        let a5 = [...a1, ...a2, ...a3];
+        console.log(a4) //[ 1, 2, 3, 4, 5 ]
+        console.log(a5) //[ 1, 2, 3, 4, 5 ]
+        //打印
+        a1[0] = 100;
+        console.log(a4) //[ 1, 2, 3, 4, 5 ]
+        console.log(a5) //[ 1, 2, 3, 4, 5 ]
+
+    5.与解构赋值结合
+        let [a, ...b] = [1, 2, 3, 4]; 
+        // a =&gt; 1  b =&gt; [2,3,4]</code></pre><h2 id="17-includes-是否包含特定值"><a href="#17-includes-是否包含特定值" class="headerlink" title="17.includes():是否包含特定值"></a>17.includes():是否包含特定值</h2><pre><code>第二个参数为起始位置，默认为0
+    [1,2,3].includes(2);     // true
+    [1,2,3].includes(3,-1);   // true</code></pre><h2 id="18-数组一维化"><a href="#18-数组一维化" class="headerlink" title="18.数组一维化"></a>18.数组一维化</h2><pre><code>1_flat()
+    flat()用于将数组一维化，返回一个新数组，不影响原数组。
+    默认一次只一维化一层数组，若需多层，则传入一个整数参数指定层数。
+    若要一维化所有层的数组，则传入Infinity作为参数
+    [1, 2, [2,3]].flat();        // [1,2,2,3]
+    [1,2,[3,[4,[5,6]]]].flat(2); // [1,2,[3,4,5,6]]        
+    [1,2,[3,[4,[5,6]]]].flat(3); // [1,2,3,4,5,6]
+    [1,2,[3,[4,[5,6]]]].flat(&apos;Infinity&apos;); // [1,2,3,4,5,6]
+ 2_flatMap()
+   1.将原数组每个对象先执行一个函数，在对返回值组成的数组执行flat()方法，返回一个新数组，不改变原数组
+   2.示例:
+   [2, 3, 4].flatMap((x) =&gt; [x, x * 2]);  // [2, 4, 3, 6, 4, 8] </code></pre>
       
     </div>
     
@@ -751,7 +924,7 @@ unshift(item): 向数组头部添加一个或多个元素，改变原数组，�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数组的创建"><span class="nav-number">1.</span> <span class="nav-text">1.数组的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数组的默认属性"><span class="nav-number">2.</span> <span class="nav-text">2.数组的默认属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数组的遍历"><span class="nav-number">3.</span> <span class="nav-text">3.数组的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数组合并"><span class="nav-number">4.</span> <span class="nav-text">4,数组合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数组元素之间拼接成一个字符串"><span class="nav-number">5.</span> <span class="nav-text">5,数组元素之间拼接成一个字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-颠倒数组中元素的顺序，改变原数组"><span class="nav-number">6.</span> <span class="nav-text">6,颠倒数组中元素的顺序，改变原数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-对数组排序"><span class="nav-number">7.</span> <span class="nav-text">7,对数组排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-通过索引来切割数组-两个索引之间"><span class="nav-number">8.</span> <span class="nav-text">8,通过索引来切割数组:两个索引之间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-通过索引来切割数组-起始索引-数量"><span class="nav-number">9.</span> <span class="nav-text">9,通过索引来切割数组:起始索引+数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-操作最后一个元素"><span class="nav-number">10.</span> <span class="nav-text">10,操作最后一个元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-添加元素"><span class="nav-number">11.</span> <span class="nav-text">11,添加元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-搜索元素"><span class="nav-number">12.</span> <span class="nav-text">12,搜索元素</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-数组的创建"><span class="nav-number">1.</span> <span class="nav-text">1.数组的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-数组的默认属性"><span class="nav-number">2.</span> <span class="nav-text">2.数组的默认属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-数组的遍历"><span class="nav-number">3.</span> <span class="nav-text">3.数组的遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-数组合并"><span class="nav-number">4.</span> <span class="nav-text">4,数组合并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-数组元素之间拼接成一个字符串"><span class="nav-number">5.</span> <span class="nav-text">5,数组元素之间拼接成一个字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-颠倒数组中元素的顺序，改变原数组"><span class="nav-number">6.</span> <span class="nav-text">6,颠倒数组中元素的顺序，改变原数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-对数组排序"><span class="nav-number">7.</span> <span class="nav-text">7,对数组排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-通过索引来切割数组-两个索引之间-slice"><span class="nav-number">8.</span> <span class="nav-text">8,通过索引来切割数组:两个索引之间(slice)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-通过索引来切割数组-起始索引-数量-splice"><span class="nav-number">9.</span> <span class="nav-text">9,通过索引来切割数组:起始索引+数量(splice)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-操作最后一个元素"><span class="nav-number">10.</span> <span class="nav-text">10,操作最后一个元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-添加元素"><span class="nav-number">11.</span> <span class="nav-text">11,添加元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-搜索满足要求元素的第一个索引"><span class="nav-number">12.</span> <span class="nav-text">12,搜索满足要求元素的第一个索引</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-搜索满足要求元素的第一个元素和第一个索引-find和-findIndex"><span class="nav-number">13.</span> <span class="nav-text">13,搜索满足要求元素的第一个元素和第一个索引(.find和.findIndex)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-测试数组的元素"><span class="nav-number">14.</span> <span class="nav-text">14,测试数组的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-过滤数组的元素"><span class="nav-number">15.</span> <span class="nav-text">15.过滤数组的元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-ES6的拓展运算符"><span class="nav-number">16.</span> <span class="nav-text">16.ES6的拓展运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-includes-是否包含特定值"><span class="nav-number">17.</span> <span class="nav-text">17.includes():是否包含特定值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-数组一维化"><span class="nav-number">18.</span> <span class="nav-text">18.数组一维化</span></a></li></ol></div>
             
 
           </div>
@@ -785,7 +958,7 @@ unshift(item): 向数组头部添加一个或多个元素，改变原数组，�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.8k</span>
+    <span title="Site words total count">78.4k</span>
   
 </div>
 

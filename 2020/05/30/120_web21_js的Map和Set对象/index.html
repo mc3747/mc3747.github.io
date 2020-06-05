@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="做难事必有所得">
+<meta name="description" content="1.Set对象1_定义     Set数据结构类似数组，但所有成员的值唯一     Array的index的value没关系,Set的index和value相等 2_初始化     方法1:         let a = new Set();         [1,2,2,1,3,4,5,4,5].forEach(x=&amp;gt;a.add(x));     方法2:         let a =">
 <meta name="keywords" content="web基础">
 <meta property="og:type" content="article">
 <meta property="og:title" content="120_web21_js的Map和Set对象">
 <meta property="og:url" content="https://github.com/mc3747/mc3747.github.io/2020/05/30/120_web21_js的Map和Set对象/index.html">
 <meta property="og:site_name" content="小新的个人博客">
-<meta property="og:description" content="做难事必有所得">
+<meta property="og:description" content="1.Set对象1_定义     Set数据结构类似数组，但所有成员的值唯一     Array的index的value没关系,Set的index和value相等 2_初始化     方法1:         let a = new Set();         [1,2,2,1,3,4,5,4,5].forEach(x=&amp;gt;a.add(x));     方法2:         let a =">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-30T15:47:44.495Z">
+<meta property="og:updated_time" content="2020-06-05T07:42:27.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="120_web21_js的Map和Set对象">
-<meta name="twitter:description" content="做难事必有所得">
+<meta name="twitter:description" content="1.Set对象1_定义     Set数据结构类似数组，但所有成员的值唯一     Array的index的value没关系,Set的index和value相等 2_初始化     方法1:         let a = new Set();         [1,2,2,1,3,4,5,4,5].forEach(x=&amp;gt;a.add(x));     方法2:         let a =">
 
 
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  1.1k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  5
                 </span>
               
             </div>
@@ -421,7 +421,156 @@
       
 
       
-        
+        <h2 id="1-Set对象"><a href="#1-Set对象" class="headerlink" title="1.Set对象"></a>1.Set对象</h2><pre><code>1_定义
+    Set数据结构类似数组，但所有成员的值唯一
+    Array的index的value没关系,Set的index和value相等
+2_初始化
+    方法1:
+        let a = new Set();
+        [1,2,2,1,3,4,5,4,5].forEach(x=&gt;a.add(x));
+    方法2:
+        let a = new Set([1,2,3,3,4]);
+3_默认属性
+    1.Set.prototype.constructor：构造函数，默认就是Set函数。
+    2.Set.prototype.size：返回Set实例的成员总数。
+4_默认方法
+    1.add(value)：添加某个值，返回 Set 结构本身。
+    2.delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+    3.has(value)：返回一个布尔值，表示该值是否为Set的成员。
+    4.clear()：清除所有成员，没有返回值。
+5_Set的应用
+    1.数组去重
+        // 方法1
+        [...new Set([1,2,3,4,4,4])]; // [1,2,3,4]
+        // 方法2
+        Array.from(new Set([1,2,3,4,4,4]));    // [1,2,3,4]
+    2.遍历和过滤
+        let a = new Set([1,2,3,4]);
+        // map 遍历操作
+        let b = new Set([...a].map(x =&gt;x*2));// b =&gt; Set(4) {2,4,6,8}
+        // filter 过滤操作
+        let c = new Set([...a].filter(x =&gt;(x%2) == 0)); // b =&gt; Set(2) {2,4}
+    3.获取并集、交集和差集：
+        let a = new Set([1,2,3]);
+        let b = new Set([4,3,2]);
+        // 并集
+        let c1 = new Set([...a, ...b]);  // Set {1,2,3,4}
+        // 交集
+        let c2 = new Set([...a].filter(x =&gt; b.has(x))); // set {2,3}
+        // 差集
+        let c3 = new Set([...a].filter(x =&gt; !b.has(x))); // set {1}
+    4.遍历方法：
+        1_
+            keys()：返回键名的遍历器。
+            values()：返回键值的遍历器。
+            entries()：返回键值对的遍历器。
+        2_forEach()
+            forEach()：使用回调函数遍历每个成员。
+            let a = new Set([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]);
+        3_for...of
+            for(let k of a){console.log(k)};   // &apos;a&apos; &apos;b&apos; &apos;c&apos;</code></pre><h2 id="2-Map对象"><a href="#2-Map对象" class="headerlink" title="2.Map对象"></a>2.Map对象</h2><pre><code>1_定义
+        各种类型的值(包括对象)都可以作为键,扩展了普通对象只能用字符串当做键
+2_初始化
+    1.先初始化再赋值
+        let a = new Map();
+        a.set(2,&apos;my name&apos;); 
+    2.初始化时赋值
+        let a = new Map().set(1,&apos;tom&apos;).set(2,&apos;jack&apos;);
+    3.初始化时,通过数组赋值
+        let a = new Map([
+            [&apos;name&apos;,&apos;leo&apos;],
+            [&apos;age&apos;,18]
+        ])
+3_默认属性
+
+4_默认方法:添加,获取,获取总数,查询,删除,清空
+    let a = new Map();
+    let b = {name: &apos;leo&apos; };
+    a.set(b,&apos;my name&apos;); // 添加值
+    a.get(b);           // 获取值
+    a.size;      // 获取总数
+    a.has(b);    // 查询是否存在
+    a.delete(b); // 删除一个值
+    a.clear();   // 清空所有成员 无返回
+5_遍历
+    keys()：返回键名的遍历器。
+    values()：返回键值的遍历器。
+    entries()：返回所有成员的遍历器。
+    forEach()：遍历 Map 的所有成员。
+6_Map和其他数据结构的转化
+    1.Map和数组
+        1_Map转数组
+            let a = new Map().set(true,1).set({f:2},[&apos;abc&apos;]);
+            [...a]; 
+        2_数组转Map
+            let a = [ [&apos;name&apos;,&apos;leo&apos;], [1, &apos;hi&apos; ]]
+            let b = new Map(a);
+    2.Map和对象
+        1_注意点
+            Map 转 对象 如果所有 Map 的键都是字符串，它可以无损地转为对象。
+            如果有非字符串的键名，那么这个键名会被转成字符串，再作为对象的键名
+        2_Map转对象
+            function fun(s) {
+                  let obj = Object.create(null);
+                  for (let [k,v] of s) {
+                    obj[k] = v;
+                  }
+                  return obj;
+                }
+
+            const a = new Map().set(&apos;yes&apos;, true).set(&apos;no&apos;, false);
+            fun(a) // { yes: true, no: false }
+        3_对象转Map
+            function fun(obj) {
+              let a = new Map();
+              for (let k of Object.keys(obj)) {
+                a.set(k, obj[k]);
+              }
+              return a;
+            }
+
+            fun({yes: true, no: false})
+            // Map {&quot;yes&quot; =&gt; true, &quot;no&quot; =&gt; false}
+    3.Map和JSON
+        1_Map转JSON
+            (1)Map键名都是字符串，转为对象JSON：
+                function fun (s) {
+                    let obj = Object.create(null);
+                    for (let [k,v] of s) {
+                        obj[k] = v;
+                    }
+                    return JSON.stringify(obj)
+                }
+                let a = new Map().set(&apos;yes&apos;, true).set(&apos;no&apos;, false);
+                fun(a);
+                // &apos;{&quot;yes&quot;:true,&quot;no&quot;:false}&apos;
+            (2)Map键名有非字符串，转为数组JSON：
+                function fun (map) {
+                  return JSON.stringify([...map]);
+                }
+
+                let a = new Map().set(true, 7).set({foo: 3}, [&apos;abc&apos;]);
+                fun(a)
+                // &apos;[[true,7],[{&quot;foo&quot;:3},[&quot;abc&quot;]]]&apos;
+
+        2_JSON转Map
+            (1)所有键名都是字符串：
+                function fun (s) {
+                  let strMap = new Map();
+                  for (let k of Object.keys(s)) {
+                    strMap.set(k, s[k]);
+                  }
+                  return strMap;
+                  return JSON.parse(strMap);
+                }
+                fun(&apos;{&quot;yes&quot;: true, &quot;no&quot;: false}&apos;)
+                // Map {&apos;yes&apos; =&gt; true, &apos;no&apos; =&gt; false}
+            (2)整个 JSON 就是一个数组，且每个数组成员本身，又是一个有两个成员的数组:
+                function fun2(s) {
+                  return new Map(JSON.parse(s));
+                }
+                fun2(&apos;[[true,7],[{&quot;foo&quot;:3},[&quot;abc&quot;]]]&apos;)
+                // Map {true =&gt; 7, Object {foo: 3} =&gt; [&apos;abc&apos;]}</code></pre>
       
     </div>
     
@@ -518,8 +667,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -639,6 +797,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Set对象"><span class="nav-number">1.</span> <span class="nav-text">1.Set对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Map对象"><span class="nav-number">2.</span> <span class="nav-text">2.Map对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -666,7 +840,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.8k</span>
+    <span title="Site words total count">78.4k</span>
   
 </div>
 

@@ -2254,7 +2254,7 @@ Person { b: &apos;b&apos; }
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  504
                 </span>
               
 
@@ -2270,7 +2270,7 @@ Person { b: &apos;b&apos; }
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -2293,7 +2293,65 @@ Person { b: &apos;b&apos; }
       
         
           
-            
+            <h2 id="1-迭代器-Iterator"><a href="#1-迭代器-Iterator" class="headerlink" title="1.迭代器(Iterator)"></a>1.迭代器(Iterator)</h2><pre><code>1_概念
+    迭代器是一种特殊对象，它具有一些专门为迭代过程设计的专有接口，所有的迭代器对象都有一个next()方法，每次调用都会返回一个结果对象
+2_属性
+    value: 表示下一个将要返回的值。
+    done: 一个布尔值，若没有更多可返回的数据时，值为true，否则false
+3_ES5实现
+    let f = function (arr){
+        var nextIndex = 0;
+        return {
+            next:function(){
+                return nextIndex &lt; arr.length ?
+                {value: arr[nextIndex++], done: false}:
+                {value: undefined, done: true}
+            }
+        }
+    }
+
+    let a = f([&apos;a&apos;, &apos;b&apos;]);
+    a.next(); // { value: &quot;a&quot;, done: false }
+    a.next(); // { value: &quot;b&quot;, done: false }
+    a.next(); // { value: undefined, done: true }
+
+    4_ES6的的实现
+        1_如果一个数据结构具有Symbol.iterator属性，就可以认为是可迭代
+        2_Symbol.iterator属性本身是函数，是当前数据结构默认的迭代器生成函数。执行这个函数，就会返回一个迭代器
+        3_原生具有Iterator接口的数据结构有：
+            Array
+            Map
+            Set
+            String
+            TypedArray
+            函数的 arguments 对象
+            NodeList 对象
+   5_原生的接口示例
+        let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
+        let iter = arr[Symbol.iterator]();
+        console.log(iter.next()) // { value: &apos;a&apos;, done: false }
+        console.log(iter.next()) // { value: &apos;b&apos;, done: false }
+        console.log(iter.next()) // { value: &apos;c&apos;, done: false }
+        console.log(iter.next()) // { value: undefined, done: true } 
+    5_Iterator使用场景
+        1_解构赋值
+            let a = new Set().add(&apos;a&apos;).add(&apos;b&apos;).add(&apos;c&apos;);
+            let [x, y] = a;       // x = &apos;a&apos;  y = &apos;b&apos;
+            let [a1, ...a2] = a;  // a1 = &apos;a&apos; a2 = [&apos;b&apos;,&apos;c&apos;]
+        2_扩展运算符
+            let a = &apos;hello&apos;;
+            [...a];            //  [&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]
+        3_yield*
+        4_其他场合
+            for...of
+            Array.from()
+            Map(), Set(), WeakMap(), WeakSet()（比如new Map([[&apos;a&apos;,1],[&apos;b&apos;,2]])）
+            Promise.all()
+            Promise.race()</code></pre><h2 id="2-生成器-Generator"><a href="#2-生成器-Generator" class="headerlink" title="2.生成器(Generator)"></a>2.生成器(Generator)</h2><pre><code>1_概念
+    执行Genenrator函数会返回一个遍历器对象，依次遍历Generator函数内部的每一个状态
+2_两个特征
+    function关键字与函数名之间有个星号；
+    函数体内使用yield表达式，定义不同状态；</code></pre>
           
         
       
@@ -2852,7 +2910,7 @@ Person { b: &apos;b&apos; }
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78.4k</span>
+    <span title="Site words total count">78.9k</span>
   
 </div>
 

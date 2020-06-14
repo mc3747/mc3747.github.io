@@ -280,6 +280,287 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" itemprop="url">121_web22_js的迭代器和生成器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:43:48+08:00">
+                2020-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" class="leancloud_visitors" data-flag-title="121_web22_js的迭代器和生成器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  730
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-迭代器-Iterator"><a href="#1-迭代器-Iterator" class="headerlink" title="1.迭代器(Iterator)"></a>1.迭代器(Iterator)</h2><pre><code>1_概念
+    迭代器是一种特殊对象，它具有一些专门为迭代过程设计的专有接口，所有的迭代器对象都有一个next()方法，每次调用都会返回一个结果对象
+2_属性
+    value: 表示下一个将要返回的值。
+    done: 一个布尔值，若没有更多可返回的数据时，值为true，否则false
+3_ES5实现
+    let f = function (arr){
+        var nextIndex = 0;
+        return {
+            next:function(){
+                return nextIndex &lt; arr.length ?
+                {value: arr[nextIndex++], done: false}:
+                {value: undefined, done: true}
+            }
+        }
+    }
+
+    let a = f([&apos;a&apos;, &apos;b&apos;]);
+    a.next(); // { value: &quot;a&quot;, done: false }
+    a.next(); // { value: &quot;b&quot;, done: false }
+    a.next(); // { value: undefined, done: true }
+
+    4_ES6的的实现
+        1_如果一个数据结构具有Symbol.iterator属性，就可以认为是可迭代
+        2_Symbol.iterator属性本身是函数，是当前数据结构默认的迭代器生成函数。执行这个函数，就会返回一个迭代器
+        3_原生具有Iterator接口的数据结构有：
+            Array
+            Map
+            Set
+            String
+            TypedArray
+            函数的 arguments 对象
+            NodeList 对象
+   5_原生的接口示例
+        let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
+        let iter = arr[Symbol.iterator]();
+        console.log(iter.next()) // { value: &apos;a&apos;, done: false }
+        console.log(iter.next()) // { value: &apos;b&apos;, done: false }
+        console.log(iter.next()) // { value: &apos;c&apos;, done: false }
+        console.log(iter.next()) // { value: undefined, done: true } 
+    5_Iterator使用场景
+        1_解构赋值
+            let a = new Set().add(&apos;a&apos;).add(&apos;b&apos;).add(&apos;c&apos;);
+            let [x, y] = a;       // x = &apos;a&apos;  y = &apos;b&apos;
+            let [a1, ...a2] = a;  // a1 = &apos;a&apos; a2 = [&apos;b&apos;,&apos;c&apos;]
+        2_扩展运算符
+            let a = &apos;hello&apos;;
+            [...a];            //  [&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]
+        3_yield*
+        4_其他场合
+            for...of
+            Array.from()
+            Map(), Set(), WeakMap(), WeakSet()（比如new Map([[&apos;a&apos;,1],[&apos;b&apos;,2]])）
+            Promise.all()
+            Promise.race()</code></pre><h2 id="2-自定义可迭代对象"><a href="#2-自定义可迭代对象" class="headerlink" title="2.自定义可迭代对象"></a>2.自定义可迭代对象</h2><pre><code>1_为了实现可迭代，一个对象必须实现 @@iterator 方法，这意味着这个对象（或其原型链中的任意一个对象）必须具有一个带 Symbol.iterator 键（key）的属性。
+2_示例
+    var myIterable = {
+      *[Symbol.iterator]() {
+        yield 1;
+        yield 2;
+        yield 3;
+      }
+    }
+
+    for (let value of myIterable) { 
+        console.log(value); 
+    }
+    // 1
+    // 2
+    // 3
+    // 或者
+    [...myIterable]; // [1, 2, 3]</code></pre><h2 id="3-内置默认的可迭代对象"><a href="#3-内置默认的可迭代对象" class="headerlink" title="3.内置默认的可迭代对象"></a>3.内置默认的可迭代对象</h2><pre><code>String、Array、TypedArray、Map 和 Set 都是内置可迭代对象，因为它们的原型对象都拥有一个 Symbol.iterator 方法</code></pre><h2 id="4-用于可迭代对象的语法"><a href="#4-用于可迭代对象的语法" class="headerlink" title="4.用于可迭代对象的语法"></a>4.用于可迭代对象的语法</h2><pre><code>for-of 循环，展开语法，yield* 和 解构赋值。</code></pre><h2 id="5-生成器-Generator"><a href="#5-生成器-Generator" class="headerlink" title="5.生成器(Generator)"></a>5.生成器(Generator)</h2><pre><code>1_概念
+    执行Genenrator函数会返回一个遍历器对象，依次遍历Generator函数内部的每一个状态
+2_两个特征
+    function关键字与函数名之间有个星号；
+    函数体内使用yield表达式，定义不同状态；
+3_示例
+    function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
+        for (let i = start; i &lt; end; i += step) {
+            yield i;
+        }
+    }
+    var a = makeRangeIterator(1,10,2)
+    a.next() // {value: 1, done: false}
+    a.next() // {value: 3, done: false}
+    a.next() // {value: 5, done: false}
+    a.next() // {value: 7, done: false}
+    a.next() // {value: 9, done: false}
+    a.next() // {value: undefined, done: true}</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/120_web21_js的Map和Set对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2977,219 +3258,11 @@ where
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="url">111_iOS24_查找工程目录的引用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T08:34:05+08:00">
-                2020-05-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" class="leancloud_visitors" data-flag-title="111_iOS24_查找工程目录的引用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  663
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-热修复问题方法"><a href="#1-热修复问题方法" class="headerlink" title="1,热修复问题方法"></a>1,热修复问题方法</h2><pre><code>1_问题:苹果审核报错:dlopen（），dlsym（），responsesToSelector :, performSelector :, method_exchangeImplementations（）和运行远程脚本
-2_方法1,检查含有这些方法的地方,终端输入 grep -r dlopen . 
-3_方法2:将方法名导入到TXT文件中,再一个个查找,命令 nm -n xxx.a &gt;&gt; xxx.txt
-4_方法3:使用脚本来执行,输入工程路径,执行sh xx.sh</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">        #!/bin/sh</span><br><span class="line">echo &quot;请输入需要检测的工程路径&quot;</span><br><span class="line">read path</span><br><span class="line">if [ $&#123;#path&#125; = 0 ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;请在.sh文件后面添加路径&quot;</span><br><span class="line">        exit</span><br><span class="line">    fi</span><br><span class="line">cd $path</span><br><span class="line">echo &quot;当前路径为`pwd`&quot; </span><br><span class="line">#搜索目录下面的.a文件</span><br><span class="line">for i in `find . -name *.a`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    i_=$&#123;i_%.a&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br><span class="line">#搜索目录下面的framework</span><br><span class="line">for i in `find *.framework/ */*.framework/  -size +100k`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-私有api的方法"><a href="#2-私有api的方法" class="headerlink" title="2,私有api的方法"></a>2,私有api的方法</h2><ol>
-<li>进入工程更目录</li>
-<li>输入命令: find . | grep -v .svn | grep “.a” | grep -v “.app” | xargs grep 【私有API】</li>
-<li>输入命令:grep -lr “【私有API】” * | grep -v .svn | grep -v .md</li>
-<li>查看提示引用了私有api的地方</li>
-</ol>
-<h2 id="3-使用UIWebview"><a href="#3-使用UIWebview" class="headerlink" title="3,使用UIWebview"></a>3,使用UIWebview</h2><h3 id="3-1-grep方法-全局查询"><a href="#3-1-grep方法-全局查询" class="headerlink" title="3.1 grep方法,全局查询"></a>3.1 grep方法,全局查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r &quot;UIWebView&quot; .</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-只查询-framework-a-文件"><a href="#3-2-只查询-framework-a-文件" class="headerlink" title="3.2 只查询 .framework .a 文件"></a>3.2 只查询 .framework .a 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-查询-framework-a-h-m-swift文件"><a href="#3-3-查询-framework-a-h-m-swift文件" class="headerlink" title="3.3 查询 .framework .a .h .m .swift文件"></a>3.3 查询 .framework .a .h .m .swift文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  -o -name &quot;*.h&quot;  -o -name &quot;*.m&quot; -o -name &quot;*.swift&quot; \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a &amp; .h. m .swift&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mc3747.github.io/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mc3747.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/13/">13</a><a class="extend next" rel="next" href="/mc3747.github.io/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/mc3747.github.io/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><span class="page-number current">2</span><a class="page-number" href="/mc3747.github.io/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/14/">14</a><a class="extend next" rel="next" href="/mc3747.github.io/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -3237,7 +3310,7 @@ where
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3367,7 +3440,7 @@ where
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">79.6k</span>
+    <span title="Site words total count">80.6k</span>
   
 </div>
 

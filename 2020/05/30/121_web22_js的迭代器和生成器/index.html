@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1.迭代器(Iterator)1_概念     迭代器是一种特殊对象，它具有一些专门为迭代过程设计的专有接口，所有的迭代器对象都有一个next()方法，每次调用都会返回一个结果对象 2_属性     value: 表示下一个将要返回的值。     done: 一个布尔值，若没有更多可返回的数据时，值为true，否则false 3_ES5实现     let f = function (arr){">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-08T09:19:33.681Z">
+<meta property="og:updated_time" content="2020-06-12T16:17:41.342Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="121_web22_js的迭代器和生成器">
 <meta name="twitter:description" content="1.迭代器(Iterator)1_概念     迭代器是一种特殊对象，它具有一些专门为迭代过程设计的专有接口，所有的迭代器对象都有一个next()方法，每次调用都会返回一个结果对象 2_属性     value: 表示下一个将要返回的值。     done: 一个布尔值，若没有更多可返回的数据时，值为true，否则false 3_ES5实现     let f = function (arr){">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  504
+                  730
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -475,11 +475,41 @@
             Array.from()
             Map(), Set(), WeakMap(), WeakSet()（比如new Map([[&apos;a&apos;,1],[&apos;b&apos;,2]])）
             Promise.all()
-            Promise.race()</code></pre><h2 id="2-生成器-Generator"><a href="#2-生成器-Generator" class="headerlink" title="2.生成器(Generator)"></a>2.生成器(Generator)</h2><pre><code>1_概念
+            Promise.race()</code></pre><h2 id="2-自定义可迭代对象"><a href="#2-自定义可迭代对象" class="headerlink" title="2.自定义可迭代对象"></a>2.自定义可迭代对象</h2><pre><code>1_为了实现可迭代，一个对象必须实现 @@iterator 方法，这意味着这个对象（或其原型链中的任意一个对象）必须具有一个带 Symbol.iterator 键（key）的属性。
+2_示例
+    var myIterable = {
+      *[Symbol.iterator]() {
+        yield 1;
+        yield 2;
+        yield 3;
+      }
+    }
+
+    for (let value of myIterable) { 
+        console.log(value); 
+    }
+    // 1
+    // 2
+    // 3
+    // 或者
+    [...myIterable]; // [1, 2, 3]</code></pre><h2 id="3-内置默认的可迭代对象"><a href="#3-内置默认的可迭代对象" class="headerlink" title="3.内置默认的可迭代对象"></a>3.内置默认的可迭代对象</h2><pre><code>String、Array、TypedArray、Map 和 Set 都是内置可迭代对象，因为它们的原型对象都拥有一个 Symbol.iterator 方法</code></pre><h2 id="4-用于可迭代对象的语法"><a href="#4-用于可迭代对象的语法" class="headerlink" title="4.用于可迭代对象的语法"></a>4.用于可迭代对象的语法</h2><pre><code>for-of 循环，展开语法，yield* 和 解构赋值。</code></pre><h2 id="5-生成器-Generator"><a href="#5-生成器-Generator" class="headerlink" title="5.生成器(Generator)"></a>5.生成器(Generator)</h2><pre><code>1_概念
     执行Genenrator函数会返回一个遍历器对象，依次遍历Generator函数内部的每一个状态
 2_两个特征
     function关键字与函数名之间有个星号；
-    函数体内使用yield表达式，定义不同状态；</code></pre>
+    函数体内使用yield表达式，定义不同状态；
+3_示例
+    function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
+        for (let i = start; i &lt; end; i += step) {
+            yield i;
+        }
+    }
+    var a = makeRangeIterator(1,10,2)
+    a.next() // {value: 1, done: false}
+    a.next() // {value: 3, done: false}
+    a.next() // {value: 5, done: false}
+    a.next() // {value: 7, done: false}
+    a.next() // {value: 9, done: false}
+    a.next() // {value: undefined, done: true}</code></pre>
       
     </div>
     
@@ -603,7 +633,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -715,7 +745,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-迭代器-Iterator"><span class="nav-number">1.</span> <span class="nav-text">1.迭代器(Iterator)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-生成器-Generator"><span class="nav-number">2.</span> <span class="nav-text">2.生成器(Generator)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-迭代器-Iterator"><span class="nav-number">1.</span> <span class="nav-text">1.迭代器(Iterator)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-自定义可迭代对象"><span class="nav-number">2.</span> <span class="nav-text">2.自定义可迭代对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-内置默认的可迭代对象"><span class="nav-number">3.</span> <span class="nav-text">3.内置默认的可迭代对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-用于可迭代对象的语法"><span class="nav-number">4.</span> <span class="nav-text">4.用于可迭代对象的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-生成器-Generator"><span class="nav-number">5.</span> <span class="nav-text">5.生成器(Generator)</span></a></li></ol></div>
             
 
           </div>
@@ -749,7 +779,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">79.6k</span>
+    <span title="Site words total count">80.6k</span>
   
 </div>
 

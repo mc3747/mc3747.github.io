@@ -280,7 +280,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/06/12/130_web31_js的闭包/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/06/14/131_web32_js的安全值过滤/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -299,7 +299,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mc3747.github.io/2020/06/12/130_web31_js的闭包/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/mc3747.github.io/2020/06/14/131_web32_js的安全值过滤/" itemprop="url">131_web32_js的安全值过滤</a></h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-12T15:17:04+08:00">
-                2020-06-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-14T14:35:48+08:00">
+                2020-06-14
               </time>
             
 
@@ -322,6 +322,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -330,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/mc3747.github.io/2020/06/12/130_web31_js的闭包/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/06/12/130_web31_js的闭包/" itemprop="commentCount"></span>
+                <a href="/mc3747.github.io/2020/06/14/131_web32_js的安全值过滤/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/06/14/131_web32_js的安全值过滤/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -339,7 +361,296 @@
 
           
           
-             <span id="/mc3747.github.io/2020/06/12/130_web31_js的闭包/" class="leancloud_visitors" data-flag-title>
+             <span id="/mc3747.github.io/2020/06/14/131_web32_js的安全值过滤/" class="leancloud_visitors" data-flag-title="131_web32_js的安全值过滤">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  441
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-任意数的类型"><a href="#1-任意数的类型" class="headerlink" title="1.任意数的类型"></a>1.任意数的类型</h2><pre><code>1_js的数组类型: null,undefined,Number,String,object
+2_使用Object.prototype.toString.call方法判断(最全)
+    function judgeDataType(a){
+            let type = Object.prototype.toString.call(a);
+            if(type === &apos;[object Null]&apos;){
+                console.log(&apos;null_空对象&apos;)
+
+            }else if(type === &apos;[object Undefined]&apos;){
+                console.log(&apos;Undefined_未定义&apos;)
+
+            }else if(type === &apos;[object Number]&apos;){
+                console.log(&apos;Number_数字&apos;)
+
+            }else if(type === &apos;[object Boolean]&apos;){
+                console.log(&apos;Boolean_布尔&apos;)
+
+            }else if(type === &apos;[object String]&apos;){
+                    console.log(&apos;String_字符串&apos;)    
+            }else if(type === &apos;[object Array]&apos;){
+                console.log(&apos;Array_数组&apos;)
+
+            }else if(type === &apos;[object Object]&apos;){
+                console.log(&apos;Object_对象&apos;)
+
+            }else if(type === &apos;[object Function]&apos;){
+                console.log(&apos;Function_函数&apos;)
+            }
+    }
+3_使用typeof来判断:null,array,普通object都是返回的object
+    function judgeDataType(a){
+            let type = typeof(a);
+            if(type === &apos;undefined&apos;){
+                console.log(&apos;undefined_未定义&apos;)
+
+            }else if(type === &apos;number&apos;){
+                console.log(&apos;number_数字&apos;)
+
+            }else if(type === &apos;boolean&apos;){
+                console.log(&apos;boolean_布尔&apos;)
+
+            }else if(type === &apos;string&apos;){
+                console.log(&apos;string_字符串&apos;)    
+            }else if(type === &apos;function&apos;){
+                console.log(&apos;function_函数&apos;)
+
+            }else if(type === &apos;object&apos;){
+                //null
+                //array
+                //object
+            }
+    }</code></pre><h2 id="2-过滤掉非法显示的值-为了展示值的整洁"><a href="#2-过滤掉非法显示的值-为了展示值的整洁" class="headerlink" title="2.过滤掉非法显示的值:为了展示值的整洁"></a>2.过滤掉非法显示的值:为了展示值的整洁</h2><pre><code>var formatNotNullDisplay = function(a){
+    if( a === null){
+        //判断是否为null
+        return &apos;&apos;;
+
+    }else if(typeof(a) == &quot;undefined&quot;){
+      //判断是否为undefined
+        return &apos;&apos;;
+
+    }else if(a === &apos;NaN.undefined&apos;){
+     //判断是否为NaN.undefined
+        return &apos;&apos;;
+
+    }else{
+        return a;
+    };
+}</code></pre><h2 id="3-是否是正常有值对象的判断"><a href="#3-是否是正常有值对象的判断" class="headerlink" title="3.是否是正常有值对象的判断"></a>3.是否是正常有值对象的判断</h2><pre><code>function isNoramlObject(a){
+        if(Object.prototype.toString.call(a) === &apos;[object Object]&apos;){
+            if(JSON.stringify(a) == &quot;{}&quot;){
+                return false;
+            }else{
+                return true;
+            }
+        }else {
+            return false;
+        }</code></pre><p>}</p>
+<h2 id="4-是否是正常有值数组的判断"><a href="#4-是否是正常有值数组的判断" class="headerlink" title="4.是否是正常有值数组的判断"></a>4.是否是正常有值数组的判断</h2><pre><code>function isNoramlArray(a){
+        if(Object.prototype.toString.call(a) === &apos;[object Array]&apos;){
+            if(JSON.stringify(a) == &quot;[]&quot;){
+                return false;
+            }else{
+                return true;
+            }
+        }else {
+            return false;
+        }
+}</code></pre><h2 id="5-是否是正常有值字符串的判断"><a href="#5-是否是正常有值字符串的判断" class="headerlink" title="5.是否是正常有值字符串的判断"></a>5.是否是正常有值字符串的判断</h2><pre><code>function isNoramlString(a){
+    if(Object.prototype.toString.call(a) === &apos;[object String]&apos;){
+        if(a == &quot;&quot;){
+            return false;
+        }else{
+            return true;
+        }
+    }else {
+        return false;
+    }
+}</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/06/14/130_web31_js的闭包/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/06/14/130_web31_js的闭包/" itemprop="url">130_web31_js的闭包</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-14T14:15:48+08:00">
+                2020-06-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/06/14/130_web31_js的闭包/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/06/14/130_web31_js的闭包/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/06/14/130_web31_js的闭包/" class="leancloud_visitors" data-flag-title="130_web31_js的闭包">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -403,8 +714,7 @@
       
         
           
-            <p># </p>
-
+            
           
         
       
@@ -452,7 +762,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/129_web30_js的异步操作/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/06/12/129_web30_js的异步操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="horse">
@@ -471,7 +781,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/31/129_web30_js的异步操作/" itemprop="url">129_web30_js的异步操作</a></h1>
+                <a class="post-title-link" href="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/" itemprop="url">129_web30_js的异步操作</a></h1>
         
 
         <div class="post-meta">
@@ -483,8 +793,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T23:15:48+08:00">
-                2020-05-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-12T23:15:48+08:00">
+                2020-06-12
               </time>
             
 
@@ -524,8 +834,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/mc3747.github.io/2020/05/31/129_web30_js的异步操作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/31/129_web30_js的异步操作/" itemprop="commentCount"></span>
+                <a href="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -533,7 +843,7 @@
 
           
           
-             <span id="/mc3747.github.io/2020/05/31/129_web30_js的异步操作/" class="leancloud_visitors" data-flag-title="129_web30_js的异步操作">
+             <span id="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/" class="leancloud_visitors" data-flag-title="129_web30_js的异步操作">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -558,7 +868,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  522
+                  743
                 </span>
               
 
@@ -574,7 +884,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -696,7 +1006,42 @@ let p = new Promise(function (resolve, reject){
     Promise.all([promise1, promise2, promise3]).then((values) =&gt; {
         console.log(values);
     });
-    //结果:expected output: Array [3, 42, &quot;foo&quot;]</code></pre><h3 id="1-6-Promise-race"><a href="#1-6-Promise-race" class="headerlink" title="1.6_Promise.race()"></a>1.6_Promise.race()</h3><h3 id="1-7-Promise-resolve"><a href="#1-7-Promise-resolve" class="headerlink" title="1.7_Promise.resolve()"></a>1.7_Promise.resolve()</h3><h3 id="1-8-Promise-reject"><a href="#1-8-Promise-reject" class="headerlink" title="1.8_Promise.reject()"></a>1.8_Promise.reject()</h3>
+    //结果:expected output: Array [3, 42, &quot;foo&quot;]</code></pre><h3 id="1-6-Promise-race"><a href="#1-6-Promise-race" class="headerlink" title="1.6_Promise.race()"></a>1.6_Promise.race()</h3><pre><code>1_一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝
+2_示例
+    const promise1 = new Promise((resolve, reject) =&gt; {
+        setTimeout(resolve, 500, &apos;one&apos;);
+    });
+
+    const promise2 = new Promise((resolve, reject) =&gt; {
+        setTimeout(resolve, 100, &apos;two&apos;);
+    });
+
+    Promise.race([promise1, promise2]).then((value) =&gt; {
+        console.log(value);
+        // Both resolve, but promise2 is faster
+    });
+    // expected output: &quot;two&quot;</code></pre><h3 id="1-7-Promise-resolve"><a href="#1-7-Promise-resolve" class="headerlink" title="1.7_Promise.resolve()"></a>1.7_Promise.resolve()</h3><pre><code>1_返回一个解析过的Promise对象
+2_示例
+    const promise1 = Promise.resolve(123);
+    promise1.then((value) =&gt; {
+      console.log(value);
+      // expected output: 123
+    });</code></pre><h3 id="1-8-Promise-reject"><a href="#1-8-Promise-reject" class="headerlink" title="1.8_Promise.reject()"></a>1.8_Promise.reject()</h3><pre><code>1_返回一个带有拒绝原因的Promise对象
+2_示例
+    Promise.reject(new Error(&apos;fail&apos;)).then(function() {
+        // not called
+    }, function(error) {
+        console.error(error); // Stacktrace
+    });</code></pre><h2 id="2-Async-await"><a href="#2-Async-await" class="headerlink" title="2.Async/await"></a>2.Async/await</h2><pre><code>async:
+    1_即这个函数总是返回一个 promise。其他值将自动被包装在一个 resolved 的 promise 中
+    2_示例:
+        async function f() {
+            return Promise.resolve(1);
+        }
+        f().then((number)=&gt;{console.log(number)}); // 1
+ await:
+     1_await 只在 async 函数 中有效
+     2_让 JavaScript 引擎等待直到 promise 完成（settle）并返回结果。</code></pre><h2 id="3-使用Generator"><a href="#3-使用Generator" class="headerlink" title="3.使用Generator"></a>3.使用Generator</h2>
           
         
       
@@ -2406,262 +2751,11 @@ Person { b: &apos;b&apos; }
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" itemprop="url">121_web22_js的迭代器和生成器</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:43:48+08:00">
-                2020-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" class="leancloud_visitors" data-flag-title="121_web22_js的迭代器和生成器">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  504
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-迭代器-Iterator"><a href="#1-迭代器-Iterator" class="headerlink" title="1.迭代器(Iterator)"></a>1.迭代器(Iterator)</h2><pre><code>1_概念
-    迭代器是一种特殊对象，它具有一些专门为迭代过程设计的专有接口，所有的迭代器对象都有一个next()方法，每次调用都会返回一个结果对象
-2_属性
-    value: 表示下一个将要返回的值。
-    done: 一个布尔值，若没有更多可返回的数据时，值为true，否则false
-3_ES5实现
-    let f = function (arr){
-        var nextIndex = 0;
-        return {
-            next:function(){
-                return nextIndex &lt; arr.length ?
-                {value: arr[nextIndex++], done: false}:
-                {value: undefined, done: true}
-            }
-        }
-    }
-
-    let a = f([&apos;a&apos;, &apos;b&apos;]);
-    a.next(); // { value: &quot;a&quot;, done: false }
-    a.next(); // { value: &quot;b&quot;, done: false }
-    a.next(); // { value: undefined, done: true }
-
-    4_ES6的的实现
-        1_如果一个数据结构具有Symbol.iterator属性，就可以认为是可迭代
-        2_Symbol.iterator属性本身是函数，是当前数据结构默认的迭代器生成函数。执行这个函数，就会返回一个迭代器
-        3_原生具有Iterator接口的数据结构有：
-            Array
-            Map
-            Set
-            String
-            TypedArray
-            函数的 arguments 对象
-            NodeList 对象
-   5_原生的接口示例
-        let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
-        let iter = arr[Symbol.iterator]();
-        console.log(iter.next()) // { value: &apos;a&apos;, done: false }
-        console.log(iter.next()) // { value: &apos;b&apos;, done: false }
-        console.log(iter.next()) // { value: &apos;c&apos;, done: false }
-        console.log(iter.next()) // { value: undefined, done: true } 
-    5_Iterator使用场景
-        1_解构赋值
-            let a = new Set().add(&apos;a&apos;).add(&apos;b&apos;).add(&apos;c&apos;);
-            let [x, y] = a;       // x = &apos;a&apos;  y = &apos;b&apos;
-            let [a1, ...a2] = a;  // a1 = &apos;a&apos; a2 = [&apos;b&apos;,&apos;c&apos;]
-        2_扩展运算符
-            let a = &apos;hello&apos;;
-            [...a];            //  [&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]
-        3_yield*
-        4_其他场合
-            for...of
-            Array.from()
-            Map(), Set(), WeakMap(), WeakSet()（比如new Map([[&apos;a&apos;,1],[&apos;b&apos;,2]])）
-            Promise.all()
-            Promise.race()</code></pre><h2 id="2-生成器-Generator"><a href="#2-生成器-Generator" class="headerlink" title="2.生成器(Generator)"></a>2.生成器(Generator)</h2><pre><code>1_概念
-    执行Genenrator函数会返回一个遍历器对象，依次遍历Generator函数内部的每一个状态
-2_两个特征
-    function关键字与函数名之间有个星号；
-    函数体内使用yield表达式，定义不同状态；</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/mc3747.github.io/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/13/">13</a><a class="extend next" rel="next" href="/mc3747.github.io/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/mc3747.github.io/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/14/">14</a><a class="extend next" rel="next" href="/mc3747.github.io/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2709,7 +2803,7 @@ Person { b: &apos;b&apos; }
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2839,7 +2933,7 @@ Person { b: &apos;b&apos; }
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">79.6k</span>
+    <span title="Site words total count">80.6k</span>
   
 </div>
 

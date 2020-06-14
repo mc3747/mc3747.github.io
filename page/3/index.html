@@ -280,6 +280,214 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="url">111_iOS24_查找工程目录的引用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T08:34:05+08:00">
+                2020-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" class="leancloud_visitors" data-flag-title="111_iOS24_查找工程目录的引用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  663
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-热修复问题方法"><a href="#1-热修复问题方法" class="headerlink" title="1,热修复问题方法"></a>1,热修复问题方法</h2><pre><code>1_问题:苹果审核报错:dlopen（），dlsym（），responsesToSelector :, performSelector :, method_exchangeImplementations（）和运行远程脚本
+2_方法1,检查含有这些方法的地方,终端输入 grep -r dlopen . 
+3_方法2:将方法名导入到TXT文件中,再一个个查找,命令 nm -n xxx.a &gt;&gt; xxx.txt
+4_方法3:使用脚本来执行,输入工程路径,执行sh xx.sh</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">        #!/bin/sh</span><br><span class="line">echo &quot;请输入需要检测的工程路径&quot;</span><br><span class="line">read path</span><br><span class="line">if [ $&#123;#path&#125; = 0 ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;请在.sh文件后面添加路径&quot;</span><br><span class="line">        exit</span><br><span class="line">    fi</span><br><span class="line">cd $path</span><br><span class="line">echo &quot;当前路径为`pwd`&quot; </span><br><span class="line">#搜索目录下面的.a文件</span><br><span class="line">for i in `find . -name *.a`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    i_=$&#123;i_%.a&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br><span class="line">#搜索目录下面的framework</span><br><span class="line">for i in `find *.framework/ */*.framework/  -size +100k`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-私有api的方法"><a href="#2-私有api的方法" class="headerlink" title="2,私有api的方法"></a>2,私有api的方法</h2><ol>
+<li>进入工程更目录</li>
+<li>输入命令: find . | grep -v .svn | grep “.a” | grep -v “.app” | xargs grep 【私有API】</li>
+<li>输入命令:grep -lr “【私有API】” * | grep -v .svn | grep -v .md</li>
+<li>查看提示引用了私有api的地方</li>
+</ol>
+<h2 id="3-使用UIWebview"><a href="#3-使用UIWebview" class="headerlink" title="3,使用UIWebview"></a>3,使用UIWebview</h2><h3 id="3-1-grep方法-全局查询"><a href="#3-1-grep方法-全局查询" class="headerlink" title="3.1 grep方法,全局查询"></a>3.1 grep方法,全局查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r &quot;UIWebView&quot; .</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-只查询-framework-a-文件"><a href="#3-2-只查询-framework-a-文件" class="headerlink" title="3.2 只查询 .framework .a 文件"></a>3.2 只查询 .framework .a 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-查询-framework-a-h-m-swift文件"><a href="#3-3-查询-framework-a-h-m-swift文件" class="headerlink" title="3.3 查询 .framework .a .h .m .swift文件"></a>3.3 查询 .framework .a .h .m .swift文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  -o -name &quot;*.h&quot;  -o -name &quot;*.m&quot; -o -name &quot;*.swift&quot; \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a &amp; .h. m .swift&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/04/27/110_网络2_实践模拟/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -579,7 +787,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  853
+                  992
                 </span>
               
 
@@ -595,7 +803,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -664,7 +872,23 @@
     1,百分比
      2,vw和vh
      3,calc计算
-3_js中获取</code></pre>
+3_js中获取</code></pre><h3 id="1-10-空格的使用"><a href="#1-10-空格的使用" class="headerlink" title="1.10 空格的使用"></a>1.10 空格的使用</h3><pre><code>使用text标签:&lt;text space=&quot;nbsp&quot;&gt;&lt;\text&gt;
+   ensp（空格是中文字符一半大小）
+   emsp（空格是中文字符大小）
+   nbsp（空格根据字体设置）</code></pre><h3 id="1-11-html中使用js的函数"><a href="#1-11-html中使用js的函数" class="headerlink" title="1.11 html中使用js的函数"></a>1.11 html中使用js的函数</h3><pre><code>1_新建一个.wxs文件 
+2_导出一个工具函数
+    var filter = {
+      numberToFix: function (value) {
+        return value.toFixed(1)
+      }
+    }
+    module.exports = {
+      numberToFix: filter.numberToFix
+    }
+3_html文件导入
+    &lt;wxs module=&quot;filter&quot; src=&quot;../../utils/numbertofix.wxs&quot;&gt;&lt;/wxs&gt;
+4_html文件的使用
+    &lt;text class=&quot;vote-item-data-percent&quot;&gt;{{filter.numberToFix(item.vote_count/vote.data.voters_count*100)}}%&lt;/text&gt;</code></pre>
           
         
       
@@ -2311,209 +2535,11 @@ Date: Mon,15Jun201509:06:46GMT(响应的时间) Server: apache (服务器类型)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/20/101_加密相关2_加密/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/03/20/101_加密相关2_加密/" itemprop="url">101_加密相关2_加密</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-20T13:34:05+08:00">
-                2020-03-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/03/20/101_加密相关2_加密/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/20/101_加密相关2_加密/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/03/20/101_加密相关2_加密/" class="leancloud_visitors" data-flag-title="101_加密相关2_加密">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  117
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-生成公钥和私钥"><a href="#1-生成公钥和私钥" class="headerlink" title="1 生成公钥和私钥"></a>1 生成公钥和私钥</h2><p>1,公钥（public key），另一个称为私钥（private key）的生成<br>2,windows环境下,下载安装OPENSSL工具（ <a href="http://www.openssl.org/related/binaries.html）" target="_blank" rel="noopener">http://www.openssl.org/related/binaries.html）</a><br>3,MAC OS自带了OpenSSL,直接在命令行里使用OPENSSL就可以<br>应用:<br>    github配置本地的ssh<br>    https</p>
-<h2 id="2-加密的方法"><a href="#2-加密的方法" class="headerlink" title="2 加密的方法"></a>2 加密的方法</h2><h3 id="2-1-散列（Hash）"><a href="#2-1-散列（Hash）" class="headerlink" title="2.1 散列（Hash）"></a>2.1 散列（Hash）</h3><pre><code>MD5
-SHA
-HMAC-MD5
-HMAC-SHA1</code></pre><h3 id="2-2-对称加密（Symmetric-Cryptography）"><a href="#2-2-对称加密（Symmetric-Cryptography）" class="headerlink" title="2.2 对称加密（Symmetric Cryptography）"></a>2.2 对称加密（Symmetric Cryptography）</h3><pre><code>DES，AES，Blowfish</code></pre><h3 id="2-3-非对称加密（Asymmetric-Cryptography）"><a href="#2-3-非对称加密（Asymmetric-Cryptography）" class="headerlink" title="2.3 非对称加密（Asymmetric Cryptography）"></a>2.3 非对称加密（Asymmetric Cryptography）</h3><pre><code>RSA
-https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果的正确性" class="headerlink" title="3 验证结果的正确性"></a>3 验证结果的正确性</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mc3747.github.io/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><a class="page-number" href="/mc3747.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/mc3747.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/13/">13</a><a class="extend next" rel="next" href="/mc3747.github.io/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/mc3747.github.io/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><a class="page-number" href="/mc3747.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/mc3747.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/14/">14</a><a class="extend next" rel="next" href="/mc3747.github.io/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2561,7 +2587,7 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2691,7 +2717,7 @@ https</code></pre><h2 id="3-验证结果的正确性"><a href="#3-验证结果�
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">79.6k</span>
+    <span title="Site words total count">80.6k</span>
   
 </div>
 

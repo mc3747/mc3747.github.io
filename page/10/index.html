@@ -280,6 +280,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/03/41_算法6_递归/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/12/03/41_算法6_递归/" itemprop="url">41_算法6_递归</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-03T14:13:20+08:00">
+                2019-12-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/12/03/41_算法6_递归/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/03/41_算法6_递归/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/12/03/41_算法6_递归/" class="leancloud_visitors" data-flag-title="41_算法6_递归">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  298
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1，定义分解：递，去的过程；归，回来的过程<br>2，满足的条件<br>    1，可以分解成多个子问题；<br>    2，这个问题与子问题，除了数据规模，求解思路完全一样；<br>    3，存在递归终止条件<br>3，写递归代码要点<br>    1，递推公式；2，终止代码<br>4，警惕堆栈溢出<br>    原因：函数调用会使用栈来保存临时变量。每调用一个函数，都会将临时变量封装为栈帧压入内存栈，等函数执行完成返回时，才出栈<br>    方法：递归深度限制；避免重复计算（散列表）；内存中保存现场数据，导致空间复杂度增加<br>5，递归代码更改成非递归代码<br>6，核心本质：<br>    递归本身是借助于栈的数据结构，加上简单的逻辑算法实现的业务功能<br>7，递归的调试方法<br>    先打印日志发现是递归，然后结合条件断点的调试方法<br>8，例子<br>    电影院排数<br>    楼梯台阶走法<br>    推荐人方案（环形推荐的话，用一个散列表先记录）<br>    斐波那契树列</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/02/40_数据库1_navicat连接本地MySql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2176,248 +2370,11 @@ View：应用视图，可展示Store数据，并实时响应Store的更新。</c
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/11/29/31_前端工程化1_webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2019/11/29/31_前端工程化1_webpack/" itemprop="url">31_前端工程化1_webpack</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-29T11:26:50+08:00">
-                2019-11-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2019/11/29/31_前端工程化1_webpack/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/11/29/31_前端工程化1_webpack/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2019/11/29/31_前端工程化1_webpack/" class="leancloud_visitors" data-flag-title="31_前端工程化1_webpack">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  425
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-Webpack"><a href="#1-Webpack" class="headerlink" title="1,Webpack"></a>1,Webpack</h2><pre><code>代码编译工具，有入口，出口、loader，插件，模式5个部分</code></pre><h2 id="2，学习网站"><a href="#2，学习网站" class="headerlink" title="2，学习网站"></a>2，学习网站</h2><p><a href="https://www.webpackjs.com" target="_blank" rel="noopener">1-webpack中文网</a></p>
-<p><a href="https://webpack.github.io" target="_blank" rel="noopener">2-webpack英文官网</a></p>
-<p>3-webpack的封装：<a href="http://hubcarl.github.io/easywebpack/webpack/" target="_blank" rel="noopener">阿里的easywebpack</a></p>
-<h2 id="3，webpack的安装"><a href="#3，webpack的安装" class="headerlink" title="3，webpack的安装"></a>3，webpack的安装</h2><pre><code>1，安装webpack：使用权限安装sudo npm install webpack -g
-2，查看版本webpack -v
-3，如果查看版本报错（webpack-cli ），执行npm install webpack-cli -g
-4，运行webpack命令时报错，执行：npm install --save-dev webpack</code></pre><h2 id="4，简单工程应用"><a href="#4，简单工程应用" class="headerlink" title="4，简单工程应用"></a>4，简单工程应用</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8736.jpg" alt="图片36"></p>
-<pre><code>1，初始化项目：npm init (一直回车，最后yes，生成一个package文件)
-2. webpack安装Webpack: npm install --save-dev 
-3. 创建两个文件夹,src文件夹和public文件夹（src文件夹为源码文件，public文件夹包括可供浏览器访问的文件（包括打包生成的js文件和一个index.html））
-4. src中新建main.js，代码为：
-    document.write(&quot;hello  world&quot;);
-5. index.html代码为：
-    &lt;!DOCTYPE html&gt;
-    &lt;html lang=&quot;en&quot;&gt;
-    &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;    
-    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
-    &lt;title&gt;Document&lt;/title&gt;
-    &lt;style&gt;
-    body {
-        background-color: yellow;
-    }
-    &lt;/style&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-    &lt;script src=&quot;./bundle.js&quot;&gt;&lt;/script&gt;
-    &lt;/body&gt;
-    &lt;/html&gt;
-
-6. 创建一个webpack.config.js文件，内容为
-    const  path = require(&apos;path&apos;);
-    module.exports = {
-    entry:&apos;./src/main.js&apos;,
-    output:{
-    path:path.resolve(__dirname,&apos;public&apos;),
-    filename:&apos;bundle.js&apos;
-        }
-    }
-7. 运行命令：webpack --mode  development
-8. 打开index.html文件，可以看到执行完的html文件</code></pre><h2 id="5，进阶"><a href="#5，进阶" class="headerlink" title="5，进阶"></a>5，进阶</h2><pre><code>1. 加载css文件，使用css-loader,以及style-loader
-2. 加载图片,使用file-loader
-3. 生成html模板，使用html-webpck-plugin插件
-4. css文件分类：使用extract-text-webpack-plugin插件
-5. 自动刷新：使用webpack-dev-server和webpack-cli</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mc3747.github.io/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/mc3747.github.io/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/13/">13</a><a class="extend next" rel="next" href="/mc3747.github.io/page/11/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/mc3747.github.io/page/9/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/mc3747.github.io/page/11/">11</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/14/">14</a><a class="extend next" rel="next" href="/mc3747.github.io/page/11/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2465,7 +2422,7 @@ View：应用视图，可展示Store数据，并实时响应Store的更新。</c
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">130</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2595,7 +2552,7 @@ View：应用视图，可展示Store数据，并实时响应Store的更新。</c
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">79.6k</span>
+    <span title="Site words total count">80.6k</span>
   
 </div>
 

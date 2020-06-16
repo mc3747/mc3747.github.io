@@ -280,6 +280,672 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/27/64_web4_浏览器的渲染引擎/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/12/27/64_web4_浏览器的渲染引擎/" itemprop="url">64_web4_浏览器的渲染引擎</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-27T09:16:50+08:00">
+                2019-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/12/27/64_web4_浏览器的渲染引擎/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/27/64_web4_浏览器的渲染引擎/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/12/27/64_web4_浏览器的渲染引擎/" class="leancloud_visitors" data-flag-title="64_web4_浏览器的渲染引擎">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  733
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-浏览器的核心："><a href="#1-浏览器的核心：" class="headerlink" title="1,浏览器的核心："></a>1,浏览器的核心：</h2><pre><code>1，渲染引擎
+2，JavaScript引擎（又称 JavaScript解释器）</code></pre><h2 id="2-渲染引擎的主要作用"><a href="#2-渲染引擎的主要作用" class="headerlink" title="2,渲染引擎的主要作用"></a>2,渲染引擎的主要作用</h2><pre><code>将网页代码渲染为用户视觉可以感知的平面文档</code></pre><h2 id="3-不同浏览器的渲染引擎"><a href="#3-不同浏览器的渲染引擎" class="headerlink" title="3,不同浏览器的渲染引擎"></a>3,不同浏览器的渲染引擎</h2><pre><code>Firefox：Gecko 引擎
+Safari：WebKit 引擎
+Chrome：Blink 引擎
+IE: Trident 引擎
+Edge: EdgeHTML 引擎    </code></pre><h2 id="4，渲染引擎的四个阶段。"><a href="#4，渲染引擎的四个阶段。" class="headerlink" title="4，渲染引擎的四个阶段。"></a>4，渲染引擎的四个阶段。</h2><pre><code>1，解析代码：HTML 代码解析为 DOM，CSS 代码解析为 CSSOM（CSS Object Model）。
+2，对象合成：将 DOM 和 CSSOM 合成一棵渲染树（render tree）。
+3，布局：计算出渲染树的布局（layout），也叫做节点信息的重流Reflow。
+4，绘制：将渲染树绘制到屏幕（Painting），也称作节点信息的重绘Repaint。    </code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8759.png" alt></p>
+<div style="background-color:#EEF4EC;border-left:5px #5DB24C solid">
+    <font color="#110B13" size="2.5" face="黑体">
+    &nbsp&nbsp♻️&nbsp&nbsp：以上四步并非严格按顺序执行，往往第一步还没完成，第二步和第三步就已经开始了。所以，会看到这种情况：网页的 HTML 代码还没下载完，但浏览器已经显示出内容了
+    </font>
+</div>
+
+<h2 id="5，重流和重绘"><a href="#5，重流和重绘" class="headerlink" title="5，重流和重绘"></a>5，重流和重绘</h2><pre><code>1，布局和绘制：
+    渲染树转换为网页布局，称为“布局流”（flow）；
+    布局显示到页面的这个过程，称为“绘制”（paint）。
+    它们都具有阻塞效应，并且会耗费很多时间和计算资源
+
+2，重流和重绘：
+    页面生成以后，脚本操作和样式表操作，都会触发“重流”（reflow）和“重绘”（repaint）
+    重流就是页面元素发生几何变更（例如位置变更），牵连其它元素发生几何变化，导致页面所有元素执行一次重新排版。
+    重绘就是页面元素发生样式变更（例如颜色变更），但不影响其它元素发生几何变化，使页面执行一次重新绘图。</code></pre><div style="background-color:#F9F0D8;border-left:5px #F8D43E solid">
+    <font color="#060F27" size="2.5" face="黑体">
+        &nbsp&nbsp⚠️&nbsp&nbsp 1，重流必然导致重绘，重绘不一定需要重流：<br>
+        &nbsp&nbsp⚠️&nbsp&nbsp    2，重排会消耗更多性能，重绘则消耗小部分性能，所以我们优化页面，要尽量减少重排<br>
+        &nbsp&nbsp⚠️&nbsp&nbsp 3，浏览器会智能判断，将重流和重绘只限制到相关的子树上面，最小化所耗费的代价，而不会全局重新生成网页
+    </font>
+</div>        
+
+<h2 id="6，重流和重绘的优化技巧"><a href="#6，重流和重绘的优化技巧" class="headerlink" title="6，重流和重绘的优化技巧"></a>6，重流和重绘的优化技巧</h2><pre><code>1，读取 DOM 或者写入 DOM，尽量写在一起，不要混杂。不要读取一个 DOM 节点，然后立刻写入，接着再读取一个 DOM 节点。
+2，缓存 DOM 信息。
+3，不要一项一项地改变样式，而是使用 CSS class 一次性改变样式。
+4，使用documentFragment操作 DOM
+5，动画使用absolute定位或fixed定位，这样可以减少对其他元素的影响。
+6，只在必要时才显示隐藏元素。
+7，使用window.requestAnimationFrame()，因为它可以把代码推迟到下一次重流时执行，而不是立即要求页面重流。
+8，使用虚拟 DOM（virtual DOM）库</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/25/63_web3_dom总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/12/25/63_web3_dom总结/" itemprop="url">63_web3_dom总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-25T16:57:40+08:00">
+                2019-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/12/25/63_web3_dom总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/25/63_web3_dom总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/12/25/63_web3_dom总结/" class="leancloud_visitors" data-flag-title="63_web3_dom总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  585
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>参考教程：<br><a href="https://www.w3cschool.cn/jsref/jsref-jsref-tutorialnmor1pl5.html" target="_blank" rel="noopener">https://www.w3cschool.cn/jsref/jsref-jsref-tutorialnmor1pl5.html</a><br><a href="https://www.w3school.com.cn/jsref/index.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/jsref/index.asp</a></p>
+<h2 id="1，DOM"><a href="#1，DOM" class="headerlink" title="1，DOM"></a>1，DOM</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8763.jpg" alt></p>
+<pre><code>1，DOM 是 Document Object Model（文档对象模型）的缩写
+2，W3C 文档对象模型 （DOM） 是中立于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式，包括：
+    核心 DOM - 针对任何结构化文档的标准模型
+    XML DOM - 针对 XML 文档的标准模型
+    HTML DOM - 针对 HTML 文档的标准模型
+3，HTML DOM：
+    HTML 的标准对象模型
+    HTML 的标准编程接口
+    W3C 标准</code></pre><h2 id="2，节点"><a href="#2，节点" class="headerlink" title="2，节点"></a>2，节点</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8764.jpg" alt></p>
+<pre><code>1，HTML文档中的所有内容都是节点
+    整个文档是一个文档节点
+    每个 HTML 元素是元素节点
+    HTML 元素内的文本是文本节点
+    每个 HTML 属性是属性节点
+    注释是注释节点
+2，html片段
+3，dom树
+4，关系树</code></pre><h2 id="3，对象"><a href="#3，对象" class="headerlink" title="3，对象"></a>3，对象</h2><pre><code>1，document对象
+    1,包括元素节点，文本节点，属性节点, 注释节点
+    2，也可以通过window.document 
+    3，常用属性：
+        document.body
+        document.cookie
+    4，常用方法：
+        document.getElementById()
+    5，文档对象继承节点对象的所有属性和方法。很多属性和方法在文档中是没有意义的，例如document.attributes，document.parentNode等
+
+2，元素对象
+    1，元素对象代表着一个 HTML 元素
+        元素对象 的 子节点可以是, 可以是元素节点，文本节点，注释节点。
+    2，NodeList 对象 代表了节点列表，类似于 HTML元素的子节点集合
+
+3，属性对象
+    1，Attr 对象
+        在 HTML DOM 中, Attr 对象 代表一个 HTML 属性。
+        HTML属性总是属于HTML元素。
+    2，NamedNodeMap 对象
+    在 HTML DOM 中, the NamedNodeMap 对象 表示一个无顺序的节点列表。
+    我们可通过节点名称来访问 NamedNodeMap 中的节点。
+
+4，事件对象
+    HTML DOM 事件允许Javascript在HTML文档元素中注册不同事件处理程序。
+    事件通常与函数结合使用，函数不会在事件发生前被执行！(如用户点击按钮)</code></pre><p>3，操作html元素<br>    创建新的 HTML元素<br>    删除已有的 HTML元素</p>
+<p>4，操作html元素的内容<br>    改变 HTML内容</p>
+<p>5，操作html元素的内容<br>    改变 CSS 样式</p>
+<p>6，操作事件<br>    改变事件（处理程序）</p>
+<p>7，dom导航</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/25/62_数据库3_web端缓存总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/12/25/62_数据库3_web端缓存总结/" itemprop="url">62_数据库3_web端缓存总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-25T15:27:09+08:00">
+                2019-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/12/25/62_数据库3_web端缓存总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/25/62_数据库3_web端缓存总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/12/25/62_数据库3_web端缓存总结/" class="leancloud_visitors" data-flag-title="62_数据库3_web端缓存总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/25/61_数据库2_web端数据库总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1903,815 +2569,6 @@ self.layer.rasterizationScale = [UIScreen mainScreen].scale;
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/16/54_iOS8_UIView要点介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2019/12/16/54_iOS8_UIView要点介绍/" itemprop="url">54_iOS8_UIView要点介绍</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T17:37:39+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2019/12/16/54_iOS8_UIView要点介绍/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/16/54_iOS8_UIView要点介绍/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2019/12/16/54_iOS8_UIView要点介绍/" class="leancloud_visitors" data-flag-title="54_iOS8_UIView要点介绍">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  986
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，初始化"><a href="#1，初始化" class="headerlink" title="1，初始化"></a>1，初始化</h2><pre><code>1，涉及方法：init，initWithFrame，initWithCoder
-2. 在initWithFrame中调用，外部使用init或initWithFrame均可以正常执行
-3. initWithCoder、awakeFromNib是从xib、storyboard中创建时会调用
-4.     当使用一个controller控制多个nib文件时，awakeFromNib方法会被多次调用。因此，当不使用awakeFromNib方法来完成nib对象的初始化时，需要注意此方法的多次调用对其他nib文件造成的影响
-5. 统一初始化方法如下：</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder &#123;</span><br><span class="line"><span class="keyword">self</span> = [superinitWithCoder:aDecoder];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">self</span>) &#123;</span><br><span class="line">[<span class="keyword">self</span> commonInit];</span><br><span class="line">&#125;</span><br><span class="line">returnself;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">id</span>)initWithFrame:(<span class="built_in">CGRect</span>)frame &#123;</span><br><span class="line"><span class="keyword">self</span> = [superinitWithFrame:frame];</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">self</span>) &#123;</span><br><span class="line">[<span class="keyword">self</span> commonInit];</span><br><span class="line">&#125;</span><br><span class="line">returnself;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)commonInit &#123;</span><br><span class="line"><span class="comment">// 统一初始化代码</span></span><br><span class="line">&#125;</span><br><span class="line">```	</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">## 2，重绘：</span></span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>，涉及方法：drawRect方法</span><br><span class="line">	<span class="number">2</span>，drawRect调用是在Controller-&gt;loadView,Controller-&gt;viewDidLoad 两方法之后调用的</span><br><span class="line">	<span class="number">3</span>，该方法在调用sizeThatFits后被调用，所以可以先调用sizeToFit计算出size。然后系统自动调用drawRect:方法。(sizeToFit会自动调用sizeThatFits方法)</span><br><span class="line">	<span class="number">4</span>， 若使用<span class="built_in">UIView</span>绘图，只能在drawRect:方法中获取相应的contextRef并绘图。如果在其他方法中获取将获取到一个invalidate 的ref并且不能用于画图。drawRect：方法不能手动显示调用，必须通过调用setNeedsDisplay 或 者 setNeedsDisplayInRect，让系统自动调该方法。</span><br><span class="line">	<span class="number">5</span>，若使用calayer绘图，只能在drawInContext: 中（类似于drawRect）绘制，或者在delegate中的相应方法绘制。同样也是调用setNeedDisplay等间接调用以上方法。</span><br><span class="line">	<span class="number">6</span>，若要实时画图，不能使用gestureRecognizer，只能使用touchbegan等方法来调用setNeedsDisplay实时刷新屏幕</span><br><span class="line">	<span class="number">7</span>，随意使用drawRect可能引入内存暴增的问题</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line"><span class="meta">## 3，布局</span></span><br><span class="line"><span class="meta">### 3.1 触发布局的情形：</span></span><br><span class="line">	</span><br><span class="line">	<span class="number">1</span>、init初始化不会触发layoutSubviews，addSubview会触发layoutSubviews。</span><br><span class="line">	<span class="number">2</span>、设置view的Frame会触发layoutSubviews，当然前提是frame的值设置前后发生了变化。</span><br><span class="line">	<span class="number">3</span>、滚动一个<span class="built_in">UIScrollView</span>会触发layoutSubviews。</span><br><span class="line">	<span class="number">4</span>、旋转Screen会触发父<span class="built_in">UIView</span>上的layoutSubviews事件。</span><br><span class="line">	<span class="number">5</span>、改变一个<span class="built_in">UIView</span>大小的时候也会触发父<span class="built_in">UIView</span>上的layoutSubviews事件。</span><br><span class="line">	<span class="number">6</span>、直接调用setNeedsLayout\ layoutIfNeeded</span><br><span class="line">	</span><br><span class="line"><span class="meta">### 3.2 刷新子布局调用的方法</span></span><br><span class="line">	<span class="number">1</span>，frame布局</span><br><span class="line">		setNeedsLayout ，layoutIfNeeded</span><br><span class="line">	<span class="number">2</span>，约束布局</span><br><span class="line">		updateConstraintsIfNeeded</span><br><span class="line">		updateConstraints</span><br><span class="line">		- (<span class="built_in">BOOL</span>)needsUpdateConstraints</span><br><span class="line">		- (<span class="keyword">void</span>)setNeedsUpdateConstraints</span><br><span class="line"></span><br><span class="line"><span class="meta">## 4，适应</span></span><br><span class="line"></span><br><span class="line">	<span class="number">1</span>，涉及方法：- (<span class="built_in">CGSize</span>)sizeThatFits:(<span class="built_in">CGSize</span>)size;和- (<span class="keyword">void</span>)sizeToFit;</span><br><span class="line">	<span class="number">2</span>，sizeToFit 自动调用 sizeThatFits 方法，不能在子类中重写 sizeToFit，可以重写sizeThatFits;</span><br><span class="line">	<span class="number">3</span>，sizeThatFits传入的参数是receiver当前的size，返回一个适合的size;</span><br><span class="line">	<span class="number">4</span>，sizeThatFits和sizeToFit可以被手动直接调用：例如[testLabel sizeToFit];<span class="comment">//会计算出最优的 size 而且会改变自己的size</span></span><br><span class="line">	[testLabel sizeThatFits:<span class="built_in">CGSizeMake</span>(<span class="number">20</span>, <span class="number">20</span>)];<span class="comment">//会计算出最优的 size 但是不会改变 自己的 size</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">## 5，添加动画</span></span><br><span class="line"><span class="meta">### 5.1，frame动画</span></span><br><span class="line">```objectiveC</span><br><span class="line">	-（<span class="keyword">void</span>）layoutSubviews&#123;</span><br><span class="line">  <span class="built_in">CGRect</span> frame = _bgView.frame;</span><br><span class="line">    frame.origin.y += keyboardHeight + bgHeight;</span><br><span class="line">    _bgView.frame = frame;</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span>f animations:^&#123;</span><br><span class="line">        <span class="built_in">CGRect</span> frame = _bgView.frame;</span><br><span class="line">        frame.origin.y -=  (keyboardHeight + bgHeight);</span><br><span class="line">        _bgView.frame = frame;</span><br><span class="line">    &#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="5-2，约束动画"><a href="#5-2，约束动画" class="headerlink" title="5.2，约束动画"></a>5.2，约束动画</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.leftConstr.constant = <span class="number">200</span>;</span><br><span class="line">    [<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.5</span> animations:^&#123;</span><br><span class="line">        [<span class="keyword">self</span>.view layoutIfNeeded];</span><br><span class="line">    &#125; completion:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="6，自定义view的方法"><a href="#6，自定义view的方法" class="headerlink" title="6，自定义view的方法"></a>6，自定义view的方法</h2><pre><code>1，初始化兼容，重写initWithFrame，initWithCoder
-2，调整布局用layout相关；
-3，重绘内容用drawRect相关；
-4，调整内容用fit相关；</code></pre><h2 id="7，自定义view的加载方式"><a href="#7，自定义view的加载方式" class="headerlink" title="7，自定义view的加载方式"></a>7，自定义view的加载方式</h2><h3 id="7-1，纯代码加载"><a href="#7-1，纯代码加载" class="headerlink" title="7.1，纯代码加载"></a>7.1，纯代码加载</h3><pre><code>✳️内部设置：
-    1，初始化：initWithFrame
-    2，布局：
-        方法1：layoutSubviews（frame布局），
-        方法2：不用layoutSubviews（autoLayou布局，translatesAutoresizingMaskIntoConstraints 属性设为 NO），
-        方法3：不用layoutSubviews（使用masory布局）
-    3，适应：sizeThatFits
-
-✳️外部调用：
-init的初始化方法</code></pre><h3 id="7-2，xib或者storyboard加载"><a href="#7-2，xib或者storyboard加载" class="headerlink" title="7.2，xib或者storyboard加载"></a>7.2，xib或者storyboard加载</h3><pre><code>✳️内部设置：
-initWithcoder：只要是从storyboard/xib中加载就会调用这个方法；这个方法一般是初始化的操作
-awakeFromNib：storyboard/xib中加载完毕的时候调用，想做一些在xib加载完毕的操作，就在这个方法中操作（建议在这个方法中写初始化代码）
-
-✳️外部调用：
-方式一：通过mainBundel loadNibNamed:加载
-    NSArray *views = [[NSBundle mainBundle] loadNibNamed:@&quot;xib文件名&quot; owner:nil options:nil]`
-方式二：通过`UINib`    `nibWithNibName`加载
-    UINib *nib = [UINib nibWithNibName:@&quot;xib文件名&quot; bundle:nil];
-    NSArray *views = [nib instantiateWithOwner:nil options:nil];</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/16/53_iOS7_UIViewController要点介绍/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2019/12/16/53_iOS7_UIViewController要点介绍/" itemprop="url">53_iOS7_UIViewController的生命周期&创建&对应view的创建</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T17:36:01+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2019/12/16/53_iOS7_UIViewController要点介绍/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/16/53_iOS7_UIViewController要点介绍/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2019/12/16/53_iOS7_UIViewController要点介绍/" class="leancloud_visitors" data-flag-title="53_iOS7_UIViewController的生命周期&创建&对应view的创建">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  12
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>包含四部分：1，控制器的生命周期；2，控制器的创建方式；3，控制器view的延时加载；4，控制器view的加载事项</p>
-</blockquote>
-<h2 id="1-控制器的生命周期"><a href="#1-控制器的生命周期" class="headerlink" title="1.控制器的生命周期"></a>1.控制器的生命周期</h2><h3 id="1-1-常用的方法"><a href="#1-1-常用的方法" class="headerlink" title="1.1 常用的方法"></a>1.1 常用的方法</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 非storyBoard(xib或非xib)都走这个方法</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithNibName:(<span class="built_in">NSString</span> *)nibNameOrNil bundle:(<span class="built_in">NSBundle</span> *)nibBundleOrNil &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) &#123;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 如果连接了串联图storyBoard 走这个方法</span></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder &#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> initWithCoder:aDecoder]) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// xib 加载 完成</span></span><br><span class="line">- (<span class="keyword">void</span>)awakeFromNib &#123;</span><br><span class="line">    [<span class="keyword">super</span> awakeFromNib];</span><br><span class="line">     <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载视图(默认从nib)</span></span><br><span class="line">- (<span class="keyword">void</span>)loadView &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    <span class="keyword">self</span>.view = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图控制器中的视图加载完成，viewController自带的view加载完成</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要出现</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// view 即将布局其 Subviews</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillLayoutSubviews &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewWillLayoutSubviews];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// view 已经布局其 Subviews</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLayoutSubviews &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidLayoutSubviews];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经出现</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidAppear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidAppear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图将要消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewWillDisappear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//视图已经消失</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidDisappear:(<span class="built_in">BOOL</span>)animated &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> viewDidDisappear:animated];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出现内存警告  //模拟内存警告:点击模拟器-&gt;hardware-&gt; Simulate Memory Warning</span></span><br><span class="line">- (<span class="keyword">void</span>)didReceiveMemoryWarning &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">    [<span class="keyword">super</span> didReceiveMemoryWarning];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 视图被销毁</span></span><br><span class="line">- (<span class="keyword">void</span>)dealloc &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%s"</span>, __FUNCTION__);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-打印执行顺序"><a href="#1-2-打印执行顺序" class="headerlink" title="1.2 打印执行顺序"></a>1.2 打印执行顺序</h3><pre><code>2017-03-01 18:03:41.577 ViewControllerLifeCircle[32254:401790] -[ViewController initWithCoder:]
-2017-03-01 18:03:41.579 ViewControllerLifeCircle[32254:401790] -[ViewController awakeFromNib]
-2017-03-01 18:03:41.581 ViewControllerLifeCircle[32254:401790] -[ViewController loadView]
-2017-03-01 18:03:46.485 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLoad]
-2017-03-01 18:03:46.486 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillAppear:]
-2017-03-01 18:03:46.487 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillLayoutSubviews]
-2017-03-01 18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLayoutSubviews]
-2017-03-01 18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewWillLayoutSubviews]
-2017-03-01 18:03:46.488 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidLayoutSubviews]
-2017-03-01 18:03:46.490 ViewControllerLifeCircle[32254:401790] -[ViewController viewDidAppear:]
-2017-03-01 19:03:13.308 ViewControllerLifeCircle[32611:427962] -[ViewController viewWillDisappear:]
-2017-03-01 19:03:14.683 ViewControllerLifeCircle[32611:427962] -[ViewController viewDidDisappear:]
-2017-03-01 19:03:14.683 ViewControllerLifeCircle[32611:427962] -[ViewController dealloc]
-2017-03-01 19:12:05.927 ViewControllerLifeCircle[32611:427962] -[ViewController didReceiveMemoryWarning]</code></pre><h3 id="1-3-总结执行顺序"><a href="#1-3-总结执行顺序" class="headerlink" title="1.3 总结执行顺序"></a>1.3 总结执行顺序</h3><pre><code>非storyboard走initWithNibName (storyboard走initWithCoder) 👉
-awakeFromNib（各种视图层加载完毕）👉 loadView (此时才能进行视图操作)👉 
-viewDidLoad 👉 viewWillAppear 👉 viewWillLayoutSubviews 👉
-viewDidLayoutSubviews 👉  viewDidAppear 👉 viewWillDisappear 👉 
-viewDidDisappear 👉 dealloc 👉 didReceiveMemoryWarning</code></pre><h3 id="1-4-每个生命周期方法的总结"><a href="#1-4-每个生命周期方法的总结" class="headerlink" title="1.4 每个生命周期方法的总结"></a>1.4 每个生命周期方法的总结</h3><pre><code>1.initWithNibName:bundle:
-初始化UIViewController，执行关键数据初始化操作，非StoryBoard创建UIViewController都会调用这个方法。
-** 注意: 不要在这里做View相关操作，View在loadView方法中才初始化。**
-
-2. initWithCoder:
-如果使用StoryBoard进行视图管理，程序不会直接初始化一个UIViewController，StoryBoard会自动初始化或在segue被触发时自动初始化，因此方法initWithNibName:bundle不会被调用，但是initWithCoder会被调用。
-
-3. awakeFromNib
-当awakeFromNib方法被调用时，所有视图的outlet和action已经连接，但还没有被确定，这个方法可以算作适合视图控制器的实例化配合一起使用的，因为有些需要根据用户喜好来进行设置的内容，无法存在storyBoard或xib中，所以可以在awakeFromNib方法中被加载进来。
-
-4. loadView
-当执行到loadView方法时，如果视图控制器是通过nib创建，那么视图控制器已经从nib文件中被解档并创建好了，接下来任务就是对view进行初始化。
-
-loadView方法在UIViewController对象的view被访问且为空的时候调用。这是它与awakeFromNib方法的一个区别。
-假设我们在处理内存警告时释放view属性:self.view = nil。因此loadView方法在视图控制器的生命周期内可能被调用多次。
-loadView方法不应该直接被调用，而是由系统调用。它会加载或创建一个view并把它赋值给UIViewController的view属性。
-
-在创建view的过程中，首先会根据nibName去找对应的nib文件然后加载。如果nibName为空或找不到对应的nib文件，则会创建一个空视图(这种情况一般是纯代码)
-注意:在重写loadView方法的时候，不要调用父类的方法。
-
-5. viewDidLoad
-当loadView将view载入内存中，会进一步调用viewDidLoad方法来进行进一步设置。此时，视图层次已经放到内存中，通常，我们对于各种初始化数据的载入，初始设定、修改约束、移除视图等很多操作都可以这个方法中实现。
-视图层次(view hierachy):因为每个视图都有自己的子视图，这个视图层次其实也可以理解为一颗树状的数据结构。而树的根节点，也就是根视图(root view),在UIViewController中以view属性。它可以看做是其他所有子视图的容器，也就是根节点。
-
-6. viewWillAppear
-系统在载入所有的数据后，将会在屏幕上显示视图，这时会先调用这个方法，通常我们会在这个方法对即将显示的视图做进一步的设置。比如，设置设备不同方向时该如何显示；设置状态栏方向、设置视图显示样式等。
-另一方面，当APP有多个视图时，上下级视图切换是也会调用这个方法，如果在调入视图时，需要对数据做更新，就只能在这个方法内实现。
-
-7. viewWillLayoutSubviews
-view 即将布局其Subviews。 比如view的bounds改变了(例如:状态栏从不显示到显示,视图方向变化)，要调整Subviews的位置，在调整之前要做的工作可以放在该方法中实现
-
-8. viewDidLayoutSubviews
-view已经布局其Subviews，这里可以放置调整完成之后需要做的工作。
-
-9. viewDidAppear
-在view被添加到视图层级中以及多视图，上下级视图切换时调用这个方法，在这里可以对正在显示的视图做进一步的设置。
-
-10. viewWillDisappear
-在视图切换时，当前视图在即将被移除、或被覆盖是，会调用该方法，此时还没有调用removeFromSuperview。
-
-11. viewDidDisappear
-view已经消失或被覆盖，此时已经调用removeFromSuperView;
-
-12. dealloc
-视图被销毁，此次需要对你在init和viewDidLoad中创建的对象进行释放。
-
-13. didReceiveMemoryWarning
-在内存足够的情况下，app的视图通常会一直保存在内存中，但是如果内存不够，一些没有正在显示的viewController就会收到内存不足的警告，然后就会释放自己拥有的视图，以达到释放内存的目的。但是系统只会释放内存，并不会释放对象的所有权，所以通常我们需要在这里将不需要显示在内存中保留的对象释放它的所有权，将其指针置nil。</code></pre><h3 id="1-5-生命周期方法的小结"><a href="#1-5-生命周期方法的小结" class="headerlink" title="1.5 生命周期方法的小结"></a>1.5 生命周期方法的小结</h3><pre><code>1. 只有init系列的方法,如initWithNibName需要自己调用，其他方法如loadView和awakeFromNib则是系统自动调用。而viewWill/Did系列的方法则类似于回调和通知，也会被自动调用。
-
-2. 纯代码写视图布局时需要注意，要手动调用loadView方法，而且不要调用父类的loadView方法。纯代码和用IB的区别仅存在于loadView方法及其之前，编程时需要注意的也就是loadView方法。
-
-3. 除了initWithNibName和awakeFromNib方法是处理视图控制器外，其他方法都是处理视图。这两个方法在视图控制器的生命周期里只会调用一次。</code></pre><h2 id="2-控制器的创建方法"><a href="#2-控制器的创建方法" class="headerlink" title="2.控制器的创建方法"></a>2.控制器的创建方法</h2><h3 id="2-1-通过纯代码创建VC"><a href="#2-1-通过纯代码创建VC" class="headerlink" title="2.1 通过纯代码创建VC"></a>2.1 通过纯代码创建VC</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ViewController *VC = [storyboard instantiateInitialViewController];</span><br><span class="line">ViewController *VC = [[ViewController alloc] init];</span><br><span class="line"><span class="built_in">UINavigationController</span> *naviVC = [[<span class="built_in">UINavigationController</span> alloc] initWithRootViewController:VC];</span><br><span class="line"><span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line"><span class="keyword">self</span>.window.rootViewController = naviVC;</span><br><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-
-<pre><code>✳️纯代码创建VC的方式ViewControllerWith *vc = [[ViewControllerWith alloc] init];方法调用顺序：
-1,init
-2,initWithNibName:bundle: - 加载带有xib的控制器(默认ViewController)
-3,loadView - 加载控制器视图
-4,viewDidLoad - 加载完毕</code></pre><h3 id="2-2-通过Storyboard创建VC"><a href="#2-2-通过Storyboard创建VC" class="headerlink" title="2.2 通过Storyboard创建VC"></a>2.2 通过Storyboard创建VC</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>,创建窗口</span><br><span class="line">        <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="number">2</span>,加载main.storyboard</span><br><span class="line">        <span class="built_in">UIStoryboard</span> *storyboard = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"Main"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line">    <span class="number">3</span>,设置main.storyboard描述的控制器        </span><br><span class="line">        方法一:<span class="built_in">UIViewController</span> *vc = [storyboard instantiateInitialViewController];</span><br><span class="line">            (其中 instantiateInitialViewController:加载的是箭头指向的控制器)</span><br><span class="line">            方法二:  <span class="built_in">UIViewController</span> *vc = [storyboard instantiateViewControllerWithIdentifier:<span class="string">@"vc1"</span>];</span><br><span class="line">            (其中可以在控制器的类操作里边,绑定ID)</span><br><span class="line"> </span><br><span class="line">    <span class="number">4</span>,设置窗口的根控制器</span><br><span class="line">        <span class="keyword">self</span>.window.rootViewController = vc;</span><br><span class="line">    <span class="number">5</span>,显示窗口</span><br><span class="line">        [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-
-
-<pre><code>✳️storyboard加载控制器，内部调用方法顺序：
-    1，initWithCoder:
-    2，awakeFromNib
-    3，loadView(控制器的View的子控件也是在控制器实例化之后加载view)
-    4，viewDidLoad</code></pre><h3 id="2-3-通过xib创建VC"><a href="#2-3-通过xib创建VC" class="headerlink" title="2.3 通过xib创建VC"></a>2.3 通过xib创建VC</h3><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">   <span class="number">1</span>,创建一个xib文件;</span><br><span class="line">    <span class="number">2</span>,拖一个view来描述控制器的view,并在上边布置需要显示的部件;</span><br><span class="line">    <span class="number">3</span>,点击xib的File’s owner里边设置控制器类名;</span><br><span class="line">        (File’s owner代表的就是viewController)</span><br><span class="line">    <span class="number">4</span>,File’s owner与view连线,告诉控制器需要描述的view</span><br><span class="line">        (storyboard里边系统自动帮助连接)</span><br><span class="line">   在代理方法里边:</span><br><span class="line">    <span class="number">1</span>,创建窗口</span><br><span class="line">        <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="number">2</span>,创建控制器</span><br><span class="line">         ViewController *vc = [[ViewController alloc] initWithNibName:<span class="string">@"VC"</span> bundle:<span class="literal">nil</span>];</span><br><span class="line">    <span class="number">3</span>,设置窗口的根控制器</span><br><span class="line">        <span class="keyword">self</span>.window.rootViewController = vc;</span><br><span class="line">    <span class="number">4</span>,显示窗口</span><br><span class="line">        [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-
-<pre><code>✳️xib加载控制器，内部调用方法顺序：
-1，initWithNibName:bundle:
-2，loadView
-3，viewDidLoad
-
-⚠️xib拖线时的注意事项
-1,设置File’s owner的目的是用来描述控制器的,更改控制器名,view里的控件就可以往控制器里边拖线;(File’s owner的作用就是让xib与控制器产生关联,体现view里的内容是用来描述该控制器的)
-2,点击view,再更改控制器类名,view里的控件也可以往其他自定义的类里面拖;
-3,具体xib里的控件往哪儿拖,就要看哪个地方需要使用;</code></pre><h2 id="3-控制器view的延时加载"><a href="#3-控制器view的延时加载" class="headerlink" title="3.控制器view的延时加载"></a>3.控制器view的延时加载</h2><pre><code>创建控制器并不一定会创建控制器的view，等用到时再加载</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">APPDelegate中：</span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">    <span class="comment">// 创建控制器,并一定会创建控制器的view</span></span><br><span class="line">    ViewController *vc = [[ViewController alloc] init];</span><br><span class="line">    </span><br><span class="line">    vc.view.backgroundColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.window.rootViewController = vc;</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span>.window makeKeyAndVisible];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">自定义控制器中</span><br><span class="line">(<span class="keyword">void</span>)loadView</span><br><span class="line">&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,func);</span><br><span class="line"><span class="built_in">UIView</span> *view = [[<span class="built_in">UIView</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line">view.backgroundColor = [<span class="built_in">UIColor</span> greenColor];</span><br><span class="line"><span class="keyword">self</span>.view = view;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 控制器的view加载完成的时候调用</span></span><br><span class="line">(<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">[<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"><span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%s"</span>,func);</span><br></pre></td></tr></table></figure>
-
-<pre><code>✳️总结：控制器的view颜色是红色的，
-这是因为view的get方法底层中实现了loadView 和 viewDidLoad方法，loadView中将view设置为绿色，viewDidLoad方法中又将view设置成蓝色，
-但是最后被vc.view.backgroundColor = [UIColor redColor]设置为红色</code></pre><h2 id="4-控制器view的加载事项"><a href="#4-控制器view的加载事项" class="headerlink" title="4.控制器view的加载事项"></a>4.控制器view的加载事项</h2><h3 id="4-1-loadView"><a href="#4-1-loadView" class="headerlink" title="4.1 loadView"></a>4.1 loadView</h3><pre><code>1. loadView什么时候被调用？
-   每次访问UIViewController的view（如 controller.view、self.view）并且view为nil，loadView方法就会被调用
-
-2. 有什么作用
-    loadView 方法是用来负责创建UIViewController的view
-
-3. 默认实现是怎样的？
-    默认实现即[super loadView]里面做了好多事情：
-    1&gt; 它会先去查找与UIViewController相关联的xib文件，通过加载xib文件来创建UIViewController的view
-        *  如果在初始化UIViewController指定了xib文件名，就会根据传入的xib文件名加载对应的xib文件：[[MJViewController alloc] initWithNibName:@&quot;MJViewController&quot; bundle:nil];
-        *  如果没有明显地传xib文件名，就会加载跟UIViewController同名的xib文件：[[MJViewController alloc] init]; // 加载MJViewController.xib
-    2&gt; 如果没有找到相关联的xib文件，就会创建一个空白的UIView，然后赋值给UIViewController的view属性，大致如下：
-        self.view = [[UIView alloc] initWithFrame:[UIScreen mainScreen].applicationFrame];  // applicationFrame的值是：{{x = 0, y = 20}, {width = 320, height = 460}} 
-        [super loadView]里面就大致完成1&gt;和2&gt;中叙述的内容
-
-4. 纯代码创建VC的view，没必要写[super loadView]，浪费性能
-      [super loadView]默认创建一个空白的UIView。
-      我们既然要通过代码来自定义UIVIew,那么就没必要事先创建一个空白的UIView,以节省不必要的开销，正确的做法应该是这样的：      -(void)loadView {
-        self.view = [[[UIWebView alloc] initWithFrame:[UIScreen             mainScreen].applicationFrame] autorelease];}</code></pre><h3 id="4-2-viewDidLoad"><a href="#4-2-viewDidLoad" class="headerlink" title="4.2 viewDidLoad"></a>4.2 viewDidLoad</h3><pre><code>1. view创建完毕后，最终都会调用viewDidLoad方法
-2. 一般会在这里做界面上的初始化的操作</code></pre><h3 id="4-3-viewDidUnload"><a href="#4-3-viewDidUnload" class="headerlink" title="4.3 viewDidUnload"></a>4.3 viewDidUnload</h3><pre><code>1. 发生内存警告的情形下
-2. 如果当前UIViewController的view不在应用程序的视图层次结构(View Hierarchy)中，即view的superview为nil的时候，就会将view释放，并且调用viewDidUnload方法</code></pre><h3 id="4-4-dealloc"><a href="#4-4-dealloc" class="headerlink" title="4.4 dealloc"></a>4.4 dealloc</h3><pre><code>dealloc方法只会在UIViewController被释放的时候调用</code></pre><h3 id="4-5-viewDidLayoutSubviews"><a href="#4-5-viewDidLayoutSubviews" class="headerlink" title="4.5 viewDidLayoutSubviews"></a>4.5 viewDidLayoutSubviews</h3><pre><code>从storyboard和xib加载的控制器，当在- (void)viewDidLoad；获取上面添加的控件时的frame，不是适配后的，应该在viewDidLayoutSubviews方法中获取真实适配的</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/12/16/52_java5_类的相关/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2019/12/16/52_java5_类的相关/" itemprop="url">52_java5_类的相关</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T15:16:30+08:00">
-                2019-12-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/后端/" itemprop="url" rel="index">
-                    <span itemprop="name">后端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2019/12/16/52_java5_类的相关/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/12/16/52_java5_类的相关/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2019/12/16/52_java5_类的相关/" class="leancloud_visitors" data-flag-title="52_java5_类的相关">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.6k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-嵌套类-Nested-Class"><a href="#1-嵌套类-Nested-Class" class="headerlink" title="1 嵌套类:Nested Class"></a>1 嵌套类:Nested Class</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8775.jpg" alt></p>
-<pre><code>1. 外部类:Outer Class
-2. 顶级类:Top-level Class
-3. 内部类:Inner Class
-    1. 非静态嵌套类
-        1. 注意点
-            1. 没有static修饰
-            2. 与外部类的实例相关联,必须先有外部实例,再有内部实例
-            3. 不能定义任何static成员(编译时常量除外)
-            4. 内部类可以访问外部类中的所有成员变量和方法(即使private修饰)
-            5. 外部类可以访问内部类的所有成员变量和方法(即使private修饰)
-        2. 使用方式
-            1. 外部实例.new 内部类名()
-    2. 静态嵌套类
-        1. 注意点:
-            1. 有static修饰
-            2. 行为上是一个顶级类,只是代码写在了其他类中
-            3. 静态嵌套类有一些特殊权限,可以直接访问外部类中的成员(即使为private)
-    3. 总结
-        1. 嵌套类的优点
-            1. 封装更好;
-            2. 程序包简化
-            3. 增强可读性和维护性
-        2. 使用场景
-            1. 如果类A经常访问类C的非公共的实例成员(即A的实例依赖于C的实例),可以设计成非静态嵌套类
-            2. 如果不依赖,设计成静态嵌套类</code></pre><h2 id="2-局部类-Local-Class"><a href="#2-局部类-Local-Class" class="headerlink" title="2 局部类:Local Class"></a>2 局部类:Local Class</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8776.jpg" alt></p>
-<pre><code>1. 定义:在代码块中定义的类(可以是方法,各种语句等)
-2. 注意点
-    1. 不能定义任何static成员(编译时的常量除外)
-    2. 只能访问代码块内的final,或者有效final变量(只赋值过一次)
-    3. 保持嵌套类的特性</code></pre><h2 id="3-抽象类-Abstract-Class"><a href="#3-抽象类-Abstract-Class" class="headerlink" title="3 抽象类:Abstract Class"></a>3 抽象类:Abstract Class</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>,抽象类</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"><span class="comment">//	面积</span></span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">double</span> area;</span><br><span class="line"><span class="comment">//	周长</span></span><br><span class="line">	<span class="keyword">protected</span> <span class="keyword">double</span> girth;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getArea</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> area;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getGirth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> girth;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		calculate();</span><br><span class="line">		System.out.println(<span class="string">"面积:"</span> + area + <span class="string">"✅"</span> + <span class="string">"周长:"</span> + girth);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">2</span>,子类Rectangle</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"><span class="comment">//	构造方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">(<span class="keyword">double</span> width, <span class="keyword">double</span> height)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.width = width;</span><br><span class="line">		<span class="keyword">this</span>.height = height;</span><br><span class="line">	&#125;;</span><br><span class="line"><span class="comment">//	长和宽变量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> width;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> height;</span><br><span class="line"><span class="comment">//  重写父类的抽象方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		area = width * height;</span><br><span class="line">		girth = (width + height) * <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">3</span>,子类Circle</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"><span class="comment">//	构造方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Circle</span><span class="params">(<span class="keyword">double</span> radius)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.radius = radius;</span><br><span class="line">	&#125;;</span><br><span class="line"><span class="comment">//	半径变量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> radius;</span><br><span class="line"><span class="comment">//  重写父类的抽象方法</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">calculate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">double</span> half = Math.PI * radius;</span><br><span class="line">		area = half * radius;</span><br><span class="line">		girth = half * <span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="number">4</span>,外部调用</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">studyDay5</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		Rectangle rectangle = <span class="keyword">new</span> Rectangle(<span class="number">5</span>, <span class="number">8</span>);</span><br><span class="line">		rectangle.show();</span><br><span class="line"></span><br><span class="line">		Circle circle = <span class="keyword">new</span> Circle(<span class="number">10</span>);</span><br><span class="line">		circle.show();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">打印结果:</span><br><span class="line">面积:<span class="number">40.0</span>✅周长:<span class="number">26.0</span></span><br><span class="line">面积:<span class="number">314.1592653589793</span>✅周长:<span class="number">62.83185307179586</span></span><br></pre></td></tr></table></figure>
-
-<pre><code>1. 抽象方法:Abstract Method
-    1. 被abstract修饰的实例方法(不是类方法)
-    2. 只有声明,没有实现
-    3. 不能是private权限
-    4. 只能定义在抽象类和接口中
-2. 抽象类:Abstract Class
-    1. 被abstract修饰的类
-    2. 不能被实例化(但可以有构造方法)
-    3. 子类必须实现父类的抽象方法(除非子类也是抽象方法)
-    4. 本质也是一个类,可以像非抽象类那样定义常量,变量,嵌套,初始化块等,即不一定非得都是抽象方法</code></pre><h2 id="4-接口-Interface"><a href="#4-接口-Interface" class="headerlink" title="4 接口:Interface"></a>4 接口:Interface</h2><h3 id="4-1-接口使用"><a href="#4-1-接口使用" class="headerlink" title="4.1 接口使用"></a>4.1 接口使用</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Flyanimal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现接口的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ant</span> <span class="keyword">implements</span> <span class="title">Flyanimal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"昆虫 can  fly"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实现接口的类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span> <span class="keyword">implements</span> <span class="title">Flyanimal</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fly</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"鸟类 can  fly"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyDay6</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Ant ant = <span class="keyword">new</span> Ant();</span><br><span class="line">		ant.fly();</span><br><span class="line"></span><br><span class="line">		Bird bird = <span class="keyword">new</span> Bird();</span><br><span class="line">		bird.fly();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">结果:</span><br><span class="line">Ant can  fly</span><br><span class="line">Bird can  fly</span><br></pre></td></tr></table></figure>
-
-<pre><code>1. 定义:一系列方法声明的集合
-2. 注意点
-    1. 可以定义抽象方法,常量,嵌套类型;java8以后可以定义默认方法,静态方法
-    2. 抽象方法可以省略abstract
-    3. 常量可以省略static final
-    4. 不能自定义构造方法,不能定义初始化块,静态初始化块,不能实例化
-3. 一个类可以通过implements实现一个或者多个接口
-    1. 必须实现所有接口定义的抽象方法,除非自己也是一个抽象类;
-    2. implements必须写在extends后边
-4. 接口的升级:增加新的抽象方法,以前实现的类都得改动
-    1. 默认方法:Default Method
-    2. 静态方法:Static Method</code></pre><h3 id="4-2-默认方法"><a href="#4-2-默认方法" class="headerlink" title="4.2 默认方法"></a>4.2 默认方法</h3><pre><code>1. default只能修饰实例方法
-2. 父类定义的非抽象方法和接口的默认方法相同时,调用父类的方法
-3. 接口定义的默认方法,和接口定义的方法相同时,要求子类实现此默认方法
-4. </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">default</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Eatable✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接口的实现类Dog</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">implements</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//接口的实现类Cat</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">implements</span> <span class="title">Eatable</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		Eatable.<span class="keyword">super</span>.eat(name);</span><br><span class="line">		System.out.println(<span class="string">"cat eat✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyDay6_3</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Dog dog = <span class="keyword">new</span> Dog();</span><br><span class="line">		dog.eat(<span class="string">"bone"</span>);</span><br><span class="line">		Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">		cat.eat(<span class="string">"fish"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">结果:</span><br><span class="line">Eatable✅bone</span><br><span class="line">Eatable✅fish</span><br><span class="line">cat eat✅fish</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="4-3-静态方法"><a href="#4-3-静态方法" class="headerlink" title="4.3. 静态方法"></a>4.3. 静态方法</h3><pre><code>1. 只能通过接口名称调用
-2. 不能够被继承,只能各自实现
-3. </code></pre><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接口定义静态方法1</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Eating</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Eating✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//接口定义静态方法2</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Sleeping</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Sleeping✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//接口定义静态方法3</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Dogs</span> <span class="keyword">extends</span> <span class="title">Eating</span>, <span class="title">Sleeping</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"Dog✅"</span> + name);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//实际使用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudyDay6_4</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Dogs.eat(<span class="string">"1"</span>);</span><br><span class="line">		Eating.eat(<span class="string">"2"</span>);</span><br><span class="line">		Sleeping.eat(<span class="string">"3"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">结果:</span><br><span class="line">Dog✅<span class="number">1</span></span><br><span class="line">Eating✅<span class="number">2</span></span><br><span class="line">Sleeping✅<span class="number">3</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-3-抽象类和接口的选择"><a href="#4-3-抽象类和接口的选择" class="headerlink" title="4.3 抽象类和接口的选择"></a>4.3 抽象类和接口的选择</h3><pre><code>1. 选择抽象类
-    1. 紧密相关的类之间共享代码
-    2. 需要除了public之外的访问权限
-    3. 需要定义示例变量,非final的静态变量
-2. 选择接口
-    1. 不相关的类实现相同的方法
-    2. 定义行了,不关心是谁实现了行为
-    3. 想实现类型的多重继承</code></pre><h2 id="5-多态-Polymorphism"><a href="#5-多态-Polymorphism" class="headerlink" title="5 多态(Polymorphism)"></a>5 多态(Polymorphism)</h2><pre><code>1. 定义:同一操作作用于不同对象,有不同的结果
-2. 条件
-    1. 父类类型指向子类对象
-    2. 调用子类重写的方法
-3. 本质
-    1. JVM根据引用变量指向的具体对象来调用具体的方法
-    2. 类似于C++的虚函数调用
-    3. </code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2764,7 +2621,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">134</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2894,7 +2751,7 @@ view已经消失或被覆盖，此时已经调用removeFromSuperView;
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80.6k</span>
+    <span title="Site words total count">80.8k</span>
   
 </div>
 

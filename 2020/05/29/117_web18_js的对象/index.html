@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1_对象的基本组成let me = {         name : &amp;apos;pingan&amp;apos;,         eat: function(){             console.log(&amp;apos;eat eat eat!!!&amp;apos;);         }     } 1_属性     1_获取属性的方法1-&amp;gt;点表示法:me.name = &amp;quot;leo&amp;qu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-31T06:35:42.032Z">
+<meta property="og:updated_time" content="2020-06-18T09:32:06.529Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="117_web18_js的对象">
 <meta name="twitter:description" content="1_对象的基本组成let me = {         name : &amp;apos;pingan&amp;apos;,         eat: function(){             console.log(&amp;apos;eat eat eat!!!&amp;apos;);         }     } 1_属性     1_获取属性的方法1-&amp;gt;点表示法:me.name = &amp;quot;leo&amp;qu">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.4k
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  5
+                  6
                 </span>
               
             </div>
@@ -522,7 +522,39 @@
             console.log(&apos;arr2:&apos;, arr2)  // arr1: [1, 2, 3, 4]
 
     3.终极解决办法手写递归方法
-
+            // 定义一个深拷贝函数  接收目标target参数
+        function deepClone(target) {
+            // 定义一个变量
+            let result;
+            // 如果当前需要深拷贝的是一个对象的话
+            if (typeof target === &apos;object&apos;) {
+            // 如果是一个数组的话
+                if (Array.isArray(target)) {
+                    result = []; // 将result赋值为一个数组，并且执行遍历
+                    for (let i in target) {
+                        // 递归克隆数组中的每一项
+                        result.push(deepClone(target[i]))
+                    }
+                 // 判断如果当前的值是null的话；直接赋值为null
+                } else if(target===null) {
+                    result = null;
+                 // 判断如果当前的值是一个RegExp对象的话，直接赋值    
+                } else if(target.constructor===RegExp){
+                    result = target;
+                }else {
+                 // 否则是普通对象，直接for in循环，递归赋值对象的所有值
+                    result = {};
+                    for (let i in target) {
+                        result[i] = deepClone(target[i]);
+                    }
+                }
+             // 如果不是对象的话，就是基本数据类型，那么直接赋值
+            } else {
+                result = target;
+            }
+             // 返回最终结果
+            return result;
+        }
     4.使用第三方库:jQuery.extend 和 lodash等</code></pre><h2 id="5-判断两个对象是否相等"><a href="#5-判断两个对象是否相等" class="headerlink" title="5_判断两个对象是否相等"></a>5_判断两个对象是否相等</h2><pre><code>1, ==:表示值相等
 2, ===:表示严格值相等
 3, Object.is(a,b):表示a,b是否指向同一个指针对象
@@ -721,7 +753,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">135</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -867,7 +899,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80.8k</span>
+    <span title="Site words total count">81.1k</span>
   
 </div>
 

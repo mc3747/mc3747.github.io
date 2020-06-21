@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8750.jpg">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8751.jpg">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8779.png">
-<meta property="og:updated_time" content="2020-06-16T08:15:14.530Z">
+<meta property="og:updated_time" content="2020-06-19T08:03:40.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="10_工具1_各种IDE的使用">
 <meta name="twitter:description" content="⚠️以下软件都是针对mac版  1, VSCode参考文章 ###1.1，快捷键：    返回上一级：control + ‘-’ ###1.2，在js文件中设置emmet智能提示    1，找到vscode的 setting.json文件        方法1：设置界面 -》在搜索栏里搜索setting.json        方法2：设置界面 -》右上角一个‘{}’图标，可以切换setting">
@@ -389,7 +389,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.2k
                 </span>
               
 
@@ -486,9 +486,16 @@
     8，更新cocoaPod版本： sudo gem install cocoapods
     9，cocoaPod修改淘宝镜像
         作为iOS开发者，肯定都知道CocoaPods使用的是淘宝的镜像，但是最近有消息说淘宝的镜像已经不更新了，很难同步，所以现在有了新的镜像：https://gems.ruby-china.com/
-        查看当前使用的镜像：gem sources -l
-        删除当前使用的镜像：gem sources --remove https://ruby.taobao.org/
-        添加Ruby China：gem sources --add https://gems.ruby-china.com/</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8779.png" alt></p>
+        1_查看本机电脑安装过的pod镜像源
+               pod repo
+        2_查看当前使用的镜像：
+               gem sources -l
+        3_删除当前使用的镜像：gem sources --remove https://ruby.taobao.org/
+        4_添加Ruby China：gem sources --add https://gems.ruby-china.com/
+        5_添加清华源:
+           1.进入目录:cd ~/.cocoapods/repos
+           2.删除master:pod repo remove master
+           3.克隆进去:git clone https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git master</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8779.png" alt></p>
 <h2 id="5-excel软件"><a href="#5-excel软件" class="headerlink" title="5,excel软件"></a>5,excel软件</h2><pre><code>1. 单元格内换行：option + enter
 2. 移动整行：黑十字，shift拖动
 3. 复制整行到某一行
@@ -646,7 +653,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">134</span>
+                  <span class="site-state-item-count">135</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -792,7 +799,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80.8k</span>
+    <span title="Site words total count">81.1k</span>
   
 </div>
 

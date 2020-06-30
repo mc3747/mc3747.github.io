@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1.任意数的类型1_js的数组类型: null,undefined,Number,String,object 2_使用Object.prototype.toString.call方法判断(最全)     function judgeDataType(a){             let type = Object.prototype.toString.call(a);             i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-14T07:39:06.503Z">
+<meta property="og:updated_time" content="2020-06-24T00:51:55.241Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="131_web32_js的安全值过滤">
 <meta name="twitter:description" content="1.任意数的类型1_js的数组类型: null,undefined,Number,String,object 2_使用Object.prototype.toString.call方法判断(最全)     function judgeDataType(a){             let type = Object.prototype.toString.call(a);             i">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  441
+                  644
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -517,6 +517,41 @@
     }else {
         return false;
     }
+}</code></pre><h2 id="6-不确定类型的非空判断"><a href="#6-不确定类型的非空判断" class="headerlink" title="6.不确定类型的非空判断"></a>6.不确定类型的非空判断</h2><pre><code>//    var a = &quot;&quot;;
+//    var a = &quot; &quot;;
+//    var a = null;
+//    var a = undefined;
+//    var a = [];
+//    var a = {};
+//    var a = NaN;
+1_是否未定义
+if(a === undefined) { // 只能用 === 运算来测试某个值是否是未定义的
+    console.log(&quot;为undefined&quot;);
+}
+2_是否为空
+if(a == null) { // 等同于 a === undefined || a === null
+    console.log(&quot;为null&quot;);
+}
+3_是否为空字符串的三种方法
+if(a == &quot;&quot; || a == null || a == undefined){ // &quot;&quot;,null,undefined
+    console.log(&quot;为空&quot;);
+}
+if(!a){ // &quot;&quot;,null,undefined,NaN
+    console.log(&quot;为空&quot;); 
+}
+if(!$.trim(a)){ // &quot;&quot;,null,undefined
+    console.log(&quot;为空&quot;);
+}
+4_是否空数组Array
+if(a.length == 0){ // &quot;&quot;,[]
+    console.log(&quot;为空&quot;);
+}
+if(!a.length){ // &quot;&quot;,[]
+    console.log(&quot;为空&quot;);
+}
+5_是否空对象:Object {}
+if($.isEmptyObject(a)){ // 普通对象使用 for...in 判断，有 key 即为 false
+    console.log(&quot;为空&quot;);
 }</code></pre>
       
     </div>
@@ -753,7 +788,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-任意数的类型"><span class="nav-number">1.</span> <span class="nav-text">1.任意数的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-过滤掉非法显示的值-为了展示值的整洁"><span class="nav-number">2.</span> <span class="nav-text">2.过滤掉非法显示的值:为了展示值的整洁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-是否是正常有值对象的判断"><span class="nav-number">3.</span> <span class="nav-text">3.是否是正常有值对象的判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-是否是正常有值数组的判断"><span class="nav-number">4.</span> <span class="nav-text">4.是否是正常有值数组的判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-是否是正常有值字符串的判断"><span class="nav-number">5.</span> <span class="nav-text">5.是否是正常有值字符串的判断</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-任意数的类型"><span class="nav-number">1.</span> <span class="nav-text">1.任意数的类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-过滤掉非法显示的值-为了展示值的整洁"><span class="nav-number">2.</span> <span class="nav-text">2.过滤掉非法显示的值:为了展示值的整洁</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-是否是正常有值对象的判断"><span class="nav-number">3.</span> <span class="nav-text">3.是否是正常有值对象的判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-是否是正常有值数组的判断"><span class="nav-number">4.</span> <span class="nav-text">4.是否是正常有值数组的判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-是否是正常有值字符串的判断"><span class="nav-number">5.</span> <span class="nav-text">5.是否是正常有值字符串的判断</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-不确定类型的非空判断"><span class="nav-number">6.</span> <span class="nav-text">6.不确定类型的非空判断</span></a></li></ol></div>
             
 
           </div>
@@ -787,7 +822,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">81.1k</span>
+    <span title="Site words total count">79.7k</span>
   
 </div>
 

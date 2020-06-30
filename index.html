@@ -1210,7 +1210,7 @@ height:
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  441
+                  644
                 </span>
               
 
@@ -1226,7 +1226,7 @@ height:
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -1345,6 +1345,41 @@ height:
     }else {
         return false;
     }
+}</code></pre><h2 id="6-不确定类型的非空判断"><a href="#6-不确定类型的非空判断" class="headerlink" title="6.不确定类型的非空判断"></a>6.不确定类型的非空判断</h2><pre><code>//    var a = &quot;&quot;;
+//    var a = &quot; &quot;;
+//    var a = null;
+//    var a = undefined;
+//    var a = [];
+//    var a = {};
+//    var a = NaN;
+1_是否未定义
+if(a === undefined) { // 只能用 === 运算来测试某个值是否是未定义的
+    console.log(&quot;为undefined&quot;);
+}
+2_是否为空
+if(a == null) { // 等同于 a === undefined || a === null
+    console.log(&quot;为null&quot;);
+}
+3_是否为空字符串的三种方法
+if(a == &quot;&quot; || a == null || a == undefined){ // &quot;&quot;,null,undefined
+    console.log(&quot;为空&quot;);
+}
+if(!a){ // &quot;&quot;,null,undefined,NaN
+    console.log(&quot;为空&quot;); 
+}
+if(!$.trim(a)){ // &quot;&quot;,null,undefined
+    console.log(&quot;为空&quot;);
+}
+4_是否空数组Array
+if(a.length == 0){ // &quot;&quot;,[]
+    console.log(&quot;为空&quot;);
+}
+if(!a.length){ // &quot;&quot;,[]
+    console.log(&quot;为空&quot;);
+}
+5_是否空对象:Object {}
+if($.isEmptyObject(a)){ // 普通对象使用 for...in 判断，有 key 即为 false
+    console.log(&quot;为空&quot;);
 }</code></pre>
           
         
@@ -2835,7 +2870,7 @@ let p = new Promise(function (resolve, reject){
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">81.1k</span>
+    <span title="Site words total count">79.7k</span>
   
 </div>
 

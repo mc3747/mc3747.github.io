@@ -107,7 +107,7 @@
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8760.png">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8761.png">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8762.png">
-<meta property="og:updated_time" content="2020-03-17T13:14:50.000Z">
+<meta property="og:updated_time" content="2020-07-02T06:18:05.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="67_web7_html&amp;css&amp;js的代码布局">
 <meta name="twitter:description" content="1，html 1.1 名称HTML 的全名是“超文本标记语言”（HyperText Markup Language）1.2 基本结构123456789&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;html lang=&quot;en&quot;&amp;gt;	&amp;lt;head&amp;gt;		&amp;lt;meta charset=&quot;utf-8&quot;&amp;gt;		&amp;lt;title&amp;gt;&amp;lt;/title&amp;gt;	&amp;lt;/head">
@@ -388,7 +388,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.5k
+                  2.6k
                 </span>
               
 
@@ -496,8 +496,7 @@
         标题不应该越级
     9，&lt;hgroup&gt;
         如果主标题包含多级标题（比如带有副标题），那么可以使用&lt;hgroup&gt;标签，将多级标题放在其中</code></pre><h2 id="2，css"><a href="#2，css" class="headerlink" title="2，css"></a>2，css</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8761.png" alt></p>
-<h3 id="2-1-名称"><a href="#2-1-名称" class="headerlink" title="2.1 名称"></a>2.1 名称</h3><p>层叠样式表Cascading Style Sheets</p>
-<h3 id="2-2-样式"><a href="#2-2-样式" class="headerlink" title="2.2 样式"></a>2.2 样式</h3><pre><code>1. 内联式Inline（也叫行内样式）：应用内嵌样式到各个网页元素。
+<h3 id="2-1-名称"><a href="#2-1-名称" class="headerlink" title="2.1 名称"></a>2.1 名称</h3><pre><code>层叠样式表Cascading Style Sheets</code></pre><h3 id="2-2-样式"><a href="#2-2-样式" class="headerlink" title="2.2 样式"></a>2.2 样式</h3><pre><code>1. 内联式Inline（也叫行内样式）：应用内嵌样式到各个网页元素。
     &lt;p style=”color:red”&gt;网页中css的导入方式&lt;/p&gt;
     即在标记的style属性中设定CSS样式，这种方式本质上没体现出CSS的优势，因此不推荐使用
 2. 嵌入式Embedding（也叫内页样式）：在网页上创建嵌入的样式表。
@@ -521,8 +520,9 @@
     指定导入的外部样式表及目标设备类型。其实link和@import的最根本区别就是，link是一个html的一个标签，而@import是css的一个标签,link除了调用css外还可以有其他作用譬如声明页面链接属性，声明目录，rss等等，而@import就只能调用css。如果单独从外部引用css来说，他们的作用是基本一样，只不过上面的老大不一样而已。
 4 建议：
     1，如果仅需要引入一个CSS文件，则使用链接方式，
-    2，如果需要引入多个CSS文件，则首先用链接方式引入一个“目录”CSS文件，这个“目录”CSS文件中再使用导入式引入其他CSS文件</code></pre><p>其中，优先级：内联式 &gt; 嵌入式 &gt; 外联式</p>
-<h2 id="3，js"><a href="#3，js" class="headerlink" title="3，js"></a>3，js</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8762.png" alt></p>
+    2，如果需要引入多个CSS文件，则首先用链接方式引入一个“目录”CSS文件，这个“目录”CSS文件中再使用导入式引入其他CSS文件</code></pre><h2 id="2-4-优先级"><a href="#2-4-优先级" class="headerlink" title="2.4 优先级"></a>2.4 优先级</h2><pre><code>优先级：内联式 &gt; 嵌入式 &gt; 外联式</code></pre><h2 id="2-5-css的三大特征"><a href="#2-5-css的三大特征" class="headerlink" title="2.5 css的三大特征"></a>2.5 css的三大特征</h2><pre><code>1_继承(字体相关的继承,尺寸边框相关的不继承),
+2_层叠
+3_特异性(优先级):!import &gt; 内联样式 &gt; id选择器 &gt; class,属性,伪类 &gt; 标签,伪元素 &gt;通配符,子选择器等</code></pre><h2 id="3，js"><a href="#3，js" class="headerlink" title="3，js"></a>3，js</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8762.png" alt></p>
 <h3 id="3-1，script标签"><a href="#3-1，script标签" class="headerlink" title="3.1，script标签"></a>3.1，script标签</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"application/javascript"</span>&gt;</span><br><span class="line"> 		<span class="built_in">console</span>.log(<span class="string">'Hello World'</span>);</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
 
 <pre><code>type属性：
@@ -664,7 +664,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">139</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -776,7 +776,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，html"><span class="nav-number">1.</span> <span class="nav-text">1，html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-名称"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-基本结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-DOCTYPE-html"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 DOCTYPE html:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-html标签"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 html标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-head标签"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 head标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-meta标签"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 meta标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-title标签："><span class="nav-number">1.7.</span> <span class="nav-text">1.7 title标签：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-base标签"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 base标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-语义结构（都在body标签内）"><span class="nav-number">1.9.</span> <span class="nav-text">1.11 语义结构（都在body标签内）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，css"><span class="nav-number">2.</span> <span class="nav-text">2，css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-名称"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-样式"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-导入式和链接式"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 导入式和链接式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，js"><span class="nav-number">3.</span> <span class="nav-text">3，js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1，script标签"><span class="nav-number">3.1.</span> <span class="nav-text">3.1，script标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2，js加载方式-5种"><span class="nav-number">3.2.</span> <span class="nav-text">3.2，js加载方式:5种</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-script元素直接嵌入代码。"><span class="nav-number">3.2.1.</span> <span class="nav-text">3.2.1 script元素直接嵌入代码。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-script标签加载外部脚本"><span class="nav-number">3.2.2.</span> <span class="nav-text">3.2.2 script标签加载外部脚本</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，html"><span class="nav-number">1.</span> <span class="nav-text">1，html</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-名称"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-基本结构"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 基本结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-DOCTYPE-html"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 DOCTYPE html:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-html标签"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 html标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-head标签"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 head标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-meta标签"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 meta标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-title标签："><span class="nav-number">1.7.</span> <span class="nav-text">1.7 title标签：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-base标签"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 base标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-11-语义结构（都在body标签内）"><span class="nav-number">1.9.</span> <span class="nav-text">1.11 语义结构（都在body标签内）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，css"><span class="nav-number">2.</span> <span class="nav-text">2，css</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-名称"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 名称</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-样式"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-导入式和链接式"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 导入式和链接式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-优先级"><span class="nav-number">3.</span> <span class="nav-text">2.4 优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-css的三大特征"><span class="nav-number">4.</span> <span class="nav-text">2.5 css的三大特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，js"><span class="nav-number">5.</span> <span class="nav-text">3，js</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1，script标签"><span class="nav-number">5.1.</span> <span class="nav-text">3.1，script标签</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2，js加载方式-5种"><span class="nav-number">5.2.</span> <span class="nav-text">3.2，js加载方式:5种</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-1-script元素直接嵌入代码。"><span class="nav-number">5.2.1.</span> <span class="nav-text">3.2.1 script元素直接嵌入代码。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-2-script标签加载外部脚本"><span class="nav-number">5.2.2.</span> <span class="nav-text">3.2.2 script标签加载外部脚本</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -810,7 +810,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80k</span>
+    <span title="Site words total count">81.6k</span>
   
 </div>
 

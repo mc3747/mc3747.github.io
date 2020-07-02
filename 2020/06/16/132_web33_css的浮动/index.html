@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1.元素的分类块级:block-level     1.有&amp;lt;div&amp;gt;,&amp;lt;p&amp;gt;,&amp;lt;li&amp;gt;,&amp;lt;table&amp;gt;         块级并不都是display属性为block         div的display属性为block         li的display属性为list-item         table的display属性为table  内联:i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-16T15:12:45.998Z">
+<meta property="og:updated_time" content="2020-07-02T09:12:40.022Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="132_web33_css的浮动">
 <meta name="twitter:description" content="1.元素的分类块级:block-level     1.有&amp;lt;div&amp;gt;,&amp;lt;p&amp;gt;,&amp;lt;li&amp;gt;,&amp;lt;table&amp;gt;         块级并不都是display属性为block         div的display属性为block         li的display属性为list-item         table的display属性为table  内联:i">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  179
+                  506
                 </span>
               
 
@@ -400,7 +400,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -445,7 +445,34 @@ height:
                   position: absolute;
             }
             绝对定位的宽高百分比计算是相对于 padding box 的
-            非绝对定位元素则是相对于 content box 计算的</code></pre>
+            非绝对定位元素则是相对于 content box 计算的</code></pre><h2 id="3-float"><a href="#3-float" class="headerlink" title="3,float"></a>3,float</h2><h2 id="4-清楚浮动"><a href="#4-清楚浮动" class="headerlink" title="4.清楚浮动"></a>4.清楚浮动</h2><pre><code>clear:right</code></pre><h2 id="3-溢出相关"><a href="#3-溢出相关" class="headerlink" title="3.溢出相关"></a>3.溢出相关</h2><pre><code>1_overflow:(也可以单独设置overflow-x,overflow-y)
+    visible    默认值。内容不会被修剪，会呈现在元素框之外。
+    hidden    
+        标准流:内容会被修剪，并且其余内容是不可见的。
+        浮动后:父容器的overflow设置为hidden,父容器自动包裹子元素
+    auto:超出有滚动条,不超出没有滚动条
+    scroll    内容会被修剪，一直显示滚动条
+
+2_word-break(单词内怎样断句)
+    normal    使用浏览器默认的换行规则。
+    break-word 保证单词的完整性
+    break-all    允许在单词内换行。
+    keep-all    只能在半角空格或连字符处换行。
+
+3_word-wrap(展示是否单词内断句)
+    normal    只在允许的断字点换行（浏览器保持默认处理）。
+    break-word    在长单词或 URL 地址内部进行换行。
+
+4_white-space
+    normal    默认。空白会被浏览器忽略。
+    pre    空白会被浏览器保留。其行为方式类似 HTML 中的 &lt;pre&gt; 标签。
+    nowrap    文本不会换行，文本会在在同一行上继续，直到遇到 &lt;br&gt; 标签为止。
+
+5_text-overflow
+    clip    修剪文本。
+    ellipsis    显示省略符号来代表被修剪的文本。
+6_配合使用
+ white-space: nowrap; overflow: hidden; /*text-overflow: clip;*/ text-overflow: ellipsis;     </code></pre>
       
     </div>
     
@@ -569,7 +596,7 @@ height:
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">139</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +708,7 @@ height:
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-元素的分类"><span class="nav-number">1.</span> <span class="nav-text">1.元素的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-width和height的作用"><span class="nav-number">2.</span> <span class="nav-text">2.width和height的作用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-元素的分类"><span class="nav-number">1.</span> <span class="nav-text">1.元素的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-width和height的作用"><span class="nav-number">2.</span> <span class="nav-text">2.width和height的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-float"><span class="nav-number">3.</span> <span class="nav-text">3,float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-清楚浮动"><span class="nav-number">4.</span> <span class="nav-text">4.清楚浮动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-溢出相关"><span class="nav-number">5.</span> <span class="nav-text">3.溢出相关</span></a></li></ol></div>
             
 
           </div>
@@ -715,7 +742,7 @@ height:
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80k</span>
+    <span title="Site words total count">81.6k</span>
   
 </div>
 

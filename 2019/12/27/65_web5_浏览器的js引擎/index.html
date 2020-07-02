@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="小新的个人博客">
 <meta property="og:description" content="1，js引擎的作用读取网页中的 JavaScript 代码，对其处理后运行2，js引擎运行的优缺点优点：JavaScript 是一种解释型语言，不需要编译，由解释器实时运行。好处是运行和修改都比较方便，刷新页面就可以重新解释； 缺点：每次运行都要调用解释器，系统开销较大，运行速度慢于编译型语言3，浏览器对js的处理过程1，读取代码，进行词法分析（Lexical analysis），将代码分解成词元">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-17T13:14:50.000Z">
+<meta property="og:updated_time" content="2020-07-02T06:08:28.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="65_web5_浏览器的js引擎">
 <meta name="twitter:description" content="1，js引擎的作用读取网页中的 JavaScript 代码，对其处理后运行2，js引擎运行的优缺点优点：JavaScript 是一种解释型语言，不需要编译，由解释器实时运行。好处是运行和修改都比较方便，刷新页面就可以重新解释； 缺点：每次运行都要调用解释器，系统开销较大，运行速度慢于编译型语言3，浏览器对js的处理过程1，读取代码，进行词法分析（Lexical analysis），将代码分解成词元">
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  734
+                  750
                 </span>
               
 
@@ -433,11 +433,11 @@
     </font>
 </div>    
 
-<h2 id="4，常见的js虚拟机"><a href="#4，常见的js虚拟机" class="headerlink" title="4，常见的js虚拟机"></a>4，常见的js虚拟机</h2><pre><code>1，Chakra (Microsoft Internet Explorer)
-2，Nitro/JavaScript Core (Safari)
-3，Carakan (Opera)
-4，SpiderMonkey (Firefox)
-5，V8 (Chrome, Chromium)</code></pre><h2 id="5，浏览器加载js原理"><a href="#5，浏览器加载js原理" class="headerlink" title="5，浏览器加载js原理"></a>5，浏览器加载js原理</h2><pre><code>1，浏览器一边下载 HTML 网页，一边开始解析。也就是说，不等到下载完，就开始解析。
+<h2 id="4，常见的js虚拟机-js引擎"><a href="#4，常见的js虚拟机-js引擎" class="headerlink" title="4，常见的js虚拟机(js引擎)"></a>4，常见的js虚拟机(js引擎)</h2><pre><code>1，IE浏览器:Chakra 
+2，Safari浏览器:Nitro/JavaScript Core 
+3，Opera浏览器:Carakan 
+4，Firefox浏览器:SpiderMonkey 
+5，Chrome浏览器:V8 </code></pre><h2 id="5，浏览器加载js原理"><a href="#5，浏览器加载js原理" class="headerlink" title="5，浏览器加载js原理"></a>5，浏览器加载js原理</h2><pre><code>1，浏览器一边下载 HTML 网页，一边开始解析。也就是说，不等到下载完，就开始解析。
 2，解析过程中，浏览器发现&lt;script&gt;元素，就暂停解析，把网页渲染的控制权转交给 JavaScript 引擎。
 3，如果&lt;script&gt;元素引用了外部脚本，就下载该脚本再执行，否则就直接执行代码。
 4，JavaScript 引擎执行完毕，控制权交还渲染引擎，恢复往下解析 HTML 网页。</code></pre><p style="background-color:#EEF4EC;border-left:5px #5DB24C solid">
@@ -579,7 +579,7 @@
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">139</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -691,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，js引擎的作用"><span class="nav-number">1.</span> <span class="nav-text">1，js引擎的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，js引擎运行的优缺点"><span class="nav-number">2.</span> <span class="nav-text">2，js引擎运行的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，浏览器对js的处理过程"><span class="nav-number">3.</span> <span class="nav-text">3，浏览器对js的处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，常见的js虚拟机"><span class="nav-number">4.</span> <span class="nav-text">4，常见的js虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，浏览器加载js原理"><span class="nav-number">5.</span> <span class="nav-text">5，浏览器加载js原理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，js引擎的作用"><span class="nav-number">1.</span> <span class="nav-text">1，js引擎的作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，js引擎运行的优缺点"><span class="nav-number">2.</span> <span class="nav-text">2，js引擎运行的优缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，浏览器对js的处理过程"><span class="nav-number">3.</span> <span class="nav-text">3，浏览器对js的处理过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，常见的js虚拟机-js引擎"><span class="nav-number">4.</span> <span class="nav-text">4，常见的js虚拟机(js引擎)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，浏览器加载js原理"><span class="nav-number">5.</span> <span class="nav-text">5，浏览器加载js原理</span></a></li></ol></div>
             
 
           </div>
@@ -725,7 +725,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80k</span>
+    <span title="Site words total count">81.6k</span>
   
 </div>
 

@@ -105,7 +105,7 @@
 <meta property="og:description" content="1， 层叠样式的优先级（1&amp;lt;2&amp;lt;3&amp;lt;4）1，浏览器缺省设置 2，外部样式表（2种，link和@import） 3，内部样式表（位于 &amp;lt;head&amp;gt; 标签内部） 4，内联样式（在 HTML 元素内部）      &amp;nbsp;&amp;nbsp;⚠️&amp;nbsp;&amp;nbsp;!important 作用：提高指定样式规则的应用优先权（优先级）。语法格式{ cssRule !import">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8765.png">
-<meta property="og:updated_time" content="2020-06-16T09:50:10.343Z">
+<meta property="og:updated_time" content="2020-07-02T07:51:07.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="78_web10_css的样式-选择器-属性">
 <meta name="twitter:description" content="1， 层叠样式的优先级（1&amp;lt;2&amp;lt;3&amp;lt;4）1，浏览器缺省设置 2，外部样式表（2种，link和@import） 3，内部样式表（位于 &amp;lt;head&amp;gt; 标签内部） 4，内联样式（在 HTML 元素内部）      &amp;nbsp;&amp;nbsp;⚠️&amp;nbsp;&amp;nbsp;!important 作用：提高指定样式规则的应用优先权（优先级）。语法格式{ cssRule !import">
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1k
+                  1.8k
                 </span>
               
 
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  4
+                  7
                 </span>
               
             </div>
@@ -441,27 +441,80 @@
 
 <h2 id="2，写法"><a href="#2，写法" class="headerlink" title="2，写法"></a>2，写法</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8765.png" alt></p>
 <h2 id="3，选择器"><a href="#3，选择器" class="headerlink" title="3，选择器"></a>3，选择器</h2><pre><code>css选择器：&lt;https://www.w3cschool.cn/css/css-selector.html&gt;
-c3选择器：&lt;https://www.w3cschool.cn/css3/css3-selector.html&gt;</code></pre><h3 id="3-1-选择器分类"><a href="#3-1-选择器分类" class="headerlink" title="3.1 选择器分类"></a>3.1 选择器分类</h3><pre><code>1，组合选择器
-    分组选择器（相同的样式用逗号，相同）：div,p
-    后代选取器(以空格分隔)：div p
-    子元素选择器(以大于号分隔）：div&gt;p
-    相邻兄弟选择器（以加号分隔）：div+p
-    普通兄弟选择器（以波浪号分隔）：div~p
-2，属性选择器
-    a[title] {color: green;}
-3，伪类（pseudo-class）
-    由于状态的变化是非静态的，所以元素达到一个特定状态时，它可能得到一个伪类的样式；当状态改变时，它又会失去这个样式。由此可以看出，它的功能和class有些类似，但它是基于文档之外的抽象，所以叫伪类
-    a:link {color:#FF0000;} 
-    a:visited {color:#00FF00;} 
-    a:hover {color:#FF00FF;} 
-    a:active {color:#0000FF;}
-4，伪元素（pseudo-element）
-    CSS伪元素控制的内容和元素是没有差别的，但是它本身只是基于元素的抽象，并不存在于文档中，所以称为伪元素
-    p:first-line 
-        {
-        color:#ff0000;
-        font-variant:small-caps;
-        }</code></pre><p style="background-color:#EEF4EC;border-left:5px #01C10A solid">
+c3选择器：&lt;https://www.w3cschool.cn/css3/css3-selector.html&gt;</code></pre><h3 id="3-1-选择器分类"><a href="#3-1-选择器分类" class="headerlink" title="3.1 选择器分类"></a>3.1 选择器分类</h3><pre><code>1.固定选择器
+    标签
+    class
+    id
+    通配符:*
+ 2.组合选择器(关系选择器):针对标签
+        分组选择器（抽象出来的公用的属性）：.class1,.class2
+             样式:
+                 .class1{
+                    background: red
+                }
+                .class2{
+                    background: green
+                }
+                .class1,.class2{
+                    text-decoration:underline
+                }
+                内容:
+                    &lt;div class=&quot;class1&quot;&gt;1&lt;/div&gt;
+                  &lt;div class=&quot;class2&quot;&gt;2&lt;/div&gt;
+        后代选取器(以空格分隔)：div p
+        直接后代(子元素)选择器(以大于号分隔）：div&gt;p
+        相邻兄弟选择器（以加号分隔）：div+p
+        普通兄弟选择器（以波浪号分隔）：div~p
+3.逻辑选择器(联合选择器,并集选择器相当于包含分组选择器,交集选择器一般不会使用相同的.class或者#id):
+   并集选择器:.class,#id(中间逗号)
+   交集选择器:.class#id(中间没有空格)
+   非选择器:not(selector)
+
+4.多类选择器(⚠️class里面没有.)
+    一个标签响应多个类选择器&lt;div class=&apos;&apos;selector1 selector2 &apos;&apos; &gt;&lt;div &gt;(中间有空格)
+
+5.属性选择器
+        a[title] {color: green;}
+      等于:a[rel=&quot;external&quot;]
+    包含:a[attr*=&quot;val&quot;]
+    开头:a[attr^=&quot;val&quot;]
+    结尾:a[attr$=&quot;val&quot;]
+    包含空格,且一个等于:a[attr~=&quot;val&quot;]
+
+6.伪类（pseudo-class）
+        由于状态的变化是非静态的，所以元素达到一个特定状态时，它可能得到一个伪类的样式；当状态改变时，它又会失去这个样式。由此可以看出，它的功能和class有些类似，但它是基于文档之外的抽象，所以叫伪类
+        6.1_链接伪类:a标签
+            a:link {color:#FF0000;} 
+            a:visited {color:#00FF00;} 
+            a:hover {color:#FF00FF;} 
+            a:active {color:#0000FF;}
+        6.2_位置伪类:
+             6.2.1_同级别的:div父类型的第几个(相当于利用伪类寻找兄弟元素)
+            div:nth-child(数字,或者odd奇数,even偶数,xn + y)
+            div:nth-last-child(num同上)
+            div :first-child
+            div :last-child()
+         6.2.2_同类型:div父类型的第几个div(多加一层判断)
+            div:nth-of-type(num)
+            div:nth-last-of-type(num)
+            div :first-of-type()
+            div :last-of-type()
+    6.3_input伪类
+        input标签的focus,enabled,disabled,checked
+
+    4，伪元素（pseudo-element）
+        CSS伪元素控制的内容和元素是没有差别的，但是它本身只是基于元素的抽象，并不存在于文档中，所以称为伪元素
+           ::first-letter
+        ::first-line
+        ::selection
+        ::before
+        ::after
+
+        p::first-line 
+            {
+            color:#ff0000;
+            font-variant:small-caps;
+            }</code></pre><p style="background-color:#EEF4EC;border-left:5px #01C10A solid">
     <font color="#110B13" size="2.5" face="黑体">
         &nbsp;&nbsp;♻️&nbsp;&nbsp;普通选择器和伪类/伪元素的区别：<br>
         普通选择器是直接从HTML文档的DOM树中获取元素的。<br>
@@ -500,21 +553,43 @@ id选择器：100
     DIV#divBox
 3、避免使用标签限制 class 选择器
     p.red{color:red;}  </code></pre><h2 id="4，属性"><a href="#4，属性" class="headerlink" title="4，属性"></a>4，属性</h2><p><a href="https://www.w3cschool.cn/cssref/ga4k10vk.html" target="_blank" rel="noopener">https://www.w3cschool.cn/cssref/ga4k10vk.html</a></p>
-<pre><code>  背景
-  文本
-  字体
-  链接
-  列表
-  表格
+<h3 id="4-1-背景"><a href="#4-1-背景" class="headerlink" title="4.1 背景"></a>4.1 背景</h3><pre><code>背景颜色:bacground-color
+背景图片:bacground-image
+背景图片尺寸:background-size
+背景图片平铺:background-repeat(repeat两个方向重复,repeat-x横轴重复,repeat-y纵轴重复,no-repeat不重复)
+背景图片坐标background-position(复合属性,x(可以是位置left,center,right,可以是数值,可以是百分比),y(top center bottom))
+背景图片关联方式background-attachment(scroll跟着滚动,fixed固定不动)
+背景图片定位方式background-origin(border-box相对于边框,padding-box相对于内边距,content-box相对于内容)
+背景绘制区域background-clip(border-box相对于边框,padding-box相对于内边距,content-box相对于内容)
+复合属性background的写法,按照如下顺序,且background-position和background-size之间有/分割
+background:
+[background-color]
+[background-image]
+[background-repeat]
+[background-attachment]
+[background-position] /
+[background-size]
+[background-origin]
+[background-clip];</code></pre><h3 id="4-2-文本"><a href="#4-2-文本" class="headerlink" title="4.2 文本"></a>4.2 文本</h3><pre><code>    文本修饰:text-decoration(overline上划线;line-through中划线;underline下划线;none清除)
+文本对齐:text-align(left,center,right)
+文本缩进:text-indent(单位px为像素,单位em是文字宽度)
+行高:line-height
+字符间距:letter-spacing
+单词间距:word-spacing
+文字颜色:color
+文字阴影:text-shadow(复合属性text-shadow: h-shadow水平阴影 v-shadow垂直阴影 blur模糊距离 color颜色;)</code></pre><h3 id="4-3-字体"><a href="#4-3-字体" class="headerlink" title="4.3 字体"></a>4.3 字体</h3><pre><code>1_普通字体
+    字体大小font-size(可以是数字20px,可以是单词smaller,可以是相对父元素的百分比)
+    字体样式font-style(norma正常,italic斜体)
+    字体粗细font-weight(normal即400,bold即700,lighter,bolder,也可以是100~900数值)
+    字体类型font-family(黑体,宋体,sans-serif等),字体名称超过一个字要用引号
+2_自定义字体
+3_图标字体
 
-尺寸定位    
-  尺寸
-  显示和可见
-  浮动
-  定位
-  对齐
+    链接
+    列表
+    表格
 
- 简写属性</code></pre>
+   简写属性</code></pre>
       
     </div>
     
@@ -638,7 +713,7 @@ id选择器：100
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">139</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -750,7 +825,7 @@ id选择器：100
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，-层叠样式的优先级（1-lt-2-lt-3-lt-4）"><span class="nav-number">1.</span> <span class="nav-text">1， 层叠样式的优先级（1&lt;2&lt;3&lt;4）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，写法"><span class="nav-number">2.</span> <span class="nav-text">2，写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，选择器"><span class="nav-number">3.</span> <span class="nav-text">3，选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-选择器分类"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 选择器分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-选择器优先级"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 选择器优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-选择器效率，由高到低"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 选择器效率，由高到低</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-提升选择器的效率："><span class="nav-number">3.4.</span> <span class="nav-text">3.4 提升选择器的效率：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，属性"><span class="nav-number">4.</span> <span class="nav-text">4，属性</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，-层叠样式的优先级（1-lt-2-lt-3-lt-4）"><span class="nav-number">1.</span> <span class="nav-text">1， 层叠样式的优先级（1&lt;2&lt;3&lt;4）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，写法"><span class="nav-number">2.</span> <span class="nav-text">2，写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，选择器"><span class="nav-number">3.</span> <span class="nav-text">3，选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-选择器分类"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 选择器分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-选择器优先级"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 选择器优先级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-选择器效率，由高到低"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 选择器效率，由高到低</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-提升选择器的效率："><span class="nav-number">3.4.</span> <span class="nav-text">3.4 提升选择器的效率：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，属性"><span class="nav-number">4.</span> <span class="nav-text">4，属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-背景"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-文本"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-字体"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 字体</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -784,7 +859,7 @@ id选择器：100
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80k</span>
+    <span title="Site words total count">81.6k</span>
   
 </div>
 

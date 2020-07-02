@@ -280,6 +280,1086 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/06/12/129_web30_js的异步操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/" itemprop="url">129_web30_js的异步操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-12T23:15:48+08:00">
+                2020-06-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/06/12/129_web30_js的异步操作/" class="leancloud_visitors" data-flag-title="129_web30_js的异步操作">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  743
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-promise"><a href="#1-promise" class="headerlink" title="1.promise"></a>1.promise</h2><h3 id="1-1-基本组成"><a href="#1-1-基本组成" class="headerlink" title="1.1_基本组成"></a>1.1_基本组成</h3><pre><code>Promise对象代表一个异步操作，有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）</code></pre><h3 id="1-2-初始化"><a href="#1-2-初始化" class="headerlink" title="1.2_初始化:"></a>1.2_初始化:</h3><pre><code>1.默认参数为resolve,reject函数
+2.Promise初始化以后立即执行
+3.实例
+let p = new Promise(function (resolve, reject){
+   if(/*异步操作成功*/){
+       resolve(value);
+   } else {
+       reject(error);
+   }
+})</code></pre><h3 id="1-3-用then指定回调状态"><a href="#1-3-用then指定回调状态" class="headerlink" title="1.3_用then指定回调状态:"></a>1.3_用then指定回调状态:</h3><pre><code>1.then方法的第一个参数是resolved状态的回调函数，第二个参数（可选）是rejected状态的回调函数
+2.一般写法
+    p.then(function(val){
+        // success...
+    },function(err){
+        // error...
+    })
+3.then的链式写法:利用return
+    getJSON(&quot;/posts.json&quot;).then(function(json) {
+      return json.post;
+    }).then(function(post) {
+      // ...
+    });
+4.整体示例
+    let a = 7;
+    let p = new Promise(function(resolve, reject){
+            if(a &gt; 3){
+                resolve();
+            }else{
+                reject();
+            }
+    })
+    p.then(()=&gt;{
+        return 2;
+    },()=&gt;{
+        return 3;
+    }).then((data)=&gt;{
+        console.log(data)
+    })
+    //结果为2</code></pre><h3 id="1-4-使用catch"><a href="#1-4-使用catch" class="headerlink" title="1.4_使用catch"></a>1.4_使用catch</h3><pre><code>1_.then(null, rejection)的别名，用于指定发生错误时的回调函数
+2_使用示例
+    let a = 1;
+    let p = new Promise(function(resolve, reject){
+        if(a &gt; 3){
+            resolve();
+        }else{
+            reject();
+        }
+    });
+    p.then(()=&gt;{
+           console.log(2)
+    }).catch(()=&gt;{
+           console.log(3)
+    })
+    //结果:3
+3_catch方法指定的回调函数捕获，
+    1_下面三种写法相同
+    2_推荐使用then.catch
+    // 写法一
+    const p = new Promise(function(resolve, reject) {
+      throw new Error(&apos;test&apos;);
+    });
+    p.catch(function(error) {
+      console.log(error);
+    });
+    // Error: test
+
+    // 写法二
+    const p = new Promise(function(resolve, reject) {
+      try {
+        throw new Error(&apos;test&apos;);
+      } catch(e) {
+        reject(e);
+      }
+    });
+    p.catch(function(error) {
+      console.log(error);
+    });
+
+    // 写法三
+    const p = new Promise(function(resolve, reject) {
+      reject(new Error(&apos;test&apos;));
+    });
+    p.catch(function(error) {
+      console.log(error);
+     });</code></pre><h3 id="1-5-Promise-all"><a href="#1-5-Promise-all" class="headerlink" title="1.5_Promise.all()"></a>1.5_Promise.all()</h3><pre><code>1.基本组成
+    const p = Promise.all([p1, p2, p3]);
+2.说明
+    只有p1、p2、p3的状态都变成fulfilled，p的状态才会变成fulfilled，此时p1、p2、p3的返回值组成一个数组，传递给p的回调函数。
+    只要p1、p2、p3之中有一个被rejected，p的状态就变成rejected，此时第一个被reject的实例的返回值，会传递给p的回调函数。
+3.示例
+    const promise1 = Promise.resolve(3);
+    const promise2 = 42;
+    const promise3 = new Promise((resolve, reject) =&gt; {
+        setTimeout(resolve, 100, &apos;foo&apos;);
+    });
+
+    Promise.all([promise1, promise2, promise3]).then((values) =&gt; {
+        console.log(values);
+    });
+    //结果:expected output: Array [3, 42, &quot;foo&quot;]</code></pre><h3 id="1-6-Promise-race"><a href="#1-6-Promise-race" class="headerlink" title="1.6_Promise.race()"></a>1.6_Promise.race()</h3><pre><code>1_一旦迭代器中的某个promise解决或拒绝，返回的 promise就会解决或拒绝
+2_示例
+    const promise1 = new Promise((resolve, reject) =&gt; {
+        setTimeout(resolve, 500, &apos;one&apos;);
+    });
+
+    const promise2 = new Promise((resolve, reject) =&gt; {
+        setTimeout(resolve, 100, &apos;two&apos;);
+    });
+
+    Promise.race([promise1, promise2]).then((value) =&gt; {
+        console.log(value);
+        // Both resolve, but promise2 is faster
+    });
+    // expected output: &quot;two&quot;</code></pre><h3 id="1-7-Promise-resolve"><a href="#1-7-Promise-resolve" class="headerlink" title="1.7_Promise.resolve()"></a>1.7_Promise.resolve()</h3><pre><code>1_返回一个解析过的Promise对象
+2_示例
+    const promise1 = Promise.resolve(123);
+    promise1.then((value) =&gt; {
+      console.log(value);
+      // expected output: 123
+    });</code></pre><h3 id="1-8-Promise-reject"><a href="#1-8-Promise-reject" class="headerlink" title="1.8_Promise.reject()"></a>1.8_Promise.reject()</h3><pre><code>1_返回一个带有拒绝原因的Promise对象
+2_示例
+    Promise.reject(new Error(&apos;fail&apos;)).then(function() {
+        // not called
+    }, function(error) {
+        console.error(error); // Stacktrace
+    });</code></pre><h2 id="2-Async-await"><a href="#2-Async-await" class="headerlink" title="2.Async/await"></a>2.Async/await</h2><pre><code>async:
+    1_即这个函数总是返回一个 promise。其他值将自动被包装在一个 resolved 的 promise 中
+    2_示例:
+        async function f() {
+            return Promise.resolve(1);
+        }
+        f().then((number)=&gt;{console.log(number)}); // 1
+ await:
+     1_await 只在 async 函数 中有效
+     2_让 JavaScript 引擎等待直到 promise 完成（settle）并返回结果。</code></pre><h2 id="3-使用Generator"><a href="#3-使用Generator" class="headerlink" title="3.使用Generator"></a>3.使用Generator</h2>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/127_web28_js的类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/31/127_web28_js的类/" itemprop="url">127_web28_js的类</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T19:45:48+08:00">
+                2020-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/31/127_web28_js的类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/31/127_web28_js的类/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/31/127_web28_js的类/" class="leancloud_visitors" data-flag-title="127_web28_js的类">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-class的本质"><a href="#1-class的本质" class="headerlink" title="1.class的本质"></a>1.class的本质</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6写法</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">P</span> </span>&#123;</span><br><span class="line">        <span class="keyword">constructor</span>(x, y)&#123;</span><br><span class="line">            <span class="keyword">this</span>.x = x;</span><br><span class="line">            <span class="keyword">this</span>.y = y;</span><br><span class="line">        &#125;</span><br><span class="line">        toString()&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">')'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="keyword">new</span> P(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES5写法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">P</span> (<span class="params">x,y</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.x = x;</span><br><span class="line">        <span class="keyword">this</span>.y = y;</span><br><span class="line">    &#125;</span><br><span class="line">    P.prototype.toString = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">'('</span> + <span class="keyword">this</span>.x + <span class="string">', '</span> + <span class="keyword">this</span>.y + <span class="string">')'</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="keyword">new</span> P(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+
+<pre><code>1_ES6中的class可以看作只是一个语法糖
+2_ES6的类的所有方法都是定义在prototype属性上，调用类的实例的方法，其实就是调用原型上的方法,上例中a.constructor === P.prototype.constructor; // true
+3_constructor()是类的默认方法，通过new实例化时自动调用执行，一个类必须有constructor()方法，否则一个空的constructor()会默认添加。constructor()方法默认返回实例对象(即this)</code></pre><h2 id="2-实现类的私有方法和私有属性"><a href="#2-实现类的私有方法和私有属性" class="headerlink" title="2.实现类的私有方法和私有属性"></a>2.实现类的私有方法和私有属性</h2><pre><code>1_使用命名区分:变量名前添加_，但是不保险，外面也可以调用到
+    class P {
+            // 公有方法
+            f1 (x) {
+                this._x(x);
+            }
+            // 私有方法
+            _x (x){
+                return this.y = x;
+            }
+        }
+2_将私有方法移除模块，再在类内部调用call方法。
+    class P {
+            f1 (x){
+                f2.call(this, x);
+            }
+        }
+        function f2 (x){
+            return this.y = x;
+        }
+3_使用Symbol为私有方法命名
+    const a1 = Symbol(&apos;a1&apos;);
+    const a2 = Symbol(&apos;a2&apos;);
+    export default class P{
+        // 公有方法
+        f1 (x){
+            this[a1](x);
+        }
+        // 私有方法
+        [a1](x){
+            return this[a2] = x;
+        }
+    }</code></pre><h2 id="3-类的this指向"><a href="#3-类的this指向" class="headerlink" title="3.类的this指向"></a>3.类的this指向</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">P</span></span>&#123;</span><br><span class="line">    leoDo(thing = <span class="string">'any'</span>)&#123;</span><br><span class="line">        <span class="keyword">this</span>.print(<span class="string">`Leo do <span class="subst">$&#123;thing&#125;</span>`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    print(text)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(text);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">let</span> a = <span class="keyword">new</span> P();</span><br><span class="line">    <span class="keyword">let</span> &#123; leoDo &#125; = a;</span><br><span class="line">    leoDo(); <span class="comment">// TypeError: Cannot read property 'print' of undefined</span></span><br><span class="line">    <span class="comment">// 问题出在 单独使用leoDo时，this指向调用的环境，</span></span><br><span class="line">    <span class="comment">// 但是leoDo中的this是指向P类的实例，所以报错</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>1,类内部方法的this默认指向类的实例，但单独使用该方法可能报错，因为this指向的问题
+2,解决的办法1:在类里面绑定this
+    class P {
+        constructor(){
+            this.name = this.name.bind(this);
+        }
+    }
+3,解决的办法2:使用箭头函数
+    class P{
+        constructor(){
+            this.name = (name = &apos;leo&apos; )=&gt;{
+                this.print(`my name is ${name}`)
+            }
+        }
+    }</code></pre><h2 id="4-类的属性"><a href="#4-类的属性" class="headerlink" title="4.类的属性"></a>4.类的属性</h2><pre><code>1_ES6中明确规定，Class内部只有静态方法没有静态属性
+2_只能通过下面实现
+// 正确写法
+    class P {}
+    P.a1 = 1;
+    P.a1;      // 1
+
+    // 无效写法
+    class P {
+        a1: 2,          // 无效
+        static a1 : 2,  // 无效
+    }
+    P.a1;      // undefined</code></pre><h2 id="5-类的方法"><a href="#5-类的方法" class="headerlink" title="5.类的方法"></a>5.类的方法</h2><pre><code>1_Class的getter和setter方法
+   -&gt;使用get和set关键词对属性设置取值函数和存值函数，拦截属性的存取行为
+    class P {
+            constructor (){ ... }
+            get f (){
+                return &apos;getter&apos;;
+            }
+            set f (val) {
+                console.log(&apos;setter: &apos; + val);
+            }
+        }
+
+        let a = new P();
+        a.f = 100;   // setter : 100
+        a.f;          // getter
+
+    2_Class的generator方法
+        -&gt;只要在方法之前加个(*)即可
+        class P {
+                constructor (...args){
+                    this.args = args;
+                }
+                *[Symbol.iterator](){
+                    for (let arg of this.args){
+                        yield arg;
+                    }
+                }
+            }
+            for (let k of new P(&apos;aa&apos;, &apos;bb&apos;)){
+                console.log(k);
+            }
+            // &apos;aa&apos;
+            // &apos;bb&apos;
+
+        3_Class的静态方法
+            -&gt;由于类相当于实例的原型，所有类中定义的方法都会被实例继承，若不想被继承，只要加上static关键字，只能通过类来调用，即“静态方法”。
+            class P (){
+                    static f1 (){ return &apos;aaa&apos; };
+                }
+                P.f1();    // &apos;aa&apos;
+                let a = new P();
+                a.f1();    // TypeError: a.f1 is not a function
+
+        4_静态方法中的this
+            class P {
+                static f1 (){
+                    this.f2();
+                }
+                static f2 (){
+                    console.log(&apos;aaa&apos;);
+                }
+                f2(){
+                    console.log(&apos;bbb&apos;);
+                }
+            }
+            P.f2();  // &apos;aaa&apos;
+
+        5_静态方法可以被子类继承，或者super对象中调用
+            class P{
+                    static f1(){ return &apos;leo&apos; };
+                }
+                class Q extends P { ... };
+                Q.f1();  // &apos;leo&apos;
+
+                class R extends P {
+                    static f2(){
+                        return super.f1() + &apos;,too&apos;;
+                    }
+                }
+                R.f2();  // &apos;leo , too&apos;</code></pre><h2 id="6-类的继承"><a href="#6-类的继承" class="headerlink" title="6.类的继承"></a>6.类的继承</h2><pre><code>1_基本使用
+    1.使用extends调用;
+    2.子类必须在constructor()调用super()否则报错，并且只有super方法才能调用父类实例，
+    3.父类的静态方法，子类也可以继承到
+    class P { 
+        constructor(x, y){
+            // ...
+        }
+        f1 (){ ... }
+    }
+    class Q extends P {
+        constructor(a, b, c){
+            super(x, y);  // 调用父类 constructor(x, y)
+            this.color = color ;
+        }
+        f2 (){
+            return this.color + &apos; &apos; + super.f1(); 
+            // 调用父类的f1()方法
+        }
+    }
+2_super关键字:既可以当函数使用，还可以当对象使用
+    class P {
+            f (){ return 2 };
+        }
+        class R extends P {
+            constructor (){
+                super();//当函数调用，代表父类的构造函数，但必须执行一次
+                console.log(super.f()); // 当对象调用，指向原型对象，在静态方法中指向父类。
+            }
+        }
+        let a = new R()</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/128_web29_js的模块/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/31/128_web29_js的模块/" itemprop="url">128_web29_js的模块</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T19:45:48+08:00">
+                2020-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/31/128_web29_js的模块/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/31/128_web29_js的模块/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/31/128_web29_js的模块/" class="leancloud_visitors" data-flag-title="128_web29_js的模块">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  192
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-require和export"><a href="#1-require和export" class="headerlink" title="1.require和export"></a>1.require和export</h2><pre><code>1.require的使用
+    1_require加载模块的时候会把这个模块的代码运行一遍
+    2_如果require命令加载同一个模块时，不会再次执行这个模块，而是取缓存中的值。COMMONJS的模块无论加载多少次，都只会运行一次
+
+2.module.exports和exports的区别
+    1.单独出现按照下列b.js的格式;同时出现 module.exports高于exports的优先级,会覆盖exports
+    2.示例
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//b.js</span><br><span class="line">module.exports = &#123;</span><br><span class="line">        exp1:&apos;a&apos;,</span><br><span class="line">        exp2:5,</span><br><span class="line">        id:&apos;c&apos;</span><br><span class="line">      &#125;;</span><br><span class="line">    </span><br><span class="line">exports.id = &apos;b&apos;;</span><br><span class="line"></span><br><span class="line">//a.js</span><br><span class="line">let b= require(&apos;./b&apos;);</span><br><span class="line">console.log(b.exp1);</span><br><span class="line">console.log(b.exp2);</span><br><span class="line">console.log(b.id);</span><br></pre></td></tr></table></figure></code></pre><h2 id="2-import和export"><a href="#2-import和export" class="headerlink" title="2.import和export"></a>2.import和export</h2><pre><code>1_ES6模块加载的机制
+2_CommonJS模块输出的是一个值的拷贝，而ES6模块输出的是值的引用</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/126_web27_js的关键字:this,new,instanceof/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/31/126_web27_js的关键字:this,new,instanceof/" itemprop="url">125_web27_js的关键字:this,new,instanceof等</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T14:45:48+08:00">
+                2020-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/31/126_web27_js的关键字:this,new,instanceof/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/31/126_web27_js的关键字:this,new,instanceof/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/31/126_web27_js的关键字:this,new,instanceof/" class="leancloud_visitors" data-flag-title="125_web27_js的关键字:this,new,instanceof等">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/125_web26_js的继承/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1812,1418 +2892,6 @@ Person { b: &apos;b&apos; }
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/119_web20_js的数组/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/119_web20_js的数组/" itemprop="url">119_web20_js的数组</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:41:48+08:00">
-                2020-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/30/119_web20_js的数组/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/119_web20_js的数组/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/30/119_web20_js的数组/" class="leancloud_visitors" data-flag-title="119_web20_js的数组">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.7k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  12
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-数组的创建"><a href="#1-数组的创建" class="headerlink" title="1.数组的创建"></a>1.数组的创建</h2><pre><code>1_使用Array关键字(可以省略new关键字)
-   1.1 new Array();
-        let arr = new Array(); 
-        arr[0] = &apos;a&apos;
-   1.2 new Array(size);
-        let arr = new Array(2); 
-        arr[0] = &apos;a&apos;
-   1.3 new Array(element0, element1, ..., elementn);
-        let arr = new Array(&apos;2&apos;,&apos;6&apos;); 
-2_使用字面量
-    2.1 定义再赋值
-        let arr = []; 
-        arr[0] = &apos;1&apos; 
-        console.log(arr);  
-    2.2 定义的时候赋值
-        let arr = [&apos;q&apos;,&apos;w&apos;]; 
-3_Array.from()
-    将 类数组对象 和 可遍历的对象，转换成真正的数组
-        // 1_类数组对象
-        let a = {
-            &apos;0&apos;:&apos;a&apos;,
-            &apos;1&apos;:&apos;b&apos;,
-            length:2
-        }
-        let arr = Array.from(a); //[ &apos;a&apos;, &apos;b&apos; ]
-
-        // 2_可遍历的对象
-        let a = Array.from([1,2,3]); //[ 1, 2, 3 ]
-        let b = Array.from({length: 3}); //[ undefined, undefined, undefined ]
-        let c = Array.from([1,2,3]).map(x =&gt; x * x); //[ 1, 4, 9 ]
-        let d = Array.from([1,2,3].map(x =&gt; x * x)); //[ 1, 4, 9 ]
-    4_Array.of()
-        将一组数值，转换成数组;弥补Array方法参数不同导致的差异
-        let arr = new Array(2); //1个参数时，为指定数组长度,结果为[,]
-        let arr = Array.of(2);结果为[2]
-        let arr = Array.of(1,2,3);结果为[1,2,3]
-    5_fill()
-        第二个和第三个参数指定填充的起始位置和结束位置
-       let a = new Array(3).fill(&apos;a&apos;);   // [&apos;a&apos;,&apos;a&apos;,&apos;a&apos;]
-       [1,2,3].fill(&apos;a&apos;,1,2);//  [1, &quot;a&quot;, 3]</code></pre><h2 id="2-数组的默认属性"><a href="#2-数组的默认属性" class="headerlink" title="2.数组的默认属性"></a>2.数组的默认属性</h2><pre><code>1_constructor    返回对创建此对象的数组函数的引用。
-2_length    设置或返回数组中元素的数目。
-    可通过arr.length = 0来清空数组
-3_prototype    使您有能力向对象添加属性和方法。</code></pre><h2 id="3-数组的遍历"><a href="#3-数组的遍历" class="headerlink" title="3.数组的遍历"></a>3.数组的遍历</h2><pre><code>1_普通for循环
-    for(j = 0; j &lt; arr.length; j++) {} 
-2_优化版for循环
-    for(j = 0,len=arr.length; j &lt; len; j++) {}
-3_for...in循环: -&gt;遍历数组的index
-    for(j in arr) {}
-4_for...of循环: -&gt;遍历数组的value
-    for(let value of arr) {  });
-5_for...each: -&gt;遍历数组的index和value
-    1_arr.forEach(callback) 接收一个回调方法。
-        callback(val, index, array) : 接收三个参数：
-        val : 当前处理的元素；
-        index : 当前处理的元素的索引；
-        array : 正在处理的数组；
-    2_示例
-        let arr = [&quot;pingan&quot;, &quot;leo&quot;, &quot;robin&quot;];
-        arr.forEach(function(val, i, array){
-                console.log(`第${i}个元素是：${val}；`)
-                console.log(arr)
-        })
-6_map循环
-        let arr = [&quot;pingan&quot;, &quot;leo&quot;, &quot;robin&quot;];
-        arr.map(function(val, i, array){
-                console.log(`第${i}个元素是：${val}；`)
-                console.log(arr)
-        })
-7_entries(),keys(),values()遍历
-    1_entries()对键值对遍历
-    for (let e of [&apos;a&apos;, &apos;b&apos;].entries()){
-        console.log(e)
-    }
-    // 0 &apos;a&apos;
-    // 1 &apos;b&apos;
-    2_keys()对键名遍历
-      for (let i of [&apos;a&apos;, &apos;b&apos;].keys()){
-        console.log(i)
-    }
-    // 0
-    // 1
-    3_values()对键值遍历
-    for (let e of [&apos;a&apos;, &apos;b&apos;].values()){
-        console.log(e)
-    }
-    // &apos;a&apos;
-    // &apos;b&apos;</code></pre><h2 id="4-数组合并"><a href="#4-数组合并" class="headerlink" title="4,数组合并"></a>4,数组合并</h2><pre><code>语法:arr.concat(a1, a2, ..., an);
-参数:
-    arr：目标数组；
-    a1,a2,...,an：需要合并的元素；</code></pre><h2 id="5-数组元素之间拼接成一个字符串"><a href="#5-数组元素之间拼接成一个字符串" class="headerlink" title="5,数组元素之间拼接成一个字符串"></a>5,数组元素之间拼接成一个字符串</h2><pre><code>语法: arr.join(sep);
-参数:
-    arr：目标数组；
-    sep：连接的分隔符，默认值为“,”；
-示例:
-    let arr = [&quot;pingan&quot;, &quot;leo&quot;, &quot;robin&quot;];
-    arr.join(&quot;,&quot;); // &quot;pingan,leo,robin&quot;</code></pre><h2 id="6-颠倒数组中元素的顺序，改变原数组"><a href="#6-颠倒数组中元素的顺序，改变原数组" class="headerlink" title="6,颠倒数组中元素的顺序，改变原数组"></a>6,颠倒数组中元素的顺序，改变原数组</h2><pre><code>语法:arr.reverse()
-示例:
-    let arr = [1, 2, 3, 4];
-    arr.reverse();  // [4, 3, 2, 1] </code></pre><h2 id="7-对数组排序"><a href="#7-对数组排序" class="headerlink" title="7,对数组排序"></a>7,对数组排序</h2><pre><code>1_sort()
-    如果调用该方法时没有使用参数，将按字母顺序对数组中的元素进行排序
-    比较函数应该具有两个参数 a 和 b，其返回值如下：
-        若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。
-        若 a 等于 b，则返回 0。
-        若 a 大于 b，则返回一个大于 0 的值   
-2_示例
-    let a1 = [1,3,6,9,10];
-    a1.sort(); // [1, 10, 3, 6, 9]
-    a1.sort(function(a,b){
-        return a &gt; b ? 1 : a &lt; b ? -1 : 0;
-    })     // [1, 3, 6, 9, 10]
-3_注意:不破坏原数组的结构</code></pre><h2 id="8-通过索引来切割数组-两个索引之间-slice"><a href="#8-通过索引来切割数组-两个索引之间-slice" class="headerlink" title="8,通过索引来切割数组:两个索引之间(slice)"></a>8,通过索引来切割数组:两个索引之间(slice)</h2><pre><code>1_语法:slice(start,end)
-    start: 必需，指定起始索引，若负数则从数组最后开始算起，-1为倒数第一位，-2为倒数第二位，以此类推。
-    end： 可选，指定结束索引，若没传则表示到数组结束
-2_示例:
-    let arr = [1, 2, 3, 5, 6];
-    let a2 = arr.slice(2,3);  // [3]
-    console.log(arr) //
-3_注意:不破坏原数组的结构</code></pre><h2 id="9-通过索引来切割数组-起始索引-数量-splice"><a href="#9-通过索引来切割数组-起始索引-数量-splice" class="headerlink" title="9,通过索引来切割数组:起始索引+数量(splice)"></a>9,通过索引来切割数组:起始索引+数量(splice)</h2><pre><code>1_语法:
-     arr.splice(index, num, a1, a2,...,an);
-    参数：
-        index: 必需，起始位置的索引，若负数则从数组最后开始算起；
-        num：必需，删除的数量，若为0则不删除；
-        a1,a2,...an：可选，为数组添加的元素；
-2_示例
-    let arr = [1, 2, 3, 4];
-    let a = arr.splice(1, 2, &quot;hi&quot;, &quot;leo&quot;);
-    console.log(a)      //[ 2, 3 ]
-    console.log(arr)    //[ 1, &apos;hi&apos;, &apos;leo&apos;, 4 ]
-3_注意:会破坏原数组的结构</code></pre><h2 id="10-操作最后一个元素"><a href="#10-操作最后一个元素" class="headerlink" title="10,操作最后一个元素"></a>10,操作最后一个元素</h2><pre><code>1_pop(): 删除并返回数组最后一个元素，改变原数组。
-2_push(item): 向数组末尾添加一个或多个元素，改变原数组,返回总个数
-3_示例:
-    let arr = [&quot;pingan&quot;, &quot;leo&quot;,&apos;44&apos;];
-    let a1 = arr.pop();              
-    console.log(a1) //44
-    console.log(arr) //[ &apos;pingan&apos;, &apos;leo&apos; ]
-    let a2 = arr.push(&quot;robin&quot;,&quot;hi&quot;); 
-    console.log(a2) //4
-    console.log(arr) //[ &apos;pingan&apos;, &apos;leo&apos;, &apos;robin&apos;, &apos;hi&apos; ]
-4_注意:
-    pop操作符,去掉最后一个元素,返回值为去掉的那个元素
-    push操作符,增加最后一个元素,返回值为新增后的总元素</code></pre><h2 id="11-添加元素"><a href="#11-添加元素" class="headerlink" title="11,添加元素"></a>11,添加元素</h2><pre><code>1_shift(): 删除并返回数组第一个元素，改变原数组。
-2_unshift(item): 向数组头部添加一个或多个元素，改变原数组，返回新的数组长度。
-3_示例
-    let arr = [&quot;pingan&quot;, &quot;leo&quot;];
-    let a1 = arr.shift();               
-    console.log(a1)  //pingan
-    console.log(arr) //[ &apos;leo&apos; ]
-    let a2 = arr.unshift(&quot;robin&quot;,&quot;hi&quot;); 
-    console.log(a2)  //3
-    console.log(arr) //[ &apos;robin&apos;, &apos;hi&apos;, &apos;leo&apos; ]</code></pre><h2 id="12-搜索满足要求元素的第一个索引"><a href="#12-搜索满足要求元素的第一个索引" class="headerlink" title="12,搜索满足要求元素的第一个索引"></a>12,搜索满足要求元素的第一个索引</h2><pre><code>1_indexOf():返回的是搜索到的第一个元素的索引
-2_lastIndexOf()返回的是搜索到的最后一个元素的索引
-3_indexOf(ele[,start])和lastIndexOf(ele[,start])
-    ele: 需要搜索的元素。
-    start: 开始搜索的索引
-4_示例
-    let arr = [&quot;hh1&quot;, &quot;hh2&quot;, &quot;hh2&quot;, &quot;hh2&quot;, &quot;hh3&quot;, &quot;hh4&quot;];
-    let a1 = arr.indexOf(&quot;hh2&quot;);      
-    let a2 = arr.lastIndexOf(&quot;hh2&quot;);  
-    let a3 = arr.indexOf(&quot;hh2&quot;,2);    
-    console.log(a1) //1
-    console.log(a2) // 3
-    console.log(a3) // 2</code></pre><h2 id="13-搜索满足要求元素的第一个元素和第一个索引-find和-findIndex"><a href="#13-搜索满足要求元素的第一个元素和第一个索引-find和-findIndex" class="headerlink" title="13,搜索满足要求元素的第一个元素和第一个索引(.find和.findIndex)"></a>13,搜索满足要求元素的第一个元素和第一个索引(.find和.findIndex)</h2><pre><code>1_find()方法:用于找出第一个符合条件的数组成员，参数为一个回调函数，所有成员依次执行该回调函数，返回第一个返回值为true的成员，如果没有一个符合则返回undefined
-    参数:回调函数接收三个参数，当前值、当前位置和原数组
-    示例:
-        [1,2,3,4,5].find((value, index, arr) =&gt; {
-           return  value &gt; 3
-        }); //需要写return
-        也可以写:
-        [1,2,3,4,5].find( a =&gt; a &lt; 3 ); //不需要写return
-2_findIndex()方法与find()类似，返回第一个符合条件的数组成员的位置，如果都不符合则返回-1</code></pre><h2 id="14-测试数组的元素"><a href="#14-测试数组的元素" class="headerlink" title="14,测试数组的元素"></a>14,测试数组的元素</h2><pre><code>1_arr.every(callback):测试数组的所有元素是否都通过了指定函数的测试
-    1.callback(val, index, arr) : 需要执行的函数，接收三个参数：
-        val : 正在处理的当前元素;
-        index : 可选，正在处理的当前元素的索引;
-        arr : 可选，正在操作的数组    
-     2.示例
-        let a = [1, &quot;&quot;, &quot;aa&quot;, 13, 6];
-        let res = a.every(function(val, index, arr){
-            return typeof val == &quot;number&quot;;
-        })
-        res;// false   
-2_arr.some(callback):测试数组中的某些元素是否通过由提供的函数实现的测试
-    1.callback(val, index, arr) : 需要执行的函数，接收三个参数：
-        val : 正在处理的当前元素;
-        index : 可选，正在处理的当前元素的索引;
-        arr : 可选，正在操作的数组;
-    2.示例
-        let a = [1, &quot;&quot;, &quot;aa&quot;, 13, 6];
-        let res = a.some(function(val, index, arr){
-            return typeof val == &quot;number&quot;;
-        })
-        res;// true</code></pre><h2 id="15-过滤数组的元素"><a href="#15-过滤数组的元素" class="headerlink" title="15.过滤数组的元素"></a>15.过滤数组的元素</h2><pre><code>arr.filter(callback):将所有在过滤函数中返回 true 的数组元素放进一个新数组中并返回
-1.callback(val, index, arr) : 需要执行的函数，接收三个参数：
-    val : 正在处理的当前元素;
-    index : 可选，正在处理的当前元素的索引;
-    arr : 可选，正在操作的数组;
-2.示例
-    let a = [1, &quot;&quot;, &quot;aa&quot;, 13, 6];
-    let res = a.filter(function(val, index, arr){
-        return typeof val == &quot;number&quot;;
-    })
-    res;//[1, 13, 6]</code></pre><h2 id="16-ES6的拓展运算符"><a href="#16-ES6的拓展运算符" class="headerlink" title="16.ES6的拓展运算符"></a>16.ES6的拓展运算符</h2><pre><code>1_语法:...[],分割数组的元素,类似于函数的rest参数的逆运算
-2_应用
-    1.拓展运算符搭配函数的不定参数
-        function f (a, ...b){
-           console.log(a, b);
-        }
-        f(...[1,2,3,4]);//1 [ 2, 3, 4 ]
-
-    2.替代apply方法
-            示例1:
-        // ES6之前
-            function f(a, b, c){...};
-            var a = [1, 2, 3];
-            f.apply(null, a);
-        // ES6之后
-            function f(a, b, c){...};
-            let a = [1, 2, 3];
-            f(...a);
-
-        示例2:
-         // ES6之前
-            Math.max.apply(null, [3,2,6]);
-        // ES6之后
-            Math.max(...[3,2,6]);
-
-    3.实现数组的深拷贝
-        // 通常情况 浅拷贝
-            let a1 = [1, 2];
-            let a2 = a1; 
-            a2[0] = 3;
-            console.log(a1,a2); // [3,2] [3,2]
-        // 拓展运算符 深拷贝
-            let a11 = [1, 2];
-            let a22 = [...a11];
-            a22[0] = 3;
-            console.log(a11,a22); // [1,2] [3,2]
-
-    4.合并数组:合并后的数组是深拷贝
-        let a1 = [1,2];
-        let a2 = [3];
-        let a3 = [4,5];
-        // ES5 
-        let a4 = a1.concat(a2, a3);
-        // ES6
-        let a5 = [...a1, ...a2, ...a3];
-        console.log(a4) //[ 1, 2, 3, 4, 5 ]
-        console.log(a5) //[ 1, 2, 3, 4, 5 ]
-        //打印
-        a1[0] = 100;
-        console.log(a4) //[ 1, 2, 3, 4, 5 ]
-        console.log(a5) //[ 1, 2, 3, 4, 5 ]
-
-    5.与解构赋值结合
-        let [a, ...b] = [1, 2, 3, 4]; 
-        // a =&gt; 1  b =&gt; [2,3,4]</code></pre><h2 id="17-includes-是否包含特定值"><a href="#17-includes-是否包含特定值" class="headerlink" title="17.includes():是否包含特定值"></a>17.includes():是否包含特定值</h2><pre><code>第二个参数为起始位置，默认为0
-    [1,2,3].includes(2);     // true
-    [1,2,3].includes(3,-1);   // true</code></pre><h2 id="18-数组一维化"><a href="#18-数组一维化" class="headerlink" title="18.数组一维化"></a>18.数组一维化</h2><pre><code>1_flat()
-    flat()用于将数组一维化，返回一个新数组，不影响原数组。
-    默认一次只一维化一层数组，若需多层，则传入一个整数参数指定层数。
-    若要一维化所有层的数组，则传入Infinity作为参数
-    [1, 2, [2,3]].flat();        // [1,2,2,3]
-    [1,2,[3,[4,[5,6]]]].flat(2); // [1,2,[3,4,5,6]]        
-    [1,2,[3,[4,[5,6]]]].flat(3); // [1,2,3,4,5,6]
-    [1,2,[3,[4,[5,6]]]].flat(&apos;Infinity&apos;); // [1,2,3,4,5,6]
- 2_flatMap()
-   1.将原数组每个对象先执行一个函数，在对返回值组成的数组执行flat()方法，返回一个新数组，不改变原数组
-   2.示例:
-   [2, 3, 4].flatMap((x) =&gt; [x, x * 2]);  // [2, 4, 3, 6, 4, 8] </code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/118_web19_js的字符串/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/118_web19_js的字符串/" itemprop="url">118_web19_js的字符串</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:40:48+08:00">
-                2020-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/30/118_web19_js的字符串/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/118_web19_js的字符串/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/30/118_web19_js的字符串/" class="leancloud_visitors" data-flag-title="118_web19_js的字符串">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  847
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-字符串的创建"><a href="#1-字符串的创建" class="headerlink" title="1.字符串的创建"></a>1.字符串的创建</h2><pre><code>1_字面量
-    let a = &apos;hello&apos;; 
-2_字符串创建变量
-    let a = new String(&apos;hello&apos;); </code></pre><h2 id="2-字符串的默认属性"><a href="#2-字符串的默认属性" class="headerlink" title="2.字符串的默认属性"></a>2.字符串的默认属性</h2><pre><code>1_length属性</code></pre><h2 id="3-字符串拼接"><a href="#3-字符串拼接" class="headerlink" title="3.字符串拼接"></a>3.字符串拼接</h2><pre><code>1,加法:&apos;abc&apos; + v1 + &apos;def&apos;;
-2,concat方法连接:&apos;a&apos;.concat(&apos;a&apos;,&apos;b&apos;),concat后边跟任意个字符串
-3,模板字符串:let a = `abc${v1}def`
-4,重复字符串:repeat() 
-    &apos;ab&apos;.repeat(3);// &apos;ababab&apos;
-5,头部补全: padStart()
-    1_接收2个参数，第一个指定字符串最小长度，第二个用于补全的字符串
-    2_&apos;x&apos;.padStart(5, &apos;ab&apos;);   // &apos;ababx&apos;
-    3_超出最小长度,用空格补全&apos;x&apos;.padStart(4); // &apos;    x&apos;
-6,尾部补全:padEnd()
-    1_接收2个参数，第一个指定字符串最小长度，第二个用于补全的字符串
-    2_&apos;x&apos;.padEnd(5, &apos;ab&apos;);     // &apos;xabab&apos;
-    3_超出最小长度,用空格补全&apos;x&apos;.padEnd(4); // &apos;x    &apos;</code></pre><h2 id="4-字符串是否包含其他字符串"><a href="#4-字符串是否包含其他字符串" class="headerlink" title="4.字符串是否包含其他字符串"></a>4.字符串是否包含其他字符串</h2><pre><code>返回bool
-    1.includes():返回布尔值，表示是否找到参数字符串。
-    2.startsWith():返回布尔值，表示参数字符串是否在原字符串的头部。
-    3.endsWith():返回布尔值，表示参数字符串是否在原字符串的尾部。    
-返回位置
-    4.indexOf()：包含返回首次匹配的位置,不包含返回-1
-    5.search():包含返回首次匹配的位置,不包含返回-1
-正则
-    6.match():可在字符串内检索指定的值，或找到一个或多个正则表达式的匹配
-        var str = &quot;123&quot;
-        var reg = RegExp(/3/);
-        if(str.match(reg)){
-         //包含；
-        }
-    7.test():用于检索字符串中指定的值。返回 true 或 false
-        var str = &quot;123&quot;
-        var reg = RegExp(/3/);
-        console.log(reg.test(str) != -1); // true
-    8.exec():用于检索字符串中的正则表达式的匹配。返回一个数组，其中存放匹配的结果。如果未找到匹配，则返回值为 null
-        var str = &quot;123&quot;
-        var reg = RegExp(/3/);
-        if(reg.exec(str)){
-         //包含；
-        }</code></pre><h2 id="5-字符串对象方法"><a href="#5-字符串对象方法" class="headerlink" title="5.字符串对象方法"></a>5.字符串对象方法</h2><pre><code>1.查找指定位置的字符:.string.charAt(3)
-2.查找指定字符串的位置  :2个参数,第一个为查找的字符串,第二个是查找的位置
-   2.1 字符串开头: indexOf
-        1_string.indexOf(&apos;lo&apos;,5)
-        2_返回第一次出现的索引
-        3_没有查到内容，返回-1
-   2.2 字符串结尾: indexOf
-        1_string.indexOf(&apos;lo&apos;,0)
-        2_返回最后一次出现的索引
-        3_没有查到内容，返回-1
-3.分割字符串:split分割(利用指定字符串分割)
-    1.split(separator[,limit])可以接收2个参数：
-        separator：必需，字符串或者正则表达式，作为分割的内容；
-        limit：可选，作为指定返回的数组的最大长度；
-    2.例子:a.split(&quot;&quot;,4);
-4.分割字符串:slice切割(利用指定下标分割)
-    slice([start,end]) 可以接收2个参数：
-        start：要提取的片段的起始下标，若小于零，则从字符串尾部开始算起，如-1表示字符串最后一个字符，-2为倒数第二个字符等等。
-        end：要提取的片段的结束下标，若没有传入，则表示从start到字符串结尾，若为负数则从字符串尾部开始算起。</code></pre><h2 id="6-字符串替换"><a href="#6-字符串替换" class="headerlink" title="6.字符串替换"></a>6.字符串替换</h2><h2 id="7-字符串遍历"><a href="#7-字符串遍历" class="headerlink" title="7.字符串遍历"></a>7.字符串遍历</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/29/117_web18_js的对象/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/29/117_web18_js的对象/" itemprop="url">117_web18_js的对象</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-29T23:21:48+08:00">
-                2020-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/29/117_web18_js的对象/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/29/117_web18_js的对象/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/29/117_web18_js的对象/" class="leancloud_visitors" data-flag-title="117_web18_js的对象">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.4k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-对象的基本组成"><a href="#1-对象的基本组成" class="headerlink" title="1_对象的基本组成"></a>1_对象的基本组成</h2><pre><code>let me = {
-        name : &apos;pingan&apos;,
-        eat: function(){
-            console.log(&apos;eat eat eat!!!&apos;);
-        }
-    }
-1_属性
-    1_获取属性的方法1-&gt;点表示法:me.name = &quot;leo&quot;;   // me =&gt; {name: &quot;leo&quot;}
-    2_获取属性的方法1-&gt;点括号表示法:me[&quot;name&quot;] = &quot;leo&quot;;// me =&gt; {name: &quot;leo&quot;}
-2_方法
-    me.eat();</code></pre><h2 id="2-属性的操作"><a href="#2-属性的操作" class="headerlink" title="2_属性的操作"></a>2_属性的操作</h2><pre><code>1_获取对象的所有属性方法:
-    1 for...in 循环(对象及原型链中所有可枚举的属性)
-        let obj = {a:1, b:2, c:3};
-            for (let i in obj) {
-              console.log(&quot;obj.&quot; + i + &quot; = &quot; + obj[i]);
-            }
-    2 Object.keys(o) (对象中所有属性名称的数组(不包括原型链))
-        let obj = {a:1, b:2, c:3};
-        let arr = Object.keys(obj);
-    3 Object.getOwnPropertyNames(o):它包含了对象 o 所有拥有的属性（无论是否可枚举）的名称
-    let obj = {a:1, b:2, c:3};
-    let arr = Object.getOwnPropertyNames(obj);
-
-  2_删除属性:delete,
-    继承自父类的属性不能删除,
-    Object.defineProperty定义的属性不能删除
-    使用: delete obj4.a;
-
-  3_判断属性是否存在
-    1.in方法：自己和继承的都包含
-        console.log(&apos;toString&apos; in obj4);
-    2.hasOwnProperty方法：只包括自己的属性
-        console.log(obj4.hasOwnProperty(&apos;toString&apos;));</code></pre><h2 id="3-属性的简洁表示"><a href="#3-属性的简洁表示" class="headerlink" title="3_属性的简洁表示"></a>3_属性的简洁表示</h2><pre><code>1.普通对象
-    let b = { a };  
-    // 等同于let b = { a : a };     
- 2.函数中返回对象
-    function f(a, b){
-         return {a, b}; 
-    }
-    // 等同于
-    function f (a, b){
-        return {a:a ,b:b};
-    }
-  3.对象中的函数属性
-    let a = {
-            fun () {
-                return &apos;leo&apos;;
-            }
-        }
-    // 等同于
-    let a = {
-            fun : function(){
-                return &apos;leo&apos;;
-            }
-        }</code></pre><h2 id="4-对象的浅拷贝和深拷贝"><a href="#4-对象的浅拷贝和深拷贝" class="headerlink" title="4_对象的浅拷贝和深拷贝"></a>4_对象的浅拷贝和深拷贝</h2><pre><code>1_深拷贝:值拷贝
-2_浅拷贝:对象拷贝(地址拷贝)
-3_直接赋值是浅拷贝
-    var obj1 = {
-    name: &apos;shen&apos;
-    }
-    var obj2 = obj1
-    obj2.name = &apos;shenzhiyong&apos;
-4_实现对象深拷贝的方法
-    1.使用json方法:只适应普通对象,属性中有函数就不行了。
-        var obj1 = {
-            name: &apos;shen&apos;
-        }
-        var obj2 = JSON.parse(JSON.stringify(obj1))
-        obj2.name = &apos;shenzhiyong&apos;
-    2.以下只适用没有嵌套的对象
-        1_es6解析结构 「...」
-            var obj1 = {
-                name: &apos;shen&apos;,
-                show: function (argument) {
-                    console.log(1)
-                }
-            }
-            var obj2 = { ...obj1 }
-            obj2.name = &apos;shenzhiyong&apos;
-            console.log(&apos;obj1:&apos;, obj1)  // obj {name: &quot;szy&quot;, show: ƒ}
-            console.log(&apos;obj2:&apos;, obj2)   // obj2 {name: &quot;shenzhiyong&quot;,show:ƒ}
-        2_Object.assign()
-                var obj1 = {
-                name: &apos;shen&apos;,
-                show: function (argument) {
-                    console.log(1)
-                }
-            }
-            var obj2 = Object.assign(obj1)
-            obj2.name = &apos;shenzhiyong&apos;
-            console.log(&apos;obj1:&apos;, obj1)  // obj {name: &quot;szy&quot;, show: ƒ}
-            console.log(&apos;obj2:&apos;, obj2)   // obj2 {name: &quot;shenzhiyong&quot;,show:ƒ}
-        3_数组中的slice() &amp; concat()
-            var arr1 = [1,2,3]
-            var arr2 = arr1.slice()  // 方法一
-            // var arr2 = arr1.concat()  //方法二
-            arr2.push(4)
-            console.log(&apos;arr1:&apos;, arr1)  // arr1: [1, 2, 3]
-            console.log(&apos;arr2:&apos;, arr2)  // arr1: [1, 2, 3, 4]
-
-    3.终极解决办法手写递归方法
-            // 定义一个深拷贝函数  接收目标target参数
-        function deepClone(target) {
-            // 定义一个变量
-            let result;
-            // 如果当前需要深拷贝的是一个对象的话
-            if (typeof target === &apos;object&apos;) {
-            // 如果是一个数组的话
-                if (Array.isArray(target)) {
-                    result = []; // 将result赋值为一个数组，并且执行遍历
-                    for (let i in target) {
-                        // 递归克隆数组中的每一项
-                        result.push(deepClone(target[i]))
-                    }
-                 // 判断如果当前的值是null的话；直接赋值为null
-                } else if(target===null) {
-                    result = null;
-                 // 判断如果当前的值是一个RegExp对象的话，直接赋值    
-                } else if(target.constructor===RegExp){
-                    result = target;
-                }else {
-                 // 否则是普通对象，直接for in循环，递归赋值对象的所有值
-                    result = {};
-                    for (let i in target) {
-                        result[i] = deepClone(target[i]);
-                    }
-                }
-             // 如果不是对象的话，就是基本数据类型，那么直接赋值
-            } else {
-                result = target;
-            }
-             // 返回最终结果
-            return result;
-        }
-    4.使用第三方库:jQuery.extend 和 lodash等</code></pre><h2 id="5-判断两个对象是否相等"><a href="#5-判断两个对象是否相等" class="headerlink" title="5_判断两个对象是否相等"></a>5_判断两个对象是否相等</h2><pre><code>1, ==:表示值相等
-2, ===:表示严格值相等
-3, Object.is(a,b):表示a,b是否指向同一个指针对象
-     var a = {
-       id:1
-     };
-     var b = a;
-     console.log(Object.is(a,b));   //true
- 4,Object.is(a,b):不能判断没有拷贝关系的对象
-     var a = {
-       id:1
-     };
-     var b = {
-       id:1
-     }
-     console.log(Object.is(a,b));   //false
- 5,终极解决办法:
-     只要两个对象的名和键值都相同。那么两个对象的内容就相同
-     封装通用方法</code></pre><h2 id="6-创建对象的方法"><a href="#6-创建对象的方法" class="headerlink" title="6_创建对象的方法"></a>6_创建对象的方法</h2><pre><code>1，基本写法:new Object的方式
-    var obj1 = new Object();
-    obj1.name = &apos;wendingding&apos;;
-    obj1.age = 18;
-
-2, Object.create(proto, [propertiesObject]) 的方法
-    创建一个新对象，使用现有的对象来提供新创建的对象的 __proto __
-
-2，字面量的方式创建对象
-    var obj2 = {name:&quot;wendingding&quot;,age:18};
-
-3,字符串转对象:eval函数创建对象:大括号外部包一层小括号
-     let demo = eval(&quot;({foo:2})&quot;)
-     console.log(demo.foo)
-
-4,json转对象:JSON.parse
-    var obj = JSON.parse(&apos;{&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:14}&apos;);
-    console.log(obj.name)
-
-5，内置构造函数创建对象
-    1_有以下类型:
-        String
-        Number
-        Boolean
-        Date
-        Array
-        Function
-        Object
-        RegExp
-    2_示例
-        var s1 = &apos;abc&apos;;//s1是字符串
-        var obj3 = new String(&apos;abc&apos;);//obj3是字符串对象
-
-6，封装工厂函数创建对象
-    function createBookNew (name,price) {
-        var book = new Object();
-        book.name = name;
-        book.price = price;
-        return book;//一定要加上return
-    }
-    var book3 = createBookNew(&quot;悟空传&quot;,&quot;28.00&quot;);
-
-5，定义构造函数创建对象
-    //1_构造方法
-    function CreateBook (name,price,author,press) {
-        this.name = name;
-        this.price = price;
-        this.author = author;
-        this.press = press;
-        this.read = function () {
-            console.log(&quot;我的书名为:&quot;+this.name+&quot;,作者为&quot;+this.author+&quot;....&quot;);
-        };
-    }
-    //2_创建对象
-    var bookObj = new CreateBook(&quot;声名狼藉者的的生活&quot;,&quot;42.00&quot;,&quot;福柯&quot;,&quot;北京大学出版社&quot;);
-    //3_对象调用方法
-    bookObj.read();</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/29/116_web17_js基本数据和函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/29/116_web17_js基本数据和函数/" itemprop="url">116_web17_js基本数据和函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-29T11:21:48+08:00">
-                2020-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/29/116_web17_js基本数据和函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/29/116_web17_js基本数据和函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/29/116_web17_js基本数据和函数/" class="leancloud_visitors" data-flag-title="116_web17_js基本数据和函数">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  877
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-常量和变量"><a href="#1-常量和变量" class="headerlink" title="1_常量和变量"></a>1_常量和变量</h2><pre><code>1,let,var,const
-    ES6及以后let和var变量作用域不一样
-2,变量声明提升:
-    将变量的声明提升到函数或语句的顶部，并返回undefined直到变量被初始化操作。
-    ES5及以前采用,ES6及以后没有
-3,函数声明提升
-    函数声明有3种方式
-    1,函数声明
-        f();   // &apos;hi leo&apos;
-        function f(){
-            console.log(&apos;hi leo&apos;);
-        };
-    2,函数表达式声明
-        f();   // 报错
-        var f = function(){
-            console.log(&apos;hi leo&apos;);
-        };
-    3,函数对象声明
-        f();   // 报错
-        var f = new Function(){
-            console.log(&apos;hi leo&apos;);
-        };</code></pre><h2 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2_数据类型"></a>2_数据类型</h2><pre><code>1_六种原型数据类型：
-    1.Boolean : 布尔值，true和false;
-    2.null : 对大小写敏感（即null/Null/NULL完全不同）;
-    3.undefined : 空类型，变量未定义时候的值；
-    4.Number : 数值类型，如100;
-    5.String : 字符串类型，如&apos;hi pingan&apos;;
-    6.Symbol（ES6新增） : 表示一种唯一且不可变的数据;
-2_引用数据类型
-    1.狭义的对象Object
-    2.数组
-    3.函数</code></pre><h2 id="3-字面量"><a href="#3-字面量" class="headerlink" title="3_字面量"></a>3_字面量</h2><pre><code>1.数组字面量:let a = [&apos;hi&apos;,&apos;leo&apos;];
-2.布尔字面量:let a = true;
-3.浮点数字面量:let a = 0.5(正常表示;带e指数表示)
-4.整数字面量:let a = 5(不同进制表示)
-5.对象字面量:let a ={1:8} (键值对表)
-    1_点语法取值
-    2_中括号取值
-6.正则字面量:let a = /ab+c/(两个斜杠)
-7.字符串字面量
-    1_单引号:&apos;aa&apos;
-    2_双引号:&quot;aa&quot;
-    3_模板自变量`hello${a}`</code></pre><h2 id="4-函数"><a href="#4-函数" class="headerlink" title="4_函数"></a>4_函数</h2><h3 id="4-1-定义"><a href="#4-1-定义" class="headerlink" title="4.1 定义"></a>4.1 定义</h3><pre><code>1，函数声明
-    function f(){
-            console.log(&apos;hi leo&apos;);
-        };
-2，函数表达式(函数字面量)
-     var f = function(){
-            console.log(&apos;hi leo&apos;);
-        };
-3，使用Function构造函数创建
-      var f = new Function(){
-            console.log(&apos;hi leo&apos;);
-        };</code></pre><h3 id="4-2-调用方式"><a href="#4-2-调用方式" class="headerlink" title="4.2 调用方式"></a>4.2 调用方式</h3><pre><code>1, 普通函数调用模式
-    f(5,6)
-2, 对象方法调用模式
-    var o1 = {
-        name: &quot;文顶顶&quot;,
-        showName: function() {
-            console.log(&apos;对象方法调用：&apos; +this.name); 
-        }
-    };
-    o1.showName();
-3, 构造函数调用模式
-    function Person() {
-        console.log(&apos;构造函数调用：&apos; +this);
-    }
-    new Person();
-4, 上下文的调用模式
-    //函数定义
-    function f4(a, b) {
-        console.log(a, b, a + b);
-        console.log(this); //使用上下文模式调用时，this被绑定给o对象
-        console.log(this.name); //wendingding
-     }
-    //创建对象
-    var o2 = {
-        name: &quot;wendingding&quot;
-    };
-    //函数上下文调用
-    f4.apply(o2, [1, 2]);//f4中的this指向o2
-    f4.call(o2, 3, 4);//f4中的this指向o2
-    f4(1,2);//f4中的this指向全局的window</code></pre><h3 id="4-3-默认属性"><a href="#4-3-默认属性" class="headerlink" title="4.3 默认属性"></a>4.3 默认属性</h3><pre><code>1，this
-2，arguments：参数数组
-3，length参数个数
-4，name函数名称</code></pre><h3 id="4-4-默认方法"><a href="#4-4-默认方法" class="headerlink" title="4.4 默认方法"></a>4.4 默认方法</h3><pre><code>1，toString：返回函数整体字符串
-2，apply
-3，call</code></pre><h3 id="4-5-特殊参数"><a href="#4-5-特殊参数" class="headerlink" title="4.5 特殊参数"></a>4.5 特殊参数</h3><pre><code>1_默认参数
-    function f(a, b = 1){
-        return a * b;
-    }
-2_不确定参数
-    function f (a, ...b){
-        console.log(a, b);
-    }
-    f(1,2,3,4); // a =&gt; 1 ,b =&gt; [2, 3, 4]</code></pre><h3 id="4-6-箭头函数"><a href="#4-6-箭头函数" class="headerlink" title="4.6 箭头函数"></a>4.6 箭头函数</h3><pre><code>1_写法
-    // 1_没参数
-        let f = () =&gt; 1;
-        等同于let f = function (){return 1};
-    // 2_有1个参数:
-        let f = v =&gt; v;
-        等同于let f = function (v){return v};
-    // 3_有多个参数
-        let f = (v, i) =&gt; {return v + i};
-        等同于let f = function (v, i){return v + i};
-2_注意点
-    1_箭头函数内的this总是指向定义时所在的对象，而不是调用时。
-    2_箭头函数不能当做构造函数，即不能用new命令，否则报错。
-    3_箭头函数不存在arguments对象，即不能使用，可以使用rest参数代替。
-    3_箭头函数不能使用yield命令，即不能用作Generator函数。</code></pre><h3 id="4-7-自执行函数"><a href="#4-7-自执行函数" class="headerlink" title="4.7 自执行函数"></a>4.7 自执行函数</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3276,7 +2944,7 @@ Person { b: &apos;b&apos; }
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">135</span>
+                  <span class="site-state-item-count">139</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3406,7 +3074,7 @@ Person { b: &apos;b&apos; }
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">80k</span>
+    <span title="Site words total count">81.6k</span>
   
 </div>
 

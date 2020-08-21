@@ -280,6 +280,1328 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/31/124_web25_js的原型链/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/31/124_web25_js的原型链/" itemprop="url">124_web25_js的原型链</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T09:45:48+08:00">
+                2020-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/31/124_web25_js的原型链/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/31/124_web25_js的原型链/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/31/124_web25_js的原型链/" class="leancloud_visitors" data-flag-title="124_web25_js的原型链">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  445
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-原型和原型链"><a href="#1-原型和原型链" class="headerlink" title="1.原型和原型链"></a>1.原型和原型链</h2><pre><code>核心就是构造函数,原型对象,实例对象的关系</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8792.png" alt></p>
+<h2 id="3-prototype"><a href="#3-prototype" class="headerlink" title="3.prototype"></a>3.prototype</h2><pre><code>1_函数才具有的默认属性,本身是个对象
+2_从一个函数指向一个对象的指针
+3_prototype对象默认有两个属性，constructor属性和__proto__属性
+4_prototype属性可以给函数和对象添加可共享（继承）的方法、属性</code></pre><h2 id="4-proto"><a href="#4-proto" class="headerlink" title="4.proto"></a>4.<strong>proto</strong></h2><pre><code>1_每个对象都具有__proto__属性,本身是个对象
+2_指向构造函数的原型对象
+3_函数这个特殊对象同时具有__proto__属性h额prototype
+
+   var Person = function() {
+        this.name = &apos;my name&apos;;
+       }
+   var p = new Person();
+   console.log(p1.__proto__ == Person.prototype) // 输出true</code></pre><h2 id="5-constructor"><a href="#5-constructor" class="headerlink" title="5.constructor"></a>5.constructor</h2><pre><code>1_当一个函数被以“构造调用”的方式执行时候
+2_每个函数都有一个原型对象prototype，该原型对象有一个constructor属性，指向创建对象的函数本身,本身是个函数</code></pre><h2 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h2><pre><code>函数就是 Function 的实例. 即 Function 就是函数的构造函数.
+任意一个函数继承自 Function.prototype. 可以看做是 Function 的实例.
+        而 Function.prototype 又是继承自 Object.prototype(原型).</code></pre><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">//1_普通对象</span></span><br><span class="line">    <span class="keyword">var</span> f1 = &#123;<span class="attr">a</span>:<span class="string">'a'</span>&#125;</span><br><span class="line">    <span class="built_in">console</span>.log(f1.prototype)</span><br><span class="line">    <span class="built_in">console</span>.log(f1.__proto__)</span><br><span class="line">    <span class="built_in">console</span>.log(f1.constructor)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'\n'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2_普通函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">f2</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.name = <span class="string">'a'</span></span><br><span class="line">    &#125;</span><br><span class="line">    f2.prototype.b = <span class="string">'b'</span></span><br><span class="line">    <span class="built_in">console</span>.log(f2.prototype)</span><br><span class="line">    <span class="built_in">console</span>.log(f2.__proto__)</span><br><span class="line">    <span class="built_in">console</span>.log(f2.constructor)</span><br><span class="line">    <span class="built_in">console</span>.log(f2.prototype.constructor)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'\n'</span>)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="comment">//3_构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	<span class="keyword">this</span>.name = <span class="string">'a'</span></span><br><span class="line">    &#125;</span><br><span class="line">    Person.prototype.b = <span class="string">'b'</span></span><br><span class="line">    <span class="keyword">var</span> f3 = <span class="keyword">new</span> Person;</span><br><span class="line">    <span class="built_in">console</span>.log(Person.prototype)</span><br><span class="line">    <span class="built_in">console</span>.log(f3.__proto__)</span><br><span class="line">    <span class="built_in">console</span>.log(f3.constructor)</span><br><span class="line">    <span class="built_in">console</span>.log(Person.prototype.constructor)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'\n'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//4_默认函数</span></span><br><span class="line">    <span class="keyword">var</span> f4 = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">1</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">Number</span>.prototype)</span><br><span class="line">    <span class="built_in">console</span>.log(f4.__proto__)</span><br><span class="line">    <span class="built_in">console</span>.log(f4.constructor)</span><br><span class="line"><span class="string">``</span><span class="string">`        </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    运行结果结果:</span></span><br></pre></td></tr></table></figure>
+
+<pre><code>    undefined
+{}
+[Function: Object]
+
+
+f2 { b: &apos;b&apos; }
+[Function]
+[Function: Function]
+[Function: f2]
+
+
+Person { b: &apos;b&apos; }
+Person { b: &apos;b&apos; }
+[Function: Person]
+[Function: Person]
+
+
+[Number: 0]
+[Number: 0]
+[Function: Number]</code></pre><pre><code></code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/123_web24_js的JSON对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/123_web24_js的JSON对象/" itemprop="url">123_web24_js的JSON对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:45:48+08:00">
+                2020-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/30/123_web24_js的JSON对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/123_web24_js的JSON对象/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/30/123_web24_js的JSON对象/" class="leancloud_visitors" data-flag-title="123_web24_js的JSON对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  805
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1_定义"></a>1_定义</h2><pre><code>1.JSON全称JavaScript 对象表示法（JavaScript Object Notation）。是一种严格的JS对象的格式
+2.JSON 是存储和交换文本信息的语法。类似 XML。
+3.JSON 比 XML 更小、更快，更易解析。</code></pre><h2 id="2-特点"><a href="#2-特点" class="headerlink" title="2_特点"></a>2_特点</h2><pre><code>1.当作为对象时，用于获取JSON中的数据，
+2.而作为字符串时常用于网络数据传输    </code></pre><h2 id="3-JSON语法规则："><a href="#3-JSON语法规则：" class="headerlink" title="3_JSON语法规则："></a>3_JSON语法规则：</h2><pre><code>1_数据在名称/值对中
+2_数据由逗号分隔
+3_花括号保存对象
+4_方括号保存数组</code></pre><h2 id="4-JSON对象和js对象"><a href="#4-JSON对象和js对象" class="headerlink" title="4_JSON对象和js对象"></a>4_JSON对象和js对象</h2><pre><code>1_JSON对象 必须加双引号，而 js 对象属性名可以不加双引号。
+2_JSON对象 没有变量声明，而 js 对象有。
+3_JSON对象 没有分号，而 js 对象有。</code></pre><h2 id="4-JSON对象和js对象-1"><a href="#4-JSON对象和js对象-1" class="headerlink" title="4_JSON对象和js对象"></a>4_JSON对象和js对象</h2><pre><code>内容放在方括号内</code></pre><h2 id="5-序列化操作"><a href="#5-序列化操作" class="headerlink" title="5_序列化操作"></a>5_序列化操作</h2><pre><code>1_JSON.stringify()
+2_将JavaScript对象转换成JSON字符串
+  3_不论是普通的js对象,还是严格的json对象,都会转成标准的json字符串
+4_序列化规则
+    1.默认情况下，JSON.stringify()输出的JSON字符串不包含任何空格字符或缩进，因此结果就像上面那样。
+    2.⚠️序列化JavaScript对象时，所有函数及原型成员都会被忽略，不体现在结果上。
+    3.值为undefined的任何属性都会被跳过
+5_序列化过滤器
+    1_若过滤器的第二个参数是数组，则JSON.stringify()返回的结果将只包含数组中的属性
+        var leo =  {
+            name : &quot;leo&quot;,
+            age  : 25,
+            box  : [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+        }
+        var pingan = JSON.stringify(leo,[&quot;name&quot;,&quot;age&quot;]);
+        console.log(pingan); // &quot;{&quot;name&quot;:&quot;leo&quot;,&quot;age&quot;:25}&quot;
+    2_过滤器的第二个参数是函数，则情况就不一样了，传入的函数需有两个参数（属性名和属性值
+        var leo =  {
+        &quot;name&quot; : &quot;leo&quot;,
+        &quot;age&quot;  : 25,
+        &quot;box&quot;  : [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+    }
+    var pingan = JSON.stringify(leo,function(key, value){
+        switch(key){
+            case &quot;name&quot;:
+                return &quot;我叫&quot; + value
+            case &quot;age&quot;:
+                return value + &quot;岁&quot;
+            default:
+                return value
+        }
+    });
+    console.log(pingan); // &quot;{&quot;name&quot;:&quot;我叫leo&quot;,&quot;age&quot;:&quot;25岁&quot;,&quot;box&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]}&quot;
+
+6_选项JSON.stringify()第三个参数是个选项，控制结果中的缩进和空白符
+    若选项只有一个值，则表示每个级别缩进的空格数
+    var leo =  {
+        &quot;name&quot; : &quot;leo&quot;,
+        &quot;age&quot;  : 25,
+        &quot;box&quot;  : [&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]
+    }
+    var pingan = JSON.stringify(leo, null, 4);
+    console.log(pingan);
+    /*
+    &quot;{
+        &quot;name&quot;: &quot;leo&quot;,
+        &quot;age&quot;: 25,
+        &quot;box&quot;: [
+            &quot;a&quot;,
+            &quot;b&quot;,
+            &quot;c&quot;
+        ]
+    }&quot;
+    */</code></pre><h2 id="6-反序列化操作"><a href="#6-反序列化操作" class="headerlink" title="6_反序列化操作"></a>6_反序列化操作</h2><pre><code>1_JSON.parse()
+2_如果字符串不是有效的JSON，则会抛出错误
+3_示例
+    let pingan = &apos;{&quot;name&quot;:&quot;leo&quot;,&quot;age&quot;:25,&quot;box&quot;:[&quot;a&quot;,&quot;b&quot;,&quot;c&quot;]}&apos;
+    let copyPingan = JSON.parse(pingan);
+    console.log(copyPingan); // { name: &apos;leo&apos;, age: 25, box: [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos; ] }
+4_解析函数(还原函数)
+    1_还原函数接收两个参数：属性名和属性值
+    2_示例
+        var leo =  {
+            &quot;name&quot; : &quot;leo&quot;,
+            &quot;age&quot;  : 25,
+            &quot;date&quot; : new Date(1993, 9, 9)
+        }
+        var pingan = JSON.stringify(leo);
+        var copy = JSON.parse(pingan,function (key, value){
+            // return key == &quot;date&quot; ? new Date(value) : value;
+            if(key == &quot;date&quot;){
+                return new Date(value);
+            }else{
+                return value; 
+            }
+        })
+        console.log(copy);</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/122_web23_js的元编程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/122_web23_js的元编程/" itemprop="url">122_web23_js的元编程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:44:48+08:00">
+                2020-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/30/122_web23_js的元编程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/122_web23_js的元编程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/30/122_web23_js的元编程/" class="leancloud_visitors" data-flag-title="122_web23_js的元编程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" itemprop="url">121_web22_js的迭代器和生成器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:43:48+08:00">
+                2020-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/30/121_web22_js的迭代器和生成器/" class="leancloud_visitors" data-flag-title="121_web22_js的迭代器和生成器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  730
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-迭代器-Iterator"><a href="#1-迭代器-Iterator" class="headerlink" title="1.迭代器(Iterator)"></a>1.迭代器(Iterator)</h2><pre><code>1_概念
+    迭代器是一种特殊对象，它具有一些专门为迭代过程设计的专有接口，所有的迭代器对象都有一个next()方法，每次调用都会返回一个结果对象
+2_属性
+    value: 表示下一个将要返回的值。
+    done: 一个布尔值，若没有更多可返回的数据时，值为true，否则false
+3_ES5实现
+    let f = function (arr){
+        var nextIndex = 0;
+        return {
+            next:function(){
+                return nextIndex &lt; arr.length ?
+                {value: arr[nextIndex++], done: false}:
+                {value: undefined, done: true}
+            }
+        }
+    }
+
+    let a = f([&apos;a&apos;, &apos;b&apos;]);
+    a.next(); // { value: &quot;a&quot;, done: false }
+    a.next(); // { value: &quot;b&quot;, done: false }
+    a.next(); // { value: undefined, done: true }
+
+    4_ES6的的实现
+        1_如果一个数据结构具有Symbol.iterator属性，就可以认为是可迭代
+        2_Symbol.iterator属性本身是函数，是当前数据结构默认的迭代器生成函数。执行这个函数，就会返回一个迭代器
+        3_原生具有Iterator接口的数据结构有：
+            Array
+            Map
+            Set
+            String
+            TypedArray
+            函数的 arguments 对象
+            NodeList 对象
+   5_原生的接口示例
+        let arr = [&apos;a&apos;, &apos;b&apos;, &apos;c&apos;];
+        let iter = arr[Symbol.iterator]();
+        console.log(iter.next()) // { value: &apos;a&apos;, done: false }
+        console.log(iter.next()) // { value: &apos;b&apos;, done: false }
+        console.log(iter.next()) // { value: &apos;c&apos;, done: false }
+        console.log(iter.next()) // { value: undefined, done: true } 
+    5_Iterator使用场景
+        1_解构赋值
+            let a = new Set().add(&apos;a&apos;).add(&apos;b&apos;).add(&apos;c&apos;);
+            let [x, y] = a;       // x = &apos;a&apos;  y = &apos;b&apos;
+            let [a1, ...a2] = a;  // a1 = &apos;a&apos; a2 = [&apos;b&apos;,&apos;c&apos;]
+        2_扩展运算符
+            let a = &apos;hello&apos;;
+            [...a];            //  [&apos;h&apos;,&apos;e&apos;,&apos;l&apos;,&apos;l&apos;,&apos;o&apos;]
+        3_yield*
+        4_其他场合
+            for...of
+            Array.from()
+            Map(), Set(), WeakMap(), WeakSet()（比如new Map([[&apos;a&apos;,1],[&apos;b&apos;,2]])）
+            Promise.all()
+            Promise.race()</code></pre><h2 id="2-自定义可迭代对象"><a href="#2-自定义可迭代对象" class="headerlink" title="2.自定义可迭代对象"></a>2.自定义可迭代对象</h2><pre><code>1_为了实现可迭代，一个对象必须实现 @@iterator 方法，这意味着这个对象（或其原型链中的任意一个对象）必须具有一个带 Symbol.iterator 键（key）的属性。
+2_示例
+    var myIterable = {
+      *[Symbol.iterator]() {
+        yield 1;
+        yield 2;
+        yield 3;
+      }
+    }
+
+    for (let value of myIterable) { 
+        console.log(value); 
+    }
+    // 1
+    // 2
+    // 3
+    // 或者
+    [...myIterable]; // [1, 2, 3]</code></pre><h2 id="3-内置默认的可迭代对象"><a href="#3-内置默认的可迭代对象" class="headerlink" title="3.内置默认的可迭代对象"></a>3.内置默认的可迭代对象</h2><pre><code>String、Array、TypedArray、Map 和 Set 都是内置可迭代对象，因为它们的原型对象都拥有一个 Symbol.iterator 方法</code></pre><h2 id="4-用于可迭代对象的语法"><a href="#4-用于可迭代对象的语法" class="headerlink" title="4.用于可迭代对象的语法"></a>4.用于可迭代对象的语法</h2><pre><code>for-of 循环，展开语法，yield* 和 解构赋值。</code></pre><h2 id="5-生成器-Generator"><a href="#5-生成器-Generator" class="headerlink" title="5.生成器(Generator)"></a>5.生成器(Generator)</h2><pre><code>1_概念
+    执行Genenrator函数会返回一个遍历器对象，依次遍历Generator函数内部的每一个状态
+2_两个特征
+    function关键字与函数名之间有个星号；
+    函数体内使用yield表达式，定义不同状态；
+3_示例
+    function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
+        for (let i = start; i &lt; end; i += step) {
+            yield i;
+        }
+    }
+    var a = makeRangeIterator(1,10,2)
+    a.next() // {value: 1, done: false}
+    a.next() // {value: 3, done: false}
+    a.next() // {value: 5, done: false}
+    a.next() // {value: 7, done: false}
+    a.next() // {value: 9, done: false}
+    a.next() // {value: undefined, done: true}</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/120_web21_js的Map和Set对象/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/30/120_web21_js的Map和Set对象/" itemprop="url">120_web21_js的Map和Set对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-30T23:42:48+08:00">
+                2020-05-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/30/120_web21_js的Map和Set对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/30/120_web21_js的Map和Set对象/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/30/120_web21_js的Map和Set对象/" class="leancloud_visitors" data-flag-title="120_web21_js的Map和Set对象">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-Set对象"><a href="#1-Set对象" class="headerlink" title="1.Set对象"></a>1.Set对象</h2><pre><code>1_定义
+    Set数据结构类似数组，但所有成员的值唯一
+    Array的index的value没关系,Set的index和value相等
+2_初始化
+    方法1:
+        let a = new Set();
+        [1,2,2,1,3,4,5,4,5].forEach(x=&gt;a.add(x));
+    方法2:
+        let a = new Set([1,2,3,3,4]);
+3_默认属性
+    1.Set.prototype.constructor：构造函数，默认就是Set函数。
+    2.Set.prototype.size：返回Set实例的成员总数。
+4_默认方法
+    1.add(value)：添加某个值，返回 Set 结构本身。
+    2.delete(value)：删除某个值，返回一个布尔值，表示删除是否成功。
+    3.has(value)：返回一个布尔值，表示该值是否为Set的成员。
+    4.clear()：清除所有成员，没有返回值。
+5_Set的应用
+    1.数组去重
+        // 方法1
+        [...new Set([1,2,3,4,4,4])]; // [1,2,3,4]
+        // 方法2
+        Array.from(new Set([1,2,3,4,4,4]));    // [1,2,3,4]
+    2.遍历和过滤
+        let a = new Set([1,2,3,4]);
+        // map 遍历操作
+        let b = new Set([...a].map(x =&gt;x*2));// b =&gt; Set(4) {2,4,6,8}
+        // filter 过滤操作
+        let c = new Set([...a].filter(x =&gt;(x%2) == 0)); // b =&gt; Set(2) {2,4}
+    3.获取并集、交集和差集：
+        let a = new Set([1,2,3]);
+        let b = new Set([4,3,2]);
+        // 并集
+        let c1 = new Set([...a, ...b]);  // Set {1,2,3,4}
+        // 交集
+        let c2 = new Set([...a].filter(x =&gt; b.has(x))); // set {2,3}
+        // 差集
+        let c3 = new Set([...a].filter(x =&gt; !b.has(x))); // set {1}
+    4.遍历方法：
+        1_
+            keys()：返回键名的遍历器。
+            values()：返回键值的遍历器。
+            entries()：返回键值对的遍历器。
+        2_forEach()
+            forEach()：使用回调函数遍历每个成员。
+            let a = new Set([&apos;a&apos;,&apos;b&apos;,&apos;c&apos;]);
+        3_for...of
+            for(let k of a){console.log(k)};   // &apos;a&apos; &apos;b&apos; &apos;c&apos;</code></pre><h2 id="2-Map对象"><a href="#2-Map对象" class="headerlink" title="2.Map对象"></a>2.Map对象</h2><pre><code>1_定义
+        各种类型的值(包括对象)都可以作为键,扩展了普通对象只能用字符串当做键
+2_初始化
+    1.先初始化再赋值
+        let a = new Map();
+        a.set(2,&apos;my name&apos;); 
+    2.初始化时赋值
+        let a = new Map().set(1,&apos;tom&apos;).set(2,&apos;jack&apos;);
+    3.初始化时,通过数组赋值
+        let a = new Map([
+            [&apos;name&apos;,&apos;leo&apos;],
+            [&apos;age&apos;,18]
+        ])
+3_默认属性
+
+4_默认方法:添加,获取,获取总数,查询,删除,清空
+    let a = new Map();
+    let b = {name: &apos;leo&apos; };
+    a.set(b,&apos;my name&apos;); // 添加值
+    a.get(b);           // 获取值
+    a.size;      // 获取总数
+    a.has(b);    // 查询是否存在
+    a.delete(b); // 删除一个值
+    a.clear();   // 清空所有成员 无返回
+5_遍历
+    keys()：返回键名的遍历器。
+    values()：返回键值的遍历器。
+    entries()：返回所有成员的遍历器。
+    forEach()：遍历 Map 的所有成员。
+6_Map和其他数据结构的转化
+    1.Map和数组
+        1_Map转数组
+            let a = new Map().set(true,1).set({f:2},[&apos;abc&apos;]);
+            [...a]; 
+        2_数组转Map
+            let a = [ [&apos;name&apos;,&apos;leo&apos;], [1, &apos;hi&apos; ]]
+            let b = new Map(a);
+    2.Map和对象
+        1_注意点
+            Map 转 对象 如果所有 Map 的键都是字符串，它可以无损地转为对象。
+            如果有非字符串的键名，那么这个键名会被转成字符串，再作为对象的键名
+        2_Map转对象
+            function fun(s) {
+                  let obj = Object.create(null);
+                  for (let [k,v] of s) {
+                    obj[k] = v;
+                  }
+                  return obj;
+                }
+
+            const a = new Map().set(&apos;yes&apos;, true).set(&apos;no&apos;, false);
+            fun(a) // { yes: true, no: false }
+        3_对象转Map
+            function fun(obj) {
+              let a = new Map();
+              for (let k of Object.keys(obj)) {
+                a.set(k, obj[k]);
+              }
+              return a;
+            }
+
+            fun({yes: true, no: false})
+            // Map {&quot;yes&quot; =&gt; true, &quot;no&quot; =&gt; false}
+    3.Map和JSON
+        1_Map转JSON
+            (1)Map键名都是字符串，转为对象JSON：
+                function fun (s) {
+                    let obj = Object.create(null);
+                    for (let [k,v] of s) {
+                        obj[k] = v;
+                    }
+                    return JSON.stringify(obj)
+                }
+                let a = new Map().set(&apos;yes&apos;, true).set(&apos;no&apos;, false);
+                fun(a);
+                // &apos;{&quot;yes&quot;:true,&quot;no&quot;:false}&apos;
+            (2)Map键名有非字符串，转为数组JSON：
+                function fun (map) {
+                  return JSON.stringify([...map]);
+                }
+
+                let a = new Map().set(true, 7).set({foo: 3}, [&apos;abc&apos;]);
+                fun(a)
+                // &apos;[[true,7],[{&quot;foo&quot;:3},[&quot;abc&quot;]]]&apos;
+
+        2_JSON转Map
+            (1)所有键名都是字符串：
+                function fun (s) {
+                  let strMap = new Map();
+                  for (let k of Object.keys(s)) {
+                    strMap.set(k, s[k]);
+                  }
+                  return strMap;
+                  return JSON.parse(strMap);
+                }
+                fun(&apos;{&quot;yes&quot;: true, &quot;no&quot;: false}&apos;)
+                // Map {&apos;yes&apos; =&gt; true, &apos;no&apos; =&gt; false}
+            (2)整个 JSON 就是一个数组，且每个数组成员本身，又是一个有两个成员的数组:
+                function fun2(s) {
+                  return new Map(JSON.parse(s));
+                }
+                fun2(&apos;[[true,7],[{&quot;foo&quot;:3},[&quot;abc&quot;]]]&apos;)
+                // Map {true =&gt; 7, Object {foo: 3} =&gt; [&apos;abc&apos;]}</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/30/119_web20_js的数组/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1888,1191 +3210,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/20/114_swift2_枚举,结构体,类/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/20/114_swift2_枚举,结构体,类/" itemprop="url">114_swift2_枚举,结构体,类</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-20T19:34:05+08:00">
-                2020-05-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/20/114_swift2_枚举,结构体,类/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/20/114_swift2_枚举,结构体,类/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/20/114_swift2_枚举,结构体,类/" class="leancloud_visitors" data-flag-title="114_swift2_枚举,结构体,类">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  73
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-枚举"><a href="#1-枚举" class="headerlink" title="1 枚举"></a>1 枚举</h2><pre><code>1_定义:
-    enum Direction {
-        case A
-        case B
-        case C
-    }
-    初始化写法:var dir1 = Direction.A
-    更改写法1:dir1 = Direction.A
-    更改写法2:dir1 = .A
-    错误更改写法:dir1 = A
-2_关联值:
-3_原始值:raw values
-4_隐式原始值
-5_枚举递归(添加关键字indirct)</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/11/113_swift1_swift基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/11/113_swift1_swift基础/" itemprop="url">113_swift1_swift基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-11T19:34:05+08:00">
-                2020-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/11/113_swift1_swift基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/11/113_swift1_swift基础/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/11/113_swift1_swift基础/" class="leancloud_visitors" data-flag-title="113_swift1_swift基础">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  835
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-参考网站"><a href="#1-参考网站" class="headerlink" title="1.参考网站"></a>1.参考网站</h2><pre><code>1_github上完全开源:
-2_swift官网介绍:https://swift.org
-3_苹果开发者:https://developer.apple.com/swift/resources/
-4_swiftGG翻译:https://swiftgg.gitbook.io/swift/</code></pre><h2 id="2-helloworld"><a href="#2-helloworld" class="headerlink" title="2.helloworld"></a>2.helloworld</h2><pre><code>1_没有main函数, 
-2_不用写分号(同一行要写)
-3_字符串拼接&quot;hello world \(a)&quot;</code></pre><h2 id="3-playground工具的使用"><a href="#3-playground工具的使用" class="headerlink" title="3,playground工具的使用"></a>3,playground工具的使用</h2><pre><code>1_快捷键
-cmd + shift + enter:运行整个playground
-shift + enter:运行到指定的鼠标点击的地方
-2_playgroundSupport预览视图
-3_注释:
-    1,支持MarkUp语法
-    2,内置界面跳转:
-        //: [下一页](@next)
-        //: [上一页](@previous)</code></pre><h2 id="4-常用概念"><a href="#4-常用概念" class="headerlink" title="4,常用概念"></a>4,常用概念</h2><pre><code>常量:
-    1_let修饰
-    2_只能被赋值一次
-    3_不用在编译时,确定其值
-变量
-    1_var
-标识符
-关键字
-数据类型
-字面量
-    e代表10,p代表2
-类型转换</code></pre><h2 id="5-语句"><a href="#5-语句" class="headerlink" title="5,语句"></a>5,语句</h2><pre><code>1,if...else
-    1_if后的小括号可以省略
-    2_if后边只能跟bool类型
-2,repeat...while
-    相当于C语言的do...while
-3,去掉了++,--运算符
-4,for循环
-    1_取消三段式
-    2_闭区间运算符 for i in 0...3
-        默认是let
-        不使用i,可以用_代替
-    3_半开区间 for i in 0..&lt;5
-    4_单侧区间
-        let names = [&quot;1&quot;,&quot;2&quot;,&quot;3&quot;,&quot;4&quot;] 
-        for name in names[2...]
-        for name in names[...2]
-        for name in names[..&lt;2]
-    5_for in使用的区间运算符只能是Int,
- 5,switch
-    1_case,default后不能写大括号
-    2_break可以不写
-    3_添加关键字fallthrough,实现贯穿效果
-    4_case,default
-    5_也支持Character和String类型
-
-区间运算符
-    带间隔:stride函数
-元组tuple
-    与结构体类型
-    网络请求错误码
-区间匹配和元组匹配
-值绑定
-where
-    case后边(起判断作用)
-    for循环后边(起过滤作用)
-标签语句
-泛型</code></pre><h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><pre><code>1_基本调用
-2_形参是let
-3_空返回值
-4_隐式返回
-5_多返回值:使用返回元组
-6_函数的文档注释
-7_参数标签:
-    方便理解;
-    _:省略参数标签
-8_默认参数
-    c++的默认参数,必须从右往左;
-    swift没有,因为有参数标签
-9_可变参数func sum(_numbers:Int...)-&gt;{}
-    最多只能一个可变参数
-    紧跟可变参数后边的参数标签不能省略
-    案例:print函数
-10_输入输出参数:
-    inout修饰函数参数,外部用&amp;变量来
-    inout参数没有默认值
-    inout参数不能是可变参数
-    inout参数只能接受被多次赋值的参数,常数和字面量不行,变量或者数组元素等可以
-11_函数重载(overload)
-    函数名称相同
-    参数个数 || 参数类型 || 参数标签 不相同
-    重载和返回值类型无关
-    有函数默认值时,重载不报错,有歧义(C++会报错),不
-12_函数重写:涉及继承
-13_内联函数(inline)
-    将函数调用,展开成函数体
-    开启了编译器优化,自动将某些函数进行内联
-        1_简单函数进行优化,复杂函数不会进行内联
-        2_递归调用不会进行内联
-        3_动态绑定
-    编译器自动优化,不能用inline来强加
-14_函数类型
-    函数类型没有参数标签:(Int,Int) -&gt;(Int)
-    作为函数参数
-    作为函数返回值(返回值为函数的函数,叫高阶函数)
-
-15_typealias给类型起别名
-    给函数起别名
-
-16_嵌套函数(Nested)</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/" itemprop="url">112_RN1_ReactNative的基础</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-11T09:33:03+08:00">
-                2020-05-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/混合开发/" itemprop="url" rel="index">
-                    <span itemprop="name">混合开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/11/112_RN1_ReactNative的基础/" class="leancloud_visitors" data-flag-title="112_RN1_ReactNative的基础">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  777
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-参考网站"><a href="#1-参考网站" class="headerlink" title="1,参考网站"></a>1,参考网站</h2><pre><code>https://reactnative.cn</code></pre><h2 id="2-环境搭建"><a href="#2-环境搭建" class="headerlink" title="2,环境搭建"></a>2,环境搭建</h2><pre><code>1,Node
-    1. 查看node版本:node -v
-    2. 安装node:brew install node
-    3. 更新node:brew upgrade node
-    4. 保证node在指定的版本(一般要最新版)
-
-2,Watchman
-    1_查看watchman:watchman -v 
-    2_安装watchman:brew install watchman
-
-3,yarn
-    1_yarn是Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载
-    2_安装yarn:npm install -g yarn
-    3_查看yarn版本:yarn -v
-
-4,Xcode和CocoaPods
-
-5,使用npx代替npm镜像
-        # 使用nrm工具切换淘宝源
-        npx nrm use taobao
-
-        # 如果之后需要切换回官方源可使用
-        npx nrm use npm
-
-6,CocoaPods的镜像
-    https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/</code></pre><h2 id="3-实际案例"><a href="#3-实际案例" class="headerlink" title="3,实际案例"></a>3,实际案例</h2><h3 id="3-1-示例-helloworld"><a href="#3-1-示例-helloworld" class="headerlink" title="3.1 示例:helloworld"></a>3.1 示例:helloworld</h3><pre><code>1_初始化
-    npx react-native init AwesomeProject
-2_编译运行
-    yarn ios
-    或者 yarn react-native run-ios
-3_真机运行
-    参考:&lt;https://reactnative.cn/docs/running-on-device&gt;</code></pre><h3 id="3-2-官方Demo-电影列表"><a href="#3-2-官方Demo-电影列表" class="headerlink" title="3.2 官方Demo:电影列表"></a>3.2 官方Demo:电影列表</h3><h3 id="3-2-集成到现有原生的应用"><a href="#3-2-集成到现有原生的应用" class="headerlink" title="3.2 集成到现有原生的应用"></a>3.2 集成到现有原生的应用</h3><pre><code>https://reactnative.cn/docs/integration-with-existing-apps</code></pre><h2 id="4-开发工具"><a href="#4-开发工具" class="headerlink" title="4,开发工具"></a>4,开发工具</h2><pre><code>1_VS Code
-2_Ignite:
-    整合了 Redux 以及一些常见 UI 组件的脚手架
-3_Yoga:
-    基于Flexbox的跨平台布局引擎
-4_热更新:
-    APP Center(微软)
-    Pushy
-5_bug跟踪:
-    Bugsnag
-    APP Center(微软)
-    Sentry</code></pre><h2 id="5-运行调试"><a href="#5-运行调试" class="headerlink" title="5,运行调试"></a>5,运行调试</h2><pre><code>1,模拟器运行iOS:
-    方法1:终端命令react-native run-ios
-    方法2:直接打开iOS文件夹,运行.xcworkspace
-2,真机运行:
-    1_xcode选中真机,配置证书
-    2_
-3,打印日志
-    1_警告:console.warn(&apos;&apos;) 
-    2_报错:console.error(&apos;叭叭叭&apos;)
-    3_console.log在界面上没有打印,要想有打印,需要安装插件,具体参考:https://blog.csdn.net/u012852597/article/details/87861025</code></pre><h2 id="5-常见故障"><a href="#5-常见故障" class="headerlink" title="5,常见故障"></a>5,常见故障</h2><pre><code>1_更新pod时候报错:configure: error: C compiler cannot create executables;See `config.log&apos; for more details
-  解决:输入:sudo xcode-select --switch /Applications/Xcode.app
-2_真机运行时报错:Can&apos;t find the &apos;node&apos; binary to build the React Native bundle.
-解决:终端:which node找打node的路径,赋值到以下目录</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8790.png" alt></p>
-<pre><code> 3_不识别命令:react-native
-    1_安装sudo npm install -g react-native-cli
-    2_找到rn的安装路径:which react-native  
-    3_全局配置:
-        export RN=/usr/local/bin/react-native
-        export PATH=$RN:$PATH
-
-4_模拟器没有问题,真机调试报错
-    进入iOS项目,在APPDelegate里sourceURLForBridge方法中设置,如下图</code></pre><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8791.jpg" alt></p>
-<pre><code>5_怎样安装第三方插件
-    npm install react-navigation --save
-
-6_rn安装报错
-    报错类型:npm ERR! cb() never called! 
-        npm ERR! This is an error with npm itself. Please report this error at: 
-        npm ERR! &lt;https://npm.community&gt;
-    解决方式:
-        npm config rm proxy
-        npm config rm https-proxy
-7_安装了npm install --save react-navigation后报错&quot;Unable to resolve module `react-native-gesture-handler` from `node_modules/@&quot;
-    解决方式:安装触摸方式(需要执行以下方法,多增加3个库)
-    npm install --save react-native-gesture-handler react-native-reanimated react-native-screens
-    react-native link react-native-reanimated
-    react-native link react-native-gesture-handler
-8_安装完仍然报错:Unable to resolve module ‘react-native-swiper’ from ‘Users/Demo/app/home/Home.js’:Module ‘react-native-swiper’...
-根据提示:删除node_modules文件夹,重新安装 yarn install
-9_报错:Invariant Violation: Native module cannot be null
-解决:需要更新原生的pod
-10_使用导航报错,需要额外安装库
-    解决: npm install react-native-safe-area-context -save
-         npm install @react-native-community/masked-view -save</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="url">111_iOS24_查找工程目录的引用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-08T08:34:05+08:00">
-                2020-05-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/05/08/111_iOS24_查找工程目录的引用/" class="leancloud_visitors" data-flag-title="111_iOS24_查找工程目录的引用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  663
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-热修复问题方法"><a href="#1-热修复问题方法" class="headerlink" title="1,热修复问题方法"></a>1,热修复问题方法</h2><pre><code>1_问题:苹果审核报错:dlopen（），dlsym（），responsesToSelector :, performSelector :, method_exchangeImplementations（）和运行远程脚本
-2_方法1,检查含有这些方法的地方,终端输入 grep -r dlopen . 
-3_方法2:将方法名导入到TXT文件中,再一个个查找,命令 nm -n xxx.a &gt;&gt; xxx.txt
-4_方法3:使用脚本来执行,输入工程路径,执行sh xx.sh</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">        #!/bin/sh</span><br><span class="line">echo &quot;请输入需要检测的工程路径&quot;</span><br><span class="line">read path</span><br><span class="line">if [ $&#123;#path&#125; = 0 ]</span><br><span class="line">    then</span><br><span class="line">        echo &quot;请在.sh文件后面添加路径&quot;</span><br><span class="line">        exit</span><br><span class="line">    fi</span><br><span class="line">cd $path</span><br><span class="line">echo &quot;当前路径为`pwd`&quot; </span><br><span class="line">#搜索目录下面的.a文件</span><br><span class="line">for i in `find . -name *.a`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    i_=$&#123;i_%.a&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br><span class="line">#搜索目录下面的framework</span><br><span class="line">for i in `find *.framework/ */*.framework/  -size +100k`; do</span><br><span class="line">    # echo $i</span><br><span class="line">    i_=$&#123;i##*/&#125;</span><br><span class="line">    # echo $i_</span><br><span class="line">    nm -n $i &gt;&gt; &quot;$i_.txt&quot;</span><br><span class="line">    grep &apos;dlopen&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1 || grep &apos;dlsym&apos; &quot;$i_.txt&quot; &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">    if [[ $? == 0 ]]; then</span><br><span class="line">        echo &quot;$i_ 中有dlopen dlsym&quot;</span><br><span class="line">    fi</span><br><span class="line">    rm $i_.txt</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-私有api的方法"><a href="#2-私有api的方法" class="headerlink" title="2,私有api的方法"></a>2,私有api的方法</h2><ol>
-<li>进入工程更目录</li>
-<li>输入命令: find . | grep -v .svn | grep “.a” | grep -v “.app” | xargs grep 【私有API】</li>
-<li>输入命令:grep -lr “【私有API】” * | grep -v .svn | grep -v .md</li>
-<li>查看提示引用了私有api的地方</li>
-</ol>
-<h2 id="3-使用UIWebview"><a href="#3-使用UIWebview" class="headerlink" title="3,使用UIWebview"></a>3,使用UIWebview</h2><h3 id="3-1-grep方法-全局查询"><a href="#3-1-grep方法-全局查询" class="headerlink" title="3.1 grep方法,全局查询"></a>3.1 grep方法,全局查询</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r &quot;UIWebView&quot; .</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-2-只查询-framework-a-文件"><a href="#3-2-只查询-framework-a-文件" class="headerlink" title="3.2 只查询 .framework .a 文件"></a>3.2 只查询 .framework .a 文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-3-查询-framework-a-h-m-swift文件"><a href="#3-3-查询-framework-a-h-m-swift文件" class="headerlink" title="3.3 查询 .framework .a .h .m .swift文件"></a>3.3 查询 .framework .a .h .m .swift文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">find . \( -name &quot;*.framework&quot; -o -name &quot;*.a&quot;  -o -name &quot;*.h&quot;  -o -name &quot;*.m&quot; -o -name &quot;*.swift&quot; \) -exec sh -c &apos; </span><br><span class="line"> usefullArray=();</span><br><span class="line"> echo &quot;------------&lt;🔎 search in *.framework &amp; *.a &amp; .h. m .swift&gt;-------------&quot;</span><br><span class="line"> for file do</span><br><span class="line"> if nm &quot;$file&quot;/`basename &quot;$file&quot;  | sed -e s/\\.framework$//g` 2&gt;/dev/null  | grep UIWebView &gt; /dev/null;</span><br><span class="line"> then</span><br><span class="line">   usefullArray+=(&quot;$file&quot;)</span><br><span class="line">   #echo &quot;❌   UIWebView          appears in &quot;$file&quot;&quot;; </span><br><span class="line"> else</span><br><span class="line">   echo &quot;✅  UIWebView does not appear  in &quot;$file&quot;&quot;; </span><br><span class="line"> fi;</span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> for i in &quot;$&#123;usefullArray[@]&#125;&quot; </span><br><span class="line"> do </span><br><span class="line">   echo &quot;❌   UIWebView          appears in &quot;$i&quot;&quot;; </span><br><span class="line"> done</span><br><span class="line"> echo &quot;------------------------&lt;I&gt;------------------------&quot;</span><br><span class="line"> echo &quot;🎉 Done!&quot;</span><br><span class="line">&apos; sh &#123;&#125; +</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/04/27/110_网络2_实践模拟/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/" itemprop="url">110_网络2_实践模拟</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-27T10:27:09+08:00">
-                2020-04-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/计算机基础/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机基础</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/04/27/110_网络2_实践模拟/" class="leancloud_visitors" data-flag-title="110_网络2_实践模拟">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  15
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="web端模拟"><a href="#web端模拟" class="headerlink" title="web端模拟"></a>web端模拟</h2><h2 id="移动端模拟"><a href="#移动端模拟" class="headerlink" title="移动端模拟"></a>移动端模拟</h2><h2 id="接口测试工具"><a href="#接口测试工具" class="headerlink" title="接口测试工具"></a>接口测试工具</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/mc3747.github.io/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><a class="page-number" href="/mc3747.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/mc3747.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/14/">14</a><a class="extend next" rel="next" href="/mc3747.github.io/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/mc3747.github.io/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/mc3747.github.io/">1</a><a class="page-number" href="/mc3747.github.io/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/mc3747.github.io/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/mc3747.github.io/page/15/">15</a><a class="extend next" rel="next" href="/mc3747.github.io/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -3120,7 +3262,7 @@ where
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">139</span>
+                  <span class="site-state-item-count">144</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -3250,7 +3392,7 @@ where
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">81.6k</span>
+    <span title="Site words total count">84.7k</span>
   
 </div>
 

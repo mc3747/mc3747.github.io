@@ -280,6 +280,215 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/26/115_RN2_ReactNative核心概念/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/05/26/115_RN2_ReactNative核心概念/" itemprop="url">115_RN2_ReactNative核心概念</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-26T09:33:03+08:00">
+                2020-05-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/混合开发/" itemprop="url" rel="index">
+                    <span itemprop="name">混合开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/05/26/115_RN2_ReactNative核心概念/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/05/26/115_RN2_ReactNative核心概念/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/05/26/115_RN2_ReactNative核心概念/" class="leancloud_visitors" data-flag-title="115_RN2_ReactNative核心概念">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  126
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-components-组件"><a href="#1-components-组件" class="headerlink" title="1_components 组件"></a>1_components 组件</h2><h2 id="2-JSX语法"><a href="#2-JSX语法" class="headerlink" title="2_JSX语法"></a>2_JSX语法</h2><h2 id="3-props-属性"><a href="#3-props-属性" class="headerlink" title="3_props 属性"></a>3_props 属性</h2><h2 id="4-state-状态"><a href="#4-state-状态" class="headerlink" title="4_state 状态"></a>4_state 状态</h2><h2 id="5-样式的写法"><a href="#5-样式的写法" class="headerlink" title="5_样式的写法"></a>5_样式的写法</h2><pre><code>1_页内样式,行内样式
+2_页内样式,可以使用全局的变量来公用
+    const styles = StyleSheet.create({
+      box: {
+        width: mywd, //直接使用变量
+        height: myht, //
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+        backgroundColor: &apos;pink&apos;,
+      },
+    });
+3_组合使用时,使用数组,例如:
+    style={[styles.base,{width:this.state.width, height:this.state.width*this.state.aspectRatio}]}</code></pre><h2 id="6-页面的跳转"><a href="#6-页面的跳转" class="headerlink" title="6_页面的跳转"></a>6_页面的跳转</h2><pre><code>1_在export default主调render函数中,
+2_提前写const { navigation } = this.props;
+3_写方法:onPress = {()=&gt;{
+        navigation.navigate(&apos;Page4&apos;);
+      }}</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/05/20/114_swift2_枚举,结构体,类/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2550,199 +2759,6 @@ Date: Mon,15Jun201509:06:46GMT(响应的时间) Server: apache (服务器类型)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/04/09/105_工具11_GitLab的使用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/04/09/105_工具11_GitLab的使用/" itemprop="url">105_工具11_GitLab的使用</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-09T11:48:28+08:00">
-                2020-04-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/工具工程/" itemprop="url" rel="index">
-                    <span itemprop="name">工具工程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/04/09/105_工具11_GitLab的使用/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/04/09/105_工具11_GitLab的使用/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/04/09/105_工具11_GitLab的使用/" class="leancloud_visitors" data-flag-title="105_工具11_GitLab的使用">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  24
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-注册gitlab-使用github账号-其他账号需要翻墙"><a href="#1-注册gitlab-使用github账号-其他账号需要翻墙" class="headerlink" title="1. 注册gitlab,使用github账号,其他账号需要翻墙;"></a>1. 注册gitlab,使用github账号,其他账号需要翻墙;</h2><h2 id="2-SourceTree来进行git管理"><a href="#2-SourceTree来进行git管理" class="headerlink" title="2. SourceTree来进行git管理"></a>2. SourceTree来进行git管理</h2>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2795,7 +2811,7 @@ Date: Mon,15Jun201509:06:46GMT(响应的时间) Server: apache (服务器类型)
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">144</span>
+                  <span class="site-state-item-count">145</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2925,7 +2941,7 @@ Date: Mon,15Jun201509:06:46GMT(响应的时间) Server: apache (服务器类型)
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">84.6k</span>
+    <span title="Site words total count">84.8k</span>
   
 </div>
 

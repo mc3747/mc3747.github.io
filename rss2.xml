@@ -9,8 +9,29 @@
     <atom:link href="/mc3747.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Sun, 06 Sep 2020 11:00:47 GMT</pubDate>
+    <pubDate>Wed, 07 Oct 2020 15:17:37 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>146_工具16_mac和windows的host文件</title>
+      <link>https://github.com/mc3747/mc3747.github.io/2020/10/07/146_%E5%B7%A5%E5%85%B716_mac%E5%92%8Cwindows%E7%9A%84host%E6%96%87%E4%BB%B6/</link>
+      <guid>https://github.com/mc3747/mc3747.github.io/2020/10/07/146_%E5%B7%A5%E5%85%B716_mac%E5%92%8Cwindows%E7%9A%84host%E6%96%87%E4%BB%B6/</guid>
+      <pubDate>Wed, 07 Oct 2020 03:48:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/mc3747/mc3747.github.io/2020/10/07/146_%E5%B7%A5%E5%85%B716_mac%E5%92%8Cwindows%E7%9A%84host%E6%96%87%E4%BB%B6/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>145_iOS25_xcode中快速启动终端</title>
@@ -385,19 +406,6 @@
       
       
       <comments>https://github.com/mc3747/mc3747.github.io/2020/05/31/128_web29_js%E7%9A%84%E6%A8%A1%E5%9D%97/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>125_web27_js的关键字:this,new,instanceof等</title>
-      <link>https://github.com/mc3747/mc3747.github.io/2020/05/31/126_web27_js%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97:this,new,instanceof/</link>
-      <guid>https://github.com/mc3747/mc3747.github.io/2020/05/31/126_web27_js%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97:this,new,instanceof/</guid>
-      <pubDate>Sun, 31 May 2020 06:45:48 GMT</pubDate>
-      <description>
-      
-      </description>
-      
-      
-      <comments>https://github.com/mc3747/mc3747.github.io/2020/05/31/126_web27_js%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97:this,new,instanceof/#disqus_thread</comments>
     </item>
     
   </channel>

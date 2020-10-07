@@ -280,6 +280,224 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/23/16_iOS4_xcode中workspace:project:scheme:target:product等/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2019/10/23/16_iOS4_xcode中workspace:project:scheme:target:product等/" itemprop="url">16_iOS4_xcode中workspace/project/scheme/target/product等</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T08:49:01+08:00">
+                2019-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2019/10/23/16_iOS4_xcode中workspace:project:scheme:target:product等/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/23/16_iOS4_xcode中workspace:project:scheme:target:product等/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2019/10/23/16_iOS4_xcode中workspace:project:scheme:target:product等/" class="leancloud_visitors" data-flag-title="16_iOS4_xcode中workspace/project/scheme/target/product等">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  185
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cnblogs.com/lxlx1798/p/9369537.html" target="_blank" rel="noopener">参考文章1</a><br><a href="https://www.jianshu.com/p/5740f41881d9" target="_blank" rel="noopener">参考文章2</a></p>
+<h2 id="1，Workspace"><a href="#1，Workspace" class="headerlink" title="1，Workspace"></a>1，Workspace</h2><ol>
+<li>Xcode Workspace可类比为“办公大楼”</li>
+<li>维护project和target之间的显性及隐性的依赖关系，例如cocoapod导入的库</li>
+</ol>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8717.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8718.jpg" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8719.jpg" alt></p>
+<h2 id="2，Project"><a href="#2，Project" class="headerlink" title="2，Project"></a>2，Project</h2><ol>
+<li>可理解为“在办公大楼里的公司”</li>
+<li>包含所有源文件和资源文件</li>
+<li>指定环境变量debug，release等<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8720.png" alt></li>
+</ol>
+<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8721.jpg" alt></p>
+<h2 id="3，Scheme"><a href="#3，Scheme" class="headerlink" title="3，Scheme"></a>3，Scheme</h2><ol>
+<li>可以理解为“公司里的项目团队”</li>
+<li>定义target的构建信息</li>
+<li>只有一个是活跃的<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8722.png" alt><br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8723.png" alt></li>
+</ol>
+<h2 id="4，Target"><a href="#4，Target" class="headerlink" title="4，Target"></a>4，Target</h2><ol>
+<li>可以理解为“公司里项目团队的产品”</li>
+<li>构建设置和构建阶段（Build settings 和 Build phases）</li>
+<li>target继承了project的构建设置。但是你可以在target层次覆盖任何project的设置<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8724.png" alt></li>
+</ol>
+<h2 id="5，Product"><a href="#5，Product" class="headerlink" title="5，Product"></a>5，Product</h2><ol>
+<li>可以理解为“公司里项目的成型产品”<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%8725.jpg" alt></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/22/15_算法1_复杂度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2503,262 +2721,6 @@ MJExtension</code></pre></li>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/" itemprop="url">06_方法论1_优秀工程师的三大思维方式</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-13T22:04:13+08:00">
-                2019-10-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2019/10/13/06_方法论1_优秀工程师的三大思维方式/" class="leancloud_visitors" data-flag-title="06_方法论1_优秀工程师的三大思维方式">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.6k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  8
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考文章：<a href="https://media.weibo.cn/article?id=2309404316788128134988" target="_blank" rel="noopener">https://media.weibo.cn/article?id=2309404316788128134988</a></p>
-<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1,背景"></a>1,背景</h2><blockquote>
-<p>在社会分工的背景下，软件行业的工程师群体被划分成了开发、测试、产品等诸多岗位，以协作的方式共同完成价值创造。高度依赖软件的互联网行业正以全新的方式改善着人们的生活，同时在改善的道路上对价值创造的效能提出了更高的要求，而背后是对个体与团队的协作效能有着更高的诉求.</p>
-</blockquote>
-<ol>
-<li>产品工程师因不理解技术的实现原理而提出天马行空、不接地气的需求</li>
-<li>开发工程师对产品工程师所提出的用户体验方面的需求会认为过于吹毛求疵，不清楚自己对于软件质量的责任，而将那些本因自己做好的琐碎工作心安理得地交给测试工程师去做</li>
-<li>测试工程师因为不理解工程效率的内涵而将自己的工作变成了体力活</li>
-</ol>
-<h2 id="2-工程师思维分类"><a href="#2-工程师思维分类" class="headerlink" title="2,工程师思维分类"></a>2,工程师思维分类</h2><p>分解为产品、技术和工程三大思维。每个维度主要关注的内容通过几个关键字去表达<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%875.jpg" alt></p>
-<h2 id="3-产品思维"><a href="#3-产品思维" class="headerlink" title="3,产品思维"></a>3,产品思维</h2><blockquote>
-<p>产品思维的起源是用户（或客户）价值。用户价值是通过技术手段以产品或服务的形态去解决用户的痛点，或带去爽点。毫无疑问，工程师在日常工作中应时刻关注并理清自己的工作与用户（或客户）价值的联系，并且应该通过聚焦于用户价值去安排工作的优先级和分配自己的精力。</p>
-</blockquote>
-<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%876.jpg" alt></p>
-<ol>
-<li><p>当用户价值足够时，产品能否在市场中立足并真正收获收益，首先考验的是产品的用户体验。良好的用户体验一定是站在用户的角度，基于用户心智来塑造概念，由于概念存在理解和解释成本，所以塑造的概念应足够轻、少且易掌握。概念一旦塑造出来则概念间的关系也随之确定，这些关系基本上决定了产品与用户的交互流程。好的产品体现于“易用”二字，其极致在于迎合用户的本能反应并符合各种生活或专业常识。</p>
-</li>
-<li><p>所有产品都存在演进的过程，所创造的用户价值也在被不断地挖掘与探索，那时不同的细化价值需要通过产品特性去区分和表达。特性也是产品差异化的一种体现，特性也间接地确定了软件实现层面的功能模块边界。作为开发工程师，也需要对产品特性有非常透彻的理解，并能将其很好地抽象并转化为软件实现层面的功能模块。特性需要考虑通过售卖license等形式进行开启或关闭去实现售卖，这一点对于2B的产品甚是必要。</p>
-</li>
-<li><p>为了产品更好地演进，需要通过数据闭环的形式去检验创造用户价值的效果，让产品的开发、运营、营销工作做到有的放矢。在产品价值创造的道路上，最害怕的事莫过于只顾低头干做加法，做得多却无人关心收效。而我们通过数据化闭环的形式，不仅能让整个产品大团队聚焦于核心价值，还能帮助团队在探索用户价值的道路上理性地做减法。大多情形下，做减法远难于做加法</p>
-</li>
-</ol>
-<h2 id="4-技术思维"><a href="#4-技术思维" class="headerlink" title="4,技术思维"></a>4,技术思维</h2><blockquote>
-<p>技术思维的源头是需求。需求可以分成市场需求、系统需求、特性需求等不同层次，回答的是技术层面“做什么”的问题。显然，清晰表达的需求以及对需求的精确理解才能确保将事做对。毋容置疑，需求一旦出现偏差所导致的浪费是非常严重的，也正因如此工程师对于需求的质量相当重视。<br><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%878.jpg" alt></p>
-</blockquote>
-<ol>
-<li><p>需求一旦确立，会基于模块化的思想拆分成多个功能模块去降低实现的局部复杂度，最终将所有功能模块“拼接”在一起去实现整体需求。每个功能模块会安排给一个人或一个团队负责，由于功能模块是需求分解后的产物，容易导致工程师在实现的过程中只看到“树木”而忘记了“森林”。</p>
-</li>
-<li><p>性能是工程师在实现一个功能模块时不得不关注的，特别是当功能模块被运用于高频、时效性敏感、算力有限的场合时性能将尤其被关注。在现实中有时会存在工程师乐于追求性能的极致去体现自己的技术实力，甚至出现过早追求性能而滑入过度设计的误区。</p>
-</li>
-<li><p>毫无疑问，一个正规的团队，对于功能模块的开发工作多会以项目制、多个迭代的方式去完成交付。不少工程师这里会有一个误区，忘记了敏捷思想所倡导的“项目计划的目的是为了适应变化”，而是将“按时交付”当作是天职，各种赶工爬到终点时却毫不意外地看到了“一地鸡毛”的景象。</p>
-</li>
-<li><p>在迈向第四次工业革命的道路上，人工智能、大数据、机器学习，Kubernetes、Istio、Knative、Go、Dart、Flutter等新技术不断冲击着工程师已掌握的技能。快速跟上技术的迭代步伐是每个有追求的工程师不断提升自己专业素养的表现之一。工程师的内心一定不缺乏对新技术的追求，憧憬自己所掌握的技术具有一定的先进性。</p>
-</li>
-</ol>
-<h2 id="5-工程思维"><a href="#5-工程思维" class="headerlink" title="5,工程思维"></a>5,工程思维</h2><blockquote>
-<p>工程思维的起点是流程。流程的背后是科学，以既定的步骤、阶段性的输入/输出去完成价值创造，通过过程控制确保最终结果让人满意。由于流程涉及每一个工程师的工作质量与效率，其含义不只在于定义、工具化、检查等内容，而是应基于工程师的日常工作习惯，将流程与工程师的工作环境无缝整合。“无缝”体现于流程中的概念与工程师群体已建立的专业常识相一致、没有增加毫无价值的负担，根本仍是确保易用性。</p>
-</blockquote>
-<p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%877.jpg" alt></p>
-<ol>
-<li><p>机制的含义是通过对所需解决问题的分析，以一种模式去解决同类问题。机制应体现一定的系统性，而非“头痛治头，脚痛治脚”。系统性不是一开始就能被洞察到，可能在演进的过程中逐步发现和完善的，因而需要工程师在工作的过程中不时回顾并付诸实践去落实。对于工程师来说，机制是通过系统性的软件设计去达成的。</p>
-</li>
-<li><p>可以说产品质量直接决定了工程师的工作和生活幸福感。一个质量不可靠的产品一定会给用户和工程师自己带去麻烦，甚至造成无法挽回的经济损失并造成负面的社会影响。对于工程师来说，那势必打乱个体的工作与生活节奏。为了让产品的质量做到可靠，单元测试、静态分析、动态分析等确保工程质量的手段应成为工程师的基本工作内容，通过将这些手段与CI（Continuous Integration）流程进行整合去持续构建起对软件产品的质量信心。</p>
-</li>
-<li><p>在互联网行业，除了软件产品的质量得可靠外，风险可控是另一个不能忽视的内容。而风险可控是建立于系统性机制和质量可靠之上的。对于服务端软件来说愈是如此。风险往往出现于资源使用的极端场景，当从外部涌入的过多事务远超软件产品的处理能力时，需要有一定的机制让整个产品能相对平滑地应对，或是扩充资源、或是限制涌入事务的流量。</p>
-</li>
-<li><p>软件所需的机器成本是比较容易忽视的话题，软件成本不只与软件性能相关，还与软件之间的依赖、技术方案等因素相连。当一个软件需要从公司的内部对外输出时，平时忽视对成本的关注就会暴露出成本问题。比如，为了运行某个软件需要数量庞大的计算资源，所导致的资金开销对于客户来讲很可能是无法接受的。</p>
-</li>
-</ol>
-<h2 id="6-三大思维总结"><a href="#6-三大思维总结" class="headerlink" title="6,三大思维总结"></a>6,三大思维总结</h2><p><img src="https://horse-markdown-pics.oss-cn-shenzhen.aliyuncs.com/img/%E5%9B%BE%E7%89%879.jpg" alt></p>
-<ul>
-<li><p>了解工程师思维的价值在于，工程师个体需要在工作中逐步建立起产品、技术和工程三大思维，以便用更为全面的视角去看待日常工作中所面临的困境和困惑。当站在单一的思维去看待所面临的问题时可能觉得不合理，但从三大思维层面去审视时所得到结论可能完全相反。从团队协作的角度，只有团队中有更多的个体从多维度去进行思考，才容易发现岗位间衔接的那些无人问津的灰色地带，进而通过补位、助攻去更大程度地发挥团队的效能。</p>
-</li>
-<li><p>显然，不同岗位、不同职责的工程师对于这三大思维的深度要求是不一样的，但从多维度去思考却应是每个工程师都应该具备的素养。</p>
-</li>
-</ul>
-<h2 id="7，开发过程思维的转换"><a href="#7，开发过程思维的转换" class="headerlink" title="7，开发过程思维的转换"></a>7，开发过程思维的转换</h2><pre><code>1. ♻️前端思维
-    页面为中心，后台必须提供数据，前端必须提供设计
-
-2. 🌀系统思维
-    后台核心为主，功能完成为主，
-
-3. ♨️产品思维
-    业务导向，为什么做这个</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2811,7 +2773,7 @@ MJExtension</code></pre></li>
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">145</span>
+                  <span class="site-state-item-count">146</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

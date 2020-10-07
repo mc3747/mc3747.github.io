@@ -280,6 +280,215 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/17/96_iOS19_打包安装ipa的方式总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="horse">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小新的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/mc3747.github.io/2020/03/17/96_iOS19_打包安装ipa的方式总结/" itemprop="url">96_iOS19_打包安装ipa的方式总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-17T10:34:05+08:00">
+                2020-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/mc3747.github.io/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/mc3747.github.io/2020/03/17/96_iOS19_打包安装ipa的方式总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/03/17/96_iOS19_打包安装ipa的方式总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/mc3747.github.io/2020/03/17/96_iOS19_打包安装ipa的方式总结/" class="leancloud_visitors" data-flag-title="96_iOS19_打包安装ipa的方式总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  397
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-连线安装"><a href="#1-连线安装" class="headerlink" title="1. 连线安装"></a>1. 连线安装</h2><h2 id="2-生成ipa文件的方式"><a href="#2-生成ipa文件的方式" class="headerlink" title="2. 生成ipa文件的方式"></a>2. 生成ipa文件的方式</h2><h3 id="2-1-方法1-product-gt-archive-其中选中设备Generic-iOS-Devices"><a href="#2-1-方法1-product-gt-archive-其中选中设备Generic-iOS-Devices" class="headerlink" title="2.1. 方法1:product -&gt; archive(其中选中设备Generic iOS Devices)"></a>2.1. 方法1:product -&gt; archive(其中选中设备Generic iOS Devices)</h3><pre><code>1. Step1:生成xcproject文件；（文件路径：~/Library/Developer/Xcode/Archives）
+2. Step2:更改后缀成ipa，形成文件夹,进入文件夹找到.app文件；
+3. Step3: 新建“Payload”文件夹，注意名字要一字不差；
+4. Step4: 将你的.app包放到Payload中，注意app的名字不做任何更改，就用xcode生成的app名称；
+5. Step5: 在Payload文件夹上右键压缩成zip，然后将生成的.zip文件后缀改成.ipa即可</code></pre><h3 id="2-2-方法2-终端命令"><a href="#2-2-方法2-终端命令" class="headerlink" title="2.2. 方法2:终端命令"></a>2.2. 方法2:终端命令</h3><pre><code>    1. 准备ExportOptions.plist的配置文件
+
+    2. 进入工程目录,清理工程:xcodebuild clean
+
+    3. 使用下面的命令archive导出.xcarchive文件:
+        xcodebuild archive -project TestAutoPacking.xcodeproj -scheme TestAutoPacking -archivePath /dandy/xmeAutoArchive/TestAutoPacking.xcarchive
+或者:
+        xcodebuild archive -workspace TestAutoPacking.xcworkspace -scheme TestAutoPacking -archivePath /dandy/xmeAutoArchive/TestAutoPacking.xcarchive
+
+    4. 导出ipa包
+        xcodebuild -exportArchive -archivePath /archive文件路径/archive文件名称.xcarchive -exportOptionsPlist /ExportOptions文件路径/ExportOptions.plist -exportPath /ipa导出的文件路径/</code></pre><h3 id="2-3-方法3-使用脚本生成ipa文件"><a href="#2-3-方法3-使用脚本生成ipa文件" class="headerlink" title="2.3 方法3:使用脚本生成ipa文件"></a>2.3 方法3:使用脚本生成ipa文件</h3><h3 id="2-4-方法4-利用jenkens工具生成ipa文件"><a href="#2-4-方法4-利用jenkens工具生成ipa文件" class="headerlink" title="2.4 方法4:利用jenkens工具生成ipa文件"></a>2.4 方法4:利用jenkens工具生成ipa文件</h3><h3 id="2-5-方法5-利用fastlane工具生成ipa文件"><a href="#2-5-方法5-利用fastlane工具生成ipa文件" class="headerlink" title="2.5 方法5:利用fastlane工具生成ipa文件"></a>2.5 方法5:利用fastlane工具生成ipa文件</h3><h2 id="3-生成的ipa文件怎么安装到手机"><a href="#3-生成的ipa文件怎么安装到手机" class="headerlink" title="3 生成的ipa文件怎么安装到手机"></a>3 生成的ipa文件怎么安装到手机</h2><h3 id="3-1-方法1-百度网盘"><a href="#3-1-方法1-百度网盘" class="headerlink" title="3.1 方法1:百度网盘"></a>3.1 方法1:百度网盘</h3><pre><code>用户下载得到.ipa文件(例如放到百度网盘等),通过itools,或者Apple Configurator安装到手机</code></pre><h3 id="3-2-方法2-服务器链接"><a href="#3-2-方法2-服务器链接" class="headerlink" title="3.2 方法2:服务器链接"></a>3.2 方法2:服务器链接</h3><pre><code>将.ipa文件上传到本地服务器,或者云服务器,再去访问</code></pre><h3 id="3-3-方法3-上传ipa到第三方平台"><a href="#3-3-方法3-上传ipa到第三方平台" class="headerlink" title="3.3 方法3:上传ipa到第三方平台"></a>3.3 方法3:上传ipa到第三方平台</h3><pre><code>1,蒲公英
+2,58分发
+3,fir.im</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/03/07/95_iOS18_苹果证书相关/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2303,221 +2512,6 @@ block封装</code></pre><h2 id="8-性能优化"><a href="#8-性能优化" class=
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/mc3747/mc3747.github.io/mc3747.github.io/2020/01/11/86_方法论5_和领导沟通的艺术/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="horse">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/mc3747.github.io/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小新的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mc3747.github.io/2020/01/11/86_方法论5_和领导沟通的艺术/" itemprop="url">86_方法论5_和领导沟通的艺术</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-11T08:38:34+08:00">
-                2020-01-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/mc3747.github.io/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/mc3747.github.io/2020/01/11/86_方法论5_和领导沟通的艺术/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/mc3747.github.io/2020/01/11/86_方法论5_和领导沟通的艺术/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-             <span id="/mc3747.github.io/2020/01/11/86_方法论5_和领导沟通的艺术/" class="leancloud_visitors" data-flag-title="86_方法论5_和领导沟通的艺术">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  390
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1，为什么要学会跟领导沟通"><a href="#1，为什么要学会跟领导沟通" class="headerlink" title="1，为什么要学会跟领导沟通"></a>1，为什么要学会跟领导沟通</h2><pre><code>1，老板都喜欢用得心应手的人，利于职场晋升
-2，沟通会明确自己工作的方向
-3，让自己学习地更多</code></pre><h2 id="2，怎样心理上克服恐惧"><a href="#2，怎样心理上克服恐惧" class="headerlink" title="2，怎样心理上克服恐惧"></a>2，怎样心理上克服恐惧</h2><h3 id="2-1，恐慌的原因"><a href="#2-1，恐慌的原因" class="headerlink" title="2.1，恐慌的原因"></a>2.1，恐慌的原因</h3><pre><code>1，领导自带距离感
-2，员工能力不够
-3，和领导年龄有代沟</code></pre><h3 id="2-2，恐慌的克服方法："><a href="#2-2，恐慌的克服方法：" class="headerlink" title="2.2，恐慌的克服方法："></a>2.2，恐慌的克服方法：</h3><pre><code>1，逐步脱敏，从小事处沟通开始；
-2，去掉领导的社会属性，平等沟通；
-3，提前准备，才能及时汇报
-4，心理上，要认为跟高层次人沟通会提升自己    </code></pre><h2 id="3，怎样学会向领导汇报"><a href="#3，怎样学会向领导汇报" class="headerlink" title="3，怎样学会向领导汇报"></a>3，怎样学会向领导汇报</h2><pre><code>1，沟通如果是要钱要人，让老板看成绩；只是刷存在感，重点说思路；
-2，领导交待的事，不论是否顺利都要及时汇报；
-    接手交待的事情，要主动问老板3个问题：
-    1，工作目标是什么，或者说怎样做才算完成，
-    2，截止时间是什么
-    3，有什么资源提供
-3，给领导汇报方案，要提供2个以上的方案
-    包含优势和劣势，是否多快好省
-    多角度，可以体现自己的思考
-    给老板做选择题，沟通会更顺畅
-4，突出重点，逻辑清晰
-5，先讲结论，再展开说明
-    有ppt，数据，或者表格之类支撑会更好
-6，讲究说话方式
-    不能当好好先生，什么都点头，马屁精；
-    也不能过于直接，不走大脑；</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2570,7 +2564,7 @@ block封装</code></pre><h2 id="8-性能优化"><a href="#8-性能优化" class=
               
                 <a href="/mc3747.github.io/archives">
               
-                  <span class="site-state-item-count">145</span>
+                  <span class="site-state-item-count">146</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -9,8 +9,29 @@
     <atom:link href="/mc3747.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>做难事必有所得</description>
-    <pubDate>Wed, 07 Oct 2020 15:17:37 GMT</pubDate>
+    <pubDate>Wed, 07 Oct 2020 16:05:57 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>147_工具17_mac和windows的dns配置</title>
+      <link>https://github.com/mc3747/mc3747.github.io/2020/10/08/147_%E5%B7%A5%E5%85%B717_mac%E5%92%8Cwindows%E7%9A%84dns%E9%85%8D%E7%BD%AE/</link>
+      <guid>https://github.com/mc3747/mc3747.github.io/2020/10/08/147_%E5%B7%A5%E5%85%B717_mac%E5%92%8Cwindows%E7%9A%84dns%E9%85%8D%E7%BD%AE/</guid>
+      <pubDate>Wed, 07 Oct 2020 16:48:28 GMT</pubDate>
+      <description>
+      
+        
+        
+          
+          
+            
+          
+        
+      
+      </description>
+      
+      
+      <comments>https://github.com/mc3747/mc3747.github.io/2020/10/08/147_%E5%B7%A5%E5%85%B717_mac%E5%92%8Cwindows%E7%9A%84dns%E9%85%8D%E7%BD%AE/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>146_工具16_mac和windows的host文件</title>
@@ -385,27 +406,6 @@
       
       
       <comments>https://github.com/mc3747/mc3747.github.io/2020/05/31/127_web28_js%E7%9A%84%E7%B1%BB/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>128_web29_js的模块</title>
-      <link>https://github.com/mc3747/mc3747.github.io/2020/05/31/128_web29_js%E7%9A%84%E6%A8%A1%E5%9D%97/</link>
-      <guid>https://github.com/mc3747/mc3747.github.io/2020/05/31/128_web29_js%E7%9A%84%E6%A8%A1%E5%9D%97/</guid>
-      <pubDate>Sun, 31 May 2020 11:45:48 GMT</pubDate>
-      <description>
-      
-        
-        
-          
-          
-            
-          
-        
-      
-      </description>
-      
-      
-      <comments>https://github.com/mc3747/mc3747.github.io/2020/05/31/128_web29_js%E7%9A%84%E6%A8%A1%E5%9D%97/#disqus_thread</comments>
     </item>
     
   </channel>
